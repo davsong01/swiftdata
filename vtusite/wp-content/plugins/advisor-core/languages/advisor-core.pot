@@ -1,0 +1,3049 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR BrighThemes
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: advisor-core 1.4\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-02 00:02+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: functions-core.php:18 functions-core.php:48
+msgid "Not Provided"
+msgstr ""
+
+#: functions-core.php:23 functions-core.php:90
+msgid "Help Required"
+msgstr ""
+
+#: functions-core.php:25 functions-core.php:92
+msgid "Hello There"
+msgstr ""
+
+#: functions-core.php:26 functions-core.php:93
+msgid "My name is "
+msgstr ""
+
+#: functions-core.php:26
+msgid " and I need your help. Please get in touch with me"
+msgstr ""
+
+#: functions-core.php:28 functions-core.php:95
+#: shortcodes/advisor-contact-multiple-maps.php:239
+#: shortcodes/advisor-subscription.php:65
+msgid "Email"
+msgstr ""
+
+#: functions-core.php:32 functions-core.php:99
+msgid "Phone"
+msgstr ""
+
+#: functions-core.php:38
+msgid "Inquiry About"
+msgstr ""
+
+#: functions-core.php:70 functions-core.php:123
+msgid "We have received your email, we will be in touch soon!"
+msgstr ""
+
+#: functions-core.php:74 functions-core.php:127
+msgid "Error: Email is not sent!"
+msgstr ""
+
+#: functions-core.php:93
+msgid " and I need your help. Please get in touch with me."
+msgstr ""
+
+#: functions-core.php:105
+msgid "Message"
+msgstr ""
+
+#: functions-core.php:134
+msgid "Error: All fields are required!"
+msgstr ""
+
+#: functions-core.php:153
+msgid "Designation: "
+msgstr ""
+
+#: lib/advisor-demo/demo-data.php:5
+msgid "Demo One"
+msgstr ""
+
+#: lib/advisor-demo/demo-data.php:20
+msgid "Demo Two"
+msgstr ""
+
+#: lib/advisor-demo/demo-data.php:35
+msgid "Demo Three"
+msgstr ""
+
+#: lib/advisor-demo/demo-data.php:50
+msgid "Demo Four"
+msgstr ""
+
+#: lib/advisor-demo/demo-data.php:65
+msgid "Demo Five"
+msgstr ""
+
+#: lib/advisor-demo/demo-data.php:80
+msgid "Demo Six"
+msgstr ""
+
+#: lib/advisor-demo/demo-data.php:95
+msgid "Demo Seven"
+msgstr ""
+
+#: lib/advisor-demo/demo-data.php:110
+msgid "Demo Eight"
+msgstr ""
+
+#: lib/advisor-demo/functions-demo.php:86
+#: lib/advisor-demo/functions-demo.php:87
+msgid "Advisor Demos"
+msgstr ""
+
+#: lib/advisor-demo/functions-demo.php:110
+msgid "Advisor Demos Import"
+msgstr ""
+
+#: lib/advisor-demo/functions-demo.php:121
+msgid ""
+"Find amazing demos below. The demo import process can take few minutes, "
+"please wait and do not reload the page."
+msgstr ""
+
+#: lib/advisor-demo/functions-demo.php:124
+msgid ""
+"Before you begin, make sure all the required plugins are activated, required "
+"plugins are Advisor Core, Revolution Slider and Visual Composer."
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:33
+msgid "Case Studies"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:35
+#: post-types-taxonomies/advisor-custom-post-types.php:195
+#: post-types-taxonomies/advisor-custom-post-types.php:236
+msgid "Add New"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:36
+msgid "Add New Case"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:37
+msgid "Edit Case"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:38
+msgid "New Case"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:39
+msgid "View Case"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:40
+msgid "Search Case"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:41
+msgid "No Case found."
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:42
+msgid "No Case found in Trash."
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:77
+#: post-types-taxonomies/advisor-custom-post-types.php:78
+msgctxt "advisor-core"
+msgid "Case Type"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:79
+msgid "Search Case Type"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:80
+msgid "Popular Case Type"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:81
+msgid "All Case Types"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:82
+msgid "Edit Case Type"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:83
+msgid "Update Case Type"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:84
+msgid "Add New Case Type"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:85
+msgid "New Case Type Name"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:86
+msgid "Separate Case Type With Commas"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:87
+msgid "Add or Remove Case Type"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:88
+msgid "Choose From Most Used Case Type"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:89
+msgid "Parent Case Type"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:93
+msgid "case-study-type"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:152
+msgid "Team"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:153
+msgid "Member"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:154
+msgid "Add New Member"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:155
+msgid "Add Member"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:156
+#: post-types-taxonomies/advisor-custom-post-types.php:157
+msgid "Edit Member"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:158
+msgid "New Member"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:159
+msgid "View Members"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:160
+msgid "View Member"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:161
+msgid "Search Members"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:162
+msgid "No Member found"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:163
+msgid "No Memebers found"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:164
+msgid "Parent Parent"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:193
+msgid "Testimonials"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:194
+msgid "Testimonial"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:196
+msgid "Add New Testimonial"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:197
+msgid "Edit Testimonial"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:198
+msgid "New Testimonial"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:199
+msgid "View Testimonial"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:200
+msgid "Search Testimonial"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:201
+msgid "No Testimonial found."
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:202
+msgid "No Testimonial found in Trash."
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:219
+msgid "testimonial"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:234
+msgid "Subscribers"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:235
+msgid "Subscriber"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:237
+msgid "Add New Subscriber"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:238
+msgid "Edit Subscriber"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:239
+msgid "New Subscriber"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:240
+msgid "View Subscriber"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:241
+msgid "Search Subscriber"
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:242
+msgid "No Subscriber found."
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:243
+msgid "No Subscriber found in Trash."
+msgstr ""
+
+#: post-types-taxonomies/advisor-custom-post-types.php:260
+msgid "subscriber"
+msgstr ""
+
+#: shortcodes/advisor-accordion-tab-images.php:213
+msgid "Advisor Accordion"
+msgstr ""
+
+#: shortcodes/advisor-accordion-tab-images.php:216
+#: shortcodes/advisor-benefits-carousel.php:143
+#: shortcodes/advisor-case-studies.php:119 shortcodes/advisor-charts.php:65
+#: shortcodes/advisor-company-history-progressbar.php:152
+#: shortcodes/advisor-company-history.php:110
+#: shortcodes/advisor-contact-multiple-maps.php:164
+#: shortcodes/advisor-contact-multiple-maps.php:188
+#: shortcodes/advisor-contact-us-map.php:67
+#: shortcodes/advisor-contact-us.php:156 shortcodes/advisor-contact.php:162
+#: shortcodes/advisor-default-slider.php:374
+#: shortcodes/advisor-full-width-bannar.php:177
+#: shortcodes/advisor-fun-facts-counter.php:172
+#: shortcodes/advisor-gallery.php:75 shortcodes/advisor-google-chart.php:184
+#: shortcodes/advisor-intro.php:176 shortcodes/advisor-investment-plan.php:178
+#: shortcodes/advisor-latest-news.php:206
+#: shortcodes/advisor-our-partners-grid.php:106
+#: shortcodes/advisor-our-partners.php:139
+#: shortcodes/advisor-our-team-carousel.php:367
+#: shortcodes/advisor-our-team-grid.php:241
+#: shortcodes/advisor-price-plan.php:276
+#: shortcodes/advisor-revolution-slider.php:91
+#: shortcodes/advisor-right-heading-text-left.php:54
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:109
+#: shortcodes/advisor-services-carousel-icons.php:170
+#: shortcodes/advisor-services-carousel.php:191
+#: shortcodes/advisor-services-grid-icons.php:250
+#: shortcodes/advisor-services-grid.php:140
+#: shortcodes/advisor-services-slogan-icons.php:118
+#: shortcodes/advisor-services-slogan.php:75
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:242
+#: shortcodes/advisor-subscription.php:103 shortcodes/advisor-tabs.php:95
+#: shortcodes/advisor-testimonials.php:589
+#: shortcodes/advisor-text-button.php:92
+#: shortcodes/advisor-text-video-image.php:362
+msgid "Advisor Theme"
+msgstr ""
+
+#: shortcodes/advisor-accordion-tab-images.php:226
+#: shortcodes/advisor-contact-us.php:237
+msgid "Add Images"
+msgstr ""
+
+#: shortcodes/advisor-accordion-tab-images.php:228
+msgid ""
+"Add at minimum and maximum two images, these images will show up on right "
+"side of accorion tabs."
+msgstr ""
+
+#: shortcodes/advisor-accordion-tab-images.php:232
+#: shortcodes/advisor-benefits-carousel.php:213
+#: shortcodes/advisor-charts.php:75
+#: shortcodes/advisor-company-history-progressbar.php:169
+#: shortcodes/advisor-company-history.php:120
+#: shortcodes/advisor-company-history.php:167
+#: shortcodes/advisor-contact-us.php:203 shortcodes/advisor-contact.php:197
+#: shortcodes/advisor-fun-facts-counter.php:195
+#: shortcodes/advisor-google-chart.php:192 shortcodes/advisor-intro.php:186
+#: shortcodes/advisor-investment-plan.php:187
+#: shortcodes/advisor-investment-plan.php:225
+#: shortcodes/advisor-latest-news.php:226
+#: shortcodes/advisor-our-partners-grid.php:117
+#: shortcodes/advisor-our-partners.php:181
+#: shortcodes/advisor-our-team-carousel.php:431
+#: shortcodes/advisor-our-team-grid.php:261
+#: shortcodes/advisor-price-plan.php:282
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:198
+#: shortcodes/advisor-services-carousel-icons.php:250
+#: shortcodes/advisor-services-carousel.php:239
+#: shortcodes/advisor-services-carousel.php:308
+#: shortcodes/advisor-services-grid-icons.php:261
+#: shortcodes/advisor-services-grid-icons.php:396
+#: shortcodes/advisor-services-grid.php:150
+#: shortcodes/advisor-services-grid.php:208
+#: shortcodes/advisor-services-slogan-icons.php:130
+#: shortcodes/advisor-services-slogan-icons.php:197
+#: shortcodes/advisor-services-slogan.php:84
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:252
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:400
+#: shortcodes/advisor-subscription.php:112 shortcodes/advisor-tabs.php:104
+#: shortcodes/advisor-testimonials.php:662
+#: shortcodes/advisor-text-video-image.php:409
+msgid "Heading"
+msgstr ""
+
+#: shortcodes/advisor-accordion-tab-images.php:234
+#: shortcodes/advisor-investment-plan.php:189 shortcodes/advisor-tabs.php:106
+msgid "Enter heading here."
+msgstr ""
+
+#: shortcodes/advisor-accordion-tab-images.php:238
+#: shortcodes/advisor-accordion-tab-images.php:299
+#: shortcodes/advisor-charts.php:82
+#: shortcodes/advisor-fun-facts-counter.php:209
+#: shortcodes/advisor-intro.php:192 shortcodes/advisor-investment-plan.php:193
+#: shortcodes/advisor-our-partners-grid.php:123
+#: shortcodes/advisor-our-partners.php:187
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:145
+#: shortcodes/advisor-services-grid-icons.php:267
+#: shortcodes/advisor-services-slogan-icons.php:136
+#: shortcodes/advisor-services-slogan.php:90 shortcodes/advisor-tabs.php:110
+msgid "Text"
+msgstr ""
+
+#: shortcodes/advisor-accordion-tab-images.php:240
+#: shortcodes/advisor-investment-plan.php:195
+#: shortcodes/advisor-our-partners.php:189 shortcodes/advisor-tabs.php:112
+msgid "Enter text here. This will display under heading."
+msgstr ""
+
+#: shortcodes/advisor-accordion-tab-images.php:245
+#: shortcodes/advisor-accordion-tab-images.php:306
+#: shortcodes/advisor-benefits-carousel.php:226
+#: shortcodes/advisor-charts.php:89
+#: shortcodes/advisor-company-history-progressbar.php:188
+#: shortcodes/advisor-company-history.php:133
+#: shortcodes/advisor-company-history.php:180
+#: shortcodes/advisor-contact-us.php:218 shortcodes/advisor-contact.php:212
+#: shortcodes/advisor-fun-facts-counter.php:223
+#: shortcodes/advisor-google-chart.php:205 shortcodes/advisor-intro.php:199
+#: shortcodes/advisor-investment-plan.php:200
+#: shortcodes/advisor-investment-plan.php:250
+#: shortcodes/advisor-latest-news.php:240
+#: shortcodes/advisor-our-partners-grid.php:136
+#: shortcodes/advisor-our-partners.php:194
+#: shortcodes/advisor-our-team-carousel.php:445
+#: shortcodes/advisor-our-team-grid.php:275
+#: shortcodes/advisor-price-plan.php:296
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:152
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:211
+#: shortcodes/advisor-services-carousel-icons.php:263
+#: shortcodes/advisor-services-carousel.php:252
+#: shortcodes/advisor-services-carousel.php:321
+#: shortcodes/advisor-services-grid-icons.php:286
+#: shortcodes/advisor-services-grid-icons.php:409
+#: shortcodes/advisor-services-grid.php:163
+#: shortcodes/advisor-services-grid.php:221
+#: shortcodes/advisor-services-slogan-icons.php:143
+#: shortcodes/advisor-services-slogan-icons.php:210
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:265
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:413
+#: shortcodes/advisor-subscription.php:132 shortcodes/advisor-tabs.php:117
+#: shortcodes/advisor-testimonials.php:676
+#: shortcodes/advisor-text-button.php:109
+#: shortcodes/advisor-text-video-image.php:440
+msgid "Text Color"
+msgstr ""
+
+#: shortcodes/advisor-accordion-tab-images.php:248
+#: shortcodes/advisor-contact.php:215
+msgid "Choose the Color for the heading only"
+msgstr ""
+
+#: shortcodes/advisor-accordion-tab-images.php:252
+#: shortcodes/advisor-services-carousel-icons.php:181
+#: shortcodes/advisor-services-carousel.php:202
+#: shortcodes/advisor-text-button.php:144
+#: shortcodes/advisor-text-video-image.php:477
+msgid "Select Bakcground Class"
+msgstr ""
+
+#: shortcodes/advisor-accordion-tab-images.php:254
+#: shortcodes/advisor-services-carousel-icons.php:183
+#: shortcodes/advisor-services-carousel.php:204
+#: shortcodes/advisor-text-video-image.php:479
+msgid "Select background, for now it can be white or light blue."
+msgstr ""
+
+#: shortcodes/advisor-accordion-tab-images.php:257
+#: shortcodes/advisor-services-carousel-icons.php:186
+#: shortcodes/advisor-services-carousel.php:207
+#: shortcodes/advisor-text-button.php:149
+#: shortcodes/advisor-text-video-image.php:482
+msgid "Select Class"
+msgstr ""
+
+#: shortcodes/advisor-accordion-tab-images.php:258
+#: shortcodes/advisor-contact-us.php:196
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:225
+#: shortcodes/advisor-services-carousel-icons.php:187
+#: shortcodes/advisor-services-carousel-icons.php:277
+#: shortcodes/advisor-services-carousel.php:208
+#: shortcodes/advisor-services-grid-icons.php:279
+#: shortcodes/advisor-text-video-image.php:483
+msgid "White"
+msgstr ""
+
+#: shortcodes/advisor-accordion-tab-images.php:259
+#: shortcodes/advisor-services-carousel-icons.php:188
+#: shortcodes/advisor-services-carousel.php:209
+#: shortcodes/advisor-text-video-image.php:484
+msgid "Light Blue/Sky Blue"
+msgstr ""
+
+#: shortcodes/advisor-accordion-tab-images.php:265
+#: shortcodes/advisor-fun-facts-counter.php:333
+#: shortcodes/advisor-services-carousel-icons.php:202
+msgid "Overlap Top?"
+msgstr ""
+
+#: shortcodes/advisor-accordion-tab-images.php:267
+msgid ""
+"Check if the tabs should overlap top or it should not be added as separate "
+"section."
+msgstr ""
+
+#: shortcodes/advisor-accordion-tab-images.php:272
+#: shortcodes/advisor-benefits-carousel.php:178
+#: shortcodes/advisor-case-studies.php:140 shortcodes/advisor-charts.php:134
+#: shortcodes/advisor-company-history-progressbar.php:195
+#: shortcodes/advisor-company-history.php:140
+#: shortcodes/advisor-contact-multiple-maps.php:175
+#: shortcodes/advisor-contact-us-map.php:136
+#: shortcodes/advisor-contact-us.php:256 shortcodes/advisor-contact.php:303
+#: shortcodes/advisor-default-slider.php:383
+#: shortcodes/advisor-full-width-bannar.php:336
+#: shortcodes/advisor-fun-facts-counter.php:347
+#: shortcodes/advisor-gallery.php:91 shortcodes/advisor-google-chart.php:329
+#: shortcodes/advisor-intro.php:333 shortcodes/advisor-investment-plan.php:291
+#: shortcodes/advisor-latest-news.php:283
+#: shortcodes/advisor-our-partners-grid.php:143
+#: shortcodes/advisor-our-partners.php:201
+#: shortcodes/advisor-our-team-carousel.php:483
+#: shortcodes/advisor-our-team-grid.php:294
+#: shortcodes/advisor-revolution-slider.php:108
+#: shortcodes/advisor-right-heading-text-left.php:90
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:160
+#: shortcodes/advisor-services-carousel-icons.php:209
+#: shortcodes/advisor-services-carousel.php:270
+#: shortcodes/advisor-services-grid-icons.php:306
+#: shortcodes/advisor-services-grid.php:182
+#: shortcodes/advisor-services-slogan-icons.php:169
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:358
+#: shortcodes/advisor-subscription.php:139 shortcodes/advisor-tabs.php:124
+#: shortcodes/advisor-testimonials.php:734
+#: shortcodes/advisor-text-button.php:157
+#: shortcodes/advisor-text-video-image.php:542
+msgid "Extra Class Name"
+msgstr ""
+
+#: shortcodes/advisor-accordion-tab-images.php:274
+#: shortcodes/advisor-benefits-carousel.php:180
+#: shortcodes/advisor-case-studies.php:142 shortcodes/advisor-charts.php:136
+#: shortcodes/advisor-company-history-progressbar.php:197
+#: shortcodes/advisor-company-history.php:142
+#: shortcodes/advisor-contact-multiple-maps.php:177
+#: shortcodes/advisor-contact-us-map.php:138
+#: shortcodes/advisor-contact-us.php:258 shortcodes/advisor-contact.php:305
+#: shortcodes/advisor-default-slider.php:385
+#: shortcodes/advisor-full-width-bannar.php:338
+#: shortcodes/advisor-fun-facts-counter.php:349
+#: shortcodes/advisor-gallery.php:93 shortcodes/advisor-google-chart.php:331
+#: shortcodes/advisor-intro.php:335 shortcodes/advisor-investment-plan.php:293
+#: shortcodes/advisor-latest-news.php:285
+#: shortcodes/advisor-our-partners-grid.php:145
+#: shortcodes/advisor-our-partners.php:203
+#: shortcodes/advisor-our-team-carousel.php:485
+#: shortcodes/advisor-our-team-grid.php:296
+#: shortcodes/advisor-revolution-slider.php:110
+#: shortcodes/advisor-right-heading-text-left.php:92
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:162
+#: shortcodes/advisor-services-carousel-icons.php:211
+#: shortcodes/advisor-services-carousel.php:272
+#: shortcodes/advisor-services-grid-icons.php:308
+#: shortcodes/advisor-services-grid.php:184
+#: shortcodes/advisor-services-slogan-icons.php:171
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:360
+#: shortcodes/advisor-subscription.php:141 shortcodes/advisor-tabs.php:126
+#: shortcodes/advisor-testimonials.php:736
+#: shortcodes/advisor-text-button.php:159
+#: shortcodes/advisor-text-video-image.php:544
+msgid "Enter a class name for the shortcode here."
+msgstr ""
+
+#: shortcodes/advisor-accordion-tab-images.php:282
+msgid "Advisor Accordion Tab"
+msgstr ""
+
+#: shortcodes/advisor-accordion-tab-images.php:293
+msgid "Title"
+msgstr ""
+
+#: shortcodes/advisor-accordion-tab-images.php:295
+msgid "Enter tab title here."
+msgstr ""
+
+#: shortcodes/advisor-accordion-tab-images.php:301
+msgid "Enter the text to show in tabs."
+msgstr ""
+
+#: shortcodes/advisor-accordion-tab-images.php:309
+msgid "Choose the Color for the accordion text."
+msgstr ""
+
+#: shortcodes/advisor-accordion-tab-images.php:313
+msgid "Collapse in/out"
+msgstr ""
+
+#: shortcodes/advisor-accordion-tab-images.php:315
+msgid "Select collapse 'in' or 'out' position of the tab. "
+msgstr ""
+
+#: shortcodes/advisor-accordion-tab-images.php:318
+msgid "Collaspe Out"
+msgstr ""
+
+#: shortcodes/advisor-accordion-tab-images.php:319
+msgid "Collapse In"
+msgstr ""
+
+#: shortcodes/advisor-benefits-carousel.php:141
+msgid "Advisor Benefits"
+msgstr ""
+
+#: shortcodes/advisor-benefits-carousel.php:154
+#: shortcodes/advisor-latest-news.php:259
+#: shortcodes/advisor-our-partners.php:150
+#: shortcodes/advisor-our-team-carousel.php:388
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:121
+#: shortcodes/advisor-services-carousel.php:215
+#: shortcodes/advisor-testimonials.php:611
+msgid "Autoplay"
+msgstr ""
+
+#: shortcodes/advisor-benefits-carousel.php:156
+#: shortcodes/advisor-latest-news.php:261
+#: shortcodes/advisor-our-partners.php:152
+#: shortcodes/advisor-our-team-carousel.php:390
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:123
+#: shortcodes/advisor-services-carousel.php:217
+#: shortcodes/advisor-testimonials.php:613
+msgid "Select Carousel Autoplay On/Off"
+msgstr ""
+
+#: shortcodes/advisor-benefits-carousel.php:159
+#: shortcodes/advisor-latest-news.php:264
+#: shortcodes/advisor-our-partners.php:155
+#: shortcodes/advisor-our-team-carousel.php:393
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:126
+#: shortcodes/advisor-services-carousel.php:220
+#: shortcodes/advisor-testimonials.php:616
+msgid "On"
+msgstr ""
+
+#: shortcodes/advisor-benefits-carousel.php:160
+#: shortcodes/advisor-latest-news.php:265
+#: shortcodes/advisor-our-partners.php:156
+#: shortcodes/advisor-our-team-carousel.php:394
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:127
+#: shortcodes/advisor-services-carousel.php:221
+#: shortcodes/advisor-testimonials.php:617
+msgid "Off"
+msgstr ""
+
+#: shortcodes/advisor-benefits-carousel.php:166
+#: shortcodes/advisor-latest-news.php:271
+#: shortcodes/advisor-our-partners.php:162
+#: shortcodes/advisor-our-team-carousel.php:419
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:133
+#: shortcodes/advisor-services-carousel.php:227
+#: shortcodes/advisor-testimonials.php:650
+msgid "Autoplay Time Out"
+msgstr ""
+
+#: shortcodes/advisor-benefits-carousel.php:168
+#: shortcodes/advisor-latest-news.php:273
+#: shortcodes/advisor-our-partners.php:164
+#: shortcodes/advisor-our-team-carousel.php:421
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:135
+#: shortcodes/advisor-services-carousel.php:229
+#: shortcodes/advisor-testimonials.php:652
+msgid "Enter Autoplay Time Out time here. default time is 5000."
+msgstr ""
+
+#: shortcodes/advisor-benefits-carousel.php:189
+msgid "Benefits Item"
+msgstr ""
+
+#: shortcodes/advisor-benefits-carousel.php:199
+#: shortcodes/advisor-company-history-progressbar.php:162
+#: shortcodes/advisor-full-width-bannar.php:187
+#: shortcodes/advisor-intro.php:250 shortcodes/advisor-investment-plan.php:218
+#: shortcodes/advisor-services-carousel.php:302
+#: shortcodes/advisor-services-grid.php:202
+#: shortcodes/advisor-text-video-image.php:529
+msgid "Add Image"
+msgstr ""
+
+#: shortcodes/advisor-benefits-carousel.php:201
+#: shortcodes/advisor-services-carousel.php:304
+#: shortcodes/advisor-services-grid.php:204
+msgid "Add image to on top or below. The image size should be 450x350 approx."
+msgstr ""
+
+#: shortcodes/advisor-benefits-carousel.php:206
+msgid "Link To Page"
+msgstr ""
+
+#: shortcodes/advisor-benefits-carousel.php:208
+msgid "Add extertnal link for image here, it will be redirected on click"
+msgstr ""
+
+#: shortcodes/advisor-benefits-carousel.php:215
+#: shortcodes/advisor-company-history-progressbar.php:171
+#: shortcodes/advisor-company-history.php:122
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:200
+#: shortcodes/advisor-services-carousel-icons.php:252
+#: shortcodes/advisor-services-carousel.php:241
+#: shortcodes/advisor-services-carousel.php:310
+#: shortcodes/advisor-services-grid-icons.php:398
+#: shortcodes/advisor-services-grid.php:152
+#: shortcodes/advisor-services-grid.php:210
+#: shortcodes/advisor-services-slogan-icons.php:199
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:402
+msgid "Enter text heading here"
+msgstr ""
+
+#: shortcodes/advisor-benefits-carousel.php:219
+#: shortcodes/advisor-our-partners-grid.php:129
+#: shortcodes/advisor-services-carousel.php:245
+#: shortcodes/advisor-services-carousel.php:314
+#: shortcodes/advisor-services-grid.php:156
+#: shortcodes/advisor-services-grid.php:214
+#: shortcodes/advisor-services-slogan-icons.php:203
+msgid "Description"
+msgstr ""
+
+#: shortcodes/advisor-benefits-carousel.php:221
+#: shortcodes/advisor-company-history.php:128
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:206
+#: shortcodes/advisor-services-carousel-icons.php:258
+#: shortcodes/advisor-services-carousel.php:316
+#: shortcodes/advisor-services-grid-icons.php:404
+#: shortcodes/advisor-services-grid.php:158
+#: shortcodes/advisor-services-grid.php:216
+#: shortcodes/advisor-services-slogan-icons.php:205
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:408
+msgid "Enter the text to show below the heading."
+msgstr ""
+
+#: shortcodes/advisor-benefits-carousel.php:229
+#: shortcodes/advisor-fun-facts-counter.php:226
+#: shortcodes/advisor-investment-plan.php:203
+#: shortcodes/advisor-services-carousel.php:255
+#: shortcodes/advisor-services-slogan-icons.php:146
+#: shortcodes/advisor-tabs.php:120
+msgid "Choose the Color for the heading and text."
+msgstr ""
+
+#: shortcodes/advisor-benefits-carousel.php:233
+#: shortcodes/advisor-our-partners.php:257
+#: shortcodes/advisor-services-carousel-icons.php:282
+#: shortcodes/advisor-services-grid.php:170
+msgid "Animation Effect"
+msgstr ""
+
+#: shortcodes/advisor-benefits-carousel.php:235
+#: shortcodes/advisor-our-partners.php:259
+msgid ""
+"Select effect, make sure to select this for first two items with different "
+"effects, it will work when animations are enabled in theme options."
+msgstr ""
+
+#: shortcodes/advisor-benefits-carousel.php:238
+#: shortcodes/advisor-our-partners.php:262
+msgid "Select Animation"
+msgstr ""
+
+#: shortcodes/advisor-benefits-carousel.php:239
+#: shortcodes/advisor-our-partners.php:263
+msgid "Fade-In Left"
+msgstr ""
+
+#: shortcodes/advisor-benefits-carousel.php:240
+#: shortcodes/advisor-our-partners.php:264
+msgid "Fade-In Right"
+msgstr ""
+
+#: shortcodes/advisor-benefits-carousel.php:245
+msgid "Image Position"
+msgstr ""
+
+#: shortcodes/advisor-benefits-carousel.php:249
+msgid "Top"
+msgstr ""
+
+#: shortcodes/advisor-benefits-carousel.php:250
+msgid "Bottom"
+msgstr ""
+
+#: shortcodes/advisor-case-studies.php:116
+msgid "Advisor Case Studies"
+msgstr ""
+
+#: shortcodes/advisor-case-studies.php:128
+#: shortcodes/advisor-latest-news.php:247
+#: shortcodes/advisor-our-team-carousel.php:453
+#: shortcodes/advisor-our-team-grid.php:282
+#: shortcodes/advisor-testimonials.php:692
+msgid "Order"
+msgstr ""
+
+#: shortcodes/advisor-case-studies.php:130
+#: shortcodes/advisor-latest-news.php:249
+msgid "Sort your case studies"
+msgstr ""
+
+#: shortcodes/advisor-case-studies.php:133
+#: shortcodes/advisor-latest-news.php:252
+#: shortcodes/advisor-our-team-carousel.php:458
+#: shortcodes/advisor-our-team-grid.php:287
+#: shortcodes/advisor-testimonials.php:697
+msgid "Descending"
+msgstr ""
+
+#: shortcodes/advisor-case-studies.php:134
+#: shortcodes/advisor-latest-news.php:253
+#: shortcodes/advisor-our-team-carousel.php:459
+#: shortcodes/advisor-our-team-grid.php:288
+#: shortcodes/advisor-testimonials.php:698
+msgid "Ascending"
+msgstr ""
+
+#: shortcodes/advisor-charts.php:63
+msgid "Advisor Pie Chart"
+msgstr ""
+
+#: shortcodes/advisor-charts.php:77
+msgid "Enter heading to display above Pie Chart."
+msgstr ""
+
+#: shortcodes/advisor-charts.php:84
+msgid "Enter text to display below Pie Chart."
+msgstr ""
+
+#: shortcodes/advisor-charts.php:92
+#: shortcodes/advisor-company-history-progressbar.php:191
+#: shortcodes/advisor-company-history.php:136
+#: shortcodes/advisor-google-chart.php:208
+#: shortcodes/advisor-latest-news.php:243
+#: shortcodes/advisor-our-partners-grid.php:139
+#: shortcodes/advisor-our-partners.php:197
+#: shortcodes/advisor-our-team-carousel.php:448
+#: shortcodes/advisor-price-plan.php:299
+#: shortcodes/advisor-services-grid.php:166
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:268
+#: shortcodes/advisor-subscription.php:135
+#: shortcodes/advisor-testimonials.php:679
+#: shortcodes/advisor-text-video-image.php:443
+msgid "Choose the Color for the heading only."
+msgstr ""
+
+#: shortcodes/advisor-charts.php:96
+msgid "Red Bar Percentage"
+msgstr ""
+
+#: shortcodes/advisor-charts.php:98
+msgid ""
+"Please enter Number/Decimal Point value without percentage symbol. Leave "
+"blank if you don't want to display this bar in chart."
+msgstr ""
+
+#: shortcodes/advisor-charts.php:102
+msgid "Red Bar Label"
+msgstr ""
+
+#: shortcodes/advisor-charts.php:104
+msgid ""
+"Please enter the label for red bar,if it is empty then 'Red' will show up. "
+msgstr ""
+
+#: shortcodes/advisor-charts.php:109
+msgid "Green Bar Percentage"
+msgstr ""
+
+#: shortcodes/advisor-charts.php:111 shortcodes/advisor-charts.php:124
+msgid ""
+"Please enter Number/Decimal Point value without percentage symbol. Leave "
+"blank if you don't want to display this bar in chart. "
+msgstr ""
+
+#: shortcodes/advisor-charts.php:115
+msgid "Green Bar Label"
+msgstr ""
+
+#: shortcodes/advisor-charts.php:117
+msgid ""
+"Please enter the label for greem bar, if it is empty then 'Green' will show "
+"up.  "
+msgstr ""
+
+#: shortcodes/advisor-charts.php:122
+msgid "Yellow Bar Percentage"
+msgstr ""
+
+#: shortcodes/advisor-charts.php:128
+msgid "Yellow Bar Label"
+msgstr ""
+
+#: shortcodes/advisor-charts.php:130
+msgid ""
+"Please enter the label for yellow bar, if it is empty then 'Yellow' will "
+"show up. "
+msgstr ""
+
+#: shortcodes/advisor-company-history-progressbar.php:149
+msgid "Advisor Company History With Progressbar"
+msgstr ""
+
+#: shortcodes/advisor-company-history-progressbar.php:164
+msgid "Add image to on top or below. The image size should be 555x346 approx."
+msgstr ""
+
+#: shortcodes/advisor-company-history-progressbar.php:175
+#: shortcodes/advisor-company-history.php:126
+#: shortcodes/advisor-company-history.php:173
+#: shortcodes/advisor-google-chart.php:198
+#: shortcodes/advisor-latest-news.php:233
+#: shortcodes/advisor-our-team-carousel.php:438
+#: shortcodes/advisor-price-plan.php:289
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:204
+#: shortcodes/advisor-services-carousel-icons.php:256
+#: shortcodes/advisor-services-grid-icons.php:402
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:258
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:406
+#: shortcodes/advisor-subscription.php:119
+#: shortcodes/advisor-testimonials.php:669
+msgid "Text Below Heading"
+msgstr ""
+
+#: shortcodes/advisor-company-history-progressbar.php:177
+msgid "Enter the text to show above the heading for Style 2."
+msgstr ""
+
+#: shortcodes/advisor-company-history-progressbar.php:181
+msgid "Description Below Progressbar"
+msgstr ""
+
+#: shortcodes/advisor-company-history-progressbar.php:183
+msgid "Enter the text to show below companies year progressbars."
+msgstr ""
+
+#: shortcodes/advisor-company-history-progressbar.php:205
+#: shortcodes/advisor-company-history.php:150
+msgid "Advisor Company Year"
+msgstr ""
+
+#: shortcodes/advisor-company-history-progressbar.php:216
+#: shortcodes/advisor-company-history.php:161
+msgid "Company Year"
+msgstr ""
+
+#: shortcodes/advisor-company-history-progressbar.php:218
+#: shortcodes/advisor-company-history.php:163
+msgid "Enter the year like '1998' etc to tell the history for this year."
+msgstr ""
+
+#: shortcodes/advisor-company-history-progressbar.php:222
+msgid "Company Year Progress Percentage Targeted"
+msgstr ""
+
+#: shortcodes/advisor-company-history-progressbar.php:224
+msgid "Enter the year progress percentage targeted like '90' etc."
+msgstr ""
+
+#: shortcodes/advisor-company-history-progressbar.php:228
+msgid "Company Year Progress Percentage Achieved"
+msgstr ""
+
+#: shortcodes/advisor-company-history-progressbar.php:230
+msgid "Enter the year progress percentage achieved like '70' etc."
+msgstr ""
+
+#: shortcodes/advisor-company-history.php:107
+msgid "Advisor Company History"
+msgstr ""
+
+#: shortcodes/advisor-company-history.php:169
+msgid ""
+"Enter text heading here, it can be the text which describes yearly efforts "
+"of this company."
+msgstr ""
+
+#: shortcodes/advisor-company-history.php:175
+msgid ""
+"Please add the text for company goals achieved in this year or anything "
+"which can be shared."
+msgstr ""
+
+#: shortcodes/advisor-company-history.php:183
+msgid "Choose the Color for the year heading and text."
+msgstr ""
+
+#: shortcodes/advisor-company-history.php:187
+#: shortcodes/advisor-services-carousel-icons.php:322
+#: shortcodes/advisor-services-grid-icons.php:444
+msgid "Delay Effect"
+msgstr ""
+
+#: shortcodes/advisor-company-history.php:189
+#: shortcodes/advisor-services-carousel-icons.php:324
+#: shortcodes/advisor-services-grid-icons.php:446
+msgid ""
+"Select delay effect in mili seconds, it will work when animations are "
+"enabled."
+msgstr ""
+
+#: shortcodes/advisor-company-history.php:192
+#: shortcodes/advisor-services-carousel-icons.php:327
+#: shortcodes/advisor-services-grid-icons.php:449
+msgid "Select Delay Time"
+msgstr ""
+
+#: shortcodes/advisor-company-history.php:193
+#: shortcodes/advisor-services-carousel-icons.php:328
+#: shortcodes/advisor-services-grid-icons.php:450
+msgid "100"
+msgstr ""
+
+#: shortcodes/advisor-company-history.php:194
+#: shortcodes/advisor-services-carousel-icons.php:329
+#: shortcodes/advisor-services-grid-icons.php:451
+msgid "200"
+msgstr ""
+
+#: shortcodes/advisor-company-history.php:195
+#: shortcodes/advisor-services-grid-icons.php:452
+msgid "300"
+msgstr ""
+
+#: shortcodes/advisor-company-history.php:196
+#: shortcodes/advisor-services-grid-icons.php:453
+msgid "400"
+msgstr ""
+
+#: shortcodes/advisor-company-history.php:197
+#: shortcodes/advisor-services-carousel-icons.php:330
+#: shortcodes/advisor-services-grid-icons.php:454
+msgid "500"
+msgstr ""
+
+#: shortcodes/advisor-company-history.php:198
+#: shortcodes/advisor-services-carousel-icons.php:331
+#: shortcodes/advisor-services-grid-icons.php:455
+msgid "1000"
+msgstr ""
+
+#: shortcodes/advisor-contact-multiple-maps.php:162
+msgid "Advisor Multiple Contact Maps"
+msgstr ""
+
+#: shortcodes/advisor-contact-multiple-maps.php:185
+msgid "Advisor Single Map (From Multiple Maps)"
+msgstr ""
+
+#: shortcodes/advisor-contact-multiple-maps.php:198
+#: shortcodes/advisor-contact-us-map.php:76
+msgid "Latitude Longitude"
+msgstr ""
+
+#: shortcodes/advisor-contact-multiple-maps.php:200
+#: shortcodes/advisor-contact-us-map.php:78
+msgid ""
+"Please add comma separated latitude and longitude for your map address e.g:  "
+"you can get latitude and longitude here <a href=\"http://www."
+"findlatitudeandlongitude.com/batch-geocode/#.V6J7I_l97IU\">http://www."
+"findlatitudeandlongitude.com/batch-geocode/#.V6J7I_l97IU</a>. "
+msgstr ""
+
+#: shortcodes/advisor-contact-multiple-maps.php:206
+msgid "City"
+msgstr ""
+
+#: shortcodes/advisor-contact-multiple-maps.php:208
+msgid "Add city or company name here. It will also show up on top as heading."
+msgstr ""
+
+#: shortcodes/advisor-contact-multiple-maps.php:212
+msgid "Text/Description"
+msgstr ""
+
+#: shortcodes/advisor-contact-multiple-maps.php:214
+msgid ""
+"Add some description or small text, It will show up under city heading. "
+msgstr ""
+
+#: shortcodes/advisor-contact-multiple-maps.php:219
+#: shortcodes/advisor-contact-us-map.php:89
+msgid "Address"
+msgstr ""
+
+#: shortcodes/advisor-contact-multiple-maps.php:221
+#: shortcodes/advisor-contact-us-map.php:91
+msgid "Add address here for your office, will show up on map marker."
+msgstr ""
+
+#: shortcodes/advisor-contact-multiple-maps.php:225
+msgid "Add Website URL Internal/External"
+msgstr ""
+
+#: shortcodes/advisor-contact-multiple-maps.php:227
+msgid ""
+"Please add web URL to any page or external website or regional URL for your "
+"company."
+msgstr ""
+
+#: shortcodes/advisor-contact-multiple-maps.php:233
+#: shortcodes/advisor-contact-us-map.php:83
+msgid "Company Name/Office Name"
+msgstr ""
+
+#: shortcodes/advisor-contact-multiple-maps.php:235
+#: shortcodes/advisor-contact-us-map.php:85
+msgid "Add Company Name/Office Name here, it will show up on map marker."
+msgstr ""
+
+#: shortcodes/advisor-contact-multiple-maps.php:241
+msgid "Please add contact email for support or other purposes.advisor-core"
+msgstr ""
+
+#: shortcodes/advisor-contact-multiple-maps.php:246
+#: shortcodes/advisor-contact-us-map.php:95 shortcodes/advisor-contact.php:114
+msgid "Phone Number"
+msgstr ""
+
+#: shortcodes/advisor-contact-multiple-maps.php:248
+#: shortcodes/advisor-contact-us-map.php:97
+msgid "Add phone number here. It will also show up in map marker"
+msgstr ""
+
+#: shortcodes/advisor-contact-multiple-maps.php:252
+#: shortcodes/advisor-contact-us-map.php:101
+msgid "Fax Number"
+msgstr ""
+
+#: shortcodes/advisor-contact-multiple-maps.php:254
+#: shortcodes/advisor-contact-us-map.php:103
+msgid "Add fax number if there is any, it will also show up in map marker. "
+msgstr ""
+
+#: shortcodes/advisor-contact-multiple-maps.php:259
+#: shortcodes/advisor-contact-us-map.php:108
+msgid "Map Zoom Level"
+msgstr ""
+
+#: shortcodes/advisor-contact-multiple-maps.php:261
+#: shortcodes/advisor-contact-us-map.php:110
+msgid "Please add zoom level, default: 16. "
+msgstr ""
+
+#: shortcodes/advisor-contact-multiple-maps.php:267
+#: shortcodes/advisor-contact-us-map.php:116
+#: shortcodes/advisor-latest-news.php:215
+#: shortcodes/advisor-our-team-carousel.php:376
+#: shortcodes/advisor-our-team-grid.php:250
+#: shortcodes/advisor-services-carousel.php:291
+#: shortcodes/advisor-testimonials.php:598
+#: shortcodes/advisor-text-video-image.php:370
+msgid "Style"
+msgstr ""
+
+#: shortcodes/advisor-contact-multiple-maps.php:269
+#: shortcodes/advisor-contact-us-map.php:118
+msgid "Select Map View Type"
+msgstr ""
+
+#: shortcodes/advisor-contact-multiple-maps.php:272
+#: shortcodes/advisor-contact-us-map.php:121
+msgid "Roadmap"
+msgstr ""
+
+#: shortcodes/advisor-contact-multiple-maps.php:273
+#: shortcodes/advisor-contact-us-map.php:122
+msgid "Satellite"
+msgstr ""
+
+#: shortcodes/advisor-contact-multiple-maps.php:274
+#: shortcodes/advisor-contact-us-map.php:123
+msgid "Hybrid"
+msgstr ""
+
+#: shortcodes/advisor-contact-multiple-maps.php:275
+#: shortcodes/advisor-contact-us-map.php:124
+msgid "Terrain"
+msgstr ""
+
+#: shortcodes/advisor-contact-multiple-maps.php:280
+#: shortcodes/advisor-contact-us-map.php:129
+msgid "Add Custom Marker"
+msgstr ""
+
+#: shortcodes/advisor-contact-multiple-maps.php:282
+#: shortcodes/advisor-contact-us-map.php:131
+msgid ""
+"Add custom marker to show up on map, if not provided the default marker will "
+"show up. "
+msgstr ""
+
+#: shortcodes/advisor-contact-us-map.php:64
+msgid "Advisor Contact Map"
+msgstr ""
+
+#: shortcodes/advisor-contact-us.php:81
+msgid "Follow Us"
+msgstr ""
+
+#: shortcodes/advisor-contact-us.php:115
+msgid "Your Names *"
+msgstr ""
+
+#: shortcodes/advisor-contact-us.php:118
+msgid "Email Address *"
+msgstr ""
+
+#: shortcodes/advisor-contact-us.php:123
+msgid "Phone No. *"
+msgstr ""
+
+#: shortcodes/advisor-contact-us.php:127
+msgid "Message *"
+msgstr ""
+
+#: shortcodes/advisor-contact-us.php:129
+msgid "Send Message"
+msgstr ""
+
+#: shortcodes/advisor-contact-us.php:153
+msgid "Advisor Contact Us"
+msgstr ""
+
+#: shortcodes/advisor-contact-us.php:166 shortcodes/advisor-contact.php:172
+msgid "Contact Form Style"
+msgstr ""
+
+#: shortcodes/advisor-contact-us.php:168 shortcodes/advisor-contact.php:174
+msgid "Select advisor's default contact form or add third party contact form."
+msgstr ""
+
+#: shortcodes/advisor-contact-us.php:171 shortcodes/advisor-contact.php:177
+msgid "Advisor Default Form"
+msgstr ""
+
+#: shortcodes/advisor-contact-us.php:172 shortcodes/advisor-contact.php:178
+msgid "Third Party Contact Form"
+msgstr ""
+
+#: shortcodes/advisor-contact-us.php:178 shortcodes/advisor-contact.php:184
+msgid "Third Party Form Shortcode: Contact Form 7"
+msgstr ""
+
+#: shortcodes/advisor-contact-us.php:180 shortcodes/advisor-contact.php:186
+msgid ""
+"Add Contact form 7 ID e.g [contact-form-7 id='637' title='Contact form 1'] "
+"add '637' from this shortcode in the above textfield."
+msgstr ""
+
+#: shortcodes/advisor-contact-us.php:190
+#: shortcodes/advisor-services-grid-icons.php:273
+msgid "Background"
+msgstr ""
+
+#: shortcodes/advisor-contact-us.php:192 shortcodes/advisor-contact-us.php:246
+#: shortcodes/advisor-services-grid-icons.php:275
+msgid "Select background between white or light blue. "
+msgstr ""
+
+#: shortcodes/advisor-contact-us.php:195
+#: shortcodes/advisor-services-grid-icons.php:278
+msgid "Light Blue"
+msgstr ""
+
+#: shortcodes/advisor-contact-us.php:205 shortcodes/advisor-contact.php:199
+#: shortcodes/advisor-full-width-bannar.php:196
+#: shortcodes/advisor-full-width-bannar.php:255
+#: shortcodes/advisor-fun-facts-counter.php:197
+#: shortcodes/advisor-google-chart.php:194 shortcodes/advisor-intro.php:188
+#: shortcodes/advisor-right-heading-text-left.php:64
+#: shortcodes/advisor-services-grid-icons.php:263
+#: shortcodes/advisor-services-slogan-icons.php:132
+#: shortcodes/advisor-services-slogan.php:86
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:254
+#: shortcodes/advisor-text-video-image.php:411
+msgid "Add heading here"
+msgstr ""
+
+#: shortcodes/advisor-contact-us.php:210 shortcodes/advisor-contact.php:204
+#: shortcodes/advisor-contact.php:262
+msgid "Text Content"
+msgstr ""
+
+#: shortcodes/advisor-contact-us.php:212
+msgid "Add text here, will show up next to image if provided."
+msgstr ""
+
+#: shortcodes/advisor-contact-us.php:221
+msgid "Choose the Color for the heading only and follow us text lable."
+msgstr ""
+
+#: shortcodes/advisor-contact-us.php:225 shortcodes/advisor-contact.php:219
+msgid "Recipient Email"
+msgstr ""
+
+#: shortcodes/advisor-contact-us.php:227 shortcodes/advisor-contact.php:221
+msgid "Add recipient email here."
+msgstr ""
+
+#: shortcodes/advisor-contact-us.php:239
+msgid "Add an image of small size e.g 165x210."
+msgstr ""
+
+#: shortcodes/advisor-contact-us.php:244
+msgid "Social Icons"
+msgstr ""
+
+#: shortcodes/advisor-contact-us.php:249
+msgid "Show"
+msgstr ""
+
+#: shortcodes/advisor-contact-us.php:250
+msgid "Hide"
+msgstr ""
+
+#: shortcodes/advisor-contact.php:65
+msgid "I would like to discuss:"
+msgstr ""
+
+#: shortcodes/advisor-contact.php:112
+msgid "Your Name"
+msgstr ""
+
+#: shortcodes/advisor-contact.php:113
+msgid "Email Address"
+msgstr ""
+
+#: shortcodes/advisor-contact.php:137 shortcodes/advisor-subscription.php:69
+msgid "Submit"
+msgstr ""
+
+#: shortcodes/advisor-contact.php:159
+msgid "Advisor Contact/Callback Form"
+msgstr ""
+
+#: shortcodes/advisor-contact.php:206
+#: shortcodes/advisor-right-heading-text-left.php:78
+#: shortcodes/advisor-services-slogan-icons.php:138
+#: shortcodes/advisor-services-slogan.php:92
+#: shortcodes/advisor-text-button.php:104
+#: shortcodes/advisor-text-button.php:118
+msgid "Add text here"
+msgstr ""
+
+#: shortcodes/advisor-contact.php:231
+msgid "Callback Data Options"
+msgstr ""
+
+#: shortcodes/advisor-contact.php:233
+msgid ""
+"By default some options are added for callback purposes, if you want to add "
+"your own please select 'custom' option."
+msgstr ""
+
+#: shortcodes/advisor-contact.php:236
+msgid "Select Callback Option"
+msgstr ""
+
+#: shortcodes/advisor-contact.php:237
+msgid "Default"
+msgstr ""
+
+#: shortcodes/advisor-contact.php:238
+msgid "Custom"
+msgstr ""
+
+#: shortcodes/advisor-contact.php:250
+msgid "Enter Callback Text"
+msgstr ""
+
+#: shortcodes/advisor-contact.php:252
+msgid "Enter a callback text for the shortcode here."
+msgstr ""
+
+#: shortcodes/advisor-contact.php:264
+msgid ""
+"Add comma seprated text headings for callback dropdown options e.g 'Perosnal "
+"Finance','Stock Trading' etc."
+msgstr ""
+
+#: shortcodes/advisor-contact.php:275
+msgid "Select Style"
+msgstr ""
+
+#: shortcodes/advisor-contact.php:277
+msgid ""
+"Select style for the callback form, it can be simple or background image "
+"style."
+msgstr ""
+
+#: shortcodes/advisor-contact.php:280
+msgid "Select A Style"
+msgstr ""
+
+#: shortcodes/advisor-contact.php:281
+msgid "Default Style"
+msgstr ""
+
+#: shortcodes/advisor-contact.php:282
+msgid "Background Image Style"
+msgstr ""
+
+#: shortcodes/advisor-contact.php:289
+#: shortcodes/advisor-fun-facts-counter.php:300
+#: shortcodes/advisor-services-slogan-icons.php:163
+#: shortcodes/advisor-services-slogan.php:96
+#: shortcodes/advisor-testimonials.php:704
+msgid "Background Image"
+msgstr ""
+
+#: shortcodes/advisor-contact.php:291
+#: shortcodes/advisor-fun-facts-counter.php:302
+#: shortcodes/advisor-services-slogan-icons.php:165
+#: shortcodes/advisor-services-slogan.php:98
+#: shortcodes/advisor-testimonials.php:706
+msgid "Add image here, please add full size image at least 1600x800 px approx"
+msgstr ""
+
+#: shortcodes/advisor-default-slider.php:371
+msgid "Advisor Default Slider"
+msgstr ""
+
+#: shortcodes/advisor-full-width-bannar.php:175
+msgid "Advisor advisor Full Width Bannar"
+msgstr ""
+
+#: shortcodes/advisor-full-width-bannar.php:189
+msgid "Add image (1349x631) if you want to in background of the Section."
+msgstr ""
+
+#: shortcodes/advisor-full-width-bannar.php:194
+msgid "Left Side Text Heading"
+msgstr ""
+
+#: shortcodes/advisor-full-width-bannar.php:200
+msgid "Left Side Text"
+msgstr ""
+
+#: shortcodes/advisor-full-width-bannar.php:202
+#: shortcodes/advisor-full-width-bannar.php:261
+#: shortcodes/advisor-fun-facts-counter.php:211
+#: shortcodes/advisor-intro.php:194
+msgid "Add text here, it will show up below the heading above"
+msgstr ""
+
+#: shortcodes/advisor-full-width-bannar.php:207
+msgid "Left Side Text Color"
+msgstr ""
+
+#: shortcodes/advisor-full-width-bannar.php:210
+#: shortcodes/advisor-full-width-bannar.php:269
+#: shortcodes/advisor-intro.php:202
+msgid ""
+"Choose the Color for the heading and text that will display under heading."
+msgstr ""
+
+#: shortcodes/advisor-full-width-bannar.php:214
+msgid "Left Side Text Alignment"
+msgstr ""
+
+#: shortcodes/advisor-full-width-bannar.php:216
+#: shortcodes/advisor-full-width-bannar.php:275
+#: shortcodes/advisor-fun-facts-counter.php:315
+#: shortcodes/advisor-intro.php:208
+#: shortcodes/advisor-services-carousel.php:261
+#: shortcodes/advisor-services-grid.php:248
+#: shortcodes/advisor-services-slogan-icons.php:152
+#: shortcodes/advisor-services-slogan-icons.php:219
+msgid "Select text alignment."
+msgstr ""
+
+#: shortcodes/advisor-full-width-bannar.php:219
+#: shortcodes/advisor-fun-facts-counter.php:319
+#: shortcodes/advisor-intro.php:213
+#: shortcodes/advisor-services-carousel.php:264
+#: shortcodes/advisor-services-grid.php:252
+#: shortcodes/advisor-services-slogan-icons.php:157
+#: shortcodes/advisor-services-slogan-icons.php:223
+msgid "Left Align"
+msgstr ""
+
+#: shortcodes/advisor-full-width-bannar.php:220
+#: shortcodes/advisor-full-width-bannar.php:279
+#: shortcodes/advisor-fun-facts-counter.php:320
+#: shortcodes/advisor-intro.php:214
+#: shortcodes/advisor-services-carousel.php:265
+#: shortcodes/advisor-services-grid.php:253
+#: shortcodes/advisor-services-slogan-icons.php:158
+#: shortcodes/advisor-services-slogan-icons.php:224
+msgid "Centered"
+msgstr ""
+
+#: shortcodes/advisor-full-width-bannar.php:225
+msgid "Left Side Button's Text"
+msgstr ""
+
+#: shortcodes/advisor-full-width-bannar.php:227
+#: shortcodes/advisor-full-width-bannar.php:286
+#: shortcodes/advisor-google-chart.php:215
+#: shortcodes/advisor-investment-plan.php:259
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:233
+#: shortcodes/advisor-services-carousel-icons.php:296
+#: shortcodes/advisor-services-grid-icons.php:418
+#: shortcodes/advisor-text-video-image.php:449
+msgid "Add Button text here"
+msgstr ""
+
+#: shortcodes/advisor-full-width-bannar.php:231
+msgid "Left Side Button's Link"
+msgstr ""
+
+#: shortcodes/advisor-full-width-bannar.php:233
+#: shortcodes/advisor-full-width-bannar.php:292
+#: shortcodes/advisor-google-chart.php:222
+#: shortcodes/advisor-investment-plan.php:266
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:239
+#: shortcodes/advisor-services-carousel-icons.php:302
+#: shortcodes/advisor-services-grid-icons.php:424
+#: shortcodes/advisor-text-video-image.php:456
+msgid "Add Button Link here"
+msgstr ""
+
+#: shortcodes/advisor-full-width-bannar.php:238
+msgid "Left Side Button's Background Color"
+msgstr ""
+
+#: shortcodes/advisor-full-width-bannar.php:241
+#: shortcodes/advisor-full-width-bannar.php:300
+#: shortcodes/advisor-google-chart.php:230
+#: shortcodes/advisor-investment-plan.php:274
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:247
+#: shortcodes/advisor-services-carousel-icons.php:310
+#: shortcodes/advisor-services-grid-icons.php:432
+#: shortcodes/advisor-text-button.php:132
+#: shortcodes/advisor-text-video-image.php:464
+msgid "Choose the Color for the button background."
+msgstr ""
+
+#: shortcodes/advisor-full-width-bannar.php:246
+msgid "Left Side Button's Hover Background Color"
+msgstr ""
+
+#: shortcodes/advisor-full-width-bannar.php:249
+#: shortcodes/advisor-full-width-bannar.php:308
+#: shortcodes/advisor-full-width-bannar.php:316
+#: shortcodes/advisor-full-width-bannar.php:324
+#: shortcodes/advisor-google-chart.php:238
+#: shortcodes/advisor-investment-plan.php:283
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:255
+#: shortcodes/advisor-services-carousel-icons.php:318
+#: shortcodes/advisor-services-grid-icons.php:440
+#: shortcodes/advisor-text-button.php:140
+#: shortcodes/advisor-text-video-image.php:473
+msgid "Choose the Color for the button background on hover."
+msgstr ""
+
+#: shortcodes/advisor-full-width-bannar.php:253
+msgid "Right Side Text Heading"
+msgstr ""
+
+#: shortcodes/advisor-full-width-bannar.php:259
+msgid "Right Side Text"
+msgstr ""
+
+#: shortcodes/advisor-full-width-bannar.php:266
+msgid "Right Side Text Color"
+msgstr ""
+
+#: shortcodes/advisor-full-width-bannar.php:273
+msgid "Right Side Text Alignment"
+msgstr ""
+
+#: shortcodes/advisor-full-width-bannar.php:278
+msgid "Right Align"
+msgstr ""
+
+#: shortcodes/advisor-full-width-bannar.php:284
+msgid "Right Side Button's Text"
+msgstr ""
+
+#: shortcodes/advisor-full-width-bannar.php:290
+msgid "Right Side Button's Link"
+msgstr ""
+
+#: shortcodes/advisor-full-width-bannar.php:297
+msgid "Right Side Button's Background Color"
+msgstr ""
+
+#: shortcodes/advisor-full-width-bannar.php:305
+msgid "Right Side Button's Hover Background Color"
+msgstr ""
+
+#: shortcodes/advisor-full-width-bannar.php:313
+msgid "Left Side Overlay Color"
+msgstr ""
+
+#: shortcodes/advisor-full-width-bannar.php:321
+msgid "Right Side Overlay Color"
+msgstr ""
+
+#: shortcodes/advisor-full-width-bannar.php:328
+msgid "Overlay Color Opacity"
+msgstr ""
+
+#: shortcodes/advisor-full-width-bannar.php:330
+msgid "Default Color is 0.90"
+msgstr ""
+
+#: shortcodes/advisor-fun-facts-counter.php:169
+msgid "Advisor FunFacts Counter"
+msgstr ""
+
+#: shortcodes/advisor-fun-facts-counter.php:181
+msgid "Fun Facts Layout"
+msgstr ""
+
+#: shortcodes/advisor-fun-facts-counter.php:183
+msgid ""
+"Select style, it can be simple image background or full background image "
+"with overlay."
+msgstr ""
+
+#: shortcodes/advisor-fun-facts-counter.php:186
+#: shortcodes/advisor-latest-news.php:220
+#: shortcodes/advisor-our-team-carousel.php:381
+#: shortcodes/advisor-our-team-grid.php:255
+#: shortcodes/advisor-services-carousel.php:296
+#: shortcodes/advisor-services-grid-icons.php:299
+#: shortcodes/advisor-services-grid-icons.php:334
+#: shortcodes/advisor-testimonials.php:603
+#: shortcodes/advisor-text-video-image.php:375
+msgid "Style 1"
+msgstr ""
+
+#: shortcodes/advisor-fun-facts-counter.php:187
+#: shortcodes/advisor-latest-news.php:221
+#: shortcodes/advisor-our-team-carousel.php:382
+#: shortcodes/advisor-our-team-grid.php:256
+#: shortcodes/advisor-services-carousel.php:297
+#: shortcodes/advisor-services-grid-icons.php:300
+#: shortcodes/advisor-services-grid-icons.php:335
+#: shortcodes/advisor-testimonials.php:604
+#: shortcodes/advisor-text-video-image.php:376
+msgid "Style 2"
+msgstr ""
+
+#: shortcodes/advisor-fun-facts-counter.php:188
+#: shortcodes/advisor-our-team-carousel.php:383
+#: shortcodes/advisor-services-grid-icons.php:336
+#: shortcodes/advisor-testimonials.php:605
+msgid "Style 3"
+msgstr ""
+
+#: shortcodes/advisor-fun-facts-counter.php:238
+msgid "Counter Details"
+msgstr ""
+
+#: shortcodes/advisor-fun-facts-counter.php:240
+msgid "Please enter 'comma' separated text for each counter detail."
+msgstr ""
+
+#: shortcodes/advisor-fun-facts-counter.php:254
+msgid "Counter Details Text Color"
+msgstr ""
+
+#: shortcodes/advisor-fun-facts-counter.php:257
+msgid "Choose the Color for the Counter Details text."
+msgstr ""
+
+#: shortcodes/advisor-fun-facts-counter.php:269
+msgid "End Counter"
+msgstr ""
+
+#: shortcodes/advisor-fun-facts-counter.php:271
+msgid "Please enter 'comma' separated text for each counter value."
+msgstr ""
+
+#: shortcodes/advisor-fun-facts-counter.php:285
+msgid "End Counter Text Color"
+msgstr ""
+
+#: shortcodes/advisor-fun-facts-counter.php:288
+msgid "Choose the Color for the End Counter text."
+msgstr ""
+
+#: shortcodes/advisor-fun-facts-counter.php:313
+#: shortcodes/advisor-intro.php:206 shortcodes/advisor-services-grid.php:246
+#: shortcodes/advisor-services-slogan-icons.php:150
+#: shortcodes/advisor-services-slogan-icons.php:217
+msgid "Text Align"
+msgstr ""
+
+#: shortcodes/advisor-fun-facts-counter.php:318
+#: shortcodes/advisor-intro.php:212 shortcodes/advisor-services-grid.php:251
+#: shortcodes/advisor-services-slogan-icons.php:156
+#: shortcodes/advisor-services-slogan-icons.php:222
+msgid "Select Aligment"
+msgstr ""
+
+#: shortcodes/advisor-fun-facts-counter.php:335
+msgid "Check if the counter should overlap with top element."
+msgstr ""
+
+#: shortcodes/advisor-gallery.php:73
+msgid "Advisor Gallery Slider"
+msgstr ""
+
+#: shortcodes/advisor-gallery.php:85
+msgid "Add Gallery Image"
+msgstr ""
+
+#: shortcodes/advisor-gallery.php:87
+msgid "Please add/select images from media library."
+msgstr ""
+
+#: shortcodes/advisor-google-chart.php:181
+msgid "Advisor Google Chart"
+msgstr ""
+
+#: shortcodes/advisor-google-chart.php:200
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:260
+#: shortcodes/advisor-text-video-image.php:429
+msgid "Add text 1 here"
+msgstr ""
+
+#: shortcodes/advisor-google-chart.php:213
+#: shortcodes/advisor-investment-plan.php:257
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:231
+#: shortcodes/advisor-services-carousel-icons.php:294
+#: shortcodes/advisor-services-grid-icons.php:416
+#: shortcodes/advisor-text-video-image.php:447
+msgid "Button Text"
+msgstr ""
+
+#: shortcodes/advisor-google-chart.php:220
+#: shortcodes/advisor-investment-plan.php:264
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:237
+#: shortcodes/advisor-services-carousel-icons.php:300
+#: shortcodes/advisor-services-grid-icons.php:422
+#: shortcodes/advisor-text-button.php:122
+#: shortcodes/advisor-text-video-image.php:454
+msgid "Button Link"
+msgstr ""
+
+#: shortcodes/advisor-google-chart.php:227
+#: shortcodes/advisor-investment-plan.php:271
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:244
+#: shortcodes/advisor-services-carousel-icons.php:307
+#: shortcodes/advisor-services-grid-icons.php:429
+#: shortcodes/advisor-text-button.php:129
+#: shortcodes/advisor-text-video-image.php:461
+msgid "Button Background Color"
+msgstr ""
+
+#: shortcodes/advisor-google-chart.php:235
+#: shortcodes/advisor-investment-plan.php:280
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:252
+#: shortcodes/advisor-services-carousel-icons.php:315
+#: shortcodes/advisor-services-grid-icons.php:437
+#: shortcodes/advisor-text-button.php:137
+#: shortcodes/advisor-text-video-image.php:470
+msgid "Button Hover Background Color"
+msgstr ""
+
+#: shortcodes/advisor-google-chart.php:243
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:272
+msgid "Graph Parameter One"
+msgstr ""
+
+#: shortcodes/advisor-google-chart.php:245
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:274
+msgid "Please add first parameter to compare."
+msgstr ""
+
+#: shortcodes/advisor-google-chart.php:250
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:279
+msgid "Graph Parameter Two"
+msgstr ""
+
+#: shortcodes/advisor-google-chart.php:252
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:281
+msgid "Please add second parameter to compare."
+msgstr ""
+
+#: shortcodes/advisor-google-chart.php:257
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:286
+msgid "Parameter January Values"
+msgstr ""
+
+#: shortcodes/advisor-google-chart.php:259
+#: shortcodes/advisor-google-chart.php:265
+#: shortcodes/advisor-google-chart.php:271
+#: shortcodes/advisor-google-chart.php:277
+#: shortcodes/advisor-google-chart.php:283
+#: shortcodes/advisor-google-chart.php:289
+#: shortcodes/advisor-google-chart.php:295
+#: shortcodes/advisor-google-chart.php:301
+#: shortcodes/advisor-google-chart.php:307
+#: shortcodes/advisor-google-chart.php:313
+#: shortcodes/advisor-google-chart.php:319
+#: shortcodes/advisor-google-chart.php:325
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:288
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:294
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:300
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:306
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:312
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:318
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:324
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:330
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:336
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:342
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:348
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:354
+msgid ""
+"Please add only two comma separated number values to compare with two "
+"parameters."
+msgstr ""
+
+#: shortcodes/advisor-google-chart.php:263
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:292
+msgid "Parameter February Values"
+msgstr ""
+
+#: shortcodes/advisor-google-chart.php:269
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:298
+msgid "Parameter March Values"
+msgstr ""
+
+#: shortcodes/advisor-google-chart.php:275
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:304
+msgid "Parameter April Values"
+msgstr ""
+
+#: shortcodes/advisor-google-chart.php:281
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:310
+msgid "Parameter May Values"
+msgstr ""
+
+#: shortcodes/advisor-google-chart.php:287
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:316
+msgid "Parameter June Values"
+msgstr ""
+
+#: shortcodes/advisor-google-chart.php:293
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:322
+msgid "Parameter July Values"
+msgstr ""
+
+#: shortcodes/advisor-google-chart.php:299
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:328
+msgid "Parameter August Values"
+msgstr ""
+
+#: shortcodes/advisor-google-chart.php:305
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:334
+msgid "Parameter September Values"
+msgstr ""
+
+#: shortcodes/advisor-google-chart.php:311
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:340
+msgid "Parameter October Values"
+msgstr ""
+
+#: shortcodes/advisor-google-chart.php:317
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:346
+msgid "Parameter November Values"
+msgstr ""
+
+#: shortcodes/advisor-google-chart.php:323
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:352
+msgid "Parameter December Values"
+msgstr ""
+
+#: shortcodes/advisor-intro.php:174
+msgid "Advisor Intro"
+msgstr ""
+
+#: shortcodes/advisor-intro.php:225
+msgid "Select To Show Image or Video in background"
+msgstr ""
+
+#: shortcodes/advisor-intro.php:227
+msgid "Select Image/Video which will in the background of the Section."
+msgstr ""
+
+#: shortcodes/advisor-intro.php:230
+#: shortcodes/advisor-text-video-image.php:498
+msgid "Video"
+msgstr ""
+
+#: shortcodes/advisor-intro.php:231
+#: shortcodes/advisor-text-video-image.php:497
+msgid "Image"
+msgstr ""
+
+#: shortcodes/advisor-intro.php:238
+msgid "Background Video Source"
+msgstr ""
+
+#: shortcodes/advisor-intro.php:240
+msgid "Add URL of Self Hosted Video Source for this Section"
+msgstr ""
+
+#: shortcodes/advisor-intro.php:252
+msgid "Add image (1732x968) if you want to in background of the Section."
+msgstr ""
+
+#: shortcodes/advisor-intro.php:263
+msgid "Background Color"
+msgstr ""
+
+#: shortcodes/advisor-intro.php:266
+msgid "Choose the Background Color"
+msgstr ""
+
+#: shortcodes/advisor-intro.php:276
+msgid "Button 1 Text"
+msgstr ""
+
+#: shortcodes/advisor-intro.php:278
+msgid "Add Button 1 text here"
+msgstr ""
+
+#: shortcodes/advisor-intro.php:282
+msgid "Button 1 Link"
+msgstr ""
+
+#: shortcodes/advisor-intro.php:284
+msgid "Add Button 1 Link here"
+msgstr ""
+
+#: shortcodes/advisor-intro.php:289
+msgid "Button 1 Background Color"
+msgstr ""
+
+#: shortcodes/advisor-intro.php:292
+msgid "Choose the Color for the button 1 background."
+msgstr ""
+
+#: shortcodes/advisor-intro.php:297
+msgid "Button 1 Hover Background Color"
+msgstr ""
+
+#: shortcodes/advisor-intro.php:300
+msgid "Choose the Color for the button 1 background on hover."
+msgstr ""
+
+#: shortcodes/advisor-intro.php:304
+msgid "Button 2 Text"
+msgstr ""
+
+#: shortcodes/advisor-intro.php:306
+msgid "Add Button 2 text here"
+msgstr ""
+
+#: shortcodes/advisor-intro.php:311
+msgid "Button 2 Link"
+msgstr ""
+
+#: shortcodes/advisor-intro.php:313
+msgid "Add Button 2 Link here"
+msgstr ""
+
+#: shortcodes/advisor-intro.php:318
+msgid "Button 2 Background Color"
+msgstr ""
+
+#: shortcodes/advisor-intro.php:321
+msgid "Choose the Color for the button 2 background."
+msgstr ""
+
+#: shortcodes/advisor-intro.php:326
+msgid "Button 2 Hover Background Color"
+msgstr ""
+
+#: shortcodes/advisor-intro.php:329
+msgid "Choose the Color for the button 2 background on hover."
+msgstr ""
+
+#: shortcodes/advisor-investment-plan.php:150
+msgid "Prev"
+msgstr ""
+
+#: shortcodes/advisor-investment-plan.php:151
+msgid "Next"
+msgstr ""
+
+#: shortcodes/advisor-investment-plan.php:176
+msgid "Advisor Investment Plan"
+msgstr ""
+
+#: shortcodes/advisor-investment-plan.php:211
+msgid "Add a Investment Plan"
+msgstr ""
+
+#: shortcodes/advisor-investment-plan.php:212
+msgid "Add a plan item here."
+msgstr ""
+
+#: shortcodes/advisor-investment-plan.php:220
+msgid "Add item's image here"
+msgstr ""
+
+#: shortcodes/advisor-investment-plan.php:231
+msgid "Date"
+msgstr ""
+
+#: shortcodes/advisor-investment-plan.php:233
+msgid "Use this format Day/Month/Year e.g. 16/01/2014."
+msgstr ""
+
+#: shortcodes/advisor-investment-plan.php:238
+#: shortcodes/advisor-text-video-image.php:427
+msgid "Text 1"
+msgstr ""
+
+#: shortcodes/advisor-investment-plan.php:244
+#: shortcodes/advisor-text-video-image.php:433
+msgid "Text 2"
+msgstr ""
+
+#: shortcodes/advisor-investment-plan.php:253
+msgid "Choose the Color for the heading an the text."
+msgstr ""
+
+#: shortcodes/advisor-latest-news.php:77
+#: shortcodes/advisor-latest-news.php:159
+msgid "by "
+msgstr ""
+
+#: shortcodes/advisor-latest-news.php:168
+msgid "News Detail"
+msgstr ""
+
+#: shortcodes/advisor-latest-news.php:203
+msgid "Advisor Latest News"
+msgstr ""
+
+#: shortcodes/advisor-latest-news.php:217
+#: shortcodes/advisor-our-team-carousel.php:378
+#: shortcodes/advisor-our-team-grid.php:252
+#: shortcodes/advisor-services-carousel.php:293
+msgid "Select Layout Style here"
+msgstr ""
+
+#: shortcodes/advisor-latest-news.php:228
+#: shortcodes/advisor-our-team-carousel.php:433
+#: shortcodes/advisor-price-plan.php:284
+#: shortcodes/advisor-subscription.php:114
+#: shortcodes/advisor-testimonials.php:664
+msgid "Enter Heading here"
+msgstr ""
+
+#: shortcodes/advisor-latest-news.php:235
+#: shortcodes/advisor-subscription.php:121
+msgid "Enter some text to show above the heading."
+msgstr ""
+
+#: shortcodes/advisor-our-partners-grid.php:104
+msgid "Advisor Partners Grid"
+msgstr ""
+
+#: shortcodes/advisor-our-partners-grid.php:119
+#: shortcodes/advisor-our-partners.php:183
+msgid "Enter heading text here."
+msgstr ""
+
+#: shortcodes/advisor-our-partners-grid.php:125
+msgid "Enter text here. This will display above heading."
+msgstr ""
+
+#: shortcodes/advisor-our-partners-grid.php:131
+msgid "Enter description here. This will display below heading."
+msgstr ""
+
+#: shortcodes/advisor-our-partners-grid.php:156
+#: shortcodes/advisor-our-partners.php:214
+msgid "Advisor Partner"
+msgstr ""
+
+#: shortcodes/advisor-our-partners-grid.php:168
+#: shortcodes/advisor-our-partners.php:251
+msgid "Add Image/Logo"
+msgstr ""
+
+#: shortcodes/advisor-our-partners-grid.php:170
+#: shortcodes/advisor-our-partners.php:253
+msgid ""
+"Add image logo for the company or the partner, image size 225x160px approx."
+msgstr ""
+
+#: shortcodes/advisor-our-partners.php:137
+msgid "Advisor Partners Carousel"
+msgstr ""
+
+#: shortcodes/advisor-our-partners.php:174
+msgid "Number of Partner items to Show on Desktop"
+msgstr ""
+
+#: shortcodes/advisor-our-partners.php:176
+msgid "Default Value is 2 i.e shows 2 items in Carousel."
+msgstr ""
+
+#: shortcodes/advisor-our-partners.php:225
+msgid "Company Name"
+msgstr ""
+
+#: shortcodes/advisor-our-partners.php:227
+msgid "Enter company name,agency or partner name here"
+msgstr ""
+
+#: shortcodes/advisor-our-partners.php:231
+msgid "Services Company Provides"
+msgstr ""
+
+#: shortcodes/advisor-our-partners.php:233
+msgid ""
+"It is the service company provides, what services they provide, it can be "
+"slogan for that company also, shown under the company name."
+msgstr ""
+
+#: shortcodes/advisor-our-partners.php:237
+msgid "Small Description"
+msgstr ""
+
+#: shortcodes/advisor-our-partners.php:239
+msgid "Small description about the partner company or agency."
+msgstr ""
+
+#: shortcodes/advisor-our-partners.php:244
+msgid "Company Content Text Color"
+msgstr ""
+
+#: shortcodes/advisor-our-partners.php:247
+msgid ""
+"Choose the Color for the company name, services company provides and small "
+"description of the company content."
+msgstr ""
+
+#: shortcodes/advisor-our-team-carousel.php:364
+msgid "Advisor Team Carousel"
+msgstr ""
+
+#: shortcodes/advisor-our-team-carousel.php:400
+#: shortcodes/advisor-testimonials.php:631
+msgid "Carousel Autoplay Style"
+msgstr ""
+
+#: shortcodes/advisor-our-team-carousel.php:402
+#: shortcodes/advisor-testimonials.php:633
+msgid "Select Carousel Autoplay Style Slide/Fade in"
+msgstr ""
+
+#: shortcodes/advisor-our-team-carousel.php:405
+#: shortcodes/advisor-testimonials.php:636
+msgid "Slide"
+msgstr ""
+
+#: shortcodes/advisor-our-team-carousel.php:406
+#: shortcodes/advisor-testimonials.php:637
+msgid "Fade in"
+msgstr ""
+
+#: shortcodes/advisor-our-team-carousel.php:440
+msgid ""
+"Enter some text. A short description about team. This text will appear under "
+"the main heading for Style 1 and above the heading for the Style 2 and Style "
+"3"
+msgstr ""
+
+#: shortcodes/advisor-our-team-carousel.php:455
+#: shortcodes/advisor-our-team-grid.php:284
+#: shortcodes/advisor-testimonials.php:694
+msgid "Sort your testimonials here"
+msgstr ""
+
+#: shortcodes/advisor-our-team-carousel.php:465
+msgid "Columns"
+msgstr ""
+
+#: shortcodes/advisor-our-team-carousel.php:467
+msgid "Number of columns, for now there are two options."
+msgstr ""
+
+#: shortcodes/advisor-our-team-carousel.php:470
+msgid "One"
+msgstr ""
+
+#: shortcodes/advisor-our-team-carousel.php:471
+msgid "Three"
+msgstr ""
+
+#: shortcodes/advisor-our-team-grid.php:156
+#: shortcodes/advisor-services-carousel.php:138
+msgid "Read More"
+msgstr ""
+
+#: shortcodes/advisor-our-team-grid.php:190
+msgid "x"
+msgstr ""
+
+#: shortcodes/advisor-our-team-grid.php:238
+msgid "Advisor Team Grid"
+msgstr ""
+
+#: shortcodes/advisor-our-team-grid.php:263
+msgid "Heading text here"
+msgstr ""
+
+#: shortcodes/advisor-our-team-grid.php:268
+msgid "Text Below Heading."
+msgstr ""
+
+#: shortcodes/advisor-our-team-grid.php:270
+msgid ""
+"Enter some text. A short description about team. This text will appear under "
+"the main heading for Style 1 and above the heading for the Style 2"
+msgstr ""
+
+#: shortcodes/advisor-our-team-grid.php:278
+msgid ""
+"Choose the Color for the heading, text for Style 1 and only text that will "
+"appear above heading for Style 2."
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:274
+msgid "Advisor Price Plan"
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:291 shortcodes/advisor-price-plan.php:318
+#: shortcodes/advisor-price-plan.php:429 shortcodes/advisor-price-plan.php:540
+msgid "Enter some text to show below the heading."
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:308
+msgid "Price Column one Heading."
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:310
+msgid "e.g. Basic etc."
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:316
+msgid "Price Column one Text."
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:322
+msgid "Price Column one Text Content Color"
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:325
+msgid ""
+"This Color Will be Applied to all the text of column one except heading."
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:331
+msgid "Price Column one Currency Symbol"
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:333 shortcodes/advisor-price-plan.php:444
+#: shortcodes/advisor-price-plan.php:555
+msgid "e.g. $ etc."
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:339
+msgid "Price Column one Price Amount."
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:346
+msgid "Price Column one Period."
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:348 shortcodes/advisor-price-plan.php:459
+#: shortcodes/advisor-price-plan.php:570
+msgid "e.g. Month, Year etc."
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:354
+msgid "Price Column one Important Line 1, if any"
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:362
+msgid "Price Column one Important Line 2, if any"
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:370
+msgid "Price Column one Important Line 3, if any"
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:378
+msgid "Price Column one Important Line 4, if any"
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:386
+msgid "Price Column one Button Text"
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:393
+msgid "Price Column one Button URL"
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:395 shortcodes/advisor-price-plan.php:506
+#: shortcodes/advisor-price-plan.php:617
+msgid "This Field is must Required in order to Show this Button."
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:400
+msgid "Price Column one Button Background Color"
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:407
+msgid "Price Column one Button Hover Color"
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:419
+msgid "Price Column two Heading."
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:421
+msgid "e.g. Standard etc."
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:427
+msgid "Price Column two Text."
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:433
+msgid "Price Column two Text Content Color"
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:436
+msgid ""
+"This Color Will be Applied to all the text of column two except heading."
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:442
+msgid "Price Column two Currency Symbol"
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:450
+msgid "Price Column two Price Amount."
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:457
+msgid "Price Column two Period."
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:465
+msgid "Price Column two Important Line 1, if any"
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:473
+msgid "Price Column two Important Line 2, if any"
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:481
+msgid "Price Column two Important Line 3, if any"
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:489
+msgid "Price Column two Important Line 4, if any"
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:497
+msgid "Price Column two Button Text"
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:504
+msgid "Price Column two Button URL"
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:511
+msgid "Price Column two Button Background Color"
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:518
+msgid "Price Column two Button Hover Color"
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:530
+msgid "Price Column three Heading."
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:532
+msgid "e.g. Enterprise etc."
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:538
+msgid "Price Column three Text."
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:544
+msgid "Price Column three Text Content Color"
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:547
+msgid ""
+"This Color Will be Applied to all the text of column three except heading."
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:553
+msgid "Price Column three Currency Symbol"
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:561
+msgid "Price Column three Price Amount."
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:568
+msgid "Price Column three Period."
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:576
+msgid "Price Column three Important Line 1, if any"
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:584
+msgid "Price Column three Important Line 2, if any"
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:592
+msgid "Price Column three Important Line 3, if any"
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:600
+msgid "Price Column three Important Line 4, if any"
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:608
+msgid "Price Column three Button Text"
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:615
+msgid "Price Column three Button URL"
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:622
+msgid "Price Column three Button Background Color"
+msgstr ""
+
+#: shortcodes/advisor-price-plan.php:629
+msgid "Price Column three Button Hover Color"
+msgstr ""
+
+#: shortcodes/advisor-revolution-slider.php:88
+msgid "Advisor Rev Slider"
+msgstr ""
+
+#: shortcodes/advisor-revolution-slider.php:101
+msgid "Revolution Slider Alias"
+msgstr ""
+
+#: shortcodes/advisor-revolution-slider.php:103
+msgid "Select revolution slider alias"
+msgstr ""
+
+#: shortcodes/advisor-right-heading-text-left.php:51
+msgid "Advisor Heading+Text"
+msgstr ""
+
+#: shortcodes/advisor-right-heading-text-left.php:62
+msgid "Heading Right"
+msgstr ""
+
+#: shortcodes/advisor-right-heading-text-left.php:69
+msgid "Heading Right Text Color"
+msgstr ""
+
+#: shortcodes/advisor-right-heading-text-left.php:72
+msgid "Choose the Color for the heading."
+msgstr ""
+
+#: shortcodes/advisor-right-heading-text-left.php:76
+msgid "Text Left"
+msgstr ""
+
+#: shortcodes/advisor-right-heading-text-left.php:83
+msgid "Text Left Text Color"
+msgstr ""
+
+#: shortcodes/advisor-right-heading-text-left.php:86
+#: shortcodes/advisor-text-button.php:112
+msgid "Choose the Color for the text."
+msgstr ""
+
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:106
+msgid "Advisor Icons Carousel With Heading"
+msgstr ""
+
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:147
+msgid "Enter text here. This will display under the carousel icons items."
+msgstr ""
+
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:155
+msgid "Choose the Color for the text only."
+msgstr ""
+
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:170
+#: shortcodes/advisor-services-carousel-icons.php:219
+msgid "Advisor Carousel Icon"
+msgstr ""
+
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:181
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:186
+#: shortcodes/advisor-services-carousel-icons.php:230
+#: shortcodes/advisor-services-carousel-icons.php:235
+#: shortcodes/advisor-services-grid-icons.php:345
+#: shortcodes/advisor-services-grid-icons.php:350
+#: shortcodes/advisor-services-grid-icons.php:369
+#: shortcodes/advisor-services-grid-icons.php:374
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:380
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:385
+msgid "Select Icon"
+msgstr ""
+
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:183
+#: shortcodes/advisor-services-carousel-icons.php:232
+#: shortcodes/advisor-services-grid-icons.php:347
+#: shortcodes/advisor-services-grid-icons.php:371
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:382
+msgid "Select icon, make sure to check icons in docs."
+msgstr ""
+
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:187
+#: shortcodes/advisor-services-grid-icons.php:351
+msgid " icon-airplane"
+msgstr ""
+
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:188
+#: shortcodes/advisor-services-grid-icons.php:352
+msgid "icon-ship"
+msgstr ""
+
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:189
+#: shortcodes/advisor-services-grid-icons.php:353
+msgid "icon-delivery-truck"
+msgstr ""
+
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:190
+msgid "icon-carriage"
+msgstr ""
+
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:191
+#: shortcodes/advisor-services-grid-icons.php:355
+msgid "icon-worldwide-pin"
+msgstr ""
+
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:192
+#: shortcodes/advisor-services-grid-icons.php:356
+msgid "icon-hours"
+msgstr ""
+
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:214
+#: shortcodes/advisor-services-carousel-icons.php:266
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:416
+msgid "Choose the Color for the heading and text below heading."
+msgstr ""
+
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:218
+#: shortcodes/advisor-services-carousel-icons.php:270
+msgid "Icon Color"
+msgstr ""
+
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:220
+#: shortcodes/advisor-services-carousel-icons.php:272
+msgid ""
+"Select color for the icon, when carousel 'highlight' is checked, select "
+"white color(recommended)."
+msgstr ""
+
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:223
+#: shortcodes/advisor-services-carousel-icons.php:275
+msgid "Select Color"
+msgstr ""
+
+#: shortcodes/advisor-services-carousel-icons-with-heading.php:224
+#: shortcodes/advisor-services-carousel-icons.php:276
+msgid "Theme Accent"
+msgstr ""
+
+#: shortcodes/advisor-services-carousel-icons.php:167
+msgid "Advisor Icons Carousel"
+msgstr ""
+
+#: shortcodes/advisor-services-carousel-icons.php:195
+msgid "Highlighted Background"
+msgstr ""
+
+#: shortcodes/advisor-services-carousel-icons.php:197
+msgid ""
+"Check if the caurosel items should have colored background, the color will "
+"be accent color of theme."
+msgstr ""
+
+#: shortcodes/advisor-services-carousel-icons.php:204
+msgid "Check if the caurosel should overlap with top element."
+msgstr ""
+
+#: shortcodes/advisor-services-carousel-icons.php:236
+#: shortcodes/advisor-services-grid-icons.php:375
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:386
+msgid "icon-money"
+msgstr ""
+
+#: shortcodes/advisor-services-carousel-icons.php:237
+#: shortcodes/advisor-services-grid-icons.php:376
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:387
+msgid "icon-save-money"
+msgstr ""
+
+#: shortcodes/advisor-services-carousel-icons.php:238
+#: shortcodes/advisor-services-grid-icons.php:377
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:388
+msgid "icon-consulting"
+msgstr ""
+
+#: shortcodes/advisor-services-carousel-icons.php:239
+#: shortcodes/advisor-services-grid-icons.php:378
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:389
+msgid "icon-travel"
+msgstr ""
+
+#: shortcodes/advisor-services-carousel-icons.php:240
+#: shortcodes/advisor-services-grid-icons.php:379
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:390
+msgid "icon-consumer"
+msgstr ""
+
+#: shortcodes/advisor-services-carousel-icons.php:241
+#: shortcodes/advisor-services-grid-icons.php:380
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:391
+msgid "icon-privacy"
+msgstr ""
+
+#: shortcodes/advisor-services-carousel-icons.php:242
+#: shortcodes/advisor-services-grid-icons.php:381
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:392
+msgid "icon-secure"
+msgstr ""
+
+#: shortcodes/advisor-services-carousel-icons.php:243
+#: shortcodes/advisor-services-grid-icons.php:382
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:393
+msgid "icon-planning"
+msgstr ""
+
+#: shortcodes/advisor-services-carousel-icons.php:244
+#: shortcodes/advisor-services-grid-icons.php:383
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:394
+msgid "icon-online-consult"
+msgstr ""
+
+#: shortcodes/advisor-services-carousel-icons.php:284
+msgid ""
+"Select animation effect, make sure to select this for first two items, it "
+"will work when animations are enabled."
+msgstr ""
+
+#: shortcodes/advisor-services-carousel-icons.php:287
+#: shortcodes/advisor-services-grid.php:175
+msgid "Select Effect"
+msgstr ""
+
+#: shortcodes/advisor-services-carousel-icons.php:288
+#: shortcodes/advisor-services-grid.php:176
+#: shortcodes/advisor-services-grid.php:240
+msgid "Fade-In Up"
+msgstr ""
+
+#: shortcodes/advisor-services-carousel-icons.php:289
+#: shortcodes/advisor-services-grid.php:177
+#: shortcodes/advisor-services-grid.php:241
+msgid "Fade-In Down"
+msgstr ""
+
+#: shortcodes/advisor-services-carousel.php:169
+#: shortcodes/advisor-services-grid.php:120
+msgid "Learn More"
+msgstr ""
+
+#: shortcodes/advisor-services-carousel.php:188
+msgid "Advisor Services Carousel"
+msgstr ""
+
+#: shortcodes/advisor-services-carousel.php:247
+msgid "Enter the text to show above the heading."
+msgstr ""
+
+#: shortcodes/advisor-services-carousel.php:259
+msgid "Text Alignment"
+msgstr ""
+
+#: shortcodes/advisor-services-carousel.php:280
+#: shortcodes/advisor-services-grid.php:192
+msgid "Services Item"
+msgstr ""
+
+#: shortcodes/advisor-services-carousel.php:324
+msgid "Choose the Color for the item's description text only."
+msgstr ""
+
+#: shortcodes/advisor-services-carousel.php:328
+#: shortcodes/advisor-services-grid.php:228
+msgid "Item URL"
+msgstr ""
+
+#: shortcodes/advisor-services-carousel.php:330
+#: shortcodes/advisor-services-grid.php:230
+msgid "For further explanation, if there is any URL please add that here."
+msgstr ""
+
+#: shortcodes/advisor-services-grid-icons.php:247
+#: shortcodes/advisor-services-grid-icons.php:317
+msgid "Advisor Icons Grid"
+msgstr ""
+
+#: shortcodes/advisor-services-grid-icons.php:269
+msgid "Add text here, it will show up below the heading above."
+msgstr ""
+
+#: shortcodes/advisor-services-grid-icons.php:289
+msgid ""
+"Choose the Color for the heading and text that will show up below the "
+"heading above."
+msgstr ""
+
+#: shortcodes/advisor-services-grid-icons.php:293
+#: shortcodes/advisor-services-grid-icons.php:329
+msgid "Grid Layout"
+msgstr ""
+
+#: shortcodes/advisor-services-grid-icons.php:295
+msgid ""
+"Select style, grid style can be highlighted with theme accent color or hover "
+"bottom border with accent color."
+msgstr ""
+
+#: shortcodes/advisor-services-grid-icons.php:298
+#: shortcodes/advisor-testimonials.php:721
+msgid "Select Layout"
+msgstr ""
+
+#: shortcodes/advisor-services-grid-icons.php:331
+msgid ""
+"Select style, please select the same style as selected in parent shortcode "
+"'Advisor Icons Grid'."
+msgstr ""
+
+#: shortcodes/advisor-services-grid-icons.php:337
+#: shortcodes/advisor-testimonials.php:606
+msgid "Style 4"
+msgstr ""
+
+#: shortcodes/advisor-services-grid-icons.php:354
+msgid "icon-box2"
+msgstr ""
+
+#: shortcodes/advisor-services-grid-icons.php:412
+msgid ""
+"Choose the Color for the heading and text(except style 4) below heading."
+msgstr ""
+
+#: shortcodes/advisor-services-grid.php:137
+msgid "Advisor Services Grid"
+msgstr ""
+
+#: shortcodes/advisor-services-grid.php:172
+msgid ""
+"Select animation effect, make sure to select this for first two items with "
+"different effects, it will work when animations are enabled in theme options."
+msgstr ""
+
+#: shortcodes/advisor-services-grid.php:224
+#: shortcodes/advisor-services-slogan-icons.php:213
+msgid "Choose the Color for the item's heading and description."
+msgstr ""
+
+#: shortcodes/advisor-services-grid.php:234
+msgid "Transition Effect"
+msgstr ""
+
+#: shortcodes/advisor-services-grid.php:236
+msgid "Select transition effect, make sure to select this for first two items"
+msgstr ""
+
+#: shortcodes/advisor-services-grid.php:239
+msgid "Select Transition"
+msgstr ""
+
+#: shortcodes/advisor-services-slogan-icons.php:116
+msgid "Advisor Service Slogan Icons"
+msgstr ""
+
+#: shortcodes/advisor-services-slogan-icons.php:181
+msgid "Advisor Service Slogan Item"
+msgstr ""
+
+#: shortcodes/advisor-services-slogan-icons.php:192
+msgid "Add flaticon icon class here"
+msgstr ""
+
+#: shortcodes/advisor-services-slogan.php:72
+msgid "Advisor Service Slogan"
+msgstr ""
+
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:239
+msgid "Advisor Strategy Graph"
+msgstr ""
+
+#: shortcodes/advisor-strategy-graph-with-grid-icons.php:369
+msgid "Advisor Strategy Graph Item"
+msgstr ""
+
+#: shortcodes/advisor-subscription.php:62
+msgid "Name"
+msgstr ""
+
+#: shortcodes/advisor-subscription.php:100
+msgid "Advisor Subscription"
+msgstr ""
+
+#: shortcodes/advisor-subscription.php:125
+msgid "Subscription Form Text Below Heading"
+msgstr ""
+
+#: shortcodes/advisor-subscription.php:127
+msgid "Enter subscription form text to show above the form."
+msgstr ""
+
+#: shortcodes/advisor-tabs.php:93
+msgid "Advisor Simple Tabs"
+msgstr ""
+
+#: shortcodes/advisor-tabs.php:133
+msgid "Add Tabs"
+msgstr ""
+
+#: shortcodes/advisor-tabs.php:135
+msgid "Add tab heading and the text inside the tab."
+msgstr ""
+
+#: shortcodes/advisor-tabs.php:141
+msgid "Tab Title"
+msgstr ""
+
+#: shortcodes/advisor-tabs.php:147
+msgid "Tab Text"
+msgstr ""
+
+#: shortcodes/advisor-testimonials.php:187
+msgid "View All"
+msgstr ""
+
+#: shortcodes/advisor-testimonials.php:586
+msgid "Advisor Testimonials"
+msgstr ""
+
+#: shortcodes/advisor-testimonials.php:600
+msgid "Select Style of Team view here"
+msgstr ""
+
+#: shortcodes/advisor-testimonials.php:671
+msgid "Enter some text to show under the main heading."
+msgstr ""
+
+#: shortcodes/advisor-testimonials.php:685
+msgid "Count"
+msgstr ""
+
+#: shortcodes/advisor-testimonials.php:687
+msgid "Number of testimonials to show."
+msgstr ""
+
+#: shortcodes/advisor-testimonials.php:716
+msgid "Testimonial Layout"
+msgstr ""
+
+#: shortcodes/advisor-testimonials.php:718
+msgid "Select layout, either it will be overlay or carousel."
+msgstr ""
+
+#: shortcodes/advisor-testimonials.php:722
+msgid "Overlay"
+msgstr ""
+
+#: shortcodes/advisor-testimonials.php:723
+msgid "Carousel"
+msgstr ""
+
+#: shortcodes/advisor-text-button.php:89
+msgid "Advisor Text Button"
+msgstr ""
+
+#: shortcodes/advisor-text-button.php:102
+msgid "Text On Right"
+msgstr ""
+
+#: shortcodes/advisor-text-button.php:116
+msgid "Butoon Text/Label"
+msgstr ""
+
+#: shortcodes/advisor-text-button.php:124
+msgid "Add button link here, you can add URL to any page."
+msgstr ""
+
+#: shortcodes/advisor-text-button.php:146
+msgid "Select background, for now it can be dark or light."
+msgstr ""
+
+#: shortcodes/advisor-text-button.php:150
+msgid "Dark"
+msgstr ""
+
+#: shortcodes/advisor-text-button.php:151
+msgid "Light"
+msgstr ""
+
+#: shortcodes/advisor-text-video-image.php:359
+msgid "Advisor Welcome Video/Image"
+msgstr ""
+
+#: shortcodes/advisor-text-video-image.php:372
+#: shortcodes/advisor-text-video-image.php:383
+msgid "Select Style here"
+msgstr ""
+
+#: shortcodes/advisor-text-video-image.php:381
+msgid "Image/Video Position"
+msgstr ""
+
+#: shortcodes/advisor-text-video-image.php:386
+msgid "Right Without Background Image"
+msgstr ""
+
+#: shortcodes/advisor-text-video-image.php:387
+msgid "Left With Background Image"
+msgstr ""
+
+#: shortcodes/advisor-text-video-image.php:398
+msgid "Add Background Image"
+msgstr ""
+
+#: shortcodes/advisor-text-video-image.php:415
+msgid "Tagline"
+msgstr ""
+
+#: shortcodes/advisor-text-video-image.php:417
+msgid "Add Tagline text here, this will show above the heading"
+msgstr ""
+
+#: shortcodes/advisor-text-video-image.php:435
+msgid "Add text 2 here"
+msgstr ""
+
+#: shortcodes/advisor-text-video-image.php:491
+msgid "Select To Show Image or Video On Right"
+msgstr ""
+
+#: shortcodes/advisor-text-video-image.php:493
+msgid ""
+"Select image or video which will be shown to the right side of the page."
+msgstr ""
+
+#: shortcodes/advisor-text-video-image.php:496
+msgid "Select Image/Video"
+msgstr ""
+
+#: shortcodes/advisor-text-video-image.php:503
+msgid "Video Link"
+msgstr ""
+
+#: shortcodes/advisor-text-video-image.php:505
+msgid "Add Video Link here"
+msgstr ""
+
+#: shortcodes/advisor-text-video-image.php:516
+msgid "Add Custom Video Thumbnail"
+msgstr ""
+
+#: shortcodes/advisor-text-video-image.php:518
+msgid ""
+"If custom thumbnail is provided then the original video Thumbnail will not "
+"show up."
+msgstr ""
+
+#: shortcodes/advisor-text-video-image.php:531
+msgid "Add image if you want to show image."
+msgstr ""
