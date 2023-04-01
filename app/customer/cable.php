@@ -4,12 +4,11 @@ require("session_controller.php");
 if ($_SESSION['csrftoken'] == $_POST['req_token']){
 
 if (!empty($_POST['service_module']) && !empty($_POST['dataplanloader']) && !empty($_POST['smart_no']) && !empty($_POST['security_pin']) && !empty($_POST['req_token'])){
-
-$service_module=strtoupper(mysqli_real_escape_string($con, $_POST['service_module']));
-$dataplanloader=mysqli_real_escape_string($con, $_POST['dataplanloader']);
-$smart_no=mysqli_real_escape_string($con, $_POST['smart_no']);
-$security_pin=mysqli_real_escape_string($con, $_POST['security_pin']);
-$req_token=mysqli_real_escape_string($con, $_POST['req_token']);
+  $service_module=strtoupper(mysqli_real_escape_string($con, $_POST['service_module']));
+  $dataplanloader=mysqli_real_escape_string($con, $_POST['dataplanloader']);
+  $smart_no=mysqli_real_escape_string($con, $_POST['smart_no']);
+  $security_pin=mysqli_real_escape_string($con, $_POST['security_pin']);
+  $req_token=mysqli_real_escape_string($con, $_POST['req_token']);
 
 
 if (strlen($smart_no)>5 && is_numeric($smart_no)){
@@ -39,10 +38,11 @@ $status=$apidata->status;
 if ($status == "success"){
 
  $response=array(
-  'title' => 'COMPLETED',
-  'icon' => 'success',
+    'title' => 'COMPLETED',
+    'icon' => 'success',
     'status'=>'success',
     'message' => $message,
+    // 'raw' => $apidata ?? null,
   );
 
 echo json_encode($response);
@@ -54,6 +54,7 @@ else{
 
  $response=array(
   'title' => 'FAILED',
+  'raw'=>$request,
   'icon' => 'error',
     'status'=>'fail',
     'message' => '<div class="alert alert-danger">'.$message.'</div>',

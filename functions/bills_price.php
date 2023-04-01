@@ -1,6 +1,6 @@
 <?php
 
-$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT abuja,eko, ibadan, jos, kaduna, kano, portharcourt, ikeja FROM bills_planlists WHERE id='$level'"));
+$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT abuja,eko, ibadan, jos, kaduna, kano, portharcourt, ikeja,benin,enugu FROM bills_planlists WHERE id='$level'"));
 
 $abuja=$data_query[0];
 $eko=$data_query[1];

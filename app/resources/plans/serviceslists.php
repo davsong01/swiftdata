@@ -164,6 +164,17 @@ echo '
 	<option value="810">Dstv Premium Asia - ₦'.$data_query[11].'</option>
 ';
 }
+
+if ($getservices == "showmax") {
+	$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT showmax1,showmax2, showmax3, showmax4 FROM showmax_planlist WHERE id='1'"));
+
+	echo '
+		<option value="900">Showmax Full - ₦' . $data_query[0] . '</option>
+		<option value="901">Showmax Mobile Only - ₦' . $data_query[1] . '</option>
+		<option value="902">Showmax Sports Full - ₦' . $data_query[2] . '</option>
+		<option value="903">Showmax Sports Mobile Only - ₦' . $data_query[3] . '</option>
+	';
+	}
 /////////////////CABLTEV ENDS
 
 //AIRTIME VTU-START

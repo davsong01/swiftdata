@@ -25,7 +25,6 @@ if ($row['token'] != $_SESSION['token']) {
 // Check active
 $try_session=mysqli_query($con, "SELECT * FROM users WHERE email='".$_SESSION['username']."' AND users_sid='".$_SESSION['users_sid']."'");
     if (mysqli_num_rows($try_session)<1){
-
      session_unset();
      session_destroy();
      header('location:../login?access=0');

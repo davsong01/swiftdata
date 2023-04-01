@@ -2,31 +2,31 @@
 require ("../functions/airtimevtu_price.php");
 
 if ($network=="MTN-VTU" || $network=="MTN"){
-$service_code="mtn";
-$service="MTN-VTU";
-$discount=$mtn_discount;
-$service_comm=$mair_comm;
+    $service_code="mtn";
+    $service="MTN-VTU";
+    $discount=$mtn_discount;
+    $service_comm=$mair_comm;
 }
 
 if ($network=="GLO-VTU" || $network=="GLO"){
-$service_code="glo";
-$service="GLO-VTU";
-$discount=$glo_discount;
-$service_comm=$gair_comm;
+    $service_code="glo";
+    $service="GLO-VTU";
+    $discount=$glo_discount;
+    $service_comm=$gair_comm;
 }
 
 if ($network=="AIRTEL-VTU" || $network=="AIRTEL"){
-$service_code="airtel";
-$service="AIRTEL-VTU";
-$discount=$airtel_discount;
-$service_comm=$aair_comm;
+    $service_code="airtel";
+    $service="AIRTEL-VTU";
+    $discount=$airtel_discount;
+    $service_comm=$aair_comm;
 }
 
 if ($network=="9MOBILE-VTU" || $network=="9MOBILE" || $network=="ETISALAT-VTU" || $network=="ETISALAT"){
-$service_code="etisalat";
-$service="9MOBILE-VTU";
-$discount=$mobile_discount;
-$service_comm=$moair_comm;
+    $service_code="etisalat";
+    $service="9MOBILE-VTU";
+    $discount=$mobile_discount;
+    $service_comm=$moair_comm;
 }
 
 $discount_now=$amount*$discount/100;
@@ -36,8 +36,6 @@ if ($account_balance > $service_price && $service_price > 0){
 
 $new_wallet=$account_balance-$service_price;
 mysqli_query($con, "UPDATE users SET wallets='$new_wallet' WHERE id='$user_id' AND username ='$account_username'");
-
-
   $postdata=array(
   'serviceID' => strtolower($service_code),
   'request_id' => $api_reference,

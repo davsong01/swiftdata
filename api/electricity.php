@@ -72,12 +72,16 @@ else if ($service=="JOS-ELECTRIC" && $jos_lock==1 && $service_access==1){
 }
 
 else if ($service=="KADUNA-ELECTRIC" && $kaduna_lock==1 && $service_access==1){
-
 	require("billModule/bills_vtpass.php");
 }
 
 else if ($service=="KANO-ELECTRIC" && $kano_lock==1 && $service_access==1){
-
+	require("billModule/bills_vtpass.php");
+}
+else if ($service=="BENIN-ELECTRIC" && $benin_lock==1 && $service_access==1){
+	require("billModule/bills_vtpass.php");
+}
+else if ($service=="ENUGU-ELECTRIC" && $enugu_lock==1 && $service_access==1){
 	require("billModule/bills_vtpass.php");
 }
 

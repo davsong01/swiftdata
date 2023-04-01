@@ -43,6 +43,7 @@ require 'request_pin.php';
 <div class="input-group-text">
 <span class="" id="basic-addon1"><i class="fa-solid fa-tv" style="font-size: 25px;"></i></span>
 </div>
+
 <select class="form-control" id="service_module" required>
 <option value="">--Choose--</option>
   <?php
@@ -55,6 +56,10 @@ require 'request_pin.php';
   }
   if ($star_lock != 0){
   echo '<option value="STARTIMES">STARTIMES</option>';
+  }
+  
+  if ($showmax_lock != 0) {
+    echo '<option value="SHOWMAX">SHOWMAX</option>';
   }
   ?>
 </select>
@@ -134,21 +139,20 @@ require 'request_pin.php';
 </div>
 
 <script type="text/javascript">
-	$("#service_module").change(function(){
-
-if ($("#service_module").val() !=""){
- var service_module=$("#service_module").val();
- $.LoadingOverlay("show");
-$.ajax({
-    url:'resources/plans/serviceslists?services='+service_module+'&level=<?php echo $level; ?>',
-    method:'GET',
-    success:function(RES_data){
- $.LoadingOverlay("hide");
-    $("#dataplanloader").html(RES_data);
-    }
-})
-}
-	})
+    $("#service_module").change(function(){
+        if ($("#service_module").val() !=""){
+          var service_module=$("#service_module").val();
+          $.LoadingOverlay("show");
+          $.ajax({
+              url:'resources/plans/serviceslists?services='+service_module+'&level=<?php echo $level; ?>',
+              method:'GET',
+              success:function(RES_data){
+          $.LoadingOverlay("hide");
+              $("#dataplanloader").html(RES_data);
+              }
+          })
+        }
+    })
 
 
      $("#submitTV").click(function (event) {
@@ -176,8 +180,8 @@ $.ajax({
      }
     else {
   $("#response").html(response_fd.message);
+        }
     }
-}
     });
 
     event.preventDefault();
@@ -207,9 +211,9 @@ $.ajax({
      if (response_fd.status == 'success'){
     $("#successModal").modal("show");
     $("#successModal .modal-body").html(response_fd.message);
-                    setTimeout(function() {
-                        window.location.reload();
-                    }, 3000);
+      setTimeout(function() {
+          window.location.reload();
+      }, 3000);
      }
     else {
    $("#response").html(response_fd.message);
