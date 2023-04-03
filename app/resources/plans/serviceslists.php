@@ -289,11 +289,15 @@ echo ''.$data_query[0].'
 //EPINS-START
 
 if ($getservices=="waec"){
-
-$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT waec FROM epin_planlist WHERE id='$level'"));
-
-echo '
-	<div class="alert alert-warning">WAEC = ₦'.$data_query[0].'</div>
+	$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT waec FROM epin_planlist WHERE id='$level'"));
+	echo '
+		<div class="alert alert-warning">WAEC = ₦'.$data_query[0].'</div>
+	';
+}
+if ($getservices == "gce") {
+	$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT gce FROM epin_planlist WHERE id='$level'"));
+	echo '
+	<div class="alert alert-warning">GCE = ₦' . $data_query[0] . '</div>
 ';
 }
 

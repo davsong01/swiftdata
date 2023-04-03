@@ -50,10 +50,13 @@ require 'request_pin.php';
  <?php
 
   if ($waec_lock != 0){
-  echo '<option value="WAEC">WAEC</option>';
+    echo '<option value="WAEC">WAEC</option>';
   }
+  // if ($gce_lock != 0) {
+  //   echo '<option value="GCE">GCE</option>';
+  // }
   if ($neco_lock != 0){
-  echo '<option value="NECO">NECO</option>';
+    echo '<option value="NECO">NECO</option>';
   }
   if ($nabt_lock != 0){
   echo '<option value="NABTEB">NABTEB</option>';

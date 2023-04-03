@@ -4,11 +4,12 @@ require("session_controller.php");
 if (!empty($_POST['waec']) &&  !empty($_POST['neco']) &&  !empty($_POST['nabteb']) && !empty($_POST['level'])){
 
 $waec=mysqli_real_escape_string($con, $_POST['waec']);
-$neco=mysqli_real_escape_string($con, $_POST['neco']);
+$gce=mysqli_real_escape_string($con, $_POST['gce']);
+$neco = mysqli_real_escape_string($con, $_POST['neco']);
 $nabteb=mysqli_real_escape_string($con, $_POST['nabteb']);
 $level=mysqli_real_escape_string($con, $_POST['level']);
 
-$update=mysqli_query($con, "UPDATE epin_planlist SET waec='$waec', neco='$neco', nabteb='$nabteb' WHERE id='$level'");
+$update=mysqli_query($con, "UPDATE epin_planlist SET waec='$waec',gce='$gce', neco='$neco', nabteb='$nabteb' WHERE id='$level'");
 
 if ($update){
 

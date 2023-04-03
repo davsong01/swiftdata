@@ -13,6 +13,11 @@ $message='
 <input type="hidden" value="'.$level.'" id="level">
 <input type="tel" id="waec" class="form-control" value="'.$waec.'" required>
 </div>
+<div>
+<label>GCE</label>
+<input type="hidden" value="' . $level . '" id="level">
+<input type="tel" id="gce" class="form-control" value="' . $gce . '" required>
+</div>
 
 <br/>
 <div>

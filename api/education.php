@@ -35,8 +35,12 @@ $return_info=mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM users WHERE sk
  $mobile=$return_info['mobile'];
 
 if ($service=="WAEC" && $waec_lock==1 && $service_access==1){
+    require("epinsModule/easyaccess.php");
+}
 
- require("epinsModule/easyaccess.php");
+
+else if ($service=="GCE" && $gce_lock==1 && $service_access==1){
+    require("epinsModule/vtpasseducation.php");
  }
 
 else if ($service=="NECO" && $neco_lock==1 && $service_access==1){
