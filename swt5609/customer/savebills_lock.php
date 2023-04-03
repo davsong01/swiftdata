@@ -11,9 +11,13 @@ $kaduna=mysqli_real_escape_string($con, $_POST['kaduna']);
 $ikeja=mysqli_real_escape_string($con, $_POST['ikeja']);
 $jos=mysqli_real_escape_string($con, $_POST['jos']);
 $portharcourt=mysqli_real_escape_string($con, $_POST['portharcourt']);
+$benin=mysqli_real_escape_string($con, $_POST['benin']);
+$enugu=mysqli_real_escape_string($con, $_POST['enugu']);
 $level=mysqli_real_escape_string($con, $_POST['level']);
 
-$update=mysqli_query($con, "UPDATE web_settings SET abuja_lock='$abuja', eko_lock='$eko', ibadan_lock='$ibadan', kano_lock='$kano', kaduna_lock='$kaduna', ikeja_lock='$ikeja', jos_lock='$jos', port_lock='$portharcourt' WHERE id='$level'");
+// var_dump($enugu, $benin);
+//   die();
+$update=mysqli_query($con, "UPDATE web_settings SET abuja_lock='$abuja', eko_lock='$eko', ibadan_lock='$ibadan', kano_lock='$kano', kaduna_lock='$kaduna', ikeja_lock='$ikeja', jos_lock='$jos', port_lock='$portharcourt',benin_lock='$benin', enugu_lock='$enugu' WHERE id='$level'");
 
 if ($update){
 

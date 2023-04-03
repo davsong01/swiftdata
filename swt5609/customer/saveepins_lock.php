@@ -6,9 +6,10 @@ if (!empty($_POST['level'])){
 $waec=mysqli_real_escape_string($con, $_POST['waec']);
 $neco=mysqli_real_escape_string($con, $_POST['neco']);
 $nabteb=mysqli_real_escape_string($con, $_POST['nabteb']);
+$gce=mysqli_real_escape_string($con, $_POST['gce']);
 $level=mysqli_real_escape_string($con, $_POST['level']);
 
-$update=mysqli_query($con, "UPDATE web_settings SET waec_lock='$waec', neco_lock='$neco', nabt_lock='$nabteb' WHERE id='$level'");
+$update=mysqli_query($con, "UPDATE web_settings SET waec_lock='$waec', gce_lock='$gce', neco_lock='$neco', nabt_lock='$nabteb' WHERE id='$level'");
 
 if ($update){
 

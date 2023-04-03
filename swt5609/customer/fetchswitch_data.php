@@ -179,6 +179,50 @@ echo json_encode($response);
 exit();
 }
 
+if ($searc_level=="education"){
+$message='
+<form id="form-data">
+    <label>WEAC *</label>
+    <select class="form-control" id="mtn_sns" required>
+    <option value="airtimesns_sms.php">BULKSMS</option>
+    </select>
+
+    <br/>
+    <label>GCE *</label>
+    <select class="form-control" id="glo_sns" required>
+
+    <option value="airtimesns_sms.php">BULKSMS</option>
+    </select>
+
+    <br/>
+    <label>NECO *</label>
+    <select class="form-control" id="airtel_sns" required>
+
+    <option value="airtimesns_sms.php">BULKSMS</option>
+    </select>
+
+    <br/>
+    <label>NABTEB *</label>
+    <select class="form-control" id="mobile_sns" required>
+
+    <option value="airtimesns_sms.php">BULKSMS</option>
+    </select>
+
+    <br/>
+<button class="btn btn-success" type="button" onclick="saveEducation()">Save</button>
+
+</form>
+';
+
+$response=array(
+'status' => 'success',
+'data' => $message,
+);
+
+echo json_encode($response);
+exit();
+}
+
 ////SNSLOCK END
 
 ?>

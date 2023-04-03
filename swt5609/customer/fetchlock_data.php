@@ -2,13 +2,14 @@
 require ("session_controller.php");
 $searc_level=$_GET['load_id'];
 
+// var_dump($waec_lock);
+// die();
 if ($searc_level=="datalock"){
 
 $message='
 <form id="form-data">
     <label>MTN-SME *</label>
     <select class="form-control" id="mtnsme_lock" required>
-
     <option value="1">ENABLE</option>
     <option value="0">DISABLE</option>
     </select>
@@ -16,7 +17,6 @@ $message='
     <br/>
     <label>MTN-CG *</label>
     <select class="form-control" id="mtncg_lock" required>
-
     <option value="1">ENABLE</option>
     <option value="0">DISABLE</option>
     </select>
@@ -24,7 +24,6 @@ $message='
     <br/>
     <label>GLO *</label>
     <select class="form-control" id="glo_lock" required>
-
     <option value="1">ENABLE</option>
     <option value="0">DISABLE</option>
     </select>
@@ -68,12 +67,12 @@ $message='
 ';
 
 $response=array(
-'status' => 'success',
-'data' => $message,
-);
+    'status' => 'success',
+    'data' => $message,
+    );
 
-echo json_encode($response);
-exit();
+    echo json_encode($response);
+    exit();
 }
 
 ///////DATA END
@@ -120,12 +119,12 @@ $message='
 ';
 
 $response=array(
-'status' => 'success',
-'data' => $message,
-);
+    'status' => 'success',
+    'data' => $message,
+    );
 
-echo json_encode($response);
-exit();
+    echo json_encode($response);
+    exit();
 }
 ///VTULOCK END
 
@@ -209,6 +208,14 @@ $message='
     </select>
 
     <br/>
+    <label>SHOWMAX *</label>
+    <select class="form-control" id="showmax" required>
+
+    <option value="1">ENABLE</option>
+    <option value="0">DISABLE</option>
+    </select>
+
+    <br/>
 <button class="btn btn-success" type="button" onclick="saveCABLELOCK()">Save</button>
 
 </form>
@@ -225,18 +232,35 @@ exit();
 //CABLELOCK END
 
 if ($searc_level=="epinslock"){
+$waec_status = isset($waec_lock) && $waec_lock == 1 ? ENABLED : DISABLED;
+$waec_style = isset($waec_lock) && $waec_lock == 1 ? ENABLED : DISABLED;
+$gce_status = isset($gce_lock) && $gce_lock == 1 ? ENABLED : DISABLED;
+$gce_style = isset($gce_lock) && $gce_lock == 1 ? ENABLED : DISABLED;
+$nab_status = isset($nabt_lock) && $nabt_lock == 1 ? ENABLED : DISABLED;
+$nab_style = isset($nabt_lock) && $nabt_lock == 1 ? ENABLED : DISABLED;
+$neco_status = isset($neco_lock) && $neco_lock == 1 ? ENABLED : DISABLED;
+$neco_style = isset($neco_lock) && $neco_lock == 1 ? ENABLED : DISABLED;
 
+// var_dump($waec_status);
 $message='
 <form id="form-data">
-    <label>WAEC *</label>
+    <label>WAEC * <span class="'. $waec_style.'">('.$waec_status .')</span></label>
     <select class="form-control" id="waec" required>
+    
+    <option value="1">ENABLE</option>
+    <option value="0">DISABLE</option>
+    </select>
+
+    <br/>
+     <label>GCE * <span class="'. $gce_style.'">(' . $gce_status . ')</span></label>
+    <select class="form-control" id="gce" required>
 
     <option value="1">ENABLE</option>
     <option value="0">DISABLE</option>
     </select>
 
     <br/>
-    <label>NECO *</label>
+    <label>NECO *<span class="'. $neco_style.'">(' . $neco_status . ')</span></label>
     <select class="form-control" id="neco" required>
 
     <option value="1">ENABLE</option>
@@ -244,7 +268,7 @@ $message='
     </select>
 
     <br/>
-    <label>NABTEB *</label>
+    <label>NABTEB * <span class="'. $nab_style.'">('.$nab_status .')</span></label>
     <select class="form-control" id="nabteb" required>
 
     <option value="1">ENABLE</option>
@@ -336,6 +360,19 @@ $message='
     </select>
 
     <br/>
+    <label>BENIN ELECTRIC *</label>
+    <select class="form-control" id="benin" required>
+
+    <option value="1">ENABLE</option>
+    <option value="0">DISABLE</option>
+    </select>
+    <br/>
+    <label>ENUGU ELECTRIC *</label>
+    <select class="form-control" id="enugu" required>
+
+    <option value="1">ENABLE</option>
+    <option value="0">DISABLE</option>
+    </select>
 <button class="btn btn-success" type="button" onclick="saveBILLSLOCK()">Save</button>
 
 </form>
