@@ -10,6 +10,6 @@ $kaduna=$data_query[4];
 $kano=$data_query[5];
 $portharcourt=$data_query[6];
 $ikeja=$data_query[7];
-
-
+$benin = $data_query[8];
+$enugu=$data_query[9];
 ?>

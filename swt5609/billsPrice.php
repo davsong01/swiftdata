@@ -54,6 +54,8 @@ if ($manage_prices==1){
       kano: $("#kano").val(),
       kaduna: $("#kaduna").val(),
       portharcourt: $("#portharcourt").val(),
+      benin: $("#benin").val(),
+      enugu: $("#enugu").val(),
       level: $("#level").val(),
     };
     $.ajax({

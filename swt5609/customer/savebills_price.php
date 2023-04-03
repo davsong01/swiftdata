@@ -11,9 +11,24 @@ $jos=mysqli_real_escape_string($con, $_POST['jos']);
 $kano=mysqli_real_escape_string($con, $_POST['kano']);
 $kaduna=mysqli_real_escape_string($con, $_POST['kaduna']);
 $portharcourt=mysqli_real_escape_string($con, $_POST['portharcourt']);
+$benin=mysqli_real_escape_string($con, $_POST['benin']);
+$enugu=mysqli_real_escape_string($con, $_POST['enugu']);
 $level=mysqli_real_escape_string($con, $_POST['level']);
 
-$update=mysqli_query($con, "UPDATE bills_planlists SET abuja='$abuja', eko='$eko', ibadan='$ibadan', ikeja='$ikeja', jos='$jos', kano='$kano', kaduna='$kaduna', portharcourt='$portharcourt' WHERE id='$level'");
+try {
+    //data from database
+    $update=mysqli_query($con, "UPDATE bills_planlists SET abuja='$abuja', eko='$eko', ibadan='$ibadan', ikeja='$ikeja', jos='$jos', kano='$kano', kaduna='$kaduna', portharcourt='$portharcourt', benin='$benin', enugu='$enugu' WHERE id='$level'");
+ } catch (\Exception $e) {
+    $response = array(
+      'status' => 'fail',
+      'message' =>  $e->getMessage(),
+    );
+
+    echo json_encode($response);
+    exit();
+    // throw new \Exception('Error: ' . $e->getMessage());
+ }
+
 
 if ($update){
 

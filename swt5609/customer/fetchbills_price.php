@@ -57,6 +57,18 @@ $message='
 </div>
 
 <br/>
+<div>
+<label>BENIN CHARGES</label>
+<input type="text" id="benin" class="form-control" value="' . $benin . '" required>
+</div>
+
+<br/>
+<div>
+<label>ENUGU CHARGES</label>
+<input type="text" id="enugu" class="form-control" value="' . $enugu . '" required>
+</div>
+
+<br/>
 <button class="btn btn-success" type="button" onclick="saveData()">Save</button>
 
 </form>
