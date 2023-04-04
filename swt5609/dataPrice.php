@@ -169,6 +169,7 @@ if ($manage_prices==1){
       glocg_10: $("#glocg_10").val(),
       level: $("#level").val(),
     };
+    
     $.ajax({
     url:'customer/saveglocg_price',
     type:"POST",
@@ -192,65 +193,89 @@ if ($manage_prices==1){
 
     
     function saveMTNSME() {
- $("#priceModal").modal("hide");
-    $.LoadingOverlay("show");
-     var formData = {
-      mtnsme_500: $("#mtnsme_500").val(),
-      mtnsme_1: $("#mtnsme_1").val(),
-      mtnsme_2: $("#mtnsme_2").val(),
-      mtnsme_3: $("#mtnsme_3").val(),
-      mtnsme_5: $("#mtnsme_5").val(),
-      mtnsme_10: $("#mtnsme_10").val(),
-      level: $("#level").val(),
-    };
-    $.ajax({
-    url:'customer/savemtnsme_price',
-    type:"POST",
-    data:formData,
-    dataType:'json',
-    success:function(savingRes){   
-    $.LoadingOverlay("hide");
-    if (savingRes.status=='success'){
-     $("#successModal").modal("show");
-     $("#successModal .modal-body").html(savingRes.message);
-    }
-    else{
-     $("#errorModal").modal("show");
-     $("#errorModal .modal-body").html(savingRes.message);
-    }
-            }
-        });
-    
+      $("#priceModal").modal("hide");
+          $.LoadingOverlay("show");
+          
+          var formData = {
+            mtnsme_500: $("#mtnsme_500").val(),
+            mtnsme_1: $("#mtnsme_1").val(),
+            mtnsme_2: $("#mtnsme_2").val(),
+            mtnsme_3: $("#mtnsme_3").val(),
+            mtnsme_5: $("#mtnsme_5").val(),
+            mtnsme_10: $("#mtnsme_10").val(),
+            level: $("#level").val(),
+          };
+      $.ajax({
+      url:'customer/savemtnsme_price',
+      type:"POST",
+      data:formData,
+      dataType:'json',
+      success:function(savingRes){   
+      $.LoadingOverlay("hide");
+      if (savingRes.status=='success'){
+      $("#successModal").modal("show");
+      $("#successModal .modal-body").html(savingRes.message);
+      }
+      else{
+      $("#errorModal").modal("show");
+      $("#errorModal .modal-body").html(savingRes.message);
+      }
+              }
+          });
+      
     }
 
 
     function saveMTNCG() {
- $("#priceModal").modal("hide");
-    $.LoadingOverlay("show");
-     var formData = {
-      mtncg_500: $("#mtncg_500").val(),
-      mtncg_1: $("#mtncg_1").val(),
-      mtncg_2: $("#mtncg_2").val(),
-      mtncg_3: $("#mtncg_3").val(),
-      mtncg_5: $("#mtncg_5").val(),
-      mtncg_10: $("#mtncg_10").val(),
-      level: $("#level").val(),
-    };
-    $.ajax({
-    url:'customer/savemtncg_price',
-    type:"POST",
-    data:formData,
-    dataType:'json',
-    success:function(savingRes){   
-    $.LoadingOverlay("hide");
-    if (savingRes.status=='success'){
-     $("#successModal").modal("show");
-     $("#successModal .modal-body").html(savingRes.message);
-    }
-    else{
-     $("#errorModal").modal("show");
-     $("#errorModal .modal-body").html(savingRes.message);
-    }
+      $("#priceModal").modal("hide");
+          $.LoadingOverlay("show");
+          
+          var formData = {
+            level: $("#level").val(),
+            mtncg_500: $("#mtncg_500").val(),
+            mtncg_1: $("#mtncg_1").val(),
+            mtncg_2: $("#mtncg_2").val(),
+            mtncg_3: $("#mtncg_3").val(),
+            mtncg_5: $("#mtncg_5").val(),
+            mtncg_10: $("#mtncg_10").val(),
+            mtncg_10: $("#mtncg_10").val(),
+            easy_access125: $("#easy_access125").val(), 
+            easy_access126: $("#easy_access126").val(), 
+            easy_access127: $("#easy_access127").val(), 
+            easy_access45: $("#easy_access45").val(),
+            easy_access46: $("#easy_access46").val(),
+            easy_access47: $("#easy_access47").val(),
+            easy_access48: $("#easy_access48").val(),
+            easy_access49: $("#easy_access49").val(),
+            easy_access88: $("#easy_access88").val(),
+            easy_access89: $("#easy_access89").val(),
+            easy_access90: $("#easy_access90").val(),
+            easy_access141: $("#easy_access141").val(),
+            easy_access142: $("#easy_access142").val(),
+            easy_access143: $("#easy_access143").val(),
+            easy_access144: $("#easy_access144").val(),
+            easy_access145: $("#easy_access145").val(),
+            easy_access146: $("#easy_access146").val(),
+            easy_access147: $("#easy_access147").val(),
+            easy_access148: $("#easy_access148").val(),
+            easy_access149: $("#easy_access149").val(),
+            easy_access150: $("#easy_access150").val(),
+            easy_access151:$("#easy_access151").val(),
+          };
+          $.ajax({
+            url:'customer/savemtncg_price',
+            type:"POST",
+            data:formData,
+            dataType:'json',
+            success:function(savingRes){   
+            $.LoadingOverlay("hide");
+            if (savingRes.status=='success'){
+                $("#successModal").modal("show");
+                $("#successModal .modal-body").html(savingRes.message);
+              }else{
+                $("#errorModal").modal("show");
+                $("#errorModal .modal-body").html(savingRes.message);
+              }
             }
         });
     

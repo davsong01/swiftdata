@@ -1,65 +1,59 @@
 <?php require("site_header.php"); ?>
 <?php
-if ($manage_automation==1){
-?>
+    $colors = array('#d98383','#111','green');
 
-<div class="main_content_iner ">
-    <div class="container-fluid p-0 sm_padding_15px">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="alert" style="background-color: #d98383;color: #000;">
-                    <center>
-                        <h4 style="color: white;">CHANGE DATA AUTOMATION</h4>
-    
-                        <p style="color: white;">click the button to see option.</p>
-                        <br />
-                        <button class="btn btn-danger btn-block" id="data" onclick="switchFun(this.id)">EDIT
-                            INFORMATION</button>
-    
-                    </center>
+    $key = array_rand($colors);
+
+    if ($manage_automation==1){
+        
+    ?>
+
+    <div class="main_content_iner ">
+        <div class="container-fluid p-0 sm_padding_15px">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="alert" style="background-color:<?php echo $colors[$key]; ?>;color: #000;">
+                        <center>
+                            <h4 style="color: white;">CHANGE DATA AUTOMATION</h4>
+        
+                            <p style="color: white;">click the button to see option.</p>
+                            <br />
+                            <button class="btn btn-danger btn-block" id="data" onclick="switchFun(this.id)">EDIT
+                                INFORMATION</button>
+        
+                        </center>
+                    </div>
+
                 </div>
+                <div class="col-md-6">
+                    <div class="alert" style="background-color: <?php echo $colors[$key]; ?>;color: #000;">
+                        <center>
+                            <h4 style="color: white;">CHANGE VTU AUTOMATION</h4>
 
-            </div>
-            <div class="col-md-6">
-                <div class="alert" style="background-color: #d98383;color: #000;">
-                    <center>
-                        <h4 style="color: white;">CHANGE VTU AUTOMATION</h4>
+                            <p style="color: white;">click the button to see option.</p>
+                            <br />
+                            <button class="btn btn-danger btn-block" id="vtu" onclick="switchFun(this.id)">EDIT
+                                INFORMATION</button>
 
-                        <p style="color: white;">click the button to see option.</p>
-                        <br />
-                        <button class="btn btn-danger btn-block" id="vtu" onclick="switchFun(this.id)">EDIT
-                            INFORMATION</button>
-
-                    </center>
+                        </center>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div class="alert" style="background-color: #d98383;color: #000;">
-                    <center>
-                        <h4 style="color: white;">CHANGE SNS AUTOMATION</h4>
+                <div class="col-md-6">
+                    <div class="alert" style="background-color: <?php echo $colors[$key]; ?>;color: #000;">
+                        <center>
+                            <h4 style="color: white;">CHANGE SNS AUTOMATION</h4>
 
-                        <p style="color: white;">click the button to see option.</p>
-                        <br />
-                        <button class="btn btn-danger btn-block" id="sns" onclick="switchFun(this.id)">EDIT
-                            INFORMATION</button>
+                            <p style="color: white;">click the button to see option.</p>
+                            <br />
+                            <button class="btn btn-danger btn-block" id="sns" onclick="switchFun(this.id)">EDIT
+                                INFORMATION</button>
 
-                    </center>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="alert" style="background-color: #d98383;color: #000;">
-                    <center>
-                        <h4 style="color: white;">CHANGE EPINS SERVICES AUTOMATION</h4>
-                        <p style="color: white;">click the button to see option.</p>
-                        <br />
-                        <button class="btn btn-danger btn-block" id="education" onclick="switchFun(this.id)">EDIT
-                            INFORMATION</button>
-                    </center>
+                        </center>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 <script type="text/javascript">
     function switchFun(id) {

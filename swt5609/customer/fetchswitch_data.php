@@ -9,60 +9,65 @@ $message='
     <label>MTN-SME *</label>
     <select class="form-control" id="mtnsme_data" required>
 
-    <option value="mtnsme_sms.php">BULKSMS</option>
-    <option value="mtnsme_don.php">DONLESON</option>
-    <option value="mtnsme_gon.php">GONGOZDATA</option>
-    <option value="mtnsme_abum.php">ABUMPAY-NG</option>
+    <option value="mtnsme_sms.php" ' . ($api_mtn == 'mtnsme_sms.php' ? 'selected' : '') . '>BULKSMS</option>
+    <option value="mtnsme_don.php" ' . ($api_mtn == 'mtnsme_don.php' ? 'selected' : '') . '>DONLESON</option>
+    <option value="mtnsme_gon.php" ' . ($api_mtn == 'mtnsme_gon.php' ? 'selected' : '') . '>GONGOZDATA</option>
+    <option value="mtnsme_abum.php" ' . ($api_mtn == 'mtnsme_abum.php' ? 'selected' : '') . '>ABUMPAY-NG</option>
+    <option value="easy_access_data.php" ' . ($api_mtn == 'easy_access_data.php' ? 'selected' : '') . '>EASY ACCESS</option>
+
     </select>
 
     <br/>
     <label>MTN-CG *</label>
     <select class="form-control" id="mtncg_data" required>
-
-    <option value="mtncg_sms.php">BULKSMS</option>
-    <option value="mtncg_don.php">DONLESON</option>
+    <option value="mtncg_sms.php" ' . ($api_gift == 'mtncg_sms.php' ? 'selected' : '') . '>BULKSMS</option>
+    <option value="gongzo.php" ' . ($api_gift == 'gongzo.php' ? 'selected' : '') . '>GONGOZDATA</option>
+    <option value="mtncg_don.php" ' . ($api_gift == 'mtncg_don.php' ? 'selected' : '') . '>DONLESON</option>
+    <option value="easy_access_data.php" ' . ($api_gift == 'easy_access_data.php' ? 'selected' : '') . '>EASY ACCESS</option>
     </select>
 
     <br/>
     <label>GLO *</label>
     <select class="form-control" id="glo_data" required>
 
-    <option value="glo_sms.php">BULKSMS</option>
-    <option value="glo_don.php">DONLESON</option>
-    <option value="glo_gon.php">GONGOZDATA</option>
+    <option value="glo_sms.php"' . ($api_glo  == 'glo_sms.php' ? 'selected' : '') . '>BULKSMS</option>
+    <option value="glo_don.php"' . ($api_glo  == 'glo_don.php' ? 'selected' : '') . '>DONLESON</option>
+    <option value="glo_gon.php"' . ($api_glo  == 'glo_gon.php' ? 'selected' : '') . '>GONGOZDATA</option>
     </select>
     
     <br/>
     <label>GLO-CG *</label>
     <select class="form-control" id="glocg_data" required>
 
-    <option value="glocg_sms.php">BULKSMS</option>
-    <option value="glocg_don.php">DONLESON</option>
+    <option value="glocg_sms.php"' . ($api_glocg  == 'glocg_sms.php' ? 'selected' : '') . '>BULKSMS</option>
+    <option value="gongzo.php"' . ($api_glocg  == 'gongzo.php' ? 'selected' : '') . '>GONGOZDATA</option>
+    <option value="glocg_don.php"' . ($api_glocg  == 'glocg_don.php' ? 'selected' : '') . '>DONLESON</option>
+    <option value="easy_access_data.php"' . ($api_glocg  == 'easy_access_data.php' ? 'selected' : '') . '>EASY ACCESS</option>
     </select>
 
     <br/>
     <label>AIRTEL *</label>
     <select class="form-control" id="airtel_data" required>
 
-    <option value="airtel_sms.php">BULKSMS</option>
-    <option value="airtel_don.php">DONLESON</option>
-    <option value="airtel_gon.php">GONGOZDATA</option>
+    <option value="airtel_sms.php"' . ($api_airtel  == 'airtel_sms.php' ? 'selected' : '') . '>BULKSMS</option>
+    <option value="airtel_don.php"' . ($api_airtel  == 'airtel_don.php' ? 'selected' : '') . '>DONLESON</option>
+    <option value="airtel_gon.php"' . ($api_airtel  == 'airtel_gon.php' ? 'selected' : '') . '>GONGOZDATA</option>
     </select>
 
     <br/>
     <label>AIRTEL-CG *</label>
     <select class="form-control" id="airtelcg_data" required>
-
-    <option value="airtelcg_sms.php">BULKSMS</option>
-    <option value="airtelcg_don.php">DONLESON</option>
+        <option value="airtelcg_sms.php"' . ($api_airtelcg  == 'airtelcg_sms.php' ? 'selected' : '') . '>BULKSMS</option>
+        <option value="airtelcg_don.php"' . ($api_airtelcg  == 'airtelcg_don.php' ? 'selected' : '') . '>DONLESON</option>
+        <option value="gongzo.php"' . ($api_airtelcg  == 'gongzo.php' ? 'selected' : '') . '>GONGOZDATA</option>
+        <option value="easy_access_data.php"' . ($api_airtelcg  == 'easy_access_data.php' ? 'selected' : '') . '>EASY ACCESS</option>
     </select>
 
     <br/>
     <label>9MOBILE *</label>
     <select class="form-control" id="mobile_data" required>
-
-    <option value="mobile_sms.php">BULKSMS</option>
-    <option value="mobile_don.php">DONLESON</option>
+        <option value="mobile_sms.php"' . ($api_mobile  == 'mobile_sms.php' ? 'selected' : '') . '>BULKSMS</option>
+        <option value="mobile_don.php"' . ($api_mobile  == 'mobile_don.php' ? 'selected' : '') . '>DONLESON</option>
     </select>
 
     <br/>
@@ -88,33 +93,31 @@ $message='
 <form id="form-data">
     <label>MTN *</label>
     <select class="form-control" id="mtn_vtu" required>
-
-    <option value="airtimevtu_vtpass.php">VTPASS</option>
-    <option value="airtimevtu_host.php">SIMHOSTING</option>
+        <option value="airtimevtu_vtpass.php"' . ($api_mtn2 == 'airtimevtu_vtpass.php' ? 'selected' : '') . '>VTPASS</option>
+        <option value="airtimevtu_host.php"' . ($api_mtn2 == 'airtimevtu_host.php' ? 'selected' : '') . '>SIMHOSTING</option>
     </select>
 
     <br/>
     <label>GLO *</label>
     <select class="form-control" id="glo_vtu" required>
-
-    <option value="airtimevtu_vtpass.php">VTPASS</option>
-    <option value="airtimevtu_host.php">SIMHOSTING</option>
+        <option value="airtimevtu_vtpass.php"' . ($api_glo2 == 'airtimevtu_vtpass.php' ? 'selected' : '') . '>VTPASS</option>
+        <option value="airtimevtu_host.php"' . ($api_glo2 == 'airtimevtu_host.php' ? 'selected' : '') . '>SIMHOSTING</option>
     </select>
 
     <br/>
     <label>AIRTEL *</label>
     <select class="form-control" id="airtel_vtu" required>
 
-    <option value="airtimevtu_vtpass.php">VTPASS</option>
-    <option value="airtimevtu_host.php">SIMHOSTING</option>
+    <option value="airtimevtu_vtpass.php"' . ($api_airtel2== 'airtimevtu_vtpass.php' ? 'selected' : '') . '>VTPASS</option>
+    <option value="airtimevtu_host.php"' . ($api_airtel2== 'airtimevtu_host.php' ? 'selected' : '') . '>SIMHOSTING</option>
     </select>
 
     <br/>
     <label>9MOBILE *</label>
     <select class="form-control" id="mobile_vtu" required>
 
-    <option value="airtimevtu_vtpass.php">VTPASS</option>
-    <option value="airtimevtu_host.php">SIMHOSTING</option>
+    <option value="airtimevtu_vtpass.php"' . ($api_mobile2== 'airtimevtu_vtpass.php' ? 'selected' : '') . '>VTPASS</option>
+    <option value="airtimevtu_host.php"' . ($api_mobile2 == 'airtimevtu_host.php' ? 'selected' : '') . '>SIMHOSTING</option>
     </select>
 
     <br/>
@@ -180,47 +183,50 @@ exit();
 }
 
 if ($searc_level=="education"){
-$message='
-<form id="form-data">
-    <label>WEAC *</label>
-    <select class="form-control" id="mtn_sns" required>
-    <option value="airtimesns_sms.php">BULKSMS</option>
-    </select>
+    $message='
+    <form id="form-data">
+        <label>WAEC *</label>
+        <select class="form-control" id="waec_education" required>
+        <option value="airtimesns_sms.php">BULKSMS</option>
+        <option value="mtnsme_gon.php">GONGOZ WAEC</option>
+        </select>
 
-    <br/>
-    <label>GCE *</label>
-    <select class="form-control" id="glo_sns" required>
+        <br/>
+        <label>GCE *</label>
+        <select class="form-control" id="gce_education" required>
 
-    <option value="airtimesns_sms.php">BULKSMS</option>
-    </select>
+        <option value="airtimesns_sms.php">BULKSMS</option>
+        <option value="mtnsme_gon.php">GONGOZ WAEC</option>
 
-    <br/>
-    <label>NECO *</label>
-    <select class="form-control" id="airtel_sns" required>
+        </select>
 
-    <option value="airtimesns_sms.php">BULKSMS</option>
-    </select>
+        <br/>
+        <label>NECO *</label>
+        <select class="form-control" id="airtel_sns" required>
 
-    <br/>
-    <label>NABTEB *</label>
-    <select class="form-control" id="mobile_sns" required>
+        <option value="airtimesns_sms.php">BULKSMS</option>
+        </select>
 
-    <option value="airtimesns_sms.php">BULKSMS</option>
-    </select>
+        <br/>
+        <label>NABTEB *</label>
+        <select class="form-control" id="mobile_sns" required>
 
-    <br/>
-<button class="btn btn-success" type="button" onclick="saveEducation()">Save</button>
+        <option value="airtimesns_sms.php">BULKSMS</option>
+        </select>
 
-</form>
-';
+        <br/>
+    <button class="btn btn-success" type="button" onclick="saveEducation()">Save</button>
 
-$response=array(
-'status' => 'success',
-'data' => $message,
-);
+    </form>
+    ';
 
-echo json_encode($response);
-exit();
+    $response=array(
+        'status' => 'success',
+        'data' => $message,
+    );
+
+    echo json_encode($response);
+    exit();
 }
 
 ////SNSLOCK END
