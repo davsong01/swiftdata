@@ -76,10 +76,11 @@ if ($searc_level=="mtncg1" || $searc_level=="mtncg2" || $searc_level=="mtncg3" |
 
     if($api_gift == 'easy_access_data.php'){
         $type = 'data';
+        $product = 'mtn-cg';
         require("../../api/easy_access_pricing.php");
         $message = '<form method="POST" id="submit_form">
-         <input type="hidden" value="' . $level . '" id="level">';
-
+        <input type="hidden" value="' . $level . '" id="level">';
+        
         foreach($response as $res){
             $message .= '<div>
                             <label>' . $res['name'] . '</label>
