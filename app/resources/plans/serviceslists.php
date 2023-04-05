@@ -54,7 +54,44 @@ if ($getservices=="airtel-cg"){
 			}
 		}
 		echo $echo;
-		
+	}else{
+		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT airtelcg_100,airtelcg_300, airtelcg_500, airtelcg_1, airtelcg_2, airtelcg_5  FROM airtelcgdata_plan WHERE id='$level'"));
+
+		echo '
+			<option value="601">AIRTEL-CG 100MB - ₦'.$data_query[0].'</option>
+			<option value="602">AIRTEL-CG 300MB - ₦'.$data_query[1].'</option>
+			<option value="603">AIRTEL-CG 500MB - ₦'.$data_query[2].'</option>
+			<option value="604">AIRTEL-CG 1GB - ₦'.$data_query[3].'</option>
+			<option value="605">AIRTEL-CG 2GB - ₦'.$data_query[4].'</option>
+			<option value="606">AIRTEL-CG 5GB - ₦'.$data_query[5].'</option>
+		';
+	}
+}
+
+if ($getservices=="glo-cg"){
+	if($api_glocg == 'easy_access_data.php'){
+		$type = 'data';
+		$product = $getservices;
+		require('../../../api/easy_access_pricing.php');
+		// var_dump($type,$getservices,$api_gift);
+		// die();
+		foreach($response as $res){
+			if(isset($res['price']) && $res['price'] > 0){
+				$echo.= '<option value="'.$res['code'].'">' . $res['name'] . ' - ₦'.$res['price'].'</option>';
+			}
+		}
+		echo $echo;
+	}else{
+		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT glocg_200, glocg_500, glocg_1, glocg_2, glocg_3, glocg_5, glocg_10 FROM glocgdata_plan WHERE id='$level'"));
+		echo '
+			<option value="901">GLO-CG 200MB - ₦' . $data_query[0] . '</option>
+			<option value="902">GLO-CG 500MB - ₦' . $data_query[1] . '</option>
+			<option value="903">GLO-CG 1GB - ₦' . $data_query[2] . '</option>
+			<option value="904">GLO-CG 2GB - ₦' . $data_query[3] . '</option>
+			<option value="905">GLO-CG 3GB - ₦' . $data_query[4] . '</option>
+			<option value="906">GLO-CG 5GB - ₦' . $data_query[5] . '</option>
+			<option value="907">GLO-CG 10GB - ₦' . $data_query[6] . '</option>
+		';
 	}
 }
 
@@ -73,20 +110,6 @@ echo '
 	<option value="209">GLO 29.5GB - ₦'.$data_query[8].'</option>
 	<option value="210">GLO 50GB - ₦'.$data_query[9].'</option>
 	<option value="211">GLO 93GB - ₦'.$data_query[10].'</option>
-';
-}
-
-if ($getservices=="glo-cg"){
-$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT glocg_200, glocg_500, glocg_1, glocg_2, glocg_3, glocg_5, glocg_10 FROM glocgdata_plan WHERE id='$level'"));
-
-echo '
-	<option value="901">GLO-CG 200MB - ₦'.$data_query[0].'</option>
-	<option value="902">GLO-CG 500MB - ₦'.$data_query[1].'</option>
-	<option value="903">GLO-CG 1GB - ₦'.$data_query[2].'</option>
-	<option value="904">GLO-CG 2GB - ₦'.$data_query[3].'</option>
-	<option value="905">GLO-CG 3GB - ₦'.$data_query[4].'</option>
-	<option value="906">GLO-CG 5GB - ₦'.$data_query[5].'</option>
-	<option value="907">GLO-CG 10GB - ₦'.$data_query[6].'</option>
 ';
 }
 
@@ -110,18 +133,7 @@ echo '
 ';
 }
 
-if ($getservices=="airtel-cg"){
-$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT airtelcg_100,airtelcg_300, airtelcg_500, airtelcg_1, airtelcg_2, airtelcg_5  FROM airtelcgdata_plan WHERE id='$level'"));
 
-echo '
-	<option value="601">AIRTEL-CG 100MB - ₦'.$data_query[0].'</option>
-	<option value="602">AIRTEL-CG 300MB - ₦'.$data_query[1].'</option>
-	<option value="603">AIRTEL-CG 500MB - ₦'.$data_query[2].'</option>
-	<option value="604">AIRTEL-CG 1GB - ₦'.$data_query[3].'</option>
-	<option value="605">AIRTEL-CG 2GB - ₦'.$data_query[4].'</option>
-	<option value="606">AIRTEL-CG 5GB - ₦'.$data_query[5].'</option>
-';
-}
 
 if ($getservices=="9mobile"){
 $data_query = mysqli_fetch_array(mysqli_query($con, "SELECT mobile_500,mobile_15, mobile_2, mobile_3, mobile_45, mobile_11, mobile_150, mobile_40, mobile_75  FROM mobiledata_plan WHERE id='$level'"));

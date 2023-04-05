@@ -11,7 +11,8 @@
         // if($mtnsme_access > 0){
             $type = 'data';
             $product = 'mtn-cg';
-           
+            $ntwk = 01;
+
             // Get mtn sms pricess
             require('../api/easy_access_pricing.php');
             $url = "https://easyaccess.com.ng/api/data.php";
@@ -28,7 +29,8 @@
     }elseif($network == 'AIRTEL-CG'){
         $type = 'data';
         $product = 'airtel-cg';
-           
+        $ntwk = 03;
+
         require('../api/easy_access_pricing.php');
         $url = "https://easyaccess.com.ng/api/data.php";
         
@@ -42,7 +44,43 @@
             }
         }
         
-    }
+    }elseif($network == 'GLO-CG'){
+        $type = 'data';
+        $product = 'glo-cg';
+        $ntwk = 02;
+           
+        require('../api/easy_access_pricing.php');
+        $url = "https://easyaccess.com.ng/api/data.php";
+        
+        foreach ($response as $res) {
+            if ($plan_id==$res['code']){
+                $service_price = $res['price'];
+                $service = "glo-cg";
+                $databyte = $res['name'];
+                $package_name = $res['name'];
+                $planCode = $res['code'];
+            }
+        }
+        
+    } elseif ($network == 'MOBILE-CG') {
+        $type = 'data';
+        $product = 'MOBILE-cg';
+        $ntwk = 04;
+
+        require('../api/easy_access_pricing.php');
+        $url = "https://easyaccess.com.ng/api/data.php";
+
+        foreach ($response as $res) {
+            if ($plan_id == $res['code']) {
+                $service_price = $res['price'];
+                $service = "airtel-cg";
+                $databyte = $res['name'];
+                $package_name = $res['name'];
+                $planCode = $res['code'];
+            }
+        }
+
+}
     // add  additional easy access services here
 
     // Perform operations
@@ -70,7 +108,7 @@
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "POST",
             CURLOPT_POSTFIELDS => array(
-                'network' =>01, // MTN
+                'network' =>$ntwk, 
                 'mobileno' =>  $mobile_no,
                 'dataplan' =>  $planCode,
                 'client_reference' => '', //update this on your script to receive webhook notifications
