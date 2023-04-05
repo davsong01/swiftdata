@@ -157,35 +157,44 @@ if ($manage_prices==1){
 
 ////
     function saveGLOCG() {
- $("#priceModal").modal("hide");
-    $.LoadingOverlay("show");
-     var formData = {
-      glocg_200: $("#glocg_200").val(),
-      glocg_500: $("#glocg_500").val(),
-      glocg_1: $("#glocg_1").val(),
-      glocg_2: $("#glocg_2").val(),
-      glocg_3: $("#glocg_3").val(),
-      glocg_5: $("#glocg_5").val(),
-      glocg_10: $("#glocg_10").val(),
-      level: $("#level").val(),
-    };
+    $("#priceModal").modal("hide");
+      $.LoadingOverlay("show");
+      var formData = {
+        glocg_200: $("#glocg_200").val(),
+        glocg_500: $("#glocg_500").val(),
+        glocg_1: $("#glocg_1").val(),
+        glocg_2: $("#glocg_2").val(),
+        glocg_3: $("#glocg_3").val(),
+        glocg_5: $("#glocg_5").val(),
+        glocg_10: $("#glocg_10").val(),
+
+        easy_access158: $("#easy_access158").val(), 
+        easy_access159: $("#easy_access159").val(), 
+        easy_access160: $("#easy_access160").val(), 
+        easy_access161: $("#easy_access161").val(),
+        easy_access162: $("#easy_access162").val(), 
+        easy_access163: $("#easy_access163").val(), 
+        easy_access164: $("#easy_access164").val(), 
+
+        level: $("#level").val(),
+      };
     
-    $.ajax({
-    url:'customer/saveglocg_price',
-    type:"POST",
-    data:formData,
-    dataType:'json',
-    success:function(savingRes){   
-    $.LoadingOverlay("hide");
-    if (savingRes.status=='success'){
-     $("#successModal").modal("show");
-     $("#successModal .modal-body").html(savingRes.message);
-    }
-    else{
-     $("#errorModal").modal("show");
-     $("#errorModal .modal-body").html(savingRes.message);
-    }
-            }
+        $.ajax({
+        url:'customer/saveglocg_price',
+        type:"POST",
+        data:formData,
+        dataType:'json',
+        success:function(savingRes){   
+        $.LoadingOverlay("hide");
+        if (savingRes.status=='success'){
+        $("#successModal").modal("show");
+        $("#successModal .modal-body").html(savingRes.message);
+        }
+        else{
+        $("#errorModal").modal("show");
+        $("#errorModal .modal-body").html(savingRes.message);
+        }
+        }
         });
     
     }

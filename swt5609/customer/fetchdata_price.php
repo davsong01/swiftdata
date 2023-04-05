@@ -243,6 +243,134 @@ if ($searc_level == "airtelcg1" || $searc_level == "airtelcg2" || $searc_level =
     exit();
 }
 // AIRTEL CG END
+
+// GLO CG START
+if ($searc_level == "glocg1" || $searc_level == "glocg2" || $searc_level == "glocg3" || $searc_level == "glocg4") {
+
+    if ($searc_level == "glocg1") {
+        $level = 1;
+    }
+    if ($searc_level == "glocg2") {
+        $level = 2;
+    }
+    if ($searc_level == "glocg3") {
+        $level = 3;
+    }
+    if ($searc_level == "glocg4") {
+        $level = 4;
+    }
+
+    if ($api_glocg == 'easy_access_data.php') {
+        $type = 'data';
+        $product = 'glo-cg';
+        require("../../api/easy_access_pricing.php");
+        $message = '<form method="POST" id="submit_form">
+        <input type="hidden" value="' . $level . '" id="level">';
+
+        foreach ($response as $res) {
+            $message .= '<div><label>' . $res['name'] . '</label><input type="number" id="' . $res['id'] . '" class="form-control" value="' . $res['price'] . '" required></div><br>';
+        }
+
+        $message .= '<button class="btn btn-success" type="button" onclick="saveGLOCG()">Save</button></form>';
+    } else {
+        require ("../../functions/glo_price.php");
+
+        $message='
+
+        <form method="POST" id="submit_form">
+
+        <div>
+        <label>GLO 1.05GB</label>
+        <input type="hidden" value="'.$level.'" id="level">
+        <input type="tel" id="glo_105" class="form-control" value="'.$glo_105.'" required>
+        </div>
+
+        <br/>
+        <div>
+        <label>GLO 2.9GB</label>
+        <input type="tel" id="glo_29" class="form-control" value="'.$glo_29.'" required>
+        </div>
+
+        <br/>
+        <div>
+        <label>GLO 4.1GB</label>
+        <input type="tel" id="glo_41" class="form-control" value="'.$glo_41.'" required>
+        </div>
+
+        <br/>
+        <div>
+        <label>GLO 5.8GB</label>
+        <input type="tel" id="glo_58" class="form-control" value="'.$glo_58.'" required>
+        </div>
+
+        <br/>
+        <div>
+        <label>GLO 7.7GB</label>
+        <input type="tel" id="glo_77" class="form-control" value="'.$glo_77.'" required>
+        </div>
+
+        <br/>
+        <div>
+        <label>GLO 10GB</label>
+        <input type="tel" id="glo_10" class="form-control" value="'.$glo_10.'" required>
+        </div>
+
+        <br/>
+        <div>
+        <label>GLO 13.25GB</label>
+        <input type="tel" id="glo_1325" class="form-control" value="'.$glo_1325.'" required>
+        </div>
+
+        <br/>
+        <div>
+        <label>GLO 18.25GB</label>
+        <input type="tel" id="glo_1825" class="form-control" value="'.$glo_1825.'" required>
+        </div>
+
+        <br/>
+        <div>
+        <label>GLO 29.5GB</label>
+        <input type="tel" id="glo_295" class="form-control" value="'.$glo_295.'" required>
+        </div>
+
+        <br/>
+        <div>
+        <label>GLO 50GB</label>
+        <input type="tel" id="glo_50" class="form-control" value="'.$glo_50.'" required>
+        </div>
+
+        <br/>
+        <div>
+        <label>GLO 93GB</label>
+        <input type="tel" id="glo_93" class="form-control" value="'.$glo_93.'" required>
+        </div>
+
+
+        <br/>
+        <button class="btn btn-success" type="button" onclick="saveGLO()">Save</button>
+
+        </form>
+        ';
+
+        $response=array(
+        'status' => 'success',
+        'data' => $message,
+        );
+
+        echo json_encode($response);
+        exit();
+    }
+
+    $response = array(
+        'status' => 'success',
+        'data' => $message,
+    );
+
+    echo json_encode($response);
+    exit();
+}
+// GLO CG END
+
 if ($searc_level=="glo1" || $searc_level=="glo2" || $searc_level=="glo3" || $searc_level=="glo4"){
 
 if ($searc_level=="glo1"){$level=1;}
@@ -341,75 +469,75 @@ exit();
 ////GLOPRICE END
 
 
-if ($searc_level=="glocg1" || $searc_level=="glocg2" || $searc_level=="glocg3" || $searc_level=="glocg4"){
+// if ($searc_level=="glocg1" || $searc_level=="glocg2" || $searc_level=="glocg3" || $searc_level=="glocg4"){
 
-if ($searc_level=="glocg1"){$level=1;}
-if ($searc_level=="glocg2"){$level=2;}
-if ($searc_level=="glocg3"){$level=3;}
-if ($searc_level=="glocg4"){$level=4;}
+// if ($searc_level=="glocg1"){$level=1;}
+// if ($searc_level=="glocg2"){$level=2;}
+// if ($searc_level=="glocg3"){$level=3;}
+// if ($searc_level=="glocg4"){$level=4;}
 
-require ("../../functions/glocg_price.php");
+// require ("../../functions/glocg_price.php");
 
-$message='
+// $message='
 
-<form method="POST" id="submit_form">
+// <form method="POST" id="submit_form">
 
-<div>
-<label>GLO 200MB</label>
-<input type="hidden" value="'.$level.'" id="level">
-<input type="tel" id="glocg_200" class="form-control" value="'.$glocg_200.'" required>
-</div>
+// <div>
+// <label>GLO 200MB</label>
+// <input type="hidden" value="'.$level.'" id="level">
+// <input type="tel" id="glocg_200" class="form-control" value="'.$glocg_200.'" required>
+// </div>
 
-<br/>
-<div>
-<label>GLO 500MB</label>
-<input type="tel" id="glocg_500" class="form-control" value="'.$glocg_500.'" required>
-</div>
+// <br/>
+// <div>
+// <label>GLO 500MB</label>
+// <input type="tel" id="glocg_500" class="form-control" value="'.$glocg_500.'" required>
+// </div>
 
-<br/>
-<div>
-<label>GLO 1GB</label>
-<input type="tel" id="glocg_1" class="form-control" value="'.$glocg_1.'" required>
-</div>
+// <br/>
+// <div>
+// <label>GLO 1GB</label>
+// <input type="tel" id="glocg_1" class="form-control" value="'.$glocg_1.'" required>
+// </div>
 
-<br/>
-<div>
-<label>GLO 2GB</label>
-<input type="tel" id="glocg_2" class="form-control" value="'.$glocg_2.'" required>
-</div>
+// <br/>
+// <div>
+// <label>GLO 2GB</label>
+// <input type="tel" id="glocg_2" class="form-control" value="'.$glocg_2.'" required>
+// </div>
 
-<br/>
-<div>
-<label>GLO 3GB</label>
-<input type="tel" id="glocg_3" class="form-control" value="'.$glocg_3.'" required>
-</div>
+// <br/>
+// <div>
+// <label>GLO 3GB</label>
+// <input type="tel" id="glocg_3" class="form-control" value="'.$glocg_3.'" required>
+// </div>
 
-<br/>
-<div>
-<label>GLO 5GB</label>
-<input type="tel" id="glocg_5" class="form-control" value="'.$glocg_5.'" required>
-</div>
+// <br/>
+// <div>
+// <label>GLO 5GB</label>
+// <input type="tel" id="glocg_5" class="form-control" value="'.$glocg_5.'" required>
+// </div>
 
-<br/>
-<div>
-<label>GLO 10GB</label>
-<input type="tel" id="glocg_10" class="form-control" value="'.$glocg_10.'" required>
-</div>
+// <br/>
+// <div>
+// <label>GLO 10GB</label>
+// <input type="tel" id="glocg_10" class="form-control" value="'.$glocg_10.'" required>
+// </div>
 
-<br/>
-<button class="btn btn-success" type="button" onclick="saveGLOCG()">Save</button>
+// <br/>
+// <button class="btn btn-success" type="button" onclick="saveGLOCG()">Save</button>
 
-</form>
-';
+// </form>
+// ';
 
-$response=array(
-'status' => 'success',
-'data' => $message,
-);
+// $response=array(
+// 'status' => 'success',
+// 'data' => $message,
+// );
 
-echo json_encode($response);
-exit();
-}
+// echo json_encode($response);
+// exit();
+// }
 
 ////GLO-CG PRICE END
 
