@@ -5,10 +5,10 @@
         'status_code' => '100',
         'message' => $network.' purchase is not permitted for this account !!!',
     );
-    
+
     // Get post data
     if($network == 'MTN-CG'){
-        if($mtnsme_access > 0){
+        // if($mtnsme_access > 0){
             $type = 'data';
             $product = 'mtn-cg';
            
@@ -24,7 +24,24 @@
                     $planCode = $res['code'];
                 }
             }
+        // }
+    }elseif($network == 'AIRTEL-CG'){
+        $type = 'data';
+        $product = 'airtel-cg';
+           
+        require('../api/easy_access_pricing.php');
+        $url = "https://easyaccess.com.ng/api/data.php";
+        
+        foreach ($response as $res) {
+            if ($plan_id==$res['code']){
+                $service_price = $res['price'];
+                $service = "airtel-cg";
+                $databyte = $res['name'];
+                $package_name = $res['name'];
+                $planCode = $res['code'];
+            }
         }
+        
     }
     // add  additional easy access services here
 

@@ -145,4 +145,66 @@
         ];
         
     }
+
+    if($type == 'data' && $product == 'airtel-cg'){
+        $data_query = mysqli_fetch_array(mysqli_query($con, "SELECT easy_access104, easy_access105, easy_access106, easy_access107,easy_access108, easy_access109, easy_access124, easy_access139,easy_access140 FROM airtelcgdata_plan WHERE id='$level'"));
+        
+        $response = [
+            [
+                'name' => "AIRTEL 100MB (CG) - 7days",
+                'price' => $data_query[0],
+                'code' => 104,
+                'id'=>'easy_access104',
+            ],
+            [
+                'name' => "AIRTEL 300MB (CG) - 7days",
+                'price' => $data_query[1],
+                'code' => 105,
+                'id'=>'easy_access105',
+            ],
+            [
+                'name' => "AIRTEL 500MB (CG) - 30days",
+                'price' => $data_query[2],
+                'code' => 106,
+                'id'=>'easy_access106',
+            ],
+            [
+                'name' => "AIRTEL 1GB (CG) - 30days",
+                'price' => $data_query[3],
+                'code' => 107,
+                'id'=>'easy_access107',
+            ],
+            [
+                'name' => "AIRTEL 2GB (CG) - 30days",
+                'price' => $data_query[4],
+                'code' => 108,
+                'id'=>'easy_access108',
+            ],
+            [
+                'name' => "AIRTEL 5GB (CG) - 30days",
+                'price' => $data_query[5],
+                'code' => 109,
+                'id'=>'easy_access109',
+            ],
+            [
+                'name' => "AIRTEL 10GB (CG) - 30days",
+                'price' => $data_query[6],
+                'code' => 124,
+                'id'=>'easy_access124',
+            ],
+            [
+                'name' => "AIRTEL 15GB (CG) - 30days",
+                'price' => $data_query[7],
+                'code' => 139,
+                'id' => 'easy_access139'
+            ],
+            [
+                'name' => "AIRTEL 20GB (CG) - 30days",
+                'price' => $data_query[8],
+                'code' => 140,
+                'id' => 'easy_access140',
+            ],
+            
+        ];
+    }
 ?>

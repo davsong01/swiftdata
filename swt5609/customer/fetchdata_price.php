@@ -149,7 +149,100 @@ if ($searc_level=="mtncg1" || $searc_level=="mtncg2" || $searc_level=="mtncg3" |
     exit();
 }
 ///MTNCG PRICE END
+// AIRTEL CG START
+if ($searc_level == "airtelcg1" || $searc_level == "airtelcg2" || $searc_level == "airtelcg3" || $searc_level == "airtelcg4") {
 
+    if ($searc_level == "airtelcg1") {
+        $level = 1;
+    }
+    if ($searc_level == "airtelcg2") {
+        $level = 2;
+    }
+    if ($searc_level == "airtelcg3") {
+        $level = 3;
+    }
+    if ($searc_level == "airtelcg4") {
+        $level = 4;
+    }
+
+    if ($api_airtelcg == 'easy_access_data.php') {
+        $type = 'data';
+        $product = 'airtel-cg';
+        require("../../api/easy_access_pricing.php");
+        $message = '<form method="POST" id="submit_form">
+        <input type="hidden" value="' . $level . '" id="level">';
+
+        foreach ($response as $res) {
+            $message .= '<div><label>' . $res['name'] . '</label><input type="number" id="' . $res['id'] . '" class="form-control" value="' . $res['price'] . '" required></div><br>';
+        }
+
+        $message .= '<button class="btn btn-success" type="button" onclick="saveAIRTELCG()">Save</button></form>';
+    } else {
+        require("../../functions/airtelcg_price.php");
+
+        $message = '
+        <form method="POST" id="submit_form">
+        <div>
+        <label>AIRTEL 100MB</label>
+        <input type="hidden" value="' . $level . '" id="level">
+        <input type="tel" id="airtelcg_100" class="form-control" value="' . $airtelcg_100 . '" required>
+        </div>
+
+        <br/>
+        <div>
+        <label>AIRTEL 300MB</label>
+        <input type="tel" id="airtelcg_300" class="form-control" value="' . $airtelcg_300 . '" required>
+        </div>
+
+        <br/>
+        <div>
+        <label>AIRTEL 500MB</label>
+        <input type="tel" id="airtelcg_500" class="form-control" value="' . $airtelcg_500 . '" required>
+        </div>
+
+        <br/>
+        <div>
+        <label>AIRTEL 1.0GB</label>
+        <input type="tel" id="airtelcg_1" class="form-control" value="' . $airtelcg_1 . '" required>
+        </div>
+
+        <br/>
+        <div>
+        <label>AIRTEL 2.0GB</label>
+        <input type="tel" id="airtelcg_2" class="form-control" value="' . $airtelcg_2 . '" required>
+        </div>
+
+        <br/>
+        <div>
+        <label>AIRTEL 5.0GB</label>
+        <input type="tel" id="airtelcg_5" class="form-control" value="' . $airtelcg_5 . '" required>
+        </div>
+        <br/>
+
+        <br/>
+        <button class="btn btn-success" type="button" onclick="saveAIRTELCG()">Save</button>
+
+        </form>
+        ';
+
+        $response = array(
+            'status' => 'success',
+            'data' => $message,
+        );
+
+        echo json_encode($response);
+        exit();
+    }
+
+    $response = array(
+        'status' => 'success',
+        'data' => $message,
+    );
+
+    echo json_encode($response);
+    exit();
+}
+// AIRTEL CG END
 if ($searc_level=="glo1" || $searc_level=="glo2" || $searc_level=="glo3" || $searc_level=="glo4"){
 
 if ($searc_level=="glo1"){$level=1;}

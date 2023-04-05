@@ -21,6 +21,7 @@ if ($getservices=="mtn"){
 		<option value="10000">MTN-SME 10GB - ₦'.$data_query[5].'</option>
 	';
 }
+
 if ($getservices=="mtn-cg"){
 	if($api_gift == 'easy_access_data.php'){
 		$type = 'data';
@@ -38,6 +39,23 @@ if ($getservices=="mtn-cg"){
 	}
 
 	echo $echo;
+}
+
+if ($getservices=="airtel-cg"){
+	if($api_airtelcg == 'easy_access_data.php'){
+		$type = 'data';
+		$product = $getservices;
+		require('../../../api/easy_access_pricing.php');
+		// var_dump($type,$getservices,$api_gift);
+		// die();
+		foreach($response as $res){
+			if(isset($res['price']) && $res['price'] > 0){
+				$echo.= '<option value="'.$res['code'].'">' . $res['name'] . ' - ₦'.$res['price'].'</option>';
+			}
+		}
+		echo $echo;
+		
+	}
 }
 
 if ($getservices=="glo"){
@@ -401,7 +419,6 @@ echo '
 	<div class="alert alert-danger">₦'.$data_query[0].' charges apply</div>
 ';
 }
-
 
 }
 

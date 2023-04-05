@@ -282,34 +282,43 @@ if ($manage_prices==1){
     }
 
     function saveAIRTELCG() {
- $("#priceModal").modal("hide");
-    $.LoadingOverlay("show");
-     var formData = {
-      airtelcg_100: $("#airtelcg_100").val(),
-      airtelcg_300: $("#airtelcg_300").val(),
-      airtelcg_500: $("#airtelcg_500").val(),
-      airtelcg_1: $("#airtelcg_1").val(),
-      airtelcg_2: $("#airtelcg_2").val(),
-      airtelcg_5: $("#airtelcg_5").val(),
-      level: $("#level").val(),
-    };
-    $.ajax({
-    url:'customer/saveairtelcg_price',
-    type:"POST",
-    data:formData,
-    dataType:'json',
-    success:function(savingRes){   
-    $.LoadingOverlay("hide");
-    if (savingRes.status=='success'){
-     $("#successModal").modal("show");
-     $("#successModal .modal-body").html(savingRes.message);
+      $("#priceModal").modal("hide");
+          $.LoadingOverlay("show");
+          var formData = {
+            airtelcg_100: $("#airtelcg_100").val(),
+            airtelcg_300: $("#airtelcg_300").val(),
+            airtelcg_500: $("#airtelcg_500").val(),
+            airtelcg_1: $("#airtelcg_1").val(),
+            airtelcg_2: $("#airtelcg_2").val(),
+            airtelcg_5: $("#airtelcg_5").val(),
+            easy_access104: $("#easy_access104").val(),
+            easy_access105: $("#easy_access105").val(),
+            easy_access106: $("#easy_access106").val(),
+            easy_access107: $("#easy_access107").val(),
+            easy_access108: $("#easy_access108").val(),
+            easy_access109: $("#easy_access109").val(),
+            easy_access124: $("#easy_access124").val(),
+            easy_access139: $("#easy_access139").val(),
+            easy_access140: $("#easy_access140").val(),
+            level: $("#level").val(),
+          };
+      $.ajax({
+      url:'customer/saveairtelcg_price',
+      type:"POST",
+      data:formData,
+      dataType:'json',
+      success:function(savingRes){   
+      $.LoadingOverlay("hide");
+      if (savingRes.status=='success'){
+      $("#successModal").modal("show");
+      $("#successModal .modal-body").html(savingRes.message);
+      }
+      else{
+      $("#errorModal").modal("show");
+      $("#errorModal .modal-body").html(savingRes.message);
+      }
     }
-    else{
-     $("#errorModal").modal("show");
-     $("#errorModal .modal-body").html(savingRes.message);
-    }
-            }
-        });
+    });
     
     }
 
