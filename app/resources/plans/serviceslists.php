@@ -8,8 +8,7 @@ require("../../../functions/web_config.php");
 $level=$_GET['level'];
 
 $getservices=strtolower($_GET['services']);
-	// var_dump($type, $api_gift);
-	// die();
+
 if ($getservices=="mtn"){
 	$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT mtnsme_500,mtnsme_1, mtnsme_2, mtnsme_3, mtnsme_5, mtnsme_10 FROM mtnsmedata_plan WHERE id='$level'"));
 
@@ -79,7 +78,7 @@ if ($getservices=="airtel-cg"){
 
 	}
 
-if ($getservices=="glo-cg"){
+if ($getservices=="mobile"){
 	if($api_glocg == 'easy_access_data.php'){
 		$type = 'data';
 		$product = $getservices;
@@ -102,6 +101,26 @@ if ($getservices=="glo-cg"){
 			<option value="906">GLO-CG 5GB - ₦' . $data_query[5] . '</option>
 			<option value="907">GLO-CG 10GB - ₦' . $data_query[6] . '</option>
 		';
+	}
+
+	echo $echo;
+}
+
+// 9 mobile sme
+if ($getservices == "mobile-sme") {
+	if ($api_glocg == 'easy_access_data.php') {
+		$type = 'sme';
+		$product = 'apimobile-sme';
+		require('../../../api/easy_access_pricing.php');
+
+		foreach ($response as $res) {
+			if (isset($res['price']) && $res['price'] > 0) {
+				$echo .= '<option value="' . $res['code'] . '">' . $res['name'] . ' - ₦' . $res['price'] . '</option>';
+			}
+		}
+
+	} else {
+		
 	}
 
 	echo $echo;
