@@ -2,8 +2,6 @@
 require ("session_controller.php");
 $searc_level=$_GET['load_id'];
 
-// var_dump($waec_lock);
-// die();
 if ($searc_level=="datalock"){
 
 $message='
@@ -55,6 +53,14 @@ $message='
     <br/>
     <label>9MOBILE *</label>
     <select class="form-control" id="mobile_lock" required>
+
+    <option value="1">ENABLE</option>
+    <option value="0">DISABLE</option>
+    </select>
+
+    <br/>
+    <label>9MOBILE SME*</label>
+    <select class="form-control" id="mobilesme_lock" required>
 
     <option value="1">ENABLE</option>
     <option value="0">DISABLE</option>
@@ -241,7 +247,6 @@ $nab_style = isset($nabt_lock) && $nabt_lock == 1 ? ENABLED : DISABLED;
 $neco_status = isset($neco_lock) && $neco_lock == 1 ? ENABLED : DISABLED;
 $neco_style = isset($neco_lock) && $neco_lock == 1 ? ENABLED : DISABLED;
 
-// var_dump($waec_status);
 $message='
 <form id="form-data">
     <label>WAEC * <span class="'. $waec_style.'">('.$waec_status .')</span></label>

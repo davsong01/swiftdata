@@ -10,6 +10,7 @@ $plan_id = $data['plan_code'];
 $network = strtoupper($data['network']);
 $reference = $data['request_id'];
 
+
 if (!empty($mobile_no) && !empty($plan_id) && !empty($reference) && !empty($network) && !empty($api_token)) {
 
     require("../functions/web_config.php");
@@ -21,8 +22,9 @@ if (!empty($mobile_no) && !empty($plan_id) && !empty($reference) && !empty($netw
 
     $check_user = mysqli_query($con, "SELECT * FROM users WHERE sk_token='$api_token' AND block='0'");
 
+   
     if (mysqli_num_rows($check_user) > 0) {
-
+        
         $check_mobile = mysqli_query($con, "SELECT add_mobile FROM blacklist_mobiles WHERE add_mobile='$mobile_no'");
 
         if (mysqli_num_rows($check_mobile) > 0) {
@@ -53,6 +55,7 @@ if (!empty($mobile_no) && !empty($plan_id) && !empty($reference) && !empty($netw
             $user_id = $return_info['id'];
             $account_mobile = $return_info['mobile'];
 
+            
             if ($network == "MTN" && $m_lock1 == 1 && $mtnsme_access == 1) {
                 require("dataModule/$api_mtn");
             } else if ($network == "MTN-CG" && $mg_lock1 == 1 && $mtncg_access == 1 || $network == "GIFTING" && $mg_lock1 == 1 && $mtncg_access == 1) {
@@ -67,6 +70,8 @@ if (!empty($mobile_no) && !empty($plan_id) && !empty($reference) && !empty($netw
                 require("dataModule/$api_glo");
             } else if ($network == "GLO-CG" && $gcg_lock1 == 1 && $glo_access == 1) {
                 require("dataModule/$api_glocg");
+            } else if ($network == "9MOBILE-CG" && $mo_lock1 == 1 && $mobile_access == 1 || $network == "ETISALAT" && $mo_lock1 == 1 && $mobile_access == 1) {
+                require("dataModule/$api_mobile");
             } else {
                 $response = array(
                     'status' => 'fail',
@@ -86,7 +91,6 @@ if (!empty($mobile_no) && !empty($plan_id) && !empty($reference) && !empty($netw
         echo json_encode($response);
         exit;
     }
-
 } else {
     $response = array(
         'status' => 'fail',

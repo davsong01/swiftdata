@@ -26,6 +26,20 @@
 
                 </div>
                 <div class="col-md-6">
+                    <div class="alert" style="background-color:<?php echo $colors[$key]; ?>;color: #000;">
+                        <center>
+                            <h4 style="color: white;">CHANGE DATA CARD</h4>
+        
+                            <p style="color: white;">click the button to see option.</p>
+                            <br />
+                            <button class="btn btn-danger btn-block" id="data_card" onclick="switchFun(this.id)">EDIT
+                                INFORMATION</button>
+        
+                        </center>
+                    </div>
+
+                </div>
+                <div class="col-md-6">
                     <div class="alert" style="background-color: <?php echo $colors[$key]; ?>;color: #000;">
                         <center>
                             <h4 style="color: white;">CHANGE VTU AUTOMATION</h4>
@@ -51,6 +65,7 @@
                         </center>
                     </div>
                 </div>
+                
             </div>
         </div>
     </div>
@@ -81,6 +96,8 @@
             airtel_data: $("#airtel_data").val(),
             airtelcg_data: $("#airtelcg_data").val(),
             mobile_data: $("#mobile_data").val(),
+            mobile_sme: $("#mobile_sme").val(),
+            
             level: 1,
         };
         $.ajax({

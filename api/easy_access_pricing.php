@@ -256,4 +256,186 @@
             ],
         ];
     }
+
+    if($type == 'sme' && $product == 'apimobile-sme'){
+        $data_query = mysqli_fetch_array(mysqli_query($con, "SELECT easy_access166, easy_access167, easy_access168, easy_access128,easy_access129, easy_access130, easy_access131, easy_access132,easy_access169,easy_access134,easy_access135,easy_access170,easy_access136,easy_access171,easy_access137,easy_access138,easy_access172,easy_access173,easy_access174,easy_access175,easy_access176 FROM mobilesmedata_plan WHERE id='$level'"));
+
+
+    // 166 => 100MB (SME) - N28 30days, 
+    // 167 => 300MB (SME) - N63 30days, 
+    // 168 => 500MB (SME) - N96 30days, 
+    // 128 => 1GB (SME) - N190 30days, 
+    // 129 => 1.5GB (SME) - N285 30days, 
+    // 130 => 2GB (SME) - N380 30days, 
+    // 131 => 2.5GB (SME) - N485 30days, 
+    // 132 => 3GB (SME) - N570 30days, 
+    // 169 => 4GB (SME) - N760 30days, 
+    // 134 => 5GB (SME) - N950 30days,
+    //  135 => 6GB (SME) - N1140 30days, 
+    //  170 => 7.5GB (SME) - N1425 30days, 
+    //  136 => 10GB (SME) - N1900 30days, 
+    //  171 => 11GB (SME) - N2090 30days, 
+    //  137 => 15GB (SME) - N2850 30days, 
+    //  138 => 20GB (SME) - N3800 30days, 
+    //  172 => 25GB (SME) - N4750 30days, 
+    //  173 => 30GB (SME) - N5700 30days, 
+    //  174 => 40GB (SME) - N7600 30days, 
+    //  175 => 50GB (SME) - N9500 30days, 
+    //  176 => 100GB (SME) - N19000 30days,
+        
+        $response = [
+            [
+                'name' => "9MOBILE 100MB (SME) - 30days",
+                'price' => $data_query[0],
+                'code' => 166,
+                'id'=>'easy_access166',
+            ],
+            [
+                'name' => "9MOBILE 300MB (SME) - 30days",
+                'price' => $data_query[1],
+                'code' => 167,
+                'id'=>'easy_access167',
+            ],
+            [
+                'name' => "9MOBILE 500MB (SME) - 30days",
+                'price' => $data_query[2],
+                'code' => 168,
+                'id'=>'easy_access168',
+            ],
+            [
+                'name' => "9MOBILE 1GB (SME) - N190 30days",
+                'price' => $data_query[3],
+                'code' => 128,
+                'id'=>'easy_access128',
+            ],
+            [
+                'name' => "9MOBILE 1.5GB (SME) - 30days",
+                'price' => $data_query[4],
+                'code' => 129,
+                'id'=>'easy_access129',
+            ],
+            [
+                'name' => "9MOBILE 2GB (SME) - 30days",
+                'price' => $data_query[5],
+                'code' => 130,
+                'id'=>'easy_access130',
+            ],
+            [
+                'name' => "9MOBILE 2.5GB (SME) - 30days",
+                'price' => $data_query[6],
+                'code' => 131,
+                'id' => 'easy_access131'
+            ],
+
+            [
+                'name' => "9MOBILE 3GB (SME) - 30days",
+                'price' => $data_query[7],
+                'code' => 132,
+                'id' => 'easy_access132',
+            ],
+            [
+                'name' => "9MOBILE 4GB (SME) - 30days",
+                'price' => $data_query[8],
+                'code' => 169,
+                'id' => 'easy_access169',
+            ],
+            [
+                'name' => "9MOBILE 5GB (SME) - 30days",
+                'price' => $data_query[9],
+                'code' => 134,
+                'id' => 'easy_access134',
+            ],
+            [
+                'name' => "9MOBILE 6GB (SME) - 30days",
+                'price' => $data_query[10],
+                'code' => 135,
+                'id' => 'easy_access135',
+            ],
+            [
+                'name' => "9MOBILE 7.5GB (SME) - 30days",
+                'price' => $data_query[11],
+                'code' => 170,
+                'id' => 'easy_access170',
+            ],
+            [
+                'name' => "9MOBILE 10GB (SME) - 30days",
+                'price' => $data_query[12],
+                'code' => 136,
+                'id' => 'easy_access136',
+            ],
+            [
+                'name' => "9MOBILE 11GB (SME) - 30days",
+                'price' => $data_query[13],
+                'code' => 171,
+                'id' => 'easy_access171',
+            ],
+            [
+                'name' => "9MOBILE 15GB (SME) - 30days",
+                'price' => $data_query[14],
+                'code' => 137,
+                'id' => 'easy_access137',
+            ],
+            [
+                'name' => "9MOBILE 20GB (SME) - 30days",
+                'price' => $data_query[15],
+                'code' => 138,
+                'id' => 'easy_access138',
+            ],
+            [
+                'name' => "9MOBILE 25GB (SME) - 30days",
+                'price' => $data_query[16],
+                'code' => 172,
+                'id' => 'easy_access172',
+            ],
+            [
+                'name' => "9MOBILE 30GB (SME) - 30days",
+                'price' => $data_query[17],
+                'code' => 173,
+                'id' => 'easy_access173',
+            ],
+            [
+                'name' => "9MOBILE 40GB (SME) - 30days",
+                'price' => $data_query[18],
+                'code' => 174,
+                'id' => 'easy_access174',
+            ],
+            [
+                'name' => "9MOBILE 50GB (SME) - 30days",
+                'price' => $data_query[19],
+                'code' => 175,
+                'id' => 'easy_access175',
+            ],
+            [
+                'name' => "9MOBILE 100GB (SME) - 30days",
+                'price' => $data_query[20],
+                'code' => 176,
+                'id' => 'easy_access176',
+            ],
+            
+        ];
+
+
+    // 166 => 100MB (SME) - N28 30days, 
+    // 167 => 300MB (SME) - N63 30days, 
+    // 168 => 500MB (SME) - N96 30days, 
+    // 128 => 1GB (SME) - N190 30days, 
+    // 129 => 1.5GB (SME) - N285 30days, 
+    // 130 => 2GB (SME) - N380 30days, 
+    // 131 => 2.5GB (SME) - N485 30days, 
+    // 132 => 3GB (SME) - N570 30days, 
+    // 169 => 4GB (SME) - N760 30days, 
+    // 134 => 5GB (SME) - N950 30days,
+    //  135 => 6GB (SME) - N1140 30days, 
+    //  170 => 7.5GB (SME) - N1425 30days, 
+    //  136 => 10GB (SME) - N1900 30days, 
+    //  171 => 11GB (SME) - N2090 30days, 
+    //  137 => 15GB (SME) - N2850 30days, 
+    //  138 => 20GB (SME) - N3800 30days, 
+    //  172 => 25GB (SME) - N4750 30days, 
+    //  173 => 30GB (SME) - N5700 30days, 
+    //  174 => 40GB (SME) - N7600 30days, 
+    //  175 => 50GB (SME) - N9500 30days, 
+    //  176 => 100GB (SME) - N19000 30days,
+    }
+    
 ?>

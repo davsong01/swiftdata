@@ -66,8 +66,6 @@ echo json_encode($response);
 exit();
 }
 
-///////MTNSME PRICE END
-
 if ($searc_level=="mtncg1" || $searc_level=="mtncg2" || $searc_level=="mtncg3" || $searc_level=="mtncg4"){
     if ($searc_level=="mtncg1"){$level=1;}
     if ($searc_level=="mtncg2"){$level=2;}
@@ -149,6 +147,48 @@ if ($searc_level=="mtncg1" || $searc_level=="mtncg2" || $searc_level=="mtncg3" |
     exit();
 }
 ///MTNCG PRICE END
+
+// 9mobile sme start
+if ($searc_level == "mobile_sme1" || $searc_level == "mobile_sme2" || $searc_level == "mobile_sme3" || $searc_level == "mobile_sme4") {
+
+    if ($searc_level == "mobile_sme1") {
+        $level = 1;
+    }
+    if ($searc_level == "mobile_sme2") {
+        $level = 2;
+    }
+    if ($searc_level == "mobile_sme3") {
+        $level = 3;
+    }
+    if ($searc_level == "mobile_sme4") {
+        $level = 4;
+    }
+
+    if ($api_mobilesme == 'easy_access_data.php') {
+        $type = 'sme';
+        $product = 'apimobile-sme';
+        require("../../api/easy_access_pricing.php");
+        $message = '<form method="POST" id="submit_form">
+        <input type="hidden" value="' . $level . '" id="level">';
+
+        foreach ($response as $res) {
+            $message .= '<div><label>' . $res['name'] . '</label><input type="number" id="' . $res['id'] . '" class="form-control" value="' . $res['price'] . '" required></div><br>';
+        }
+
+        $message .= '<button class="btn btn-success" type="button" onclick="saveMOBILESME()">Save</button></form>';
+    } else {
+
+    }
+
+    $response = array(
+        'status' => 'success',
+        'data' => $message,
+    );
+
+    echo json_encode($response);
+    exit();
+}
+// 9 mobile sme end
 // AIRTEL CG START
 if ($searc_level == "airtelcg1" || $searc_level == "airtelcg2" || $searc_level == "airtelcg3" || $searc_level == "airtelcg4") {
 
@@ -225,13 +265,6 @@ if ($searc_level == "airtelcg1" || $searc_level == "airtelcg2" || $searc_level =
         </form>
         ';
 
-        $response = array(
-            'status' => 'success',
-            'data' => $message,
-        );
-
-        echo json_encode($response);
-        exit();
     }
 
     $response = array(
@@ -351,14 +384,6 @@ if ($searc_level == "glocg1" || $searc_level == "glocg2" || $searc_level == "glo
 
         </form>
         ';
-
-        $response=array(
-        'status' => 'success',
-        'data' => $message,
-        );
-
-        echo json_encode($response);
-        exit();
     }
 
     $response = array(
@@ -371,6 +396,17 @@ if ($searc_level == "glocg1" || $searc_level == "glocg2" || $searc_level == "glo
 }
 // GLO CG END
 
+// MTN SME
+// $response=array(
+// 'status' => 'success',
+// 'data' => $searc_level,
+// );
+// var_dump('sdds');
+// die();
+// echo json_encode($response);
+// exit();
+
+// END MTN SME
 if ($searc_level=="glo1" || $searc_level=="glo2" || $searc_level=="glo3" || $searc_level=="glo4"){
 
 if ($searc_level=="glo1"){$level=1;}

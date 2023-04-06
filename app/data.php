@@ -70,6 +70,11 @@ require ("request_pin.php");
   if ($mo_lock1 != 0){
   echo '<option value="9MOBILE">9MOBILE</option>';
   }
+  if ($mobilesme_lock != 0){
+    echo '<option value="MOBILE-SME">9MOBILE SME</option>';
+  }
+
+ 
   ?>
 </select>
 </div>
@@ -171,25 +176,26 @@ $.LoadingOverlay("hide");
     };
 
      $.LoadingOverlay("show");
+     
     $.ajax({
-      url:'<?php echo $baseurl; ?>/customer/data',
-      method:'POST',
-      dataType:'json',
-      data:formData,
-      success:function(response_fd){
-     $.LoadingOverlay("hide");
-     if (response_fd.status == 'success'){
-    $("#successModal").modal("show");
-    $("#successModal .modal-body").html(response_fd.message);
-                    setTimeout(function() {
-                        window.location.reload();
-                    }, 2000);
-     }
-    else {
-    $("#errorModal").modal("show");
-    $("#errorModal .modal-body").html(response_fd.message);
+          url:'<?php echo $baseurl; ?>/customer/data',
+          method:'POST',
+          dataType:'json',
+          data:formData,
+          success:function(response_fd){
+            $.LoadingOverlay("hide");
+            if (response_fd.status == 'success'){
+            $("#successModal").modal("show");
+            $("#successModal .modal-body").html(response_fd.message);
+                            setTimeout(function() {
+                            window.location.reload();
+                        }, 2000);
+            
+     }else {
+      $("#errorModal").modal("show");
+      $("#errorModal .modal-body").html(response_fd.message);
     }
-}
+  }
     });
 
     event.preventDefault();
