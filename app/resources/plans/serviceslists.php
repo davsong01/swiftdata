@@ -27,8 +27,7 @@ if ($getservices=="mtn-cg"){
 		$type = 'data';
 		$product = $getservices;
 			require('../../../api/easy_access_pricing.php');
-			var_dump($type,$getservices,$api_gift);
-			die();
+			
 			foreach($response as $res){
 				if(isset($res['price']) && $res['price'] > 0){
 					$echo.= '<option value="'.$res['code'].'">' . $res['name'] . ' - ₦'.$res['price'].'</option>';
@@ -81,7 +80,7 @@ if ($getservices=="airtel-cg"){
 if ($getservices=="mobile"){
 	if($api_glocg == 'easy_access_data.php'){
 		$type = 'data';
-		$product = $getservices;
+		$product = 'apimobile-sme';
 		require('../../../api/easy_access_pricing.php');
 	
 		foreach($response as $res){

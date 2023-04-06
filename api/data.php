@@ -72,6 +72,8 @@ if (!empty($mobile_no) && !empty($plan_id) && !empty($reference) && !empty($netw
                 require("dataModule/$api_glocg");
             } else if ($network == "9MOBILE-CG" && $mo_lock1 == 1 && $mobile_access == 1 || $network == "ETISALAT" && $mo_lock1 == 1 && $mobile_access == 1) {
                 require("dataModule/$api_mobile");
+            }else if ($network == "MOBILE-SME" && $mobilesme_lock == 1) {
+                require("dataModule/$api_mobilesme");
             } else {
                 $response = array(
                     'status' => 'fail',

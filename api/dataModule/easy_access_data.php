@@ -64,7 +64,6 @@
         }
         
     } elseif ($network == 'MOBILE-SME') {
-     
         $type = 'sme';
         $product = 'apimobile-sme';
         $ntwk = 04;
@@ -75,14 +74,13 @@
         foreach ($response as $res) {
             if ($plan_id == $res['code']) {
                 $service_price = $res['price'];
-                $service = "airtel-cg";
+                $service = "apimobile-sme";
                 $databyte = $res['name'];
                 $package_name = $res['name'];
                 $planCode = $res['code'];
             }
         }
-
-}
+    }
     // add  additional easy access services here
 
     // Perform operations

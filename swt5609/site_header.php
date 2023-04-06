@@ -59,6 +59,29 @@
             font-size: small;
             color: red;
         }
+        .post-data {
+            background: black;
+            color: yellow;
+            padding: 20px;
+            font-size: 11px;
+            max-width: 400px;
+            word-wrap: anywhere;
+            float:right
+        }
+
+        .api-response {
+            background: black;
+            color: yellow;
+            padding: 20px;
+            font-size: 11px;
+            max-width: 400px;
+            word-wrap: anywhere;
+             /* float:left */
+        }
+        .load-data {
+            color: white;
+            font-weight: bolder;
+        }
     </style>
 </head>
 

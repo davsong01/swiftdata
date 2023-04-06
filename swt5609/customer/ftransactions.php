@@ -39,6 +39,8 @@ while ($data = mysqli_fetch_array($lettr, MYSQLI_ASSOC)){
       $date=$data['buyer_date'];
       $oldbal=$data['buyer_prebal'];
       $newbal=$data['buyer_postbal'];
+      $payload=$data['post_fields'];
+      $payloadResponse = $data['api_response'];
 
       $shortDesrc=substr($descr, 0,25);
 
@@ -57,10 +59,14 @@ while ($data = mysqli_fetch_array($lettr, MYSQLI_ASSOC)){
 
       <span>Prev Bal:</span> <span style="cursor: pointer;">₦'.$oldbal.'</span>
 
-      <span style="float:right">Post Bal: ₦'.$newbal.'</span>
+      <span style="float:right">Post Bal: ₦'.$newbal.'</span> <br><br>
         </p>
-            
-    </div>';
+  
+          <div class="post-data col-md-6"><span class="load-data">Payload sent</span><br><br>' . $payload . '</div> <br>
+        <div class="api-response col-md-6"><span class="load-data">Response Received</span><br><br>' . $payloadResponse . '</div> 
+    </div>
+   
+    ';
    
 
   }
