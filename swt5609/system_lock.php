@@ -134,6 +134,8 @@ if ($manage_lock==1){
       airtel_lock: $("#airtel_lock").val(),
       airtelcg_lock: $("#airtelcg_lock").val(),
       mobile_lock: $("#mobile_lock").val(),
+      mobilesme_lock: $("#mobilesme_lock").val(),
+      
       level: 1,
     };
     $.ajax({
