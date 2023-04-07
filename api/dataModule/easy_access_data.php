@@ -135,10 +135,38 @@
             )); 
 
             $response = curl_exec($curl);
+            // $response = '{
+            //     "success": "true",
+            //     "message": "Data Card Purchase was Successful",
+            //     "network": "MTN",
+            //     "pin": "408335193S",
+            //     "pin2": "184305851S",
+            //     "dataplan": "1.5GB",
+            //     "amount": 574,
+            //     "balance_before": "27833",
+            //     "balance_after": 27259,
+            //     "transaction_date": "07-04-2023 07:57:47 pm",
+            //     "reference_no": "ID5345892220",
+            //     "client_reference": "client_ref84218868382855",
+            //     "status": "Successful",
+            //     "auto_refund_status": "success"
+            //     }';
+
             curl_close($curl);
             $result=json_decode($response);
+
+            $pins = [];
+            $result = json_decode($response);
+            foreach ($result as $key => $value) {
+                if (strpos($key, 'pin') !== false) {
+                    $pins[] = $value;
+                }
+            }
+
+            $pins = (isset($pins) && !empty($pins)) ? 'PINS: '.implode(', ', $pins) : '';
+
             $status=strtolower($result->success);
-           
+            
             // save post fields
             $pstfields = json_encode([
                 'network' =>$ntwk ?? '', 
@@ -153,7 +181,7 @@
             if ($status==="true"){
                 $order_report=strtoupper('Purchase Successful for '.$package_name.' on '.$mobile_no);
 
-                mysqli_query($con, "INSERT INTO `final_transactions` (`id`, `mobile_number`, `buyer_email`, `buyer_username`, `buyer_service`, `buyer_amount`, `buyer_prebal`, `buyer_postbal`, `buyer_descr`, `buyer_status`, `buyer_date`, `timestring`, `charge_from`, `user_type`, `sys_ref`, `api_ref`, `api_report`, `src_price`, `profit`, `databyte`,`api_response`,`post_fields`) VALUES (NULL, '$mobile_no', '$account_email', '$account_username', '$service', '$service_price', '$account_balance', '$new_wallet', '$order_report', 'SUCCESSFUL', '$time', '$timestring', 'WALLET', '$level', '$api_reference', '$reference', 'DONE', '0', '0', '$databyte','$response','$pstfields')");
+                mysqli_query($con, "INSERT INTO `final_transactions` (`id`, `mobile_number`, `buyer_email`, `buyer_username`, `buyer_service`, `buyer_amount`, `buyer_prebal`, `buyer_postbal`, `buyer_descr`, `buyer_status`, `buyer_date`, `timestring`, `charge_from`, `user_type`, `sys_ref`, `api_ref`, `api_report`, `src_price`, `profit`, `databyte`,`api_response`,`post_fields`,`extra`) VALUES (NULL, '$mobile_no', '$account_email', '$account_username', '$service', '$service_price', '$account_balance', '$new_wallet', '$order_report', 'SUCCESSFUL', '$time', '$timestring', 'WALLET', '$level', '$api_reference', '$reference', 'DONE', '0', '0', '$databyte','$response','$pstfields','$pins')");
 
                 $response=array(
                     'status' => 'success',
@@ -163,6 +191,7 @@
                     'time' => $time,
                     'amountPaid' => $service_price,
                     'message' => $order_report,
+                    'extra' => $pins,
                 );
 
                 echo json_encode($response);
@@ -173,7 +202,7 @@
 
                 $order_report=strtoupper('Purchase failed for '. $package_name.' on '.$mobile_no);
 
-                mysqli_query($con, "INSERT INTO `final_transactions` (`id`, `mobile_number`, `buyer_email`, `buyer_username`, `buyer_service`, `buyer_amount`, `buyer_prebal`, `buyer_postbal`, `buyer_descr`, `buyer_status`, `buyer_date`, `timestring`, `charge_from`, `user_type`, `sys_ref`, `api_ref`, `api_report`, `src_price`, `profit`, `databyte`,`api_response`,`post_fields`) VALUES (NULL, '$mobile_no', '$account_email', '$account_username', '$service', '$service_price', '$account_balance', '$account_balance', '$order_report', 'FAILED', '$time', '$timestring', 'WALLET', '$level', '$api_reference', '$reference', 'DONE', '0', '0','$databyte','$response','$pstfields')");
+                mysqli_query($con, "INSERT INTO `final_transactions` (`id`, `mobile_number`, `buyer_email`, `buyer_username`, `buyer_service`, `buyer_amount`, `buyer_prebal`, `buyer_postbal`, `buyer_descr`, `buyer_status`, `buyer_date`, `timestring`, `charge_from`, `user_type`, `sys_ref`, `api_ref`, `api_report`, `src_price`, `profit`, `databyte`,`api_response`,`post_fields`,`extra`) VALUES (NULL, '$mobile_no', '$account_email', '$account_username', '$service', '$service_price', '$account_balance', '$account_balance', '$order_report', 'FAILED', '$time', '$timestring', 'WALLET', '$level', '$api_reference', '$reference', 'DONE', '0', '0','$databyte','$response','$pstfields','$pins')");
 
                 $response=array(
                     'status' => 'fail',

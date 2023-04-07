@@ -35,6 +35,7 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']){
           curl_close($ch);
           $apidata=json_decode($req);
           $message=$apidata->message;
+          $extra = $apidata->extra ?? '';
           $status=$apidata->status;
 
           if ($status == "success"){
@@ -43,6 +44,7 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']){
               'icon' => 'success',
                 'status'=>'success',
                 'message' => $message,
+                'extra' => $extra
             );
 
             echo json_encode($response);

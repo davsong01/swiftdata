@@ -42,7 +42,8 @@ require ("request_pin.php");
 
 
     <div id="response"></div>
-
+    <div id="extra" style="background: black;color: yellow;padding: 20px;margin-bottom: 15px;font-size: initial; display:none"></div>
+  
     <form id="form-data">
 
       <div class="input-group mb-3">
@@ -101,12 +102,11 @@ require ("request_pin.php");
 
       <div class="input-group mb-3" id="ask_pins" style="display:none">
         <div class="input-group-text">
-          <span class="" id="basic-addon1"><i class="fa fa-wifi" style="font-size: 25px;"></i></span>
+          <span class="" id="basic-addon1"><i class="fa fa-calculator" style="font-size: 25px;"></i></span>
         </div>
         <input type="number" class="form-control" placeholder="No of Pins" id="no_of_pins" value="">
         <br>
       </div>
-      
       
       <div class="input-group mb-3">
         <div class="input-group-text">
@@ -181,15 +181,16 @@ require ("request_pin.php");
         method: 'GET',
         success: function (RES_data) {
           $.LoadingOverlay("hide");
-          $("#dataplanloader").html(RES_data);
-          
           if(network_module == 'MTN-DATACARD'){
             $("#ask_pins").show();
             $("#no_of_pins").attr("required",true);
           }else{
-            $("#ask_pin").hide();
+            $("#ask_pins").hide();
             $("#no_of_pins").attr("required",false);
           }
+          $("#dataplanloader").html(RES_data);
+          
+          
         }
       })
     }
@@ -217,10 +218,19 @@ require ("request_pin.php");
         if (response_fd.status == 'success') {
           $("#successModal").modal("show");
           $("#successModal .modal-body").html(response_fd.message);
-          setTimeout(function () {
-            window.location.reload();
-          }, 2000);
-
+          
+          if( $("#network_module").val() == 'MTN-DATACARD'){
+            if(response_fd.extra){
+              $("#extra").html(response_fd.extra);
+              $("#extra").show();
+              document.getElementById("form-data").reset();
+            }
+          }else{
+            setTimeout(function () {
+              window.location.reload();
+            }, 2000);
+          }
+                  
         } else {
           $("#errorModal").modal("show");
           $("#errorModal .modal-body").html(response_fd.message);
