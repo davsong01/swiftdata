@@ -75,12 +75,12 @@ if ($getservices=="airtel-cg"){
 
 		echo $echo;
 
-	}
+}
 
-if ($getservices=="mobile"){
+if ($getservices=="glo-cg"){
 	if($api_glocg == 'easy_access_data.php'){
 		$type = 'data';
-		$product = 'apimobile-sme';
+		$product = 'glo-cg';
 		require('../../../api/easy_access_pricing.php');
 	
 		foreach($response as $res){
