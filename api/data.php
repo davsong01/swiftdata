@@ -9,6 +9,7 @@ $mobile_no = trim($data['mobile']); // getting mobile no
 $plan_id = $data['plan_code'];
 $network = strtoupper($data['network']);
 $reference = $data['request_id'];
+$no_of_pins = $data['no_of_pins'] ?? null;
 
 
 if (!empty($mobile_no) && !empty($plan_id) && !empty($reference) && !empty($network) && !empty($api_token)) {
@@ -58,6 +59,8 @@ if (!empty($mobile_no) && !empty($plan_id) && !empty($reference) && !empty($netw
             
             if ($network == "MTN" && $m_lock1 == 1 && $mtnsme_access == 1) {
                 require("dataModule/$api_mtn");
+            } else if ($network == "MTN-DATACARD" ){
+                require("dataModule/$mtn_data_card");
             } else if ($network == "MTN-CG" && $mg_lock1 == 1 && $mtncg_access == 1 || $network == "GIFTING" && $mg_lock1 == 1 && $mtncg_access == 1) {
                 require("dataModule/$api_gift");
             } else if ($network == "9MOBILE" && $mo_lock1 == 1 && $mobile_access == 1 || $network == "ETISALAT" && $mo_lock1 == 1 && $mobile_access == 1) {

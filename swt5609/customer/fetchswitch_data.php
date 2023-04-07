@@ -80,7 +80,7 @@ if ($searc_level=="data"){
                 </div>
                 <div class="col-md-6">
                     <label class="price-label">9MOBILE SME *</label>
-                    <select class="form-control" id="mtn_data_card" required>
+                    <select class="form-control" id="mobile_sme" required>
                         <option value="easy_access_data.php"' . ($api_mobilesme == 'easy_access_data.php' ? 'selected' : '') . '>EASY ACCESS</option>
                     </select>
                 </div>

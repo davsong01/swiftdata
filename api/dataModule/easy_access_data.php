@@ -9,24 +9,22 @@
     
     // Get post data
     if($network == 'MTN-CG'){
-        // if($mtnsme_access > 0){
-            $type = 'data';
-            $product = 'mtn-cg';
-            $ntwk = 01;
+        $type = 'data';
+        $product = 'mtn-cg';
+        $ntwk = 01;
 
-            // Get mtn sms pricess
-            require('../api/easy_access_pricing.php');
-            $url = "https://easyaccess.com.ng/api/data.php";
-            foreach ($response as $res) {
-                if ($plan_id==$res['code']){
-                    $service_price = $res['price'];
-                    $service = "mtn-cg";
-                    $databyte = $res['name'];
-                    $package_name = $res['name'];
-                    $planCode = $res['code'];
-                }
+        // Get mtn sms pricess
+        require('../api/easy_access_pricing.php');
+        $url = "https://easyaccess.com.ng/api/data.php";
+        foreach ($response as $res) {
+            if ($plan_id==$res['code']){
+                $service_price = $res['price'];
+                $service = "mtn-cg";
+                $databyte = $res['name'];
+                $package_name = $res['name'];
+                $planCode = $res['code'];
             }
-        // }
+        }
     }elseif($network == 'AIRTEL-CG'){
         $type = 'data';
         $product = 'airtel-cg';
@@ -80,6 +78,22 @@
                 $planCode = $res['code'];
             }
         }
+    } elseif ($network == 'MTN-DATACARD') {
+        $type = 'datacard';
+        $product = 'mtn-data-card';
+        $ntwk = 01;
+        require('../api/easy_access_pricing.php');
+        $url = "https://easyaccess.com.ng/api/datacard.php";
+
+        foreach ($response as $res) {
+            if ($plan_id == $res['code']) {
+                $service_price = $res['price'];
+                $service = "mtn_data_card";
+                $databyte = $res['name'];
+                $package_name = $res['name'];
+                $planCode = $res['code'];
+            }
+        }
     }
     // add  additional easy access services here
 
@@ -112,6 +126,7 @@
                 'mobileno' =>  $mobile_no,
                 'dataplan' =>  $planCode,
                 'client_reference' => '', //update this on your script to receive webhook notifications
+                'no_of_pins' => $no_of_pins ?? '',
             ), 
             CURLOPT_HTTPHEADER => array(
                 "AuthorizationToken: ".$easyaccess_token."",
@@ -131,6 +146,8 @@
                 'dataplan' =>  $planCode ?? '',
                 'client_reference' => '',
                 'url'=>$url ?? '',
+                'no_of_pins' => $no_of_pins ?? '',
+
             ]);
             
             if ($status==="true"){

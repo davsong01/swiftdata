@@ -107,7 +107,7 @@ if ($getservices=="glo-cg"){
 
 // 9 mobile sme
 if ($getservices == "mobile-sme") {
-	if ($api_glocg == 'easy_access_data.php') {
+	if ($api_mobilesme == 'easy_access_data.php') {
 		$type = 'sme';
 		$product = 'apimobile-sme';
 		require('../../../api/easy_access_pricing.php');
@@ -122,6 +122,26 @@ if ($getservices == "mobile-sme") {
 		
 	}
 
+	echo $echo;
+}
+
+if ($getservices == "mtn-datacard") {
+	if ($mtn_data_card  == 'easy_access_data.php') {
+		$type = 'datacard';
+		$product = 'mtn-data-card';
+		require('../../../api/easy_access_pricing.php');
+
+		foreach ($response as $res) {
+			if (isset($res['price']) && $res['price'] > 0) {
+				$echo .= '<option value="' . $res['code'] . '">' . $res['name'] . ' - ₦' . $res['price'] . '</option>';
+
+			}
+		}
+
+	} else {
+
+	}
+	
 	echo $echo;
 }
 
