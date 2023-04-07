@@ -97,6 +97,7 @@
             airtelcg_data: $("#airtelcg_data").val(),
             mobile_data: $("#mobile_data").val(),
             mobile_sme: $("#mobile_sme").val(),
+            mtn_data_card: $("#mtn_data_card").val(),
             
             level: 1,
         };
@@ -118,6 +119,33 @@
         });
 
     }
+
+    function saveDATACARD() {
+        $("#priceModal").modal("hide");
+        $.LoadingOverlay("show");
+        var formData = {
+            mtn_data_card: $("#mtn_data_card").val(),
+            level: 1,
+        };
+        $.ajax({
+            url: 'customer/savedata_switch',
+            type: "POST",
+            data: formData,
+            dataType: 'json',
+            success: function (savingRes) {
+                $.LoadingOverlay("hide");
+                if (savingRes.status == 'success') {
+                    $("#successModal").modal("show");
+                    $("#successModal .modal-body").html(savingRes.message);
+                } else {
+                    $("#errorModal").modal("show");
+                    $("#errorModal .modal-body").html(savingRes.message);
+                }
+            }
+        });
+
+    }
+
 
     function saveVTU() {
         $("#priceModal").modal("hide");

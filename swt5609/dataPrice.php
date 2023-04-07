@@ -5,159 +5,166 @@ if ($manage_prices==1){
 
 <div class="main_content_iner ">
   <div class="container-fluid p-0 sm_padding_15px">
-    <div class="row justify-content-center">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="justify-content-center">
+          <div class="alert" style="background-color: orange;color: #000;">
 
+            <center>
+              <h4 style="color: black;">SET MTN-SME PRICES</h4>
 
-      <div class="alert" style="background-color: orange;color: #000;">
+              <p style="color: black;">Click on the level you want to change and a pop up will be display.</p>
+              <br />
+              <button class="btn btn-dark btn-block" id="mtnsme1" onclick="editData(this.id)">Level 1</button>
+              <button class="btn btn-dark btn-block" id="mtnsme2" onclick="editData(this.id)">Level 2</button>
+              <button class="btn btn-dark btn-block" id="mtnsme3" onclick="editData(this.id)">Level 3</button>
+              <button class="btn btn-dark btn-block" id="mtnsme4" onclick="editData(this.id)">Level 4</button>
 
-        <center>
-          <h4 style="color: black;">SET MTN-SME PRICES</h4>
+            </center>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="justify-content-center">
+          <div class="alert" style="background-color: green;color: white;">
 
-          <p style="color: black;">Click on the level you want to change and a pop up will be display.</p>
-          <br />
-          <button class="btn btn-dark btn-block" id="mtnsme1" onclick="editData(this.id)">Level 1</button>
-          <button class="btn btn-dark btn-block" id="mtnsme2" onclick="editData(this.id)">Level 2</button>
-          <button class="btn btn-dark btn-block" id="mtnsme3" onclick="editData(this.id)">Level 3</button>
-          <button class="btn btn-dark btn-block" id="mtnsme4" onclick="editData(this.id)">Level 4</button>
+            <center>
+              <h4 style="color: black;">SET MTN-CG PRICES</h4>
 
-        </center>
+              <p style="color: black;">Click on the level you want to change and a pop up will be display.</p>
+              <br />
+              <button class="btn btn-dark btn-block" id="mtncg1" onclick="editData  (this.id)">Level 1</button>
+              <button class="btn btn-dark btn-block" id="mtncg2" onclick="editData  (this.id)">Level 2</button>
+              <button class="btn btn-dark btn-block" id="mtncg3" onclick="editData  (this.id)">Level 3</button>
+              <button class="btn btn-dark btn-block" id="mtncg4" onclick="editData  (this.id)">Level 4</button>
+
+            </center>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="justify-content-center">
+          <div class="alert" style="background-color: #ff00d7;color: #fff;">
+              <center>
+              <h4 style="color: white;">SET MTN DATA CARD PRICES</h4>
+              <p style="color: white;">Click on the level you want to change and a pop up will be display.</p>
+              <br />
+              <button class="btn btn-dark btn-block" id="mtn_data_card1" onclick="editData  (this.id)">Level 1</button>
+              <button class="btn btn-dark btn-block" id="mtn_data_card2" onclick="editData  (this.id)">Level 2</button>
+              <button class="btn btn-dark btn-block" id="mtn_data_card3" onclick="editData  (this.id)">Level 3</button>
+              <button class="btn btn-dark btn-block" id="mtn_data_card4" onclick="editData  (this.id)">Level 4</button>
+
+            </center>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="justify-content-center">
+          <div class="alert" style="background-color: #3b513b;color: white;">
+            <center>
+              <h4 style="color: white;">SET GLO PRICES</h4>
+
+              <p style="color: white;">Click on the level you want to change and a pop up will be display.</p>
+              <br />
+              <button class="btn btn-dark btn-block" id="glo1" onclick="editData  (this.id)">Level 1</button>
+              <button class="btn btn-dark btn-block" id="glo2" onclick="editData  (this.id)">Level 2</button>
+              <button class="btn btn-dark btn-block" id="glo3" onclick="editData  (this.id)">Level 3</button>
+              <button class="btn btn-dark btn-block" id="glo4" onclick="editData  (this.id)">Level 4</button>
+
+            </center>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="justify-content-center">
+          <div class="alert" style="background-color: #ffc30e;color: white;">
+            <center>
+              <h4 style="color: white;">SET GLO-CG PRICES</h4>
+
+              <p style="color: white;">Click on the level you want to change and a pop up will be display.</p>
+              <br />
+              <button class="btn btn-dark btn-block" id="glocg1" onclick="editData  (this.id)">Level 1</button>
+              <button class="btn btn-dark btn-block" id="glocg2" onclick="editData  (this.id)">Level 2</button>
+              <button class="btn btn-dark btn-block" id="glocg3" onclick="editData  (this.id)">Level 3</button>
+              <button class="btn btn-dark btn-block" id="glocg4" onclick="editData  (this.id)">Level 4</button>
+
+            </center>
+          </div>
+        </div>
       </div>
 
+      <div class="col-md-6">
+        <div class="justify-content-center">
+          <div class="alert" style="background-color: green;color: white;">
+            <center>
+              <h4 style="color: white;">SET AIRTEL PRICES</h4>
 
-      <br>
-      <br>
+              <p style="color: white;">Click on the level you want to change and a pop up will be display.</p>
+              <br />
+              <button class="btn btn-dark btn-block" id="airtel1" onclick="editData  (this.id)">Level 1</button>
+              <button class="btn btn-dark btn-block" id="airtel2" onclick="editData  (this.id)">Level 2</button>
+              <button class="btn btn-dark btn-block" id="airtel3" onclick="editData  (this.id)">Level 3</button>
+              <button class="btn btn-dark btn-block" id="airtel4" onclick="editData  (this.id)">Level 4</button>
 
-      <div class="alert" style="background-color: orange;color: #000;">
-
-        <center>
-          <h4 style="color: black;">SET MTN-CG PRICES</h4>
-
-          <p style="color: black;">Click on the level you want to change and a pop up will be display.</p>
-          <br />
-          <button class="btn btn-dark btn-block" id="mtncg1" onclick="editData  (this.id)">Level 1</button>
-          <button class="btn btn-dark btn-block" id="mtncg2" onclick="editData  (this.id)">Level 2</button>
-          <button class="btn btn-dark btn-block" id="mtncg3" onclick="editData  (this.id)">Level 3</button>
-          <button class="btn btn-dark btn-block" id="mtncg4" onclick="editData  (this.id)">Level 4</button>
-
-        </center>
+            </center>
+          </div>
+        </div>
       </div>
+      <div class="col-md-6">
+        <div class="justify-content-center">
+          <div class="alert" style="background-color: red;color: #fff;">
+            <center>
+            <h4 style="color: white;">SET AIRTEL-CG PRICES</h4>
 
-      <br>
-      <br>
+            <p style="color: white;">Click on the level you want to change and a pop up will be display.</p>
+            <br />
+            <button class="btn btn-dark btn-block" id="airtelcg1" onclick="editData  (this.id)">Level 1</button>
+            <button class="btn btn-dark btn-block" id="airtelcg2" onclick="editData  (this.id)">Level 2</button>
+            <button class="btn btn-dark btn-block" id="airtelcg3" onclick="editData  (this.id)">Level 3</button>
+            <button class="btn btn-dark btn-block" id="airtelcg4" onclick="editData  (this.id)">Level 4</button>
 
-      <div class="alert" style="background-color: green;color: #fff;">
-
-        <center>
-          <h4 style="color: white;">SET GLO PRICES</h4>
-
-          <p style="color: white;">Click on the level you want to change and a pop up will be display.</p>
-          <br />
-          <button class="btn btn-dark btn-block" id="glo1" onclick="editData  (this.id)">Level 1</button>
-          <button class="btn btn-dark btn-block" id="glo2" onclick="editData  (this.id)">Level 2</button>
-          <button class="btn btn-dark btn-block" id="glo3" onclick="editData  (this.id)">Level 3</button>
-          <button class="btn btn-dark btn-block" id="glo4" onclick="editData  (this.id)">Level 4</button>
-
-        </center>
+          </center>
+          </div>
+        </div>
       </div>
+      <div class="col-md-6">
+        <div class="justify-content-center">
+          <div class="alert" style="background-color: #4b3dae;color: #fff;">
+              <center>
+                <h4 style="color: black;">SET 9MOBILE PRICES</h4>
 
-      <br>
-      <br>
+                <p style="color: black;">Click on the level you want to change and a pop up will be display.</p>
+                <br />
+                <button class="btn btn-dark btn-block" id="mobile1" onclick="editData  (this.id)">Level 1</button>
+                <button class="btn btn-dark btn-block" id="mobile2" onclick="editData  (this.id)">Level 2</button>
+                <button class="btn btn-dark btn-block" id="mobile3" onclick="editData  (this.id)">Level 3</button>
+                <button class="btn btn-dark btn-block" id="mobile4" onclick="editData  (this.id)">Level 4</button>
 
-      <div class="alert" style="background-color: green;color: #fff;">
-
-        <center>
-          <h4 style="color: white;">SET GLO-CG PRICES</h4>
-
-          <p style="color: white;">Click on the level you want to change and a pop up will be display.</p>
-          <br />
-          <button class="btn btn-dark btn-block" id="glocg1" onclick="editData  (this.id)">Level 1</button>
-          <button class="btn btn-dark btn-block" id="glocg2" onclick="editData  (this.id)">Level 2</button>
-          <button class="btn btn-dark btn-block" id="glocg3" onclick="editData  (this.id)">Level 3</button>
-          <button class="btn btn-dark btn-block" id="glocg4" onclick="editData  (this.id)">Level 4</button>
-
-        </center>
+              </center>
+          </div>
+        </div>
       </div>
+      <div class="col-md-6">
+        <div class="justify-content-center">
+          <div class="alert" style="background-color: lime;color: #fff;">
+              <center>
+              <h4 style="color: white;">SET 9MOBILE-SME PRICES</h4>
+              <p style="color: white;">Click on the level you want to change and a pop up will be display.</p>
+              <br />
+              <button class="btn btn-dark btn-block" id="mobile_sme1" onclick="editData  (this.id)">Level 1</button>
+              <button class="btn btn-dark btn-block" id="mobile_sme2" onclick="editData  (this.id)">Level 2</button>
+              <button class="btn btn-dark btn-block" id="mobile_sme3" onclick="editData  (this.id)">Level 3</button>
+              <button class="btn btn-dark btn-block" id="mobile_sme4" onclick="editData  (this.id)">Level 4</button>
 
-      <br>
-      <br>
-
-
-      <div class="alert" style="background-color: red;color: #fff;">
-
-        <center>
-          <h4 style="color: white;">SET AIRTEL PRICES</h4>
-
-          <p style="color: white;">Click on the level you want to change and a pop up will be display.</p>
-          <br />
-          <button class="btn btn-dark btn-block" id="airtel1" onclick="editData  (this.id)">Level 1</button>
-          <button class="btn btn-dark btn-block" id="airtel2" onclick="editData  (this.id)">Level 2</button>
-          <button class="btn btn-dark btn-block" id="airtel3" onclick="editData  (this.id)">Level 3</button>
-          <button class="btn btn-dark btn-block" id="airtel4" onclick="editData  (this.id)">Level 4</button>
-
-        </center>
+            </center>
+          </div>
+        </div>
       </div>
-
-
-      <br>
-      <br>
-
-
-      <div class="alert" style="background-color: red;color: #fff;">
-
-        <center>
-          <h4 style="color: white;">SET AIRTEL-CG PRICES</h4>
-
-          <p style="color: white;">Click on the level you want to change and a pop up will be display.</p>
-          <br />
-          <button class="btn btn-dark btn-block" id="airtelcg1" onclick="editData  (this.id)">Level 1</button>
-          <button class="btn btn-dark btn-block" id="airtelcg2" onclick="editData  (this.id)">Level 2</button>
-          <button class="btn btn-dark btn-block" id="airtelcg3" onclick="editData  (this.id)">Level 3</button>
-          <button class="btn btn-dark btn-block" id="airtelcg4" onclick="editData  (this.id)">Level 4</button>
-
-        </center>
-      </div>
-
-
-      <br />
-      <br>
-
-      <div class="alert" style="background-color: lime;color: #000;">
-
-        <center>
-          <h4 style="color: black;">SET 9MOBILE PRICES</h4>
-
-          <p style="color: black;">Click on the level you want to change and a pop up will be display.</p>
-          <br />
-          <button class="btn btn-dark btn-block" id="mobile1" onclick="editData  (this.id)">Level 1</button>
-          <button class="btn btn-dark btn-block" id="mobile2" onclick="editData  (this.id)">Level 2</button>
-          <button class="btn btn-dark btn-block" id="mobile3" onclick="editData  (this.id)">Level 3</button>
-          <button class="btn btn-dark btn-block" id="mobile4" onclick="editData  (this.id)">Level 4</button>
-
-        </center>
-      </div>
-
+      
     </div>
-    <div class="alert" style="background-color: blue;">
-
-      <center>
-        <h4 style="color: white;">SET 9MOBILE-SME PRICES</h4>
-
-        <p style="color: white;">Click on the level you want to change and a pop up will be display.</p>
-        <br />
-        <button class="btn btn-dark btn-block" id="mobile_sme1" onclick="editData  (this.id)">Level 1</button>
-        <button class="btn btn-dark btn-block" id="mobile_sme2" onclick="editData  (this.id)">Level 2</button>
-        <button class="btn btn-dark btn-block" id="mobile_sme3" onclick="editData  (this.id)">Level 3</button>
-        <button class="btn btn-dark btn-block" id="mobile_sme4" onclick="editData  (this.id)">Level 4</button>
-
-      </center>
-    </div>
-
-
-    <br />
-    <br>
   </div>
-</div>
 
+</div>
 <script type="text/javascript">
   function editData(id) {
     $.LoadingOverlay("show");
@@ -219,81 +226,81 @@ if ($manage_prices==1){
 
 
   function saveMTNSME() {
-      $("#priceModal").modal("hide");
-      $.LoadingOverlay("show");
+    $("#priceModal").modal("hide");
+    $.LoadingOverlay("show");
 
-      var formData = {
-        mtnsme_500: $("#mtnsme_500").val(),
-        mtnsme_1: $("#mtnsme_1").val(),
-        mtnsme_2: $("#mtnsme_2").val(),
-        mtnsme_3: $("#mtnsme_3").val(),
-        mtnsme_5: $("#mtnsme_5").val(),
-        mtnsme_10: $("#mtnsme_10").val(),
-        level: $("#level").val(),
-      };
-      $.ajax({
-        url: 'customer/savemtnsme_price',
-        type: "POST",
-        data: formData,
-        dataType: 'json',
-        success: function (savingRes) {
-          $.LoadingOverlay("hide");
-          if (savingRes.status == 'success') {
-            $("#successModal").modal("show");
-            $("#successModal .modal-body").html(savingRes.message);
-          } else {
-            $("#errorModal").modal("show");
-            $("#errorModal .modal-body").html(savingRes.message);
-          }
+    var formData = {
+      mtnsme_500: $("#mtnsme_500").val(),
+      mtnsme_1: $("#mtnsme_1").val(),
+      mtnsme_2: $("#mtnsme_2").val(),
+      mtnsme_3: $("#mtnsme_3").val(),
+      mtnsme_5: $("#mtnsme_5").val(),
+      mtnsme_10: $("#mtnsme_10").val(),
+      level: $("#level").val(),
+    };
+    $.ajax({
+      url: 'customer/savemtnsme_price',
+      type: "POST",
+      data: formData,
+      dataType: 'json',
+      success: function (savingRes) {
+        $.LoadingOverlay("hide");
+        if (savingRes.status == 'success') {
+          $("#successModal").modal("show");
+          $("#successModal .modal-body").html(savingRes.message);
+        } else {
+          $("#errorModal").modal("show");
+          $("#errorModal .modal-body").html(savingRes.message);
         }
-      });
+      }
+    });
 
   }
 
   function saveMOBILESME() {
-      $("#priceModal").modal("hide");
-      $.LoadingOverlay("show");
+    $("#priceModal").modal("hide");
+    $.LoadingOverlay("show");
 
-      var formData = {
-        easy_access166:$("#easy_access166").val(),
-        easy_access167:$("#easy_access167").val(), 
-        easy_access168:$("#easy_access168").val(), 
-        easy_access128:$("#easy_access128").val(),
-        easy_access129:$("#easy_access129").val(), 
-        easy_access130:$("#easy_access130").val(), 
-        easy_access131:$("#easy_access131").val(), 
-        easy_access132:$("#easy_access132").val(),
-        easy_access169:$("#easy_access169").val(),
-        easy_access134:$("#easy_access134").val(),
-        easy_access135:$("#easy_access135").val(),
-        easy_access170:$("#easy_access170").val(),
-        easy_access136:$("#easy_access136").val(),
-        easy_access171:$("#easy_access171").val(),
-        easy_access137:$("#easy_access137").val(),
-        easy_access138:$("#easy_access138").val(),
-        easy_access172:$("#easy_access172").val(),
-        easy_access173:$("#easy_access173").val(),
-        easy_access174:$("#easy_access174").val(),
-        easy_access175:$("#easy_access175").val(),
-        easy_access176:$("#easy_access176").val(),
-        level: $("#level").val(),
-      };
-      $.ajax({
-        url: 'customer/savemobilesme_price',
-        type: "POST",
-        data: formData,
-        dataType: 'json',
-        success: function (savingRes) {
-          $.LoadingOverlay("hide");
-          if (savingRes.status == 'success') {
-            $("#successModal").modal("show");
-            $("#successModal .modal-body").html(savingRes.message);
-          } else {
-            $("#errorModal").modal("show");
-            $("#errorModal .modal-body").html(savingRes.message);
-          }
+    var formData = {
+      easy_access166: $("#easy_access166").val(),
+      easy_access167: $("#easy_access167").val(),
+      easy_access168: $("#easy_access168").val(),
+      easy_access128: $("#easy_access128").val(),
+      easy_access129: $("#easy_access129").val(),
+      easy_access130: $("#easy_access130").val(),
+      easy_access131: $("#easy_access131").val(),
+      easy_access132: $("#easy_access132").val(),
+      easy_access169: $("#easy_access169").val(),
+      easy_access134: $("#easy_access134").val(),
+      easy_access135: $("#easy_access135").val(),
+      easy_access170: $("#easy_access170").val(),
+      easy_access136: $("#easy_access136").val(),
+      easy_access171: $("#easy_access171").val(),
+      easy_access137: $("#easy_access137").val(),
+      easy_access138: $("#easy_access138").val(),
+      easy_access172: $("#easy_access172").val(),
+      easy_access173: $("#easy_access173").val(),
+      easy_access174: $("#easy_access174").val(),
+      easy_access175: $("#easy_access175").val(),
+      easy_access176: $("#easy_access176").val(),
+      level: $("#level").val(),
+    };
+    $.ajax({
+      url: 'customer/savemobilesme_price',
+      type: "POST",
+      data: formData,
+      dataType: 'json',
+      success: function (savingRes) {
+        $.LoadingOverlay("hide");
+        if (savingRes.status == 'success') {
+          $("#successModal").modal("show");
+          $("#successModal .modal-body").html(savingRes.message);
+        } else {
+          $("#errorModal").modal("show");
+          $("#errorModal .modal-body").html(savingRes.message);
         }
-      });
+      }
+    });
 
   }
 
@@ -430,6 +437,33 @@ if ($manage_prices==1){
 
   };
 
+  function saveMTNDATACARD() {
+    $("#priceModal").modal("hide");
+    $.LoadingOverlay("show");
+    var formData = {
+      easy_access165: $("#easy_access165").val(),
+      level: $("#level").val(),
+    };
+    $.ajax({
+      url: 'customer/savemtndatacard_price',
+      type: "POST",
+      data: formData,
+      dataType: 'json',
+      success: function (savingRes) {
+        $.LoadingOverlay("hide");
+        if (savingRes.status == 'success') {
+          $("#successModal").modal("show");
+          $("#successModal .modal-body").html(savingRes.message);
+        } else {
+          $("#errorModal").modal("show");
+          $("#errorModal .modal-body").html(savingRes.message);
+        }
+      }
+    });
+
+  };
+
+  
   function saveMOBILE() {
     $("#priceModal").modal("hide");
     $.LoadingOverlay("show");

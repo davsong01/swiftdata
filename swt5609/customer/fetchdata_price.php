@@ -146,7 +146,89 @@ if ($searc_level=="mtncg1" || $searc_level=="mtncg2" || $searc_level=="mtncg3" |
     echo json_encode($response);
     exit();
 }
-///MTNCG PRICE END
+
+if ($searc_level=="mtn_data_card1" || $searc_level=="mtn_data_card2" || $searc_level=="mtn_data_card3" || $searc_level=="mtn_data_card4"){
+    if ($searc_level=="mtn_data_card1"){$level=1;}
+    if ($searc_level=="mtn_data_card2"){$level=2;}
+    if ($searc_level=="mtn_data_card3"){$level=3;}
+    if ($searc_level=="mtn_data_card4"){$level=4;}
+
+    if($mtn_data_card == 'easy_access_data.php'){
+        $type = 'datacard';
+        $product = 'mtn-data-card';
+        require("../../api/easy_access_pricing.php");
+        $message = '<form method="POST" id="submit_form">
+        <input type="hidden" value="' . $level . '" id="level">';
+        
+        foreach($response as $res){
+            $message .= '<div>
+                            <label>' . $res['name'] . '</label>
+                           
+                            <input type="number" id="' . $res['id'] . '" class="form-control" value="' . $res['price'] . '" required>
+                        </div><br>';
+        }
+                
+        $message.='<button class="btn btn-success" type="button" onclick="saveMTNDATACARD()">Save</button></form>';
+    }else{
+         require ("../../functions/mtncg_price.php");
+
+        $message='
+
+        <form method="POST" id="submit_form">
+
+        <div>
+        <label>MTN CG 500MB</label>
+        <input type="hidden" value="'.$level.'" id="level">
+        <input type="tel" id="mtncg_500" class="form-control" value="'.$mtncg_500.'" required>
+        </div>
+
+        <br/>
+        <div>
+        <label>MTN CG 1GB</label>
+        <input type="tel" id="mtncg_1" class="form-control" value="'.$mtncg_1.'" required>
+        </div>
+
+        <br/>
+        <div>
+        <label>MTN CG 2GB</label>
+        <input type="tel" id="mtncg_2" class="form-control" value="'.$mtncg_2.'" required>
+        </div>
+
+        <br/>
+        <div>
+        <label>MTN CG 3GB</label>
+        <input type="tel" id="mtncg_3" class="form-control" value="'.$mtncg_3.'" required>
+        </div>
+
+        <br/>
+        <div>
+        <label>MTN CG 5GB</label>
+        <input type="tel" id="mtncg_5" class="form-control" value="'.$mtncg_5.'" required>
+        </div>
+
+        <br/>
+        <div>
+        <label>MTN CG 10GB</label>
+        <input type="tel" id="mtncg_10" class="form-control" value="'.$mtncg_10.'" required>
+        </div>
+
+        <br/>
+        <button class="btn btn-success" type="button" onclick="saveMTNCG()">Save</button>
+
+        </form>
+        ';
+    }
+   
+    $response=array(
+    'status' => 'success',
+    'data' => $message,
+    );
+
+    echo json_encode($response);
+    exit();
+}
+
+
 
 // 9mobile sme start
 if ($searc_level == "mobile_sme1" || $searc_level == "mobile_sme2" || $searc_level == "mobile_sme3" || $searc_level == "mobile_sme4") {

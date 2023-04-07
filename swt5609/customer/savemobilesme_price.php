@@ -33,7 +33,7 @@
       if ($update) {
         $response = array(
           'status' => 'success',
-          'message' => 'Your 9Mobile SME prices has been successfully updated !!!',
+          'message' => 'Your 9Mobile SME prices has been successfully updated for level '. $level,
         );
         echo json_encode($response);
         exit();

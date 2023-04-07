@@ -82,6 +82,9 @@
             color: white;
             font-weight: bolder;
         }
+        .price-label{
+            margin-top: 10px;
+        }
     </style>
 </head>
 
@@ -443,7 +446,7 @@
 
         <div id="priceModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
             aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
 
                     <br />

@@ -5,6 +5,7 @@
         'code'=>'',
     ];
 
+    // Data
     if($type == 'data' && $product == 'mtn-cg'){
         $data_query = mysqli_fetch_array(mysqli_query($con, "SELECT easy_access125, easy_access126, easy_access127, easy_access45,easy_access46,easy_access47,easy_access48,easy_access49,easy_access88,easy_access89,easy_access90,easy_access141,easy_access142,easy_access143,easy_access144,easy_access145,easy_access146,easy_access147,easy_access148,easy_access149,easy_access150,easy_access151 FROM mtncgdata_plan WHERE id='$level'"));
         
@@ -257,32 +258,10 @@
         ];
     }
 
+    // SMEs
     if($type == 'sme' && $product == 'apimobile-sme'){
         $data_query = mysqli_fetch_array(mysqli_query($con, "SELECT easy_access166, easy_access167, easy_access168, easy_access128,easy_access129, easy_access130, easy_access131, easy_access132,easy_access169,easy_access134,easy_access135,easy_access170,easy_access136,easy_access171,easy_access137,easy_access138,easy_access172,easy_access173,easy_access174,easy_access175,easy_access176 FROM mobilesmedata_plan WHERE id='$level'"));
 
-
-    // 166 => 100MB (SME) - N28 30days, 
-    // 167 => 300MB (SME) - N63 30days, 
-    // 168 => 500MB (SME) - N96 30days, 
-    // 128 => 1GB (SME) - N190 30days, 
-    // 129 => 1.5GB (SME) - N285 30days, 
-    // 130 => 2GB (SME) - N380 30days, 
-    // 131 => 2.5GB (SME) - N485 30days, 
-    // 132 => 3GB (SME) - N570 30days, 
-    // 169 => 4GB (SME) - N760 30days, 
-    // 134 => 5GB (SME) - N950 30days,
-    //  135 => 6GB (SME) - N1140 30days, 
-    //  170 => 7.5GB (SME) - N1425 30days, 
-    //  136 => 10GB (SME) - N1900 30days, 
-    //  171 => 11GB (SME) - N2090 30days, 
-    //  137 => 15GB (SME) - N2850 30days, 
-    //  138 => 20GB (SME) - N3800 30days, 
-    //  172 => 25GB (SME) - N4750 30days, 
-    //  173 => 30GB (SME) - N5700 30days, 
-    //  174 => 40GB (SME) - N7600 30days, 
-    //  175 => 50GB (SME) - N9500 30days, 
-    //  176 => 100GB (SME) - N19000 30days,
-        
         $response = [
             [
                 'name' => "9MOBILE 100MB (SME) - 30days",
@@ -436,6 +415,21 @@
     //  174 => 40GB (SME) - N7600 30days, 
     //  175 => 50GB (SME) - N9500 30days, 
     //  176 => 100GB (SME) - N19000 30days,
+    }
+
+    // Data card
+    if ($type == 'datacard' && $product == 'mtn-data-card') {
+        $data_query=mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM mtndata_card_plan WHERE id='$level'"));
+        
+        $response = [
+            [
+                'name' => "MTN 1.5GB (DATACARD) - 30days",
+                'price' => $data_query['easy_access165'],
+                'code' => 165,
+                'id' => 'easy_access165',
+            ],
+
+        ];
     }
     
 ?>
