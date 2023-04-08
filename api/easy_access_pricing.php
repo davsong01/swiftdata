@@ -393,28 +393,6 @@
             
         ];
 
-
-    // 166 => 100MB (SME) - N28 30days, 
-    // 167 => 300MB (SME) - N63 30days, 
-    // 168 => 500MB (SME) - N96 30days, 
-    // 128 => 1GB (SME) - N190 30days, 
-    // 129 => 1.5GB (SME) - N285 30days, 
-    // 130 => 2GB (SME) - N380 30days, 
-    // 131 => 2.5GB (SME) - N485 30days, 
-    // 132 => 3GB (SME) - N570 30days, 
-    // 169 => 4GB (SME) - N760 30days, 
-    // 134 => 5GB (SME) - N950 30days,
-    //  135 => 6GB (SME) - N1140 30days, 
-    //  170 => 7.5GB (SME) - N1425 30days, 
-    //  136 => 10GB (SME) - N1900 30days, 
-    //  171 => 11GB (SME) - N2090 30days, 
-    //  137 => 15GB (SME) - N2850 30days, 
-    //  138 => 20GB (SME) - N3800 30days, 
-    //  172 => 25GB (SME) - N4750 30days, 
-    //  173 => 30GB (SME) - N5700 30days, 
-    //  174 => 40GB (SME) - N7600 30days, 
-    //  175 => 50GB (SME) - N9500 30days, 
-    //  176 => 100GB (SME) - N19000 30days,
     }
 
     // Data card
