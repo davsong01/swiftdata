@@ -43,7 +43,19 @@ require ("request_pin.php");
 
     <div id="response"></div>
     <div id="extra" style="background: black;color: yellow;padding: 20px;margin-bottom: 15px;font-size: initial; display:none"></div>
-  
+    
+    <div id="how_to_load" style="display:none;background: #d5f4d5;padding: 10px;margin-bottom: 10px;">
+    <div class="col-lg-12 me">
+						<div class="form-group">
+							<label class="small mb-1" for="amount" style="color: #000000">To Load/Recharge Dail:</label>
+							<span class="text-danger font-italic">MTN (Data Card 1.5GB) &gt;&gt; *460*6*1*#, then enter the Pin Generated in the prompt shown on your MTN sim.</span>
+							<br>
+							<label class="small mb-1" for="amount" style="color: #000000">To Check Data Balance Dail:</label>
+							<span class="text-danger font-italic">MTN (Data Card 1.5GB) &gt;&gt; *312*5#</span>
+						</div>
+					</div>
+    </div>
+
     <form id="form-data">
 
       <div class="input-group mb-3">
@@ -108,6 +120,7 @@ require ("request_pin.php");
         <br>
       </div>
       
+      <small id="ask_pins_small" style="color:red;display:none">Phone number is optional<br></small>
       <div class="input-group mb-3">
         <div class="input-group-text">
           <span class="" id="basic-addon1"><i class="fas fa-phone" style="font-size: 25px;"></i></span>
@@ -183,10 +196,20 @@ require ("request_pin.php");
           $.LoadingOverlay("hide");
           if(network_module == 'MTN-DATACARD'){
             $("#ask_pins").show();
+            $("#ask_pins_small").show();
+            $("#how_to_load").show();
+            $("#how_to_load").show();
+            
             $("#no_of_pins").attr("required",true);
+            $("#mobile_no").attr("required",false);
+            
           }else{
             $("#ask_pins").hide();
             $("#no_of_pins").attr("required",false);
+            $("#ask_pins_small").hide();
+            $("#how_to_load").hide();
+            $("#mobile_no").attr("required",true);
+
           }
           $("#dataplanloader").html(RES_data);
           
@@ -223,6 +246,8 @@ require ("request_pin.php");
             if(response_fd.extra){
               $("#extra").html(response_fd.extra);
               $("#extra").show();
+              $("#how_to_load").show();
+              
               document.getElementById("form-data").reset();
             }
           }else{
