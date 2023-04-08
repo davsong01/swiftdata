@@ -155,15 +155,18 @@
             curl_close($curl);
             $result=json_decode($response);
 
-            $pins = [];
+            $pinsx = [];
             $result = json_decode($response);
-            foreach ($result as $key => $value) {
-                if (strpos($key, 'pin') !== false) {
-                    $pins[] = $value;
+            if(isset($result) && !empty($result)){
+                foreach ($result as $key => $value) {
+                    if (strpos($key, 'pin') !== false) {
+                        $pinsx[] = $value;
+                    }
                 }
+
             }
 
-            $pins = (isset($pins) && !empty($pins)) ? 'PINS: '.implode(', ', $pins) : '';
+            $pins = (isset($pinsx) && !empty($pinsx)) ? 'PINS: '.implode(', ', $pinsx) : '';
 
             $status=strtolower($result->success);
             
