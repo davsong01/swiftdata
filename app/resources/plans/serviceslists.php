@@ -133,7 +133,7 @@ if (!empty($_GET['services']) && !empty($_GET['level'])){
 
 			foreach ($response as $res) {
 				if (isset($res['price']) && $res['price'] > 0) {
-					$echo .= '<option value="' . $res['code'] . '">' . $res['name'] . ' - ₦' . $res['price'] . '</option>';
+					$echo .= '<option style="font-size: 11px" value="' . $res['code'] . '">' . $res['name'] . ' - ₦' . $res['price'] . '</option>';
 
 				}
 			}

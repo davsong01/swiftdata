@@ -47,8 +47,8 @@ require ("request_pin.php");
     <div id="how_to_load" style="display:none;background: #d5f4d5;padding: 10px;margin-bottom: 10px;">
     <div class="col-lg-12 me">
 						<div class="form-group">
-							<label class="small mb-1" for="amount" style="color: #000000">To Load/Recharge Dail:</label>
-							<span class="text-danger font-italic">MTN (Data Card 1.5GB) &gt;&gt; *460*6*1*#, then enter the Pin Generated in the prompt shown on your MTN sim.</span>
+							<label class="small mb-1" for="amount" style="color: #000000">To Load/Recharge: Dail</label>
+							<span class="text-danger font-italic">MTN (Data Card 1.5GB) &gt;&gt; *460*6*1#, then enter the Pin Generated in the prompt shown on your MTN sim.</span>
 							<br>
 							<label class="small mb-1" for="amount" style="color: #000000">To Check Data Balance Dail:</label>
 							<span class="text-danger font-italic">MTN (Data Card 1.5GB) &gt;&gt; *312*5#</span>
@@ -105,7 +105,7 @@ require ("request_pin.php");
           <span class="" id="basic-addon1"><i class="fa fa-shopping-cart" style="font-size: 25px;"></i></span>
         </div>
         <input type="hidden" id="req_token" value="<?php echo $_SESSION['csrftoken']; ?>">
-        <select class="form-control" id="dataplanloader" required>
+        <select class="form-control" class="dataplanload" style="font-size:11px" id="dataplanloader" required>
           <option value="">--Select Network--</option>
         </select>
 
