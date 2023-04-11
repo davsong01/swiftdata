@@ -42,7 +42,7 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']) {
 
     if ($Account_Balance > $amount && $amount > 0) {
 
-      $refinfo = mysqli_fetch_array(mysqli_query($con, "SELECT cashback, wallets, username, email, level, mobile FROM users WHERE username='" . $username . "'"));
+      $refinfo = mysqli_fetch_array(mysqli_query($con, "SELECT cashback, wallets, username, email, level, mobile,id FROM users WHERE username='" . $username . "'"));
 
       $ref_ini_bonus = $refinfo[0];
       $ref_ini_mallu = $refinfo[1];
@@ -50,8 +50,9 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']) {
       $ref_email = $refinfo[3];
       $ref_level = $refinfo[4];
       $ref_mobile = $refinfo[5];
+      $ref_id = $refinfo[6];
 
-      $adinfo = mysqli_fetch_array(mysqli_query($con, "SELECT cashback, wallets, username, email, level, mobile FROM users WHERE username='ADMIN'"));
+      $adinfo = mysqli_fetch_array(mysqli_query($con, "SELECT cashback, wallets, username, email, level, mobile,id,ref_code FROM users WHERE username='ADMIN'"));
 
       $ad_ini_bonus = $adinfo[0];
       $ad_ini_mallu = $adinfo[1];
@@ -59,6 +60,9 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']) {
       $ad_email = $adinfo[3];
       $ad_level = $adinfo[4];
       $ad_mobile = $adinfo[5];
+      $ad_id = $adinfo[6];
+      $ref_code = $adinfo[7];
+      $time = date('Y-m-d h:i:s');
 
       $newbal = $Account_Balance - $amount;
       mysqli_query($con, "UPDATE users SET level='$package', wallets='" . $newbal . "' WHERE email='" . $email . "'");
@@ -66,17 +70,23 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']) {
       $setbonus1 = mysqli_query($con, "UPDATE users SET cashback=cashback+$refb WHERE username='" . $username . "'");
       $setbonus2 = mysqli_query($con, "UPDATE users SET cashback=cashback+$admb WHERE username='ADMIN'");
 
-      $descr1 = 'Activation of level ' . $package . ' was successful';
+      $descr1 = 'Activation of level ' . $package . ' by '. $fullname.' was successful';
       mysqli_query($con, "INSERT INTO `final_transactions` (`id`, `mobile_number`, `buyer_email`, `buyer_username`, `buyer_service`, `buyer_amount`, `buyer_prebal`, `buyer_postbal`, `buyer_descr`, `buyer_status`, `buyer_date`, `timestring`, `charge_from`, `user_type`, `sys_ref`, `api_ref`, `api_report`, `src_price`, `profit`, `databyte`) VALUES (NULL, '$mobile', '$email', '$username', 'UPGRADE', '$amount', '$Account_Balance', '$newbal', '$descr1', 'SUCCESSFUL', '$time', '$timestring', 'CASHBACK', '$package', '$reference', '$reference2', 'GOOD', '0', '0', '0')");
+
+      // $insert = mysqli_query($con, "INSERT INTO `earn_transactions` (`id`, `user_id`, `ref_code`, `amount`, `type`,`description`,`created_at`) VALUES (NULL, '$ref_id','$ref_username', '$amount','credit','$descr1','$time')");
 
       $descr2 = 'Referral bonus of N' . $refb . ' landed from ' . $username;
       $new_ref_bonus = $ref_ini_bonus + $refb;
       mysqli_query($con, "INSERT INTO `final_transactions` (`id`, `mobile_number`, `buyer_email`, `buyer_username`, `buyer_service`, `buyer_amount`, `buyer_prebal`, `buyer_postbal`, `buyer_descr`, `buyer_status`, `buyer_date`, `timestring`, `charge_from`, `user_type`, `sys_ref`, `api_ref`, `api_report`, `src_price`, `profit`, `databyte`) VALUES (NULL, '$ref_mobile', '$ref_email', '$ref_username', 'EARNING', '$refb', '$ref_ini_mallu', '$new_ref_bonus', '$descr2', 'SUCCESSFUL', '$time', '$timestring', 'CASHBACK', '$ref_level', '$reference3', '$reference4', 'GOOD', '0', '0', '0')");
 
+       $insert = mysqli_query($con, "INSERT INTO `earn_transactions` (`id`, `user_id`, `ref_code`, `amount`, `type`,`description`,`created_at`) VALUES (NULL, '$ref_id','$ref_code', '$refb','credit','$descr2','$time')");
+
       $descr3 = 'Admin bonus of N' . $admb . ' landed from ' . $username;
       $new_ad_bonus = $ad_ini_bonus + $admb;
 
       mysqli_query($con, "INSERT INTO `final_transactions` (`id`, `mobile_number`, `buyer_email`, `buyer_username`, `buyer_service`, `buyer_amount`, `buyer_prebal`, `buyer_postbal`, `buyer_descr`, `buyer_status`, `buyer_date`, `timestring`, `charge_from`, `user_type`, `sys_ref`, `api_ref`, `api_report`, `src_price`, `profit`, `databyte`) VALUES (NULL, '$ad_mobile', '$ad_email', '$ad_username', 'EARNING', '$admb', '$ad_ini_mallu', '$new_ad_bonus', '$descr3', 'SUCCESSFUL', '$time', '$timestring', 'CASHBACK', '$ad_level', '$reference5', '$reference6', 'GOOD', '0', '0', '0')");
+
+       $insert = mysqli_query($con, "INSERT INTO `earn_transactions` (`id`, `user_id`, `ref_code`, `amount`, `type`,`description`,`created_at`) VALUES (NULL, '$ad_id','$ref_code', '$refb','credit','$descr3','$time')");
 
       $response = array(
         'status' => 'success',

@@ -48,9 +48,9 @@
       dataType:'json',
       success:function(transactionsRes){   
       $.LoadingOverlay("hide");
-        if(transactionsRes.count > 0){
-          $("#withdrawButton").show();
-        }
+        // if(transactionsRes.count > 0){
+        //   $("#withdrawButton").show();
+        // }
       $("#transactionsDiv").html(transactionsRes.message);
         }
           });
@@ -67,25 +67,6 @@
             }
         });
     }
-
-    $('#withdrawButton').click(function () {
-    $.LoadingOverlay("show");
-    var confirmText = "You are about to withdraw your referral commissions to your wallet";
-    if(confirm(confirmText)) {
-
-      $.ajax({
-      url:'<?php echo $baseurl; ?>/customer/withdrawreferralbonus',
-          dataType: 'json',
-          success: function (transactionsRes) {
-            $.LoadingOverlay("hide");
-            $("#temp").hide();
-          
-            $("#transactionsDiv").html(transactionsRes.message);
-          }
-        });
-    }
-    return false;
-});
 
  </script> 
 

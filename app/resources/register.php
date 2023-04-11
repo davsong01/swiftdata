@@ -87,7 +87,7 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']) {
         $f_username = str_replace("'", "", $username);
 
         $createUser = mysqli_query($con, "INSERT INTO `users` (`id`, `full_name`, `ref_code`, `ref_by`, `mobile`, `username`, `password`, `wallets`, `cashback`, `block`, `users_sid`, `referral`, `level`, `last_login`, `email`, `sk_token`, `wema`, `acctname`, `rolez`, `sterling`, `fidelity`, `reg_date`, `status`, `mtnsme_access`, `mtncg_access`, `glo_access`, `airtel_access`, `airtelcg_access`, `mobile_access`, `cable_access`, `bills_access`, `epin_access`, `airtime_access`, `susbscription`, `webhook`, `security_pin`, `rating`, `reserved_account`) VALUES (NULL, '$full_name', '$f_username', '$myrefferal', '$mobile_no', '$f_username', '$hashpassword', '0', '0', '0', '$users_sid', '0', '1', '$time', '$f_emailaddress', '$sk_token', '', '', '', '', '', '$time', '0', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '0', '', '', 0, '')");
-
+        
         if ($createUser) {
           mysqli_query($con, "UPDATE users SET referral=referral+1 WHERE ref_code='" . $myrefferal . "'");
 

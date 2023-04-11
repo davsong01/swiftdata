@@ -230,7 +230,7 @@ if ($notification_mode=="ON"){
             <button class="btn btn-success btn-block" style="width: 100%" id="upgrade">UPGRADE</button>
         </div>
 
-        <div class="alert" style="background-color: #fff">
+        <!-- <div class="alert" style="background-color: #fff">
 
             <div id="response"></div>
             <label style="color: red;">Do you have any challengies ? We love to hear from you. Reach us anytime.</label>
@@ -243,7 +243,7 @@ if ($notification_mode=="ON"){
             <button class="btn btn-success btn-block" id="contactus">Contact Us</button>
             <button class="btn btn-warning btn-block" id="#">Report</button>
 
-        </div>
+        </div> -->
     </div>
 </div>
 
