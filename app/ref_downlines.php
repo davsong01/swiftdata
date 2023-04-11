@@ -13,25 +13,25 @@
 </div>
 
 <div class="col-xl-12">
-<div class="alert" style="box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;">
+  <div class="alert" id="temp" style="box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;">
 
-        <div id="response" style="text-align: left;">
-          <span>Commission Balance 
-            <span style="float: right;"><button class="btn btn-dark" onclick="FundWallet()" style="font-size:10px">Fund Wallet</button></span>
-          </span>
-          <br/>
+          <div id="response" style="text-align: left;">
+            <span>Commission Balance 
+              <span><button class="btn btn-success" style="font-size:10px;display:none" id="withdrawButton">Withdraw to wallet</button></span>
+            </span>
+            <br/>
 
-           <span style="color: #940798;font-weight: bold;font-size: 25px;">₦ <?php echo number_format($Account_Bonus,2); ?></span>
-         
-        </div>
-                
-</div>
+            <span style="color: #940798;font-weight: bold;font-size: 25px;">₦ <?php echo number_format($Account_Bonus,2); ?></span>
+          
+          </div>
+                  
+  </div>
 </div>
 
 <div class="col-xl-12">
 <div class="alert" style="background-color: #fff">
 
-<div id="transactionsDiv"></div>
+<div id="transactionsDiv" class="row"></div>
  
 </div>
 <br>
@@ -41,17 +41,20 @@
 </div>
 
 <script type="text/javascript">
-  $(document).ready(function () {
+    $(document).ready(function () {
     $.LoadingOverlay("show");
-  $.ajax({
-    url:'<?php echo $baseurl; ?>/customer/refdownline?load_id=0',
-    dataType:'json',
-    success:function(transactionsRes){   
-    $.LoadingOverlay("hide");
-    $("#transactionsDiv").html(transactionsRes.message);
-      }
-        });
-  });
+    $.ajax({
+      url:'<?php echo $baseurl; ?>/customer/refdownline?load_id=0',
+      dataType:'json',
+      success:function(transactionsRes){   
+      $.LoadingOverlay("hide");
+        if(transactionsRes.count > 0){
+          $("#withdrawButton").show();
+        }
+      $("#transactionsDiv").html(transactionsRes.message);
+        }
+          });
+    });
 
     function showMore(id){
     $.LoadingOverlay("show");
@@ -64,6 +67,25 @@
             }
         });
     }
+
+    $('#withdrawButton').click(function () {
+    $.LoadingOverlay("show");
+    var confirmText = "You are about to withdraw your referral commissions to your wallet";
+    if(confirm(confirmText)) {
+
+      $.ajax({
+      url:'<?php echo $baseurl; ?>/customer/withdrawreferralbonus',
+          dataType: 'json',
+          success: function (transactionsRes) {
+            $.LoadingOverlay("hide");
+            $("#temp").hide();
+          
+            $("#transactionsDiv").html(transactionsRes.message);
+          }
+        });
+    }
+    return false;
+});
 
  </script> 
 

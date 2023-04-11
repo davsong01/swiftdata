@@ -41,18 +41,18 @@
 </div>
 
 <script type="text/javascript">
-  $(document).ready(function () {
-    $.LoadingOverlay("show");
-  $.ajax({
-    url:'<?php echo $baseurl; ?>/customer/refearning?load_id=0',
-    dataType:'json',
-    success:function(transactionsRes){   
-    $.LoadingOverlay("hide");
-    $("#transactionsDiv").html(transactionsRes.message);
-    $("#loadMoreDiv").html(transactionsRes.ctrlButton);
-      }
-        });
-  });
+    $(document).ready(function () {
+      $.LoadingOverlay("show");
+    $.ajax({
+      url:'<?php echo $baseurl; ?>/customer/refearning?load_id=0',
+      dataType:'json',
+      success:function(transactionsRes){   
+      $.LoadingOverlay("hide");
+      $("#transactionsDiv").html(transactionsRes.message);
+      $("#loadMoreDiv").html(transactionsRes.ctrlButton);
+        }
+          });
+    });
 
     function showMore(id){
     $.LoadingOverlay("show");

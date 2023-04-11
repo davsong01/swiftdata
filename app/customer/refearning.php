@@ -17,12 +17,7 @@ else {$nextbtn='';}
 
  $lettr= mysqli_query($con, "SELECT * FROM earn_transactions WHERE ref_code='$username' ORDER BY id DESC LIMIT $load_amount");
 if (mysqli_num_rows($lettr)<1){
-
-    $transaction='<div class="alert" style="background-color: #fff;border-radius: 10px 5px;color:black">
-              
-                         Who you referred has not bought anything on this platform.
-             
-                </div>';
+   $transaction='<div class="alert" style="background-color: #fff;border-radius: 10px 5px;color:black">Who you referred has not bought anything on this platform. </div>';
  }
 
  else{

@@ -25,7 +25,7 @@ if (!empty($_GET['services']) && !empty($_GET['level'])){
 	if ($getservices=="mtn-cg"){
 		if($api_gift == 'easy_access_data.php'){
 			$type = 'data';
-			$product = $getservices;
+			$product = 'mtn-cg';
 				require('../../../api/easy_access_pricing.php');
 				
 				foreach($response as $res){
@@ -46,7 +46,11 @@ if (!empty($_GET['services']) && !empty($_GET['level'])){
 				';
 		}
 
-		echo $echo;
+		if(!empty($echo)){
+			echo $echo;
+		}else{
+			echo '<option>No Available variations at the moment</option>';
+		}
 	}
 
 	if ($getservices=="airtel-cg"){
@@ -73,7 +77,11 @@ if (!empty($_GET['services']) && !empty($_GET['level'])){
 			';
 		}
 
+		if (!empty($echo)) {
 			echo $echo;
+		} else {
+			echo '<option>No Available variations at the moment</option>';
+		}
 
 	}
 
@@ -102,7 +110,11 @@ if (!empty($_GET['services']) && !empty($_GET['level'])){
 			';
 		}
 
-		echo $echo;
+		if (!empty($echo)) {
+			echo $echo;
+		} else {
+			echo '<option>No Available variations at the moment</option>';
+		}
 	}
 
 	// 9 mobile sme
@@ -122,7 +134,11 @@ if (!empty($_GET['services']) && !empty($_GET['level'])){
 			
 		}
 
-		echo $echo;
+		if (!empty($echo)) {
+			echo $echo;
+		} else {
+			echo '<option>No Available variations at the moment</option>';
+		}
 	}
 
 	if ($getservices == "mtn-datacard") {
@@ -141,8 +157,12 @@ if (!empty($_GET['services']) && !empty($_GET['level'])){
 		} else {
 
 		}
-		
-		echo $echo;
+
+		if (!empty($echo)) {
+			echo $echo;
+		} else {
+			echo '<option>No Available variations at the moment</option>';
+		}
 	}
 
 	if ($getservices=="glo"){
