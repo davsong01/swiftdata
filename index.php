@@ -40,7 +40,7 @@
 
       <a href="index.html" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="homepage/assets/img/logo.png" alt=""> -->
+        <img src="homepage/assets/img/logo.jpeg" alt="">
         <h1 style="text-transform: uppercase;"><?php echo $sitename; ?></h1>
       </a>
 
