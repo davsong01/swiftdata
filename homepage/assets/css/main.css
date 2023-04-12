@@ -1754,7 +1754,7 @@ section {
 .hero {
   width: 100%;
   min-height: 50vh;
-  background-color: var(--color-secondary);
+  background-color: #950eb3;
   background-image: url("../img/hero-bg.png");
   background-size: cover;
   background-position: center;
@@ -1967,6 +1967,6 @@ section {
 
 /* Custom CSS */
 .btn.btn-primary {
-  border-color: #a211c5 !important;
+  border-color: white;
   background: none;
 }
