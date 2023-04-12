@@ -130,12 +130,12 @@
     </section><!-- End Featured Services Section -->
 
     <!-- ======= About Us Section ======= -->
-    <section id="about" class="about pt-0">
+    <section id="about" class="about pt-0 pb-3">
       <div class="container" data-aos="fade-up">
 
         <div class="row gy-4">
           <div class="col-lg-6 position-relative align-self-start order-lg-last order-first">
-            <img src="homepage/assets/img/about.jpg" class="img-fluid" alt="">
+            <img src="homepage/assets/img/vision.jpg" class="img-fluid" style="height: 460px" alt="">
           </div>
           <div class="col-lg-6 content order-last  order-lg-first">
             <h3>About Us</h3>
@@ -256,9 +256,9 @@
 
         <div class="row justify-content-center">
           <div class="col-lg-8 text-center">
-            <h3>Call To Action</h3>
+            <!-- <h3>Call To Action</h3> -->
             <p> <?php echo $sitename; ?> is a technology platform that offers solutions to digital needs at best possible price. We Are The Best Recharge & Utility Bills Payment Platform..</p>
-            <a class="cta-btn" href="#">Call To Action</a>
+            <a class="cta-btn" href="<?php echo $mainpage ?>/register">Get Started</a>
             </dic>
           </div>
 
@@ -350,7 +350,7 @@
 
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="homepage/assets/img/testimonials/testimonials-1.png" class="testimonial-img" alt="">
+                <!-- <img src="homepage/assets/img/testimonials/testimonials-1.png" class="testimonial-img" alt=""> -->
                 <h3>Adeoye Adheem</h3>
                 <h4>Ceo &amp; Founder</h4>
                 <div class="stars">
@@ -366,7 +366,7 @@
 
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="homepage/assets/img/testimonials/testimonials-2.png" class="testimonial-img" alt="">
+                <!-- <img src="homepage/assets/img/testimonials/testimonials-2.png" class="testimonial-img" alt=""> -->
                 <h3>Olayode Benjamin </h3>
                 <h4>Student</h4>
                 <div class="stars">
@@ -382,7 +382,7 @@
 
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="homepage/assets/img/testimonials/testimonials-3.png" class="testimonial-img" alt="">
+                <!-- <img src="homepage/assets/img/testimonials/testimonials-3.png" class="testimonial-img" alt=""> -->
                 <h3>Johnny Sam</h3>
                 <h4>Business Owner</h4>
                 <div class="stars">
@@ -555,7 +555,7 @@
     <div class="container">
       <div class="row gy-4">
         <div class="col-lg-3 col-md-12 footer-info">
-          <a href="index.html" class="logo d-flex align-items-center">
+          <!-- <a href="" class="logo d-flex align-items-center"> -->
             <span> <?php echo $sitename; ?></span> 
 
           <div class="social-links d-flex mt-4">
@@ -604,7 +604,7 @@
 
     <div class="container mt-4">
       <div class="copyright">
-        &copy; Copyright <strong><span><?php echo $sitename; ?></span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span><?php echo date('Y'). ' ' .$sitename; ?></span></strong>. All Rights Reserved
       </div>
       <div class="credits">
 
