@@ -20,7 +20,7 @@
             if ($plan_id==$res['code']){
                 $service_price = $res['price'];
                 $service = "mtn-cg";
-                $databyte = $res['name'];
+                $databyte = $res['val'];
                 $package_name = $res['name'];
                 $planCode = $res['code'];
             }
@@ -37,12 +37,12 @@
             if ($plan_id==$res['code']){
                 $service_price = $res['price'];
                 $service = "airtel-cg";
-                $databyte = $res['name'];
+                $databyte = $res['val'];
                 $package_name = $res['name'];
                 $planCode = $res['code'];
             }
         }
-        
+    
     }elseif($network == 'GLO-CG'){
         $type = 'data';
         $product = 'glo-cg';
@@ -55,7 +55,7 @@
             if ($plan_id==$res['code']){
                 $service_price = $res['price'];
                 $service = "glo-cg";
-                $databyte = $res['name'];
+                $databyte = $res['val'];
                 $package_name = $res['name'];
                 $planCode = $res['code'];
             }
@@ -73,7 +73,7 @@
             if ($plan_id == $res['code']) {
                 $service_price = $res['price'];
                 $service = "apimobile-sme";
-                $databyte = $res['name'];
+                $databyte = $res['val'];
                 $package_name = $res['name'];
                 $planCode = $res['code'];
             }
@@ -89,7 +89,7 @@
             if ($plan_id == $res['code']) {
                 $service_price = $res['price'];
                 $service = "mtn_data_card";
-                $databyte = $res['name'];
+                $databyte = $res['val'];
                 $package_name = $res['name'];
                 $planCode = $res['code'];
             }
@@ -180,7 +180,7 @@
                 'no_of_pins' => $no_of_pins ?? '',
 
             ]);
-            
+   
             if ($status==="true"){
                 $order_report=strtoupper('Purchase Successful for '.$package_name.($network != 'MTN-DATACARD' ? ' on '.$mobile_no : ''));
 
@@ -200,6 +200,7 @@
                 echo json_encode($response);
                 exit;
             }else{
+            
                 $new_wallet=$account_balance;
                 mysqli_query($con, "UPDATE users SET wallets='$new_wallet' WHERE id='$user_id' AND username ='$account_username'");
 
