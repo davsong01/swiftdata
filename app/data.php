@@ -213,7 +213,6 @@ require ("request_pin.php");
           }
           $("#dataplanloader").html(RES_data);
           
-          
         }
       })
     }

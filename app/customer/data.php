@@ -9,7 +9,7 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']){
     $network_module=strtoupper(mysqli_real_escape_string($con, $_POST['network_module']));
     $dataplanloader=mysqli_real_escape_string($con, $_POST['dataplanloader']);
     $mobile_no=mysqli_real_escape_string($con, $_POST['mobile_no']);
-   
+    
     $security_pin=mysqli_real_escape_string($con, $_POST['security_pin']);
     $req_token=mysqli_real_escape_string($con, $_POST['req_token']);
     $no_of_pins=mysqli_real_escape_string($con, $_POST['no_of_pins']);

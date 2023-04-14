@@ -1,7 +1,7 @@
 <?php
     $response = [
         'name'=>'',
-        'price'=>'',
+        'price'=>0,
         'code'=>'',
         'val'=>'',
     ];
