@@ -68,14 +68,14 @@
                         ],
                     '9MOBILE' => [
                         'type' => 'data',
-                        'product' => 'mobile',
+                        'product' => '9mobile',
                         'user_status'=>$allowed_services['mobile_access'] ?? 0,
                         'system_status'=>$mo_lock1,
                         'api'=>$api_mobile
                     ],
-                    '9MOBILE SME' => [
-                        'type' => 'data',
-                        'product' => 'mobile-sme',
+                    'MOBILE SME' => [
+                        'type' => 'sme',
+                        'product' => 'apimobile-sme',
                         'user_status'=>1,
                         'system_status'=>$mobilesme_lock,
                         'api'=>$api_mobilesme
@@ -88,11 +88,11 @@
                         'api'=>$api_mobilecg
                     ],
                     'GIFTING' => [
-                        'type' => 'data',
-                        'product' => 'mtn-gifting',
+                        'type' => 'datacard',
+                        'product' => 'mtn-data-card',
                         'user_status'=>1,
                         'system_status'=>1,
-                        'api'=>$api_gift
+                        'api'=>$mtn_data_card
                     ],
                     
                 ];

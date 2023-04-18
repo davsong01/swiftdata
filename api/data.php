@@ -14,9 +14,12 @@
     // Check if request has plan name and get the plan_id from the pricing lists
     if(isset($plan_name) && !empty($plan_name)){
         $plan_id = getPlanId($plan_name, $network,$plan_id ?? '');
+
+        
         // Get plan code from pricing lists using the plan name
     }
-    if (!empty($mobile_no) && !empty($plan_id) && !empty($reference) && !empty($network) && !empty($api_token)) {
+    if (!empty($mobile_no) && !empty($reference) && !empty($network) && !empty($api_token)) {
+    // if (!empty($mobile_no) && !empty($plan_id) && !empty($reference) && !empty($network) && !empty($api_token)) {
 
         require("../functions/web_config.php");
         $dateTime = new DateTime('now', new DateTimeZone('Africa/Lagos'));
@@ -77,7 +80,7 @@
                     require("dataModule/$api_glocg");
                 } else if ($network == "9MOBILE-CG" && $mo_lock1 == 1 && $mobile_access == 1 || $network == "ETISALAT" && $mo_lock1 == 1 && $mobile_access == 1) {
                     require("dataModule/$api_mobile");
-                }else if ($network == "MOBILE-SME" && $mobilesme_lock == 1) {
+                }else if (($network == "MOBILE-SME" || $network == "MOBILE SME") && $mobilesme_lock == 1) {
                     require("dataModule/$api_mobilesme");
                 } else {
                     $response = array(
@@ -102,7 +105,7 @@
         $response = array(
             'status' => 'fail',
             'status_code' => '100',
-            'message' => 'Please make sure all the parameters are included',
+            'message' => 'Please make sure all the parameters are included. Parameters sent are: '.$json,
         );
         echo json_encode($response);
         exit();
@@ -111,6 +114,9 @@
     function getPlanId($plan_name, $network,$plan_id){
         require("../functions/web_config.php");
         $pId = $plan_id;
+        $type = "data";
+        $product = strtolower($network);
+
         if ($network == "MTN") {
             $api = $api_mtn;
         } else if ($network == "MTN-DATACARD" ){
@@ -129,12 +135,11 @@
             $api = $api_glocg;
         } else if ($network == "9MOBILE-CG" || $network == "ETISALAT") {
             $api = $api_mobile;
-        }else if ($network == "MOBILE-SME") {
+        }else if ($network == "MOBILE-SME" || $network == "MOBILE SME") {
             $api = $api_mobilesme;
+            $type = "sme";
+            $product = "apimobile-sme";
         }
-
-        $type = "data";
-        $product = strtolower($network);
 
         if($api == 'easy_access_data.php') {
             require("easy_access_pricing.php");
@@ -154,6 +159,7 @@
                 }
             }
         }
+    
         return $pId;
     }
 ?>

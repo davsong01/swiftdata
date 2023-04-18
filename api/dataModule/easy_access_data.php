@@ -61,7 +61,7 @@
             }
         }
         
-    } elseif ($network == 'MOBILE-SME') {
+    } elseif ($network == 'MOBILE-SME' || $network == 'MOBILE SME') {
         $type = 'sme';
         $product = 'apimobile-sme';
         $ntwk = 04;
@@ -78,6 +78,7 @@
                 $planCode = $res['code'];
             }
         }
+
     } elseif ($network == 'MTN-DATACARD') {
         $type = 'datacard';
         $product = 'mtn-data-card';

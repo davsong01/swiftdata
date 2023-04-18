@@ -195,38 +195,51 @@ if (!empty($_GET['services']) && !empty($_GET['level'])){
 	}
 
 	if ($getservices=="airtel"){
-		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT airtel_750,airtel_15, airtel_2, airtel_3, airtel_45, airtel_6, airtel_10, airtel_11, airtel_20, airtel_40, airtel_75,airtel_120  FROM airteldata_plan WHERE id='$level'"));
+		$type = 'data';
+		$product = 'airtel';
+		if ($api_airtel  == 'easy_access_data.php') {
+			require('../../../api/easy_access_pricing.php');
+		} else {
+			require('../../../api/generic_pricing.php');
+		}
+		if (isset($response) && !empty($response)) {
+			foreach ($response as $res) {
+				if (isset($res['price']) && $res['price'] > 0) {
+					$echo .= '<option style="font-size: 11px" value="' . $res['code'] . '">' . $res['name'] . ' - ₦' . $res['price'] . '</option>';
 
-		echo '
-			<option value="501">AIRTEL 750MB - ₦'.$data_query[0].'</option>
-			<option value="502">AIRTEL 1.5GB - ₦'.$data_query[1].'</option>
-			<option value="503">AIRTEL 2GB - ₦'.$data_query[2].'</option>
-			<option value="504">AIRTEL 3GB - ₦'.$data_query[3].'</option>
-			<option value="505">AIRTEL 4.5GB - ₦'.$data_query[4].'</option>
-			<option value="506">AIRTEL 6GB - ₦'.$data_query[5].'</option>
-			<option value="507">AIRTEL 10GB - ₦'.$data_query[6].'</option>
-			<option value="508">AIRTEL 11GB - ₦'.$data_query[7].'</option>
-			<option value="509">AIRTEL 20GB - ₦'.$data_query[8].'</option>
-			<option value="510">AIRTEL 40GB - ₦'.$data_query[9].'</option>
-			<option value="511">AIRTEL 75GB - ₦'.$data_query[10].'</option>
-			<option value="512">AIRTEL 120GB - ₦'.$data_query[11].'</option>
-		';
+				}
+			}
+		}
+		if (!empty($echo)) {
+			echo $echo;
+		} else {
+			echo '<option>No Available variations at the moment</option>';
+		}
+
 	}
 
 	if ($getservices=="9mobile"){
-		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT mobile_500,mobile_15, mobile_2, mobile_3, mobile_45, mobile_11, mobile_150, mobile_40, mobile_75  FROM mobiledata_plan WHERE id='$level'"));
+		$type = 'data';
+		$product = '9mobile';
+		if ($api_airtel  == 'easy_access_data.php') {
+			require('../../../api/easy_access_pricing.php');
+		} else {
+			require('../../../api/generic_pricing.php');
+		}
+		if (isset($response) && !empty($response)) {
+			foreach ($response as $res) {
+				if (isset($res['price']) && $res['price'] > 0) {
+					$echo .= '<option style="font-size: 11px" value="' . $res['code'] . '">' . $res['name'] . ' - ₦' . $res['price'] . '</option>';
 
-		echo '
-			<option value="401">9MOBILE 500MB - ₦'.$data_query[0].'</option>
-			<option value="402">9MOBILE 1.5GB - ₦'.$data_query[1].'</option>
-			<option value="403">9MOBILE 2GB - ₦'.$data_query[2].'</option>
-			<option value="404">9MOBILE 3GB - ₦'.$data_query[3].'</option>
-			<option value="405">9MOBILE 4.5GB - ₦'.$data_query[4].'</option>
-			<option value="406">9MOBILE 11GB - ₦'.$data_query[5].'</option>
-			<option value="407">9MOBILE 15GB - ₦'.$data_query[6].'</option>
-			<option value="408">9MOBILE 40GB - ₦'.$data_query[7].'</option>
-			<option value="409">9MOBILE 75GB - ₦'.$data_query[8].'</option>
-		';
+				}
+			}
+		}
+		if (!empty($echo)) {
+			echo $echo;
+		} else {
+			echo '<option>No Available variations at the moment</option>';
+		}
+		
 	}
 
 /////////////// DATA ENDS
