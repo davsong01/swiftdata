@@ -97,7 +97,7 @@
         }
     }
     // add  additional easy access services here
-
+    
     // Perform operations
     if($service_price <= 0){
         $response=array(
@@ -136,6 +136,7 @@
             )); 
 
             $response = curl_exec($curl);
+
             // $response = '{
             //     "success": "true",
             //     "message": "Data Card Purchase was Successful",
@@ -154,20 +155,20 @@
             //     }';
 
             curl_close($curl);
-            $result=json_decode($response);
 
             $pinsx = [];
             $result = json_decode($response);
+
             if(isset($result) && !empty($result)){
                 foreach ($result as $key => $value) {
                     if (strpos($key, 'pin') !== false) {
                         $pinsx[] = $value;
                     }
                 }
-
             }
 
             $pins = (isset($pinsx) && !empty($pinsx)) ? 'PINS: '.implode(', ', $pinsx) : '';
+            $true_response = $result->true_response ?? '';
 
             $status=strtolower($result->success);
             
@@ -181,9 +182,10 @@
                 'no_of_pins' => $no_of_pins ?? '',
 
             ]);
+   
             // $status="true";
             if ($status==="true"){
-                $order_report=strtoupper('Purchase Successful for '.$package_name.($network != 'MTN-DATACARD' ? ' on '.$mobile_no : ''));
+                $order_report=strtoupper('Purchase Successful for '.$package_name.($network != 'MTN-DATACARD' ? ' on '.$mobile_no : '')).'. '.$true_response;
 
                 mysqli_query($con, "INSERT INTO `final_transactions` (`id`, `mobile_number`, `buyer_email`, `buyer_username`, `buyer_service`, `buyer_amount`, `buyer_prebal`, `buyer_postbal`, `buyer_descr`, `buyer_status`, `buyer_date`, `timestring`, `charge_from`, `user_type`, `sys_ref`, `api_ref`, `api_report`, `src_price`, `profit`, `databyte`,`api_response`,`post_fields`,`extra`) VALUES (NULL, '$mobile_no', '$account_email', '$account_username', '$service', '$service_price', '$account_balance', '$new_wallet', '$order_report', 'SUCCESSFUL', '$time', '$timestring', 'WALLET', '$level', '$api_reference', '$reference', 'DONE', '0', '0', '$databyte','$response','$pstfields','$pins')");
 

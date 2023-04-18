@@ -113,7 +113,7 @@
                         if(isset($response)){
                             $single = [];
                             foreach($response as $r){
-                                if(isset($r) && $r['price'] > 0){
+                                if(isset($r['price']) && $r['price'] > 0){
                                     $single[] = $r['price'] > 0 ? $r['name']." = N".$r['price']:0;
                                     // formatBytes($r['val'])." = N".$r['price'] : 0;
                                 }

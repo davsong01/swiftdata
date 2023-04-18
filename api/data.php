@@ -14,8 +14,6 @@
     // Check if request has plan name and get the plan_id from the pricing lists
     if(isset($plan_name) && !empty($plan_name)){
         $plan_id = getPlanId($plan_name, $network,$plan_id ?? '');
-
-        
         // Get plan code from pricing lists using the plan name
     }
     if (!empty($mobile_no) && !empty($reference) && !empty($network) && !empty($api_token)) {
