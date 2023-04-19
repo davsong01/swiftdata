@@ -148,7 +148,6 @@ if ($mtnsme_access > 0) {
 
     }
 
-
 } else {
 
     $response = array(
