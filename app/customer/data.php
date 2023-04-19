@@ -1,6 +1,7 @@
 <?php
 
 require("session_controller.php");
+
 $_POST['mobile_no'] = !empty($_POST['mobile_no']) ? $_POST['mobile_no'] : '00000000000';
 
 if ($_SESSION['csrftoken'] == $_POST['req_token']){
@@ -100,7 +101,7 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']){
 
  $response=array(
     'status'=>'fail',
-    'message' => '<div class="alert alert-danger text-left">Something went wrong...</div>',
+    'message' => '<div class="alert alert-danger text-left">Something went wrong..token issue.</div>',
   );
   echo json_encode($response);
   exit();

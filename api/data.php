@@ -60,7 +60,9 @@
                 $user_id = $return_info['id'];
                 $account_mobile = $return_info['mobile'];
 
+                
                 if ($network == "MTN" && $m_lock1 == 1 && $mtnsme_access == 1) {
+                    
                     require("dataModule/$api_mtn");
                 } else if ($network == "MTN-DATACARD" ){
                     require("dataModule/$mtn_data_card");
