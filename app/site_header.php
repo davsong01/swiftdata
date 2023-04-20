@@ -80,7 +80,12 @@
             top: 1%;
             left: 4%;
         }
-        
+        @media (min-width: 400px) {
+            .trans{
+                width: 46%;
+                margin: 10px 20px !important;
+            }
+        }
 
     </style>
 </head>

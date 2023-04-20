@@ -2,67 +2,87 @@
 require ("session_controller.php");
 $searc_level=$_GET['load_id'];
 
-// var_dump($waec_lock);
-// die();
 if ($searc_level=="datalock"){
 
 $message='
-<form id="form-data">
-    <label>MTN-SME *</label>
-    <select class="form-control" id="mtnsme_lock" required>
-    <option value="1">ENABLE</option>
-    <option value="0">DISABLE</option>
-    </select>
+ <div class="row">
+        <form id="form-data">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="price-label">MTN-SME'. $mtnsme_lock.' *</label>
+                    <select class="form-control" id="mtnsme_lock" required>
+                    <option value="1" ' . ($m_lock1 == 1 ? 'selected' : '') . '>ENABLE</option>
+                    <option value="0"' . ($m_lock1 == 0 ? 'selected' : '').'>DISABLE</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="price-label">MTN-CG *</label>
+                    <select class="form-control" id="mtncg_lock" required>
+                    <option value="1" ' . ($mg_lock1 == 1 ? 'selected' : '') . '>ENABLE</option>
+                    <option value="0" ' . ($mg_lock1 == 0 ? 'selected' : '') . '>DISABLE</option>  
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="price-label">MTN DATA CARD*</label>
+                    <select class="form-control" id="mtn_data_card_lock" required>
+                    <option value="1"  ' . ($mtn_data_card_lock == 1 ? 'selected' : '') . '>ENABLE</option>
+                    <option value="0"  ' . ($mtn_data_card_lock == 0 ? 'selected' : '') . '>DISABLE</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="price-label">GLO *</label>
+                    <select class="form-control" id="glo_lock" required>
+                    <option value="1" ' . ($g_lock1 == 1 ? 'selected' : '') . '>ENABLE</option>
+                    <option value="0" ' . ($g_lock1 == 0 ? 'selected' : '') . '>DISABLE</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="price-label">GLO-CG *</label>
+                    <select class="form-control" id="glocg_lock" required>
 
-    <br/>
-    <label>MTN-CG *</label>
-    <select class="form-control" id="mtncg_lock" required>
-    <option value="1">ENABLE</option>
-    <option value="0">DISABLE</option>
-    </select>
+                    <option value="1" ' . ($gcg_lock1 == 1 ? 'selected' : '') . '>ENABLE</option>
+                    <option value="0" ' . ($gcg_lock1 == 0 ? 'selected' : '') . '>DISABLE</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="price-label">AIRTEL *</label>
+                    <select class="form-control" id="airtel_lock" required>
 
-    <br/>
-    <label>GLO *</label>
-    <select class="form-control" id="glo_lock" required>
-    <option value="1">ENABLE</option>
-    <option value="0">DISABLE</option>
-    </select>
-    
-    <br/>
-    <label>GLO-CG *</label>
-    <select class="form-control" id="glocg_lock" required>
+                    <option value="1"  ' . ($a_lock1 == 1 ? 'selected' : '') . '>ENABLE</option>
+                    <option value="0"  ' . ($a_lock1 == 0 ? 'selected' : '') . '>DISABLE</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="price-label">AIRTEL-CG *</label>
+                    <select class="form-control" id="airtelcg_lock" required>
 
-    <option value="1">ENABLE</option>
-    <option value="0">DISABLE</option>
-    </select>
+                    <option value="1"  ' . ($ag_lock1 == 1 ? 'selected' : '') . '>ENABLE</option>
+                    <option value="0"  ' . ($ag_lock1 == 0 ? 'selected' : '') . '>DISABLE</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="price-label">9MOBILE *</label>
+                    <select class="form-control" id="mobile_lock" required>
 
-    <br/>
-    <label>AIRTEL *</label>
-    <select class="form-control" id="airtel_lock" required>
+                    <option value="1" ' . ($mo_lock1 == 1 ? 'selected' : '') . '>ENABLE</option>
+                    <option value="0" ' . ($mo_lock1 == 0 ? 'selected' : '') . '>DISABLE</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="price-label">9MOBILE SME*</label>
+                    <select class="form-control" id="mobilesme_lock" required>
 
-    <option value="1">ENABLE</option>
-    <option value="0">DISABLE</option>
-    </select>
-
-    <br/>
-    <label>AIRTEL-CG *</label>
-    <select class="form-control" id="airtelcg_lock" required>
-
-    <option value="1">ENABLE</option>
-    <option value="0">DISABLE</option>
-    </select>
-
-    <br/>
-    <label>9MOBILE *</label>
-    <select class="form-control" id="mobile_lock" required>
-
-    <option value="1">ENABLE</option>
-    <option value="0">DISABLE</option>
-    </select>
-
-    <br/>
-<button class="btn btn-success" type="button" onclick="saveDATALOCK()">Save</button>
-
+                    <option value="1" ' . ($mobilesme_lock == 1 ? 'selected' : '') . '>ENABLE</option>
+                    <option value="0" ' . ($mobilesme_lock == 0 ? 'selected' : '') . '>DISABLE</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                </div>
+                <div class="col-md-6">
+                    <button class="btn btn-success price-label" type="button" onclick="saveDATALOCK()">Save</button>
+                </div>
+            </div>
+        </div>
 </form>
 ';
 
@@ -241,7 +261,6 @@ $nab_style = isset($nabt_lock) && $nabt_lock == 1 ? ENABLED : DISABLED;
 $neco_status = isset($neco_lock) && $neco_lock == 1 ? ENABLED : DISABLED;
 $neco_style = isset($neco_lock) && $neco_lock == 1 ? ENABLED : DISABLED;
 
-// var_dump($waec_status);
 $message='
 <form id="form-data">
     <label>WAEC * <span class="'. $waec_style.'">('.$waec_status .')</span></label>

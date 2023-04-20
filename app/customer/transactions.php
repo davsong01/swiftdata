@@ -37,6 +37,7 @@ while ($data = mysqli_fetch_array($lettr, MYSQLI_ASSOC)){
       $date=$data['buyer_date'];
       $oldbal=$data['buyer_prebal'];
       $newbal=$data['buyer_postbal'];
+      $extra=$data['extra'];
 
       $shortDesrc=substr($descr, 0,25);
 
@@ -47,7 +48,8 @@ while ($data = mysqli_fetch_array($lettr, MYSQLI_ASSOC)){
       $transaction.='<div class="alert" style="'.$actmode.';color:#fff;font-size:10px;cursor:pointer;" id="'.$trx.'" onclick="rceipt(this.id)">
 
        <span>Refrence No. : '.$trx.'</span><br/>
-       <span>Order: '.$descr.'</span><br/>
+       <span>Order: ' . $descr . '</span><br>' . (isset($extra) && !empty($extra) ? '
+       <strong style="background: black;color: yellow;padding: 8px;font-size: medium;display: inline-flex;"><br>Extras: '.$extra.'<br>' : '') . '</strong><br/>
        <span>Date: '.$date.'</small><br/>
        <span>Amount: ₦'.$amount.'</span> <span style="float:right"><i class="fa fa-eye"></i></span><br/>
 

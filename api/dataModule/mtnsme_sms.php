@@ -1,55 +1,55 @@
 <?php
 if ($mtnsme_access > 0){
 
-require ("../functions/mtnsme_price.php");
+    require ("../functions/mtnsme_price.php");
 
-if ($plan_id==500){
- $service_price=$mtnsme_500;
- $service="mtn-sme";
- $databyte="500";
- $package_name="MTN SME 500MB";
- $planCode=500;
- }
+    if ($plan_id==500){
+        $service_price=$mtnsme_500;
+        $service="mtn-sme";
+        $databyte="500";
+        $package_name="MTN SME 500MB";
+        $planCode=500;
+    }
 
- if ($plan_id==1000){
- $service_price=$mtnsme_1;
- $service="mtn-sme";
- $databyte="1000";
- $package_name="MTN SME 1GB";
- $planCode=1000;
- }
+    if ($plan_id==1000){
+        $service_price=$mtnsme_1;
+        $service="mtn-sme";
+        $databyte="1000";
+        $package_name="MTN SME 1GB";
+        $planCode=1000;
+    }
 
- if ($plan_id==2000){
- $service_price=$mtnsme_2;
- $service="mtn-sme";
- $databyte="2000";
- $package_name="MTN SME 2GB";
- $planCode=2000;
- }
+    if ($plan_id==2000){
+        $service_price=$mtnsme_2;
+        $service="mtn-sme";
+        $databyte="2000";
+        $package_name="MTN SME 2GB";
+        $planCode=2000;
+    }
 
- if ($plan_id==3000){
- $service_price=$mtnsme_3;
- $service="mtn-sme";
- $databyte="3000";
- $package_name="MTN SME 3GB";
- $planCode=3000;
- }
+    if ($plan_id==3000){
+        $service_price=$mtnsme_3;
+        $service="mtn-sme";
+        $databyte="3000";
+        $package_name="MTN SME 3GB";
+        $planCode=3000;
+    }
 
- if ($plan_id==5000){
- $service_price=$mtnsme_5;
- $service="mtn-sme";
- $databyte="5000";
- $package_name="MTN SME 5GB";
- $planCode=5000;
- }
+    if ($plan_id==5000){
+        $service_price=$mtnsme_5;
+        $service="mtn-sme";
+        $databyte="5000";
+        $package_name="MTN SME 5GB";
+        $planCode=5000;
+    }
 
- if ($plan_id==10000){
- $service_price=$mtnsme_10;
- $service="mtn-sme";
- $databyte="10000";
- $package_name="MTN SME 10GB";
- $planCode=1000;
- }
+    if ($plan_id==10000){
+        $service_price=$mtnsme_10;
+        $service="mtn-sme";
+        $databyte="10000";
+        $package_name="MTN SME 10GB";
+        $planCode=1000;
+    }
 
 
 

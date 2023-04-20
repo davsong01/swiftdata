@@ -10,9 +10,19 @@ $glocg_data=mysqli_real_escape_string($con, $_POST['glocg_data']);
 $airtel_data=mysqli_real_escape_string($con, $_POST['airtel_data']);
 $airtelcg_data=mysqli_real_escape_string($con, $_POST['airtelcg_data']);
 $mobile_data=mysqli_real_escape_string($con, $_POST['mobile_data']);
+$mobile_sme = mysqli_real_escape_string($con, $_POST['mobile_sme']);
+$mtn_data_card=mysqli_real_escape_string($con, $_POST['mtn_data_card']);
+
+//  $response=array(
+//     'status'=>'success',
+//     'message' => 'Your data automation has been successfully updated !!!'. $mtn_data_card,
+//   );
+//   echo json_encode($response);
+//   exit();
+
 $level=mysqli_real_escape_string($con, $_POST['level']);
 
-$update=mysqli_query($con, "UPDATE web_settings SET api_mtn='$mtnsme_data', api_gift='$mtncg_data', api_glo='$glo_data', api_airtel='$airtel_data', api_airtelcg='$airtelcg_data', api_mobile='$mobile_data', api_glocg='$glocg_data' WHERE id='$level'");
+$update=mysqli_query($con, "UPDATE web_settings SET api_mtn='$mtnsme_data', api_gift='$mtncg_data', api_glo='$glo_data', api_airtel='$airtel_data', api_airtelcg='$airtelcg_data', api_mobile='$mobile_data', api_glocg='$glocg_data',api_mobilesme='$mobile_sme', mtn_data_card='$mtn_data_card' WHERE id='$level'");
 
 if ($update){
 

@@ -15,7 +15,7 @@ if ($manage_history==1){
 	<input type="text" id="search_data" class="form-control" placeholder="Search Mobile No."><button class="btn btn-danger" onclick="findRec()" style="width: 100%">Search</button>
 </div>
 
-
+<br> <br>
 <div id="transactionsDiv">
 	
 

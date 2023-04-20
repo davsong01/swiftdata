@@ -40,10 +40,7 @@ else{
 
 }
 
-}
-
-else{
-
+}else{
    $response=array(
     'status'=>'fail',
     'message' => 'Please fill all form !!!',

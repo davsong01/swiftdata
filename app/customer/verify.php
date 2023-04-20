@@ -75,7 +75,7 @@ if (strlen($smart_no)>5 && is_numeric($smart_no)){
   //   'url' => $url,
   //   'response' => $request,
   // ];
-  // var_dump($request);
+ 
 
   // $response=array(
   //   'message' => '<div class="alert alert-danger">'.json_encode($dummy).'</div>',
