@@ -20,7 +20,7 @@
             $check_user=mysqli_query($con, "SELECT * FROM users WHERE sk_token='$token'");
            
             if (mysqli_num_rows($check_user)>0){
-                $allowed_services = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM users WHERE sk_token='$api_token' AND block='0'"));
+                $allowed_services = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM users WHERE sk_token='$token' AND block='0'"));
                 $level = $allowed_services['level'];
 
                 $allowed = [
@@ -36,7 +36,7 @@
                         'product' => 'mtn-cg',
                         'user_status'=>$allowed_services['mtncg_access'] ?? 0,
                         'system_status'=>$mg_lock1,
-                        'api'=>$api_mtn
+                        'api'=>$api_gift
                         ],
                     'GLO' => [
                             'type' => 'data',
@@ -96,8 +96,7 @@
                     ],
                     
                 ];
-
-                
+                echo json_encode($allowed);
                 foreach($allowed as $key=>$value){
                     $type = $value['type'];
                     $product = $value['product'];

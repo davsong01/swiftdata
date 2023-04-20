@@ -58,16 +58,15 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']){
           }
 
         else{
+          $response=array(
+            'title' => 'FAILED',
+            'icon' => 'error',
+              'status'=>'fail',
+              'message' => '<div class="alert alert-danger">'.$message.$error_msg.'</div>',
+            );
 
-        $response=array(
-          'title' => 'FAILED',
-          'icon' => 'error',
-            'status'=>'fail',
-            'message' => '<div class="alert alert-danger">'.$message.$error_msg.'</div>',
-          );
-
-        echo json_encode($response);
-        exit();
+          echo json_encode($response);
+          exit();
 
         }
 
@@ -78,7 +77,6 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']){
             );
             echo json_encode($response);
             exit();
-
         }
     }else{
         $response=array(

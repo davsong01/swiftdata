@@ -5,7 +5,7 @@
         'code'=>'',
         'val'=>'',
     ];
-
+    
     // Data
     if($type == 'data' && $product == 'mtn-cg'){
         $data_query = mysqli_fetch_array(mysqli_query($con, "SELECT easy_access125, easy_access126, easy_access127, easy_access45,easy_access46,easy_access47,easy_access48,easy_access49,easy_access88,easy_access89,easy_access90,easy_access141,easy_access142,easy_access143,easy_access144,easy_access145,easy_access146,easy_access147,easy_access148,easy_access149,easy_access150,easy_access151 FROM mtncgdata_plan WHERE id='$level'"));
