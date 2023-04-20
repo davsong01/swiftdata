@@ -1,3 +1,10 @@
 functions/web_config.php
 functions/web_route.php
 vtusite/
+backup.zip
+.well-known
+doc
+portalvtu
+.htaccess
+.htaccess.bk
+404.shtml
