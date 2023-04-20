@@ -1,5 +1,7 @@
 <?php
-    error_reporting(0);
+    
+
+    error_reporting(1);
     $json = file_get_contents('php://input');
     $data = json_decode($json, true);
 
@@ -17,6 +19,8 @@
     $network = strtoupper($data['network'] ?? $_POST['network']);
     $reference = $data['request_id'] ?? $_POST['request_id'];
     $no_of_pins = $data['no_of_pins'] ?? $_POST['no_of_pins'];
+
+  
 
     // Check if request has plan name and get the plan_id from the pricing lists
     if(isset($plan_name) && !empty($plan_name)){
@@ -50,7 +54,7 @@
             } else {
 
                 $return_info = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM users WHERE sk_token='$api_token' AND block='0'"));
-
+                
                 $account_balance = $return_info['wallets'];
                 $account_bonus = $return_info['cashback'];
                 $account_webhook = $return_info['webhook'];
@@ -74,6 +78,7 @@
                 } else if ($network == "MTN-DATACARD" ){
                     require("dataModule/$mtn_data_card");
                 } else if ($network == "MTN-CG" && $mg_lock1 == 1 && $mtncg_access == 1 || $network == "GIFTING" && $mg_lock1 == 1 && $mtncg_access == 1) {
+                   
                     require("dataModule/$api_gift");
                 } else if ($network == "9MOBILE" && $mo_lock1 == 1 && $mobile_access == 1 || $network == "ETISALAT" && $mo_lock1 == 1 && $mobile_access == 1) {
                     require("dataModule/$api_mobile");
@@ -100,11 +105,11 @@
                 }
             }
         } else {
-            $response = array(
+                $response = array(
                 'status' => 'fail',
                 'status_code' => '100',
                 'message' => 'Basic Authorization Failed! Unable to fetch user record',
-            );
+             );
             echo json_encode($response);
             exit;
         }
@@ -129,6 +134,7 @@
         } else if ($network == "MTN-DATACARD" ){
             $api = $mtn_data_card;
         } else if ($network == "MTN-CG" || $network == "GIFTING") {
+            $product = "mtn-cg";
             $api = $api_gift;
         } else if ($network == "9MOBILE" || $network == "ETISALAT") {
             $api = $api_mobile;

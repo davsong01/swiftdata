@@ -5,10 +5,9 @@
         'status_code' => '100',
         'message' => $network.' purchase is not permitted for this account !!!',
     );
-
     
     // Get post data
-    if($network == 'MTN-CG'){
+    if($network == 'MTN-CG' || $network == 'GIFTING'){
         $type = 'data';
         $product = 'mtn-cg';
         $ntwk = 01;
@@ -16,6 +15,7 @@
         // Get mtn sms pricess
         require('../api/easy_access_pricing.php');
         $url = "https://easyaccess.com.ng/api/data.php";
+        
         foreach ($response as $res) {
             if ($plan_id==$res['code']){
                 $service_price = $res['price'];
@@ -105,9 +105,11 @@
             'status_code' =>'100',
             'message' => 'Price not set!!!',
         );
+
         echo json_encode($response);
         exit;
     }
+   
     if ($account_balance > $service_price ){
             $new_wallet=$account_balance-$service_price;
             mysqli_query($con, "UPDATE users SET wallets='$new_wallet' WHERE id='$user_id' AND username ='$account_username'");
