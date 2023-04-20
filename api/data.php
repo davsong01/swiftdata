@@ -3,13 +3,20 @@
     $json = file_get_contents('php://input');
     $data = json_decode($json, true);
 
-    $api_token = trim($data['token']);
-    $mobile_no = trim($data['mobile']); // getting mobile no
-    $plan_id = $data['plan_code'];
-    $plan_name = $data['plan_name'] ?? null;
-    $network = strtoupper($data['network']);
-    $reference = $data['request_id'];
-    $no_of_pins = $data['no_of_pins'] ?? null;
+    // $api_token = trim($data['token']);
+    // $mobile_no = trim($data['mobile']); // getting mobile no
+    // $plan_id = $data['plan_code'];
+    // $plan_name = $data['plan_name'] ?? null;
+    // $network = strtoupper($data['network']);
+    // $reference = $data['request_id'];
+    // $no_of_pins = $data['no_of_pins'] ?? null;
+    $api_token = trim($data['token'] ?? $_POST['token'] );
+    $mobile_no = trim($data['mobile'] ?? $_POST['mobile']); // getting mobile no
+    $plan_id = $data['plan_code'] ?? $_POST['plan_code'];
+    $plan_name = $data['plan_name'] ?? $_POST['plan_name'];
+    $network = strtoupper($data['network'] ?? $_POST['network']);
+    $reference = $data['request_id'] ?? $_POST['request_id'];
+    $no_of_pins = $data['no_of_pins'] ?? $_POST['no_of_pins'];
 
     // Check if request has plan name and get the plan_id from the pricing lists
     if(isset($plan_name) && !empty($plan_name)){
