@@ -93,6 +93,7 @@
         // );
         // echo json_encode($response);
         // exit;
+
         if ($request) {
             if($status == 'success'){
                 $order_report = strtoupper($package_name . ' N' . $service_price . ' Purchase Successful on ' . $mobile_no).'. '.$message;
@@ -103,9 +104,7 @@
                     'status' => 'success',
                     'status_code' => '200',
                     'old_balance' => $account_balance,
-                    ////// 
                     'new_balance' => $new_wallet,
-                    ////// 
                     'time' => $time,
                     'amountPaid' => $service_price,
                     'message' => $order_report,
@@ -154,9 +153,7 @@
             );
             echo json_encode($response);
             exit;
-
         }
-
     } else {
 
         $response = array(

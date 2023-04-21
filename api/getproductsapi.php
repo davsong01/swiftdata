@@ -96,7 +96,7 @@
                     ],
                     
                 ];
-                echo json_encode($allowed);
+                
                 foreach($allowed as $key=>$value){
                     $type = $value['type'];
                     $product = $value['product'];
