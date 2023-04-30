@@ -9,11 +9,12 @@ $address=mysqli_real_escape_string($con, $_POST['address']);
 $contact_no=mysqli_real_escape_string($con, $_POST['contact_no']);
 $whatsapp_no=mysqli_real_escape_string($con, $_POST['whatsapp_no']);
 $admin_email=mysqli_real_escape_string($con, $_POST['admin_email']);
+$admin_notification_email = mysqli_real_escape_string($con, $_POST['admin_notification_email']);
 $group_link=mysqli_real_escape_string($con, $_POST['group_link']);
 $group_link2=mysqli_real_escape_string($con, $_POST['group_link2']);
 $req_token=mysqli_real_escape_string($con, $_POST['req_token']);
 
-$update=mysqli_query($con, "UPDATE web_settings SET admin_email='$admin_email', whatsapp_no='$whatsapp_no', contact_no='$contact_no', address='$address', group_link='$group_link', group_link2='$group_link2' WHERE id='1'");
+$update=mysqli_query($con, "UPDATE web_settings SET admin_email='$admin_email',admin_notification_email='$admin_notification_email', whatsapp_no='$whatsapp_no', contact_no='$contact_no', address='$address', group_link='$group_link', group_link2='$group_link2' WHERE id='1'");
 
 if ($update){
 

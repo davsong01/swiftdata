@@ -106,10 +106,24 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']) {
             'X-Mailer: PHP/' . phpversion();
           mail($email_to, $subject, $body, $headers);
 
+          // send admin email
+          $admin_subject = 'New Registration';
+          $admin_body = 'Hello Admin, <br>New registration on '. $mainpage.'. Please find details below: <br><br>
+          Full Name: '. $full_name .' <br>
+          Email: '.$email_address.'<br>
+          Phone Number: '.$mobile_no.'<br>
+          Registration Date: '.$time.'<br>
+          Referral : '.$myrefferal.'
+          
+          ';
+
+          $admin_email = sendAdminNotificationEmail($admin_subject, $admin_body);
+          // End send admin email
           $response = array(
             'status' => 'success',
             'message' => '<div class="alert alert-success text-left">Welcome!!! Thank you for getting started with us. You can now confirm your email address and sign in.</div>',
           );
+          
           echo json_encode($response);
           exit();
         } else {
@@ -139,4 +153,17 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']) {
   exit();
 }
 
+  function sendAdminNotificationEmail($subject, $body){
+    require("../../functions/web_config.php");
+
+    $email_to = $admin_notification_email;
+    $email_from = $mail_username; 
+
+    $headers = 'MIME-Version: 1.0' . "\r\n";
+    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+    $headers .= 'From: ' . $email_from . "\r\n" .
+      'Reply-To: ' . $email_from . "\r\n" .
+      'X-Mailer: PHP/' . phpversion();
+    return mail($email_to, $subject, $body, $headers);
+  }
 ?>

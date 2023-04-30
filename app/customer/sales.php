@@ -78,7 +78,7 @@ $rows=mysqli_fetch_array($seltbillsamount, MYSQLI_ASSOC);
 $total_billscost=$rows['totalamount'];
 
 ////CABLETV
-$selttvamount=mysqli_query($con, "SELECT SUM(buyer_amount) AS totalamount FROM final_transactions WHERE buyer_status='SUCCESSFUL' AND buyer_service LIKE '%gotv%' AND buyer_email='$email' AND buyer_date LIKE '%$newtime%' OR buyer_service LIKE '%dstv%' AND buyer_email='$email' AND buyer_date LIKE '%$newtime%' OR buyer_service LIKE '%startime%' AND buyer_email='$email' AND buyer_date LIKE '%$newtime%'");
+$selttvamount=mysqli_query($con, "SELECT SUM(buyer_amount) AS totalamount FROM final_transactions WHERE buyer_status='SUCCESSFUL' AND buyer_service LIKE '%gotv%' AND buyer_email='$email' AND buyer_date LIKE '%$newtime%' OR buyer_service LIKE '%dstv%' AND buyer_email='$email' AND buyer_date LIKE '%$newtime%' OR buyer_service LIKE '%startime%' AND buyer_email='$email' AND buyer_date LIKE '%$newtime%' OR buyer_service LIKE '%showmax%' AND buyer_email='$email' AND buyer_date LIKE '%$newtime%'");
 $rows=mysqli_fetch_array($selttvamount, MYSQLI_ASSOC);
 $total_cablecost=$rows['totalamount'];
 
@@ -92,6 +92,33 @@ $selewithamount=mysqli_query($con, "SELECT SUM(buyer_amount) AS totalamount FROM
 $rows=mysqli_fetch_array($selewithamount, MYSQLI_ASSOC);
 $total_withdraw=$rows['totalamount'];
 
+// GLO CG
+$setglocgamount=mysqli_query($con, "SELECT SUM(buyer_amount) AS totalamount FROM final_transactions WHERE buyer_status='SUCCESSFUL' AND buyer_service='glo-cg' AND buyer_email='$email' AND buyer_date LIKE '%$newtime%'");
+$rows=mysqli_fetch_array($setglocgamount, MYSQLI_ASSOC);
+$total_glo_cg=$rows['totalamount'];
+
+$seltdataamount=mysqli_query($con, "SELECT SUM(buyer_amount) AS totalamount FROM final_transactions WHERE buyer_status='SUCCESSFUL' AND buyer_service='glo-cg' AND buyer_email='$email' AND buyer_date LIKE '%$newtime%'");
+$rows=mysqli_fetch_array($seltdataamount, MYSQLI_ASSOC);
+$total_glo_cg_cost=$rows['totalamount'];
+
+// MTN DATA CARD
+$set_mtn_data_card=mysqli_query($con, "SELECT SUM(buyer_amount) AS totalamount FROM final_transactions WHERE buyer_status='SUCCESSFUL' AND buyer_service='mtn_data_card' AND buyer_email='$email' AND buyer_date LIKE '%$newtime%'");
+$rows=mysqli_fetch_array($set_mtn_data_card, MYSQLI_ASSOC);
+$total_mtn_data_card=$rows['totalamount'];
+
+$set_mtn_data_card_amount=mysqli_query($con, "SELECT SUM(buyer_amount) AS totalamount FROM final_transactions WHERE buyer_status='SUCCESSFUL' AND buyer_service='mtn_data_card' AND buyer_email='$email' AND buyer_date LIKE '%$newtime%'");
+$rows=mysqli_fetch_array($set_mtn_data_card_amount, MYSQLI_ASSOC);
+$total_mtn_data_cost=$rows['totalamount'];
+
+//9MOBILE SME
+$seltdatabyte3=mysqli_query($con, "SELECT SUM(databyte) AS totaldata FROM final_transactions WHERE buyer_status='SUCCESSFUL' AND buyer_service='apimobile-sme' AND buyer_email='$email' AND buyer_date LIKE '%$newtime%'");
+$rows=mysqli_fetch_array($seltdatabyte3, MYSQLI_ASSOC);
+$total_mobile_sme=$rows['totaldata']/1000;
+///
+$seltdataamount=mysqli_query($con, "SELECT SUM(buyer_amount) AS totalamount FROM final_transactions WHERE buyer_status='SUCCESSFUL' AND buyer_service='apimobile-sme' AND buyer_email='$email' AND buyer_date LIKE '%$newtime%'");
+$rows=mysqli_fetch_array($seltdataamount, MYSQLI_ASSOC);
+$total_mobile_sme_cost=$rows['totalamount'];
+
 
 $transaction = '
 <div>
@@ -102,6 +129,11 @@ $transaction = '
   MTN CG DATA => '.$total_mtncgdata.'GB <span style="float: right;">N'.number_format($total_mtncgdatacost,2).'</span>
 </div>
 <hr/>
+<div>
+  MTN DATA CARD => '.$total_mtn_data_card.'GB <span style="float: right;">N'.number_format($total_mtn_data_card_cost,2).'</span>
+</div>
+<hr/>
+
 <div>
   AIRTEL GIFT. DATA => '.$total_airteldata.'GB <span style="float: right;">N'.number_format($total_airteldatacost,2).'</span>
 </div>
@@ -115,7 +147,16 @@ $transaction = '
 </div>
 <hr/>
 <div>
+  GLO CG => ' . $total_glo_cg . 'GB <span style="float: right;">N' . number_format($total_glo_cg_cost, 2) . '</span>
+</div>
+<hr/>
+
+<div>
   9MOBILE GIFT. DATA => '.$total_mobiledata.'GB <span style="float: right;">N'.number_format($total_mobiledatacost,2).'</span>
+</div>
+<hr/>
+<div>
+  9MOBILE SME => '.$total_mobile_sme_data.'GB <span style="float: right;">N'.number_format($total_mobile_sme_cost,2).'</span>
 </div>
 <hr/>
 <div>

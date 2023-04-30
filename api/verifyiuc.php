@@ -20,11 +20,10 @@ if (strlen($smart_no)>0){
     );
 
     if($environment == 'local'){
-        // $url="https://sandbox.vtpass.com/api/merchant-verify";
-        $url="https://vtpass.com/api/merchant-verify";
+        $url="https://sandbox.vtpass.com/api/merchant-verify";
     }else{
         $url="https://vtpass.com/api/merchant-verify";
-    }
+    } 
 
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
@@ -40,7 +39,6 @@ if (strlen($smart_no)>0){
     $curl_response = curl_exec($ch);
     curl_close($ch);
     $result=json_decode($curl_response, true);
-
 
     if (array_key_exists('content', $result) && array_key_exists('Customer_Name', $result['content']) && ($result['content']['Customer_Name']!="")){
 
