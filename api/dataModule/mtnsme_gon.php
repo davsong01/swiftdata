@@ -17,7 +17,7 @@
         foreach ($response as $res) {
             if ($plan_id==$res['code']){
                 $service_price = $res['price'];
-                $service = "mtn";
+                $service = "mtn-sme";
                 $databyte = $res['val'];
                 $package_name = $res['name'];
                 $planCode = $res['code'];

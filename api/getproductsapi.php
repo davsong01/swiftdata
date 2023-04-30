@@ -50,7 +50,7 @@
                             'product' => 'glo-cg',
                             'user_status'=>$allowed_services['glo_access'] ?? 0,
                             'system_status'=>$gcg_lock1,
-                            'api'=>$api_glo
+                            'api'=>$api_glocg
                         ],
                     'AIRTEL' => [
                         'type' => 'data',
