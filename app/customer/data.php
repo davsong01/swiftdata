@@ -16,7 +16,6 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']){
     $no_of_pins=mysqli_real_escape_string($con, $_POST['no_of_pins']);
     
     if (strlen($mobile_no)==11 && is_numeric($mobile_no)){
-     
         if ($security_pin == $security){
           $payload=array(
             'token' => $sk_token,
@@ -35,12 +34,16 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']){
           curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));  //Post Fields
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
           $req = curl_exec($ch);
+    
+          if (curl_errno($ch)) {
+            $error_msg = curl_error($ch);
+          }
           curl_close($ch);
           $apidata=json_decode($req);
           $message=$apidata->message;
           $extra = $apidata->extra ?? '';
           $status=$apidata->status;
-
+          
           if ($status == "success"){
             $response=array(
               'title' => 'COMPLETED',
@@ -55,16 +58,15 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']){
           }
 
         else{
+          $response=array(
+            'title' => 'FAILED',
+            'icon' => 'error',
+              'status'=>'fail',
+              'message' => '<div class="alert alert-danger">'.$message.$error_msg.'</div>',
+            );
 
-        $response=array(
-          'title' => 'FAILED',
-          'icon' => 'error',
-            'status'=>'fail',
-            'message' => '<div class="alert alert-danger">'.$message.'</div>',
-          );
-
-        echo json_encode($response);
-        exit();
+          echo json_encode($response);
+          exit();
 
         }
 
@@ -75,7 +77,6 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']){
             );
             echo json_encode($response);
             exit();
-
         }
     }else{
         $response=array(
