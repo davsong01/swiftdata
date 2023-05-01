@@ -23,7 +23,7 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']){
             'network' => $network_module,
             'request_id' => strtoupper(time().rand(10000000, 90000000).mt_rand()),
             'plan_code' => $dataplanloader,
-            'no_of_pins' => $no_of_pins
+            'no_of_pins' => $no_of_pins ?? 1
           );
          
           $url = $api_url.'/data';
