@@ -206,6 +206,7 @@ require ("request_pin.php");
           }else{
             $("#ask_pins").hide();
             $("#no_of_pins").attr("required",false);
+            $("#no_of_pins").val("1");
             $("#ask_pins_small").hide();
             $("#how_to_load").hide();
             $("#mobile_no").attr("required",true);

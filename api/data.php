@@ -78,7 +78,6 @@
                 } else if ($network == "MTN-DATACARD" ){
                     require("dataModule/$mtn_data_card");
                 } else if ($network == "MTN-CG" && $mg_lock1 == 1 && $mtncg_access == 1 || $network == "GIFTING" && $mg_lock1 == 1 && $mtncg_access == 1) {
-                   
                     require("dataModule/$api_gift");
                 } else if ($network == "9MOBILE" && $mo_lock1 == 1 && $mobile_access == 1 || $network == "ETISALAT" && $mo_lock1 == 1 && $mobile_access == 1) {
                     require("dataModule/$api_mobile");

@@ -72,6 +72,11 @@ echo '<div class="main_content_iner overly_inner ">
 
     <br/>
 
+    <label>Admin Notification Email *</label>
+    <input type="hidden" id="req_token" value="' . $_SESSION['csrftoken'] . '">
+    <input type="text" class="form-control" id="admin_notification_email" value="' . $admin_notification_email . '" placeholder="Admin Notification Email">
+
+    <br/>
     <button class="btn btn-success btn-block type="submit" style="width:100%">SUBMIT</button>
 
     </form>
@@ -110,6 +115,7 @@ echo $admin_pushfail;
       contact_no: $("#contact_no").val(),
       whatsapp_no: $("#whatsapp_no").val(),
       admin_email: $("#admin_email").val(),
+      admin_notification_email: $("#admin_notification_email").val(),
       group_link :$("#group_link").val(),
       group_link2 :$("#group_link2").val(),
       req_token: $("#req_token").val(),

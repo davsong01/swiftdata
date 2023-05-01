@@ -85,9 +85,6 @@ echo $list_acctno;
 
 
 </div>
-
-
-
  <script type="text/javascript">
    $(document).ready(function () {
     $("#narration").val("");
