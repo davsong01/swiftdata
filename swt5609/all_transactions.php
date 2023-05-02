@@ -79,7 +79,26 @@ if ($manage_history==1){
         });
     }
 
+    function requery(request_id){
+        var formData = {
+            request_id: request_id,
+        };
+        $.LoadingOverlay("show");
+        $.ajax({
+            method: 'POST',
+            dataType: 'json',
+            data: formData,
+            url:'../api/requeryTransactions',
+            dataType:'json',
+            success: function (response_fd) {
+                $("#successModal").modal("show");
+                $("#successModal .modal-body").html(response_fd.message);
 
+                $.LoadingOverlay("hide");
+            }
+        });
+    }
+    
 </script>
 <?php
 }

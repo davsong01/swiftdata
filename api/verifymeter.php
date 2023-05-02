@@ -15,8 +15,7 @@ if (!empty($smart_no) && !empty($service)){
     require("../functions/web_config.php");
     
     if (strlen($smart_no)>0){
-
-        $fail_response='Invalid Meter/Smart No';
+        
         $postdata=array(
             'billersCode' => $smart_no,
             'serviceID' => $service,
@@ -25,8 +24,10 @@ if (!empty($smart_no) && !empty($service)){
 
         if($environment == 'local'){
             $url="https://sandbox.vtpass.com/api/merchant-verify";
+            $credentials = base64_encode($vtpass_sandbox_account);
         }else{
             $url="https://vtpass.com/api/merchant-verify";
+            $credentials = base64_encode($vtpass_account);
         }
 
         $ch = curl_init();
@@ -36,14 +37,14 @@ if (!empty($smart_no) && !empty($service)){
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         $headers = [
-            'Authorization: Basic '.base64_encode($vtpass_account).'',
+            'Authorization: Basic '. $credentials.'',
             'Content-Type: application/json',
         ];
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         $curl_response = curl_exec($ch);
         curl_close($ch);
         $result=json_decode($curl_response, true);
-
+            
         if (array_key_exists('content', $result) && array_key_exists('Customer_Name', $result['content']) && ($result['content']['Customer_Name']!="")){
             $fullname=$result["content"]["Customer_Name"];
             $response=array(
@@ -54,8 +55,11 @@ if (!empty($smart_no) && !empty($service)){
             echo json_encode($response);
             exit();
         }else{
+            $fail_response =  $fail_response = $result["content"]["error"] ?? 'Invalid Meter/Smart No';
+
             $response=array(
                 'status'=>'fail', ////// 
+                'status_code' => '100',
                 'message' => $fail_response,
                 'desc' => $fail_response,
             );

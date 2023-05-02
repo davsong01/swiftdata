@@ -30,9 +30,9 @@ $check_mobile = mysqli_query($con, "SELECT add_mobile FROM blacklist_mobiles WHE
 if (mysqli_num_rows($check_mobile)>0){
 
     $response=array(
-    'status' => 'fail',
-    'status_code' =>'100',
-    'message' => 'Mobile no. found in blacklist !!!',
+        'status' => 'fail',
+        'status_code' =>'100',
+        'message' => 'Mobile no. found in blacklist !!!',
     );
     echo json_encode($response);
     exit;
