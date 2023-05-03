@@ -38,47 +38,30 @@
  if ($reserved_account !== ""){
      
      
-$json_decoded = json_decode($reserved_account,true);
+  $json_decoded = json_decode($reserved_account,true);
 
-$acctName=$json_decoded['responseBody']['accountName']; ////// acctname
-$accountReference=$json_decoded['responseBody']['accountReference'];  // ref
-$bankinfos=$json_decoded['responseBody']["accounts"];
-$bankacct1=$bankinfos[0]['accountNumber'];
-$bankacct2=$bankinfos[1]['accountNumber'];
-$bankacct3=$bankinfos[2]['accountNumber'];
-$bankname1=$bankinfos[0]['bankName'];
-$bankname2=$bankinfos[1]['bankName'];
-$bankname3=$bankinfos[2]['bankName'];
+  $acctName=$json_decoded['responseBody']['accountName']; 
+  $accountReference=$json_decoded['responseBody']['accountReference']; 
+  $bankinfos=$json_decoded['responseBody']["accounts"];
 
-              echo '
-              
-              <div>
-              <p style="font-size: 15px;text-align: center;text-transform: uppercase;color:red;font-weight:bold;">'.$sitename.' / '.$acctName.'<br/>1% charges apply on all funding through Monnify</p>
-              </div>
-              
-              <div class="alert alert-primary" style="font-size: 15px;text-align: center;text-transform: uppercase;">
-              '.$bankname1.' - '.$bankacct1.'
-              </div><hr/>
-              
-              <div class="alert alert-primary" style="font-size: 15px;text-align: center;text-transform: uppercase;">
-              '.$bankname2.' - '.$bankacct2.'
-              </div><hr/>
-              
-              <div class="alert alert-primary" style="font-size: 15px;text-align: center;text-transform: uppercase;">
-              '.$bankname3.' - '.$bankacct3.'
-              </div>';
-              
- }
-
- else {
-     
-     
-     echo '<div class="alert alert-primary" style="font-size: 15px;text-align: center;text-transform: uppercase;">
+  $message =  '<div><p style="font-size: 15px;text-align: center;text-transform: uppercase;color:red;font-weight:bold;">'.$sitename.' / '.$acctName.'<br/>1% charges apply on all funding through Monnify</p></div>';
+                
+  if(isset($bankinfos) && !empty($bankinfos)){
+    foreach($bankinfos as $info){
+      $message .= ' <div class="alert alert-primary" style="font-size: 15px;text-align: center;text-transform: uppercase;">'.$info['bankName'].' - <b>'.$info['accountNumber'].'</b></div><hr/>';
+    }
+    
+  }
+             
+ }else {
+     $message = '<div class="alert alert-primary" style="font-size: 15px;text-align: center;text-transform: uppercase;">
               NO RESERVED ACCOUNT YET
               </div><hr/>';
 
 
  }
+
+ echo $message;
 ?>
 
 </div>
