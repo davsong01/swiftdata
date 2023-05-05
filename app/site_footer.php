@@ -1,35 +1,46 @@
 <div class="footer_part">
-<div class="container-fluid">
-<div class="row">
-<div class="col-lg-12">
-<div class="footer_iner text-center">
-<p><?php echo date("Y"); ?> © <?php echo strtoupper($domain); ?> </p>
-</div>
-</div>
-</div>
-</div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="footer_iner text-center">
+                    <h4>Download our mobile Apps</h4>
+        <p>
+                    <a target="_blank" href="https://play.google.com/store/apps/details?id=swift.data.ng">
+                        <img src="../homepage/assets/img/play.png" style="width:120px; margin-right:10px">
+                    </a>
+                    <a href="#">
+                        <img src="../homepage/assets/img/ios.png" style="width:120px">
+                    </a>
+                    </p>
+                    <p><?php echo date("Y"); ?> © <?php echo strtoupper($domain); ?> </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 </section>
 <script type="text/javascript">
-	function FundWallet(){
-	window.location.href="wallet_option";
-	}
+    function FundWallet() {
+        window.location.href = "wallet_option";
+    }
 </script>
 <script type="text/javascript">
-	$("#submitRate").click(function () {
-	$("#rateModal").modal("hide");
-	var rate_comment = $("#rate_comment").val();
-	$.ajax({
-		url:'customer/review',
-		method:'POST',
-		dataType:'json',
-		data:{rate_comment:rate_comment},
-		success:function(rate_response){
-	$("#rateRes").modal("show");
-	$("#rateRes .modal-body").html(rate_response.message);
-		}
-	})
-	})
+    $("#submitRate").click(function () {
+        $("#rateModal").modal("hide");
+        var rate_comment = $("#rate_comment").val();
+        $.ajax({
+            url: 'customer/review',
+            method: 'POST',
+            dataType: 'json',
+            data: {
+                rate_comment: rate_comment
+            },
+            success: function (rate_response) {
+                $("#rateRes").modal("show");
+                $("#rateRes .modal-body").html(rate_response.message);
+            }
+        })
+    })
 </script>
 
 <!--
@@ -95,48 +106,48 @@
 <script src="backend/vendors/chart_am/animated.js"></script>
 <script src="backend/vendors/chart_am/kelly.js"></script>
 <script src="backend/vendors/chart_am/chart-custom.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js">
+</script>
 <script src="backend/js/dashboard_init.js"></script>
 <script src="backend/js/custom.js"></script>
 
 <script>
-
     var url = 'https://wati-integration-service.clare.ai/ShopifyWidget/shopifyWidget.js?66890';
     var s = document.createElement('script');
     s.type = 'text/javascript';
     s.async = true;
     s.src = url;
+            // "backgroundColor": "#940798",
     var options = {
-  "enabled":true,
-  "chatButtonSetting":{
-      "backgroundColor":"#940798",
-      "ctaText":"",
-      "borderRadius":"25",
-      "marginLeft":"23",
-      "marginBottom":"30",
-      "marginRight":"30",
-      "position":"right"
-  },
-  "brandSetting":{
-      "brandName":"<?php echo $sitename; ?>",
-      "brandSubTitle":"Typically replies within 60seconds",
-      "brandImg":"backend/img/swiftlogo.png",
-      "welcomeText":"Hi <?php echo $sitename; ?>! Can I speak with a representative?",
-      "messageText":"Hi <?php echo $sitename; ?>! Can I speak with a representative?",
-      "backgroundColor":"#940798",
-      "ctaText":"Start Chat",
-      "borderRadius":"25",
-      "autoShow":false,
-      "phoneNumber":"<?php echo $whatsapp_no; ?>"
-  }
-};
-    s.onload = function() {
+        "enabled": true,
+        "chatButtonSetting": {
+            "backgroundColor": "#25D366",
+            "ctaText": "",
+            "borderRadius": "25",
+            "marginLeft": "23",
+            "marginBottom": "30",
+            "marginRight": "30",
+            "position": "right"
+        },
+        "brandSetting": {
+            "brandName": "<?php echo $sitename; ?>",
+            "brandSubTitle": "Typically replies within 60seconds",
+            "brandImg": "backend/img/swiftlogo.png",
+            "welcomeText": "Hi <?php echo $sitename; ?>! Can I speak with a representative?",
+            "messageText": "Hi <?php echo $sitename; ?>! Can I speak with a representative?",
+            "backgroundColor": "#25D366",
+            "ctaText": "Start Chat",
+            "borderRadius": "25",
+            "autoShow": false,
+            "phoneNumber": "<?php echo $whatsapp_no; ?>"
+        }
+    };
+    s.onload = function () {
         CreateWhatsappChatWidget(options);
     };
     var x = document.getElementsByTagName('script')[0];
     x.parentNode.insertBefore(s, x);
-  
-</script> 
+</script>
 </body>
 
 </html>
