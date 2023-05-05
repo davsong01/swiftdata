@@ -18,12 +18,12 @@ $new_wallet=$account_balance+$service_price;
 mysqli_query($con, "UPDATE users SET wallets='$new_wallet' WHERE id='$user_id' AND username ='$account_username'");
 $message_body2=htmlentities($message_body);
 
- $request = array(
-        "user"=>$sms_username,
-        "pass"=>$sms_password,
-        "from"=>$sender_id.'-SMS',
-        "to"=>$receipent_no,
-        "msg"=>$message_body,
+$request = array(
+    "user"=>$sms_username,
+    "pass"=>$sms_password,
+    "from"=>$sender_id.'-SMS',
+    "to"=>$receipent_no,
+    "msg"=>$message_body,
 );
 
 $url = 'https://sms.hollatags.com/api/send/'; //this is the url of the gateway's interface
