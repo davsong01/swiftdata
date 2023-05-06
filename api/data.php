@@ -5,13 +5,6 @@
     $json = file_get_contents('php://input');
     $data = json_decode($json, true);
 
-    // $api_token = trim($data['token']);
-    // $mobile_no = trim($data['mobile']); // getting mobile no
-    // $plan_id = $data['plan_code'];
-    // $plan_name = $data['plan_name'] ?? null;
-    // $network = strtoupper($data['network']);
-    // $reference = $data['request_id'];
-    // $no_of_pins = $data['no_of_pins'] ?? null;
     $api_token = trim($data['token'] ?? $_POST['token'] );
     $mobile_no = trim($data['mobile'] ?? $_POST['mobile']); // getting mobile no
     $plan_id = $data['plan_code'] ?? $_POST['plan_code'];
@@ -20,13 +13,12 @@
     $reference = $data['request_id'] ?? $_POST['request_id'];
     $no_of_pins = $data['no_of_pins'] ?? $_POST['no_of_pins'];
 
-  
-
     // Check if request has plan name and get the plan_id from the pricing lists
     if(isset($plan_name) && !empty($plan_name)){
         $plan_id = getPlanId($plan_name, $network,$plan_id ?? '');
         // Get plan code from pricing lists using the plan name
     }
+
     if (!empty($mobile_no) && !empty($reference) && !empty($network) && !empty($api_token)) {
     // if (!empty($mobile_no) && !empty($plan_id) && !empty($reference) && !empty($network) && !empty($api_token)) {
 
@@ -70,10 +62,9 @@
                 $level = $return_info['level'];
                 $user_id = $return_info['id'];
                 $account_mobile = $return_info['mobile'];
-
+               
                 
                 if ($network == "MTN" && $m_lock1 == 1 && $mtnsme_access == 1) {
-                    
                     require("dataModule/$api_mtn");
                 } else if ($network == "MTN-DATACARD" ){
                     require("dataModule/$mtn_data_card");
@@ -171,7 +162,6 @@
                 }
             }
         }
-    
         return $pId;
     }
 ?>
