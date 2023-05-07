@@ -225,6 +225,31 @@ if ($searc_level=="sns"){
     exit();
 }
 
+if ($searc_level=="sms"){
+    $message='
+    <form id="form-data">
+        <label>SMS *</label> 
+        <select class="form-control" id="sms" required>
+
+        <option value="sms_ebulksms.php"' . ($sms_api == 'sms_ebulksms.php' ? 'selected' : '') . '>EBULK SMS</option>
+        <option value="sms_bulksmsnigeria.php"' . ($sms_api == 'sms_bulksmsnigeria.php' ? 'selected' : '') . '>SMS BULK NIGERIA</option>
+        </select>
+
+       <br>
+    <button class="btn btn-success" type="button" onclick="saveSMS()">Save</button>
+
+    </form>
+    ';
+
+    $response=array(
+    'status' => 'success',
+    'data' => $message,
+    );
+
+    echo json_encode($response);
+    exit();
+}
+
 if ($searc_level=="education"){
     $message='
     <form id="form-data">
