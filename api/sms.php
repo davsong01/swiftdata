@@ -35,8 +35,12 @@
             $mobile=$return_info['mobile'];
 
             if ($sms_access > 0){
-                
-                require("smsModule/sms_bulksmsnigeria.php");
+                if($sms_api == 'sms_bulksmsnigeria.php'){
+                    require("smsModule/sms_bulksmsnigeria.php");
+                }else{
+                    
+                    require("smsModule/sms_ebulksms.php");
+                }
             }else {
                 $response=array(
                     'status' => 'fail',

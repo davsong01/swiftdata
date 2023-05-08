@@ -20,7 +20,7 @@
         $request = array(
             "from"=>$sender_id,
             "to"=>$receipent_no,
-            "api_token" => $sms_token,
+            "api_token" => 'OMdXjeFeuPh8iydbiu4UXVzlWpa4YPrLzYUtVZ3BpwJSO5msTveFTKkPeJaS',
             "body"=>$message_body,
             "gateway"=> "direct-refund"
         );

@@ -65,6 +65,17 @@
                         </center>
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <div class="alert" style="background-color: <?php echo $colors[$key]; ?>;color: #000;">
+                        <center>
+                            <h4 style="color: white;">CHANGE SMS AUTOMATION</h4>
+                            <p style="color: white;">click the button to see option.</p>
+                            <br />
+                            <button class="btn btn-danger btn-block" id="sms" onclick="switchFun(this.id)">EDIT
+                                INFORMATION</button>
+                        </center>
+                    </div>
+                </div>
                 
             </div>
         </div>
@@ -188,6 +199,32 @@
         };
         $.ajax({
             url: 'customer/savesns_switch',
+            type: "POST",
+            data: formData,
+            dataType: 'json',
+            success: function (savingRes) {
+                $.LoadingOverlay("hide");
+                if (savingRes.status == 'success') {
+                    $("#successModal").modal("show");
+                    $("#successModal .modal-body").html(savingRes.message);
+                } else {
+                    $("#errorModal").modal("show");
+                    $("#errorModal .modal-body").html(savingRes.message);
+                }
+            }
+        });
+
+    }
+
+    function saveSMS() {
+        $("#priceModal").modal("hide");
+        $.LoadingOverlay("show");
+        var formData = {
+            sms: $("#sms").val(),
+            level: 1,
+        };
+        $.ajax({
+            url: 'customer/savesms_switch',
             type: "POST",
             data: formData,
             dataType: 'json',
