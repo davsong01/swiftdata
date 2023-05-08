@@ -11,6 +11,7 @@
     $message_body=mysqli_real_escape_string($con, $_POST['message_body']);
     $req_token=mysqli_real_escape_string($con, $_POST['req_token']);
     
+    
     if (strlen($sender_name)<11){
       if ($security_pin == $security){
         $payload=array(
@@ -64,12 +65,10 @@
         echo json_encode($response);
         exit();
       }
-
-
     }else{
       $response=array(
         'status'=>'fail',
-        'message' => '<div class="alert alert-danger text-left">Maximum character for sender name is 8letters !!!</div>',
+        'message' => '<div class="alert alert-danger text-left">Maximum character for sender name is 10 letters !!!</div>',
       );
       echo json_encode($response);
       exit();

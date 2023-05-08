@@ -43,12 +43,12 @@
       <div id="BulkSMSOpt">
         <div class="mb-3">
           <input type="hidden" id="req_token" value="<?php echo $_SESSION['csrftoken']; ?>">
-          <label>Sender Name <span style="color: red;">This should not be more than 10 chars</span></label>
-          <input type="text" name="" id="sender_name" placeholder="Sender Name" class="form-control">
+          <label>Sender Name <span style="color: blue;font-size: 12px;font-weight: bold;" >(This should not be more than 10 chars)</span></label>
+          <input type="text" name="" id="sender_name" maxlength="10" placeholder="Sender Name" class="form-control">
         </div>
 
         <div class="mb-3">
-          <label>Receipent No(s) <span style="color: red;">Separate by comma if more 1contact.</span></label>
+          <label>Receipent No(s) <span style="color: blue;font-size: 12px;font-weight: bold;"> (Separate by comma if more 1 contact.)</span></label>
           <textarea id="receipent_no" placeholder="081324567***,0906754232***,07067233***"
             class="form-control"></textarea>
         </div>
@@ -58,7 +58,8 @@
           <textarea id="message_body" placeholder="Typing..." class="form-control"></textarea>
           <small id="counter" class="text-success"></small>
           <br />
-          <small id="pages" class="text-danger"></small>
+          <small id="pages" class="text-danger"></small> <br>
+          <small id="price" style="color: blue;font-size: 12px;font-weight: bold;" ></small>
         </div>
 
         <div class="mb-3">
@@ -75,7 +76,11 @@
 </div>
 
 <script type="text/javascript">
+  let phoneCount = 0;
+  let price = 0;
+  
   $("#sendBulkSMS").click(function () {
+    
     var sender_name = $("#sender_name").val();
     var receipent_no = $("#receipent_no").val();
     var message_body = $("#message_body").val();
@@ -110,22 +115,37 @@
     })
   })
 
+  $("#receipent_no").keyup(function (event) {
+    var myArray = $(this).val().split(",");
+    phoneCount = myArray.length;
+  });
 
   $("#message_body").keyup(function () {
-    var message_body = $(this).val();;
+    var message_body = $(this).val();
+    price = phoneCount * 1 * <?php echo $data_query[0] ?>;
+  
     if (message_body == "") {
       $("#counter").text("");
       $("#pages").text("");
+
     } else {
       var message = message_body.length;
       $("#counter").text("Characters " + message);
-      $("#pages").text("No of pages 1");
+      
       if (message <= 167) {
         $("#pages").text("No of pages 1");
       } else {
         pagesL = parseInt(message) / 167 + 1;
         $("#pages").text("No of pages " + pagesL.toFixed());
+        price = phoneCount * pagesL.toFixed() * <?php echo $data_query[0] ?>;
+        
       }
+      if($("#receipent_no").val() !='' && $("#message_body").val() !=''){
+        $("#price").text("You pay approximately: N"+price);
+      }else{
+         $("#price").text("");
+      }
+
     }
   })
 </script>
