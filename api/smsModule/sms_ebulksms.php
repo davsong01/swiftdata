@@ -11,7 +11,7 @@
     $plus_denos=$check_nos+1;
     $amount=$plus_denos*$sms_price*$msgVolume;
     $service_price=$amount;
-    $quantity = $msgVolume;
+    $quantity = $msgVolume * $plus_denos;
 
     if ($account_balance > $service_price && $service_price > 0){
         $new_wallet=$account_balance+$service_price;
@@ -54,7 +54,7 @@
         $curl = curl_init();
         curl_setopt_array($curl, array(
             // CURLOPT_URL => 'https://api.ebulksms.com:8080/sendsms.json',
-            CURLOPT_URL => 'https://api.ebulksms.com/sendsms.json',
+            CURLOPT_URL => 'https://api.ebulrrksms.com/sendsms.json',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -71,13 +71,16 @@
         $res = curl_exec($curl);
         curl_close($curl);
 
+        // $res= '{"response":{"status":"SUCCESS","totalsent":1,"cost":2}}';
         $decodedResponse = json_decode($res);
-
+            
         if (isset($decodedResponse->response) && $decodedResponse->response->status == "SUCCESS"){
            
             $order_report=strtoupper('BulkSMS Sent To '.$plus_denos.' Numbers(s)');
 
-            mysqli_query($con, "INSERT INTO `final_transactions` (`id`, `mobile_number`, `buyer_email`, `buyer_username`, `buyer_service`, `buyer_amount`, `buyer_prebal`, `buyer_postbal`, `buyer_descr`, `buyer_status`, `buyer_date`, `timestring`, `charge_from`, `user_type`, `sys_ref`, `api_ref`, `api_report`, `src_price`, `profit`, `databyte`,`post_fields`,`api_response`.`buyer_quantity`) VALUES (NULL, '$mobile', '$account_email', '$account_username', 'BULKSMS', '$service_price', '$account_balance', '$new_wallet', '$order_report', 'SUCCESSFUL', '$time', '$timestring', 'WALLET', '$level', '$api_reference', '$reference', 'DONE', '0', '0','0','$encodedRequest','$res','$quantity')");
+           
+            mysqli_query($con, "INSERT INTO `final_transactions` (`id`, `mobile_number`, `buyer_email`, `buyer_username`, `buyer_service`, `buyer_amount`, `buyer_prebal`, `buyer_postbal`, `buyer_descr`, `buyer_status`, `buyer_date`, `timestring`, `charge_from`, `user_type`, `sys_ref`, `api_ref`, `api_report`, `src_price`, `profit`, `databyte`,`post_fields`,`api_response`,`buyer_quantity`) VALUES (NULL, '$mobile', '$account_email', '$account_username', 'BULKSMS', '$service_price', '$account_balance', '$new_wallet', '$order_report', 'SUCCESSFUL', '$time', '$timestring', 'WALLET', '$level', '$api_reference', '$reference', 'DONE', '0', '0','0','$encodedRequest','$res','$quantity')");
+
 
             mysqli_query($con, "INSERT INTO `sms_transactions` (`id`, `sender`, `message_body`, `buyer_date`, `buyer_email`, `reference` ,`status`) VALUES (NULL, '$sender_id', '$message_body2', '$time', '$account_email', '$api_reference', 'SUCCESSFUL')");
 

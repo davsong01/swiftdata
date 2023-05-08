@@ -43,7 +43,7 @@
       <div id="BulkSMSOpt">
         <div class="mb-3">
           <input type="hidden" id="req_token" value="<?php echo $_SESSION['csrftoken']; ?>">
-          <label>Sender Name <span style="color: red;">This should not be more than 8chars</span></label>
+          <label>Sender Name <span style="color: red;">This should not be more than 10 chars</span></label>
           <input type="text" name="" id="sender_name" placeholder="Sender Name" class="form-control">
         </div>
 

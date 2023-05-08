@@ -11,7 +11,7 @@
     $message_body=mysqli_real_escape_string($con, $_POST['message_body']);
     $req_token=mysqli_real_escape_string($con, $_POST['req_token']);
     
-    if (strlen($sender_name)<9){
+    if (strlen($sender_name)<11){
       if ($security_pin == $security){
         $payload=array(
           'token' => $sk_token,
