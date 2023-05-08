@@ -100,7 +100,7 @@
         mysqli_query($con, "INSERT INTO `final_transactions` (`id`, `mobile_number`, `buyer_email`, `buyer_username`, `buyer_service`, `buyer_amount`, `buyer_prebal`, `buyer_postbal`, `buyer_descr`, `buyer_status`, `buyer_date`, `timestring`, `charge_from`, `user_type`, `sys_ref`, `api_ref`, `api_report`, `src_price`, `profit`, `databyte`,`post_fields`,`api_response`) VALUES (NULL, '$mobile', '$account_email', '$account_username', 'WITHDRAWTOWALLET', '$service_price', '$account_balance', '$account_balance', '$order_report', 'FAILED', '$time', '$timestring', 'WALLET', '$level', '$api_reference', '$reference', 'DONE', '0', '0','0','$encodedRequest','$res')");
 
         mysqli_query($con, "INSERT INTO `sms_transactions` (`id`, `sender`, `message_body`, `buyer_date`, `buyer_email`, `reference`,`status`) VALUES (NULL, '$sender_id', '$message_body2', '$time', '$account_email', '$api_reference', 'FAILED')");
-
+            
             $response=array(
                 'status' => 'fail',
                 'status_code' =>'100',
@@ -112,9 +112,7 @@
             echo json_encode($response);
             exit;
         }
-
     }else{
-
         $response=array(
             'status' => 'fail',
             'status_code' =>'100',
@@ -123,44 +121,4 @@
         echo json_encode($response);
         exit;
     }
-
-    function useJSON($url, $username, $apikey, $flash, $sendername, $messagetext, $recipients) {
-    $gsm = array();
-    $country_code = '234';
-    $arr_recipient = explode(',', $recipients);
-    foreach ($arr_recipient as $recipient) {
-    $mobilenumber = trim($recipient);
-    if (substr($mobilenumber, 0, 1) == '0'){
-    $mobilenumber = $country_code . substr($mobilenumber, 1);
-    }
-    elseif (substr($mobilenumber, 0, 1) == '+'){
-    $mobilenumber = substr($mobilenumber, 1);
-    }
-    $generated_id = uniqid('int_', false);
-    $generated_id = substr($generated_id, 0, 30);
-    $gsm['gsm'][] = array('msidn' => $mobilenumber, 'msgid' => $generated_id);
-    }
-    $message = array(
-        'sender' => $sendername,
-        'messagetext' => $messagetext,
-        'flash' => "{$flash}",
-    );
-    $request = array('SMS' => array(
-            'auth' => array(
-            'username' => $username,
-            'apikey' => $apikey
-        ),
-        'message' => $message,
-        'recipients' => $gsm
-    ));
-    $json_data = json_encode($request);
-    if ($json_data) {
-    $response = doPostRequest($url, $json_data, array('Content-Type: application/json'));
-    $result = json_decode($response);
-    return $result->response->status;
-    } else {
-    return false;
-    }
-    }
-
 ?>
