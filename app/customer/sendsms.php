@@ -12,7 +12,7 @@
     $req_token=mysqli_real_escape_string($con, $_POST['req_token']);
     
     
-    if (strlen($sender_name)<11){
+    if (strlen($sender_name)<12){
       if ($security_pin == $security){
         $payload=array(
           'token' => $sk_token,
@@ -74,7 +74,6 @@
       exit();
 
     }
-
   }else{
       $response=array(
         'status'=>'fail',
