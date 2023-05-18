@@ -51,7 +51,7 @@ require ("request_pin.php");
 							<span class="text-danger font-italic">MTN (Data Card 1.5GB) &gt;&gt; *312*4*6*1#, then enter the Pin Generated in the prompt shown on your MTN sim.</span>
 							<br>
 							<label class="small mb-1" for="amount" style="color: #000000">To Check Data Balance Dail:</label>
-							<span class="text-danger font-italic">MTN (Data Card 1.5GB) &gt;&gt; *312*5#</span>
+							<span class="text-danger font-italic">MTN (Data Card 1.5GB) &gt;&gt; *131*4#</span>
 						</div>
 					</div>
     </div>
