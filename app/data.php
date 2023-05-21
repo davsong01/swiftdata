@@ -149,25 +149,37 @@ require ("request_pin.php");
     <hr />
     <div id="checkbal">
       <h5 style="font-weight:bold">HOW TO CHECK YOUR DATA BALANCE</h5>
+
       <h5 style="color:#940798"><img src="backend/img/mtn.png" style="border-radius: 50%;" height="30px"> CHECK MTN SME
-        BALANCE <=> *461*4# </h5>
+        BALANCE <=> *312*4*3*3# </h5>
       <h5 style="color:#940798"><img src="backend/img/mtn.png" style="border-radius: 50%;" height="30px"> CHECK MTN CG
         BALANCE <=> *460*260# </h5>
+      <h5 style="color:#940798"><img src="backend/img/mtn.png" style="border-radius: 50%;" height="30px"> CHECK MTN DATA
+        CARD <=> *312*5# </h5>
+      <h5 style="color:#940798"><img src="backend/img/mtn.png" style="border-radius: 50%;" height="30px"> CHECK MTN GIFTING
+       <=> *312*5# </h5>
+      <h5 style="color:#940798"><img src="backend/img/mtn.png" style="border-radius: 50%;" height="30px"> CHECK MTN CORPORATE GIFTING
+       <=> *312*4*7*4# or *312*5# </h5>
+
       <h5 style="color:#940798"><img src="backend/img/glo.png" style="border-radius: 50%;" height="30px"> CHECK GLO
         BALANCE <=> *127*0#</span></h5>
+      <h5 style="color:#940798"><img src="backend/img/glo.png" style="border-radius: 50%;" height="30px"> CHECK GLO
+        GIFTING <=> *127*0#</span></h5>
+      <h5 style="color:#940798"><img src="backend/img/glo.png" style="border-radius: 50%;" height="30px"> CHECK GLO
+      CORPORATE GIFTING <=> *127*0#</span></h5>
       <h5 style="color:#940798"><img src="backend/img/airtel.png" style="border-radius: 50%;" height="30px"> CHECK
         AIRTEL BALANCE <=> *140# </h5>
       <h5 style="color:#940798"><img src="backend/img/airtel.png" style="border-radius: 50%;" height="30px"> CHECK
-        AIRTEL CG BALANCE <=> *140# </h5>
+        AIRTEL CG BALANCE <=> *140# (check balance under edu bundle) </h5>
+      <h5 style="color:#940798"><img src="backend/img/airtel.png" style="border-radius: 50%;" height="30px"> CHECK
+        AIRTEL GIFTING <=> *140#</h5>
       <h5 style="color:#940798"><img src="backend/img/mobile.png" style="border-radius: 50%;" height="30px"> CHECK
-        9MOBILE BALANCE <=> *229*9#</span></h5>
+        9MOBILE BALANCE <=> *228#</span></h5>
     </div>
 
   </div>
 </div>
 </div>
-
-
 </div>
 </div>
 </div>
