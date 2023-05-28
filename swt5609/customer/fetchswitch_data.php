@@ -67,7 +67,7 @@ if ($searc_level=="data"){
                     <select class="form-control" id="airtelcg_data" required>
                         <option value="airtelcg_sms.php"' . ($api_airtelcg == 'airtelcg_sms.php' ? 'selected' : '') . '>BULKSMS</option>
                         <option value="airtelcg_don.php"' . ($api_airtelcg == 'airtelcg_don.php' ? 'selected' : '') . '>DONLESON</option>
-                        <option value="gongzo.php"' . ($api_airtelcg == 'gongzo.php' ? 'selected' : '') . '>GONGOZDATA</option>
+                        <option value="gongzo_data.php"' . ($api_airtelcg == 'gongzo_data.php' ? 'selected' : '') . '>GONGOZDATA</option>
                         <option value="easy_access_data.php"' . ($api_airtelcg == 'easy_access_data.php' ? 'selected' : '') . '>EASY ACCESS</option>
                     </select>
                 </div>

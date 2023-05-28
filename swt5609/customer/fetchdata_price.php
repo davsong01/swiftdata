@@ -228,8 +228,6 @@ if ($searc_level=="mtn_data_card1" || $searc_level=="mtn_data_card2" || $searc_l
     exit();
 }
 
-
-
 // 9mobile sme start
 if ($searc_level == "mobile_sme1" || $searc_level == "mobile_sme2" || $searc_level == "mobile_sme3" || $searc_level == "mobile_sme4") {
 
@@ -299,7 +297,19 @@ if ($searc_level == "airtelcg1" || $searc_level == "airtelcg2" || $searc_level =
         }
 
         $message .= '<button class="btn btn-success" type="button" onclick="saveAIRTELCG()">Save</button></form>';
-    } else {
+    }else if ($api_airtelcg == 'gongzo_data.php') {
+        $type = 'data';
+        $product = 'airtel-cg';
+        require("../../api/gongzo_pricing.php");
+        $message = '<form method="POST" id="submit_form">
+        <input type="hidden" value="' . $level . '" id="level">';
+
+        foreach ($response as $res) {
+            $message .= '<div><label>' . $res['name'] . '</label><input type="number" id="' . $res['id'] . '" class="form-control" value="' . $res['price'] . '" required></div><br>';
+        }
+
+        $message .= '<button class="btn btn-success" type="button" onclick="saveAIRTELCG()">Save</button></form>';
+    }else {
         require("../../functions/airtelcg_price.php");
 
         $message = '
@@ -583,79 +593,6 @@ $response=array(
 echo json_encode($response);
 exit();
 }
-
-////GLOPRICE END
-
-
-// if ($searc_level=="glocg1" || $searc_level=="glocg2" || $searc_level=="glocg3" || $searc_level=="glocg4"){
-
-// if ($searc_level=="glocg1"){$level=1;}
-// if ($searc_level=="glocg2"){$level=2;}
-// if ($searc_level=="glocg3"){$level=3;}
-// if ($searc_level=="glocg4"){$level=4;}
-
-// require ("../../functions/glocg_price.php");
-
-// $message='
-
-// <form method="POST" id="submit_form">
-
-// <div>
-// <label>GLO 200MB</label>
-// <input type="hidden" value="'.$level.'" id="level">
-// <input type="tel" id="glocg_200" class="form-control" value="'.$glocg_200.'" required>
-// </div>
-
-// <br/>
-// <div>
-// <label>GLO 500MB</label>
-// <input type="tel" id="glocg_500" class="form-control" value="'.$glocg_500.'" required>
-// </div>
-
-// <br/>
-// <div>
-// <label>GLO 1GB</label>
-// <input type="tel" id="glocg_1" class="form-control" value="'.$glocg_1.'" required>
-// </div>
-
-// <br/>
-// <div>
-// <label>GLO 2GB</label>
-// <input type="tel" id="glocg_2" class="form-control" value="'.$glocg_2.'" required>
-// </div>
-
-// <br/>
-// <div>
-// <label>GLO 3GB</label>
-// <input type="tel" id="glocg_3" class="form-control" value="'.$glocg_3.'" required>
-// </div>
-
-// <br/>
-// <div>
-// <label>GLO 5GB</label>
-// <input type="tel" id="glocg_5" class="form-control" value="'.$glocg_5.'" required>
-// </div>
-
-// <br/>
-// <div>
-// <label>GLO 10GB</label>
-// <input type="tel" id="glocg_10" class="form-control" value="'.$glocg_10.'" required>
-// </div>
-
-// <br/>
-// <button class="btn btn-success" type="button" onclick="saveGLOCG()">Save</button>
-
-// </form>
-// ';
-
-// $response=array(
-// 'status' => 'success',
-// 'data' => $message,
-// );
-
-// echo json_encode($response);
-// exit();
-// }
 
 ////GLO-CG PRICE END
 

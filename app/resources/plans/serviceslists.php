@@ -32,16 +32,7 @@ if (!empty($_GET['services']) && !empty($_GET['level'])){
 		} else {
 			echo '<option>No Available variations at the moment</option>';
 		}
-		// $data_query = mysqli_fetch_array(mysqli_query($con, "SELECT mtnsme_500,mtnsme_1, mtnsme_2, mtnsme_3, mtnsme_5, mtnsme_10 FROM mtnsmedata_plan WHERE id='$level'"));
 
-		// echo '
-		// 	<option value="500">MTN SME 500MB - ₦'.$data_query[0].'</option>
-		// 	<option value="1000">MTN-SME 1GB - ₦'.$data_query[1].'</option>
-		// 	<option value="2000">MTN-SME 2GB - ₦'.$data_query[2].'</option>
-		// 	<option value="3000">MTN-SME 3GB - ₦'.$data_query[3].'</option>
-		// 	<option value="5000">MTN-SME 5GB - ₦'.$data_query[4].'</option>
-		// 	<option value="10000">MTN-SME 10GB - ₦'.$data_query[5].'</option>
-		// ';
 	}
 
 	if ($getservices=="mtn-cg"){
@@ -74,6 +65,8 @@ if (!empty($_GET['services']) && !empty($_GET['level'])){
 		$product = $getservices;
 		if($api_airtelcg == 'easy_access_data.php'){
 			require('../../../api/easy_access_pricing.php');
+		}else if ($api_airtelcg == 'gongzo_data.php') {
+			require('../../../api/gongzo_pricing.php');
 		}else{
 			require('../../../api/generic_pricing.php');
 

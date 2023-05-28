@@ -95,7 +95,6 @@
         });
     }
 
-
     function saveDATA() {
         $("#priceModal").modal("hide");
         $.LoadingOverlay("show");

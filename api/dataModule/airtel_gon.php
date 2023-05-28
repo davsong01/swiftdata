@@ -106,10 +106,10 @@ if ($account_balance > $service_price && $service_price > 0){
  mysqli_query($con, "UPDATE users SET wallets='$new_wallet' WHERE id='$user_id' AND username ='$account_username'");
 
 $postdata=array(
-'network' => 4,
-'plan' => $planCode,
-'mobile_number' => $mobile_no,
-'Ported_number' => true
+    'network' => 4,
+    'plan' => $planCode,
+    'mobile_number' => $mobile_no,
+    'Ported_number' => true
 );
 
 $url = "https://www.gongozconcept.com/api/data/";
@@ -209,6 +209,3 @@ else{
     echo json_encode($response);
     exit;
  }
-
-
-?>

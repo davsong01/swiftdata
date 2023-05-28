@@ -147,64 +147,63 @@
     }
 
     if($type == 'data' && $product == 'airtel-cg'){
-        $data_query = mysqli_fetch_array(mysqli_query($con, "SELECT easy_access104, easy_access105, easy_access106, easy_access107,easy_access108, easy_access109, easy_access124, easy_access139,easy_access140 FROM airtelcgdata_plan WHERE id='$level'"));
-        
+        $data_query = mysqli_fetch_array(mysqli_query($con, "SELECT gongzo_data312, gongzo_data313, gongzo_data314, gongzo_data315,gongzo_data317, gongzo_data318, gongzo_data319 FROM airtelcgdata_plan WHERE id='$level'"));
+
         $response = [
             [
-                'name' => "AIRTEL 100MB (CG) - 7days",
+                'name' => "AIRTEL CG 500MB - 7days",
                 'price' => $data_query[0],
-                'code' => 104,
-                'id'=>'easy_access104',
+                'code' => 312,
+                'id'=>'gongzo_data312',
+                'val'=>'500',
             ],
             [
-                'name' => "AIRTEL 300MB (CG) - 7days",
+                'name' => "AIRTEL CG 1GB - 30days",
                 'price' => $data_query[1],
-                'code' => 105,
-                'id'=>'easy_access105',
+                'code' => 313,
+                'id'=> 'gongzo_data313',
+                'val'=>'1000',
+
             ],
             [
-                'name' => "AIRTEL 500MB (CG) - 30days",
+                'name' => "AIRTEL CG 2GB - 30days",
                 'price' => $data_query[2],
-                'code' => 106,
-                'id'=>'easy_access106',
+                'code' => 314,
+                'id'=> 'gongzo_data314',
+                'val'=>'2000',
             ],
             [
-                'name' => "AIRTEL 1GB (CG) - 30days",
+                'name' => "AIRTEL CG 5GB - 30days",
                 'price' => $data_query[3],
-                'code' => 107,
-                'id'=>'easy_access107',
+                'code' => 315,
+                'id'=>'gongzo_data315',
+                'val'=>'5000',
+
             ],
             [
-                'name' => "AIRTEL 2GB (CG) - 30days",
+                'name' => "AIRTEL CG 10GB - 30days",
                 'price' => $data_query[4],
-                'code' => 108,
-                'id'=>'easy_access108',
+                'code' => 317,
+                'id'=> 'gongzo_data317',
+                'val'=>'10000',
+
             ],
             [
-                'name' => "AIRTEL 5GB (CG) - 30days",
+                'name' => "AIRTEL CG 300MB - 1 DAY",
                 'price' => $data_query[5],
-                'code' => 109,
-                'id'=>'easy_access109',
+                'code' => 318,
+                'id'=> 'gongzo_data318',
+                'val'=>'300',
+
             ],
             [
-                'name' => "AIRTEL 10GB (CG) - 30days",
+                'name' => "AIRTEL CG 200MB - 1 DAY",
                 'price' => $data_query[6],
-                'code' => 124,
-                'id'=>'easy_access124',
+                'code' => 319,
+                'id'=> 'gongzo_data319',
+                'val'=>'200',
+
             ],
-            [
-                'name' => "AIRTEL 15GB (CG) - 30days",
-                'price' => $data_query[7],
-                'code' => 139,
-                'id' => 'easy_access139'
-            ],
-            [
-                'name' => "AIRTEL 20GB (CG) - 30days",
-                'price' => $data_query[8],
-                'code' => 140,
-                'id' => 'easy_access140',
-            ],
-            
         ];
     }
 
@@ -259,29 +258,6 @@
 
     if($type == 'sme' && $product == 'apimobile-sme'){
         $data_query = mysqli_fetch_array(mysqli_query($con, "SELECT easy_access166, easy_access167, easy_access168, easy_access128,easy_access129, easy_access130, easy_access131, easy_access132,easy_access169,easy_access134,easy_access135,easy_access170,easy_access136,easy_access171,easy_access137,easy_access138,easy_access172,easy_access173,easy_access174,easy_access175,easy_access176 FROM mobilesmedata_plan WHERE id='$level'"));
-
-
-    // 166 => 100MB (SME) - N28 30days, 
-    // 167 => 300MB (SME) - N63 30days, 
-    // 168 => 500MB (SME) - N96 30days, 
-    // 128 => 1GB (SME) - N190 30days, 
-    // 129 => 1.5GB (SME) - N285 30days, 
-    // 130 => 2GB (SME) - N380 30days, 
-    // 131 => 2.5GB (SME) - N485 30days, 
-    // 132 => 3GB (SME) - N570 30days, 
-    // 169 => 4GB (SME) - N760 30days, 
-    // 134 => 5GB (SME) - N950 30days,
-    //  135 => 6GB (SME) - N1140 30days, 
-    //  170 => 7.5GB (SME) - N1425 30days, 
-    //  136 => 10GB (SME) - N1900 30days, 
-    //  171 => 11GB (SME) - N2090 30days, 
-    //  137 => 15GB (SME) - N2850 30days, 
-    //  138 => 20GB (SME) - N3800 30days, 
-    //  172 => 25GB (SME) - N4750 30days, 
-    //  173 => 30GB (SME) - N5700 30days, 
-    //  174 => 40GB (SME) - N7600 30days, 
-    //  175 => 50GB (SME) - N9500 30days, 
-    //  176 => 100GB (SME) - N19000 30days,
         
         $response = [
             [
