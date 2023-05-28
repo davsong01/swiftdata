@@ -88,6 +88,23 @@ if ($searc_level=="mtncg1" || $searc_level=="mtncg2" || $searc_level=="mtncg3" |
         }
                 
         $message.='<button class="btn btn-success" type="button" onclick="saveMTNCG()">Save</button></form>';
+    }else if($api_gift == 'gongzo_data.php'){
+        $type = 'data';
+        $product = 'mtn-cg';
+        require("../../api/gongzo_pricing.php");
+
+        $message = '<form method="POST" id="submit_form">
+        <input type="hidden" value="' . $level . '" id="level">';
+
+        foreach ($response as $res) {
+            $message .= '<div>
+                            <label>' . $res['name'] . '</label>
+                           
+                            <input type="number" id="' . $res['id'] . '" class="form-control" value="' . $res['price'] . '" required>
+                        </div><br>';
+        }
+
+        $message .= '<button class="btn btn-success" type="button" onclick="saveMTNCG()">Save</button></form>';
     }else{
          require ("../../functions/mtncg_price.php");
 
@@ -139,8 +156,8 @@ if ($searc_level=="mtncg1" || $searc_level=="mtncg2" || $searc_level=="mtncg3" |
     }
    
     $response=array(
-    'status' => 'success',
-    'data' => $message,
+        'status' => 'success',
+        'data' => $message,
     );
 
     echo json_encode($response);

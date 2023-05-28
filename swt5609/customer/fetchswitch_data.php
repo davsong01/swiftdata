@@ -23,7 +23,7 @@ if ($searc_level=="data"){
                     <label class="price-label">MTN-CG *</label>
                     <select class="form-control" id="mtncg_data" required>
                     <option value="mtncg_sms.php" ' . ($api_gift == 'mtncg_sms.php' ? 'selected' : '') . '>BULKSMS</option>
-                    <option value="gongzo.php" ' . ($api_gift == 'gongzo.php' ? 'selected' : '') . '>GONGOZDATA</option>
+                    <option value="gongzo_data.php" ' . ($api_gift == 'gongzo_data.php' ? 'selected' : '') . '>GONGOZDATA</option>
                     <option value="mtncg_don.php" ' . ($api_gift == 'mtncg_don.php' ? 'selected' : '') . '>DONLESON</option>
                     <option value="easy_access_data.php" ' . ($api_gift == 'easy_access_data.php' ? 'selected' : '') . '>EASY ACCESS</option>
                     </select>

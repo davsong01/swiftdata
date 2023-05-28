@@ -317,7 +317,6 @@ if ($manage_prices == 1) {
         mtncg_3: $("#mtncg_3").val(),
         mtncg_5: $("#mtncg_5").val(),
         mtncg_10: $("#mtncg_10").val(),
-        mtncg_10: $("#mtncg_10").val(),
         easy_access125: $("#easy_access125").val(),
         easy_access126: $("#easy_access126").val(),
         easy_access127: $("#easy_access127").val(),
@@ -340,6 +339,15 @@ if ($manage_prices == 1) {
         easy_access149: $("#easy_access149").val(),
         easy_access150: $("#easy_access150").val(),
         easy_access151: $("#easy_access151").val(),
+        gongzo_data280: $("#gongzo_data280").val(),
+        gongzo_data281: $("#gongzo_data281").val(),
+        gongzo_data282: $("#gongzo_data282").val(),
+        gongzo_data283: $("#gongzo_data283").val(),
+        gongzo_data284: $("#gongzo_data284").val(),
+        gongzo_data285: $("#gongzo_data285").val(),
+        gongzo_data286: $("#gongzo_data286").val(),
+        gongzo_data287: $("#gongzo_data287").val(),
+        gongzo_data288: $("#gongzo_data288").val(),
       };
       $.ajax({
         url: 'customer/savemtncg_price',
