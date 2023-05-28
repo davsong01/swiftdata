@@ -10,14 +10,14 @@
         
         $response = [
             [
-                'name' => "MTN 500MB GIFTING - 30days",
+                'name' => "MTN 500MB (CG) - 30days",
                 'price' => $data_query[0],
                 'code' => 280,
                 'id'=>'gongzo_data280',
                 'val' => '500',
             ],
             [
-                'name' => "MTN 1GB GIFTING - 30days",
+                'name' => "MTN 1GB (CG) - 30days",
                 'price' => $data_query[1],
                 'code' => 281,
                 'id'=>'gongzo_data281',
@@ -25,14 +25,14 @@
 
             ],
             [
-                'name' => "MTN 2GB GIFTING - 30days",
+                'name' => "MTN 2GB (CG) - 30days",
                 'price' => $data_query[2],
                 'code' => 282,
                 'id'=>'gongzo_data282',
                 'val' => '2000',
             ],
             [
-                'name' => "MTN 3GB GIFTING - 30days",
+                'name' => "MTN 3GB (CG) - 30days",
                 'price' => $data_query[3],
                 'code' => 283,
                 'id'=>'gongzo_data283',
@@ -40,7 +40,7 @@
 
             ],
             [
-                'name' => "MTN 5GB GIFTING - 30days",
+                'name' => "MTN 5GB (CG) - 30days",
                 'price' => $data_query[4],
                 'code' => 284,
                 'id'=>'gongzo_data284',
@@ -48,7 +48,7 @@
 
             ],
             [
-                'name' => "MTN 10GB GIFTING - 30days",
+                'name' => "MTN 10GB (CG) - 30days",
                 'price' => $data_query[5],
                 'code' => 285,
                 'id'=>'gongzo_data285',
@@ -56,21 +56,21 @@
 
             ],
             [
-                'name' => "MTN 15GB GIFTING - 30days",
+                'name' => "MTN 15GB (CG) - 30days",
                 'price' => $data_query[6],
                 'code' => 286,
                 'id'=>'gongzo_data286',
                 'val' => '15000',
             ],
             [
-                'name' => "MTN 20GB GIFTING - 30days",
+                'name' => "MTN 20GB (CG) - 30days",
                 'price' => $data_query[7],
                 'code' => 287,
                 'id' => 'gongzo_data287',
                 'val' => '20000',
             ],
             [
-                'name' => "MTN 40GB GIFTING - 30days",
+                'name' => "MTN 40GB (CG) - 30days",
                 'price' => $data_query[8],
                 'code' => 288,
                 'id' => 'gongzo_data288',
