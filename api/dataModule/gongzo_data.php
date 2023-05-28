@@ -71,6 +71,9 @@
             ];
             curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
             $res = curl_exec($ch);
+
+            // $res = '{"id":6340075,"ident":"Data49fb7f30d-33b","network":1,"apiresponse":"Dear Customer, You have gifted 500MB, please dial *312*4*7*5# to check your balance. Thankyou.","api_response":"Dear Customer, You have gifted 500MB, please dial *312*4*7*5# to check your balance. Thankyou.","balance_before":"19022.0","balance_after":"18907.0","mobile_number":"07046734407","plan":280,"Status":"successful","plan_network":"MTN","plan_name":"500.0MB","plan_amount":"115.0","create_date":"2023-05-28T20:48:32.096082","Ported_number":true}';
+
             curl_close($ch);
             
             $pinsx = [];
@@ -103,19 +106,19 @@
                 $status = true;
             }
 
-            
-            if(isset($result['status']) && $result['status'] !== 'failed'){
+            if(isset($result['Status']) && $result['Status'] == 'successful'){
                 $status = true;
                 $true_response = $result['apiresponse'];
-
             }else{
                 $status = false;
                 $true_response = $result['apiresponse'];
             }
 
+            $res = json_encode($result);
             if ($status){
-                $order_report=strtoupper('Purchase Successful for '.$package_name.($network != 'MTN-DATACARD' ? ' on '.$mobile_no : '')).'.';
+                $order_report=strtoupper('Purchase Successful for '.$package_name.($network != 'MTN-DATACARD' ? ' on '.$mobile_no : '')).'.'. $true_response;
 
+               
                 mysqli_query($con, "INSERT INTO `final_transactions` (`id`, `mobile_number`, `buyer_email`, `buyer_username`, `buyer_service`, `buyer_amount`, `buyer_quantity`,`buyer_prebal`, `buyer_postbal`, `buyer_descr`, `buyer_status`, `buyer_date`, `timestring`, `charge_from`, `user_type`, `sys_ref`, `api_ref`, `api_report`, `src_price`, `profit`, `databyte`,`api_response`,`post_fields`,`extra`) VALUES (NULL, '$mobile_no', '$account_email', '$account_username', '$service', '$service_price','$no_of_pins', '$account_balance', '$new_wallet', '$order_report', 'SUCCESSFUL', '$time', '$timestring', 'WALLET', '$level', '$api_reference', '$reference', 'DONE', '0', '0', '$databyte','$res','$pstfields','$pins')");
 
                 $response=array(
@@ -136,9 +139,6 @@
                 $new_wallet=$account_balance;
 
                 mysqli_query($con, "UPDATE users SET wallets='$new_wallet' WHERE id='$user_id' AND username ='$account_username'");
-
-                // Dues to funny characters
-                $res = json_encode($result);
 
                 mysqli_query($con, "INSERT INTO `final_transactions` (`id`, `mobile_number`, `buyer_email`, `buyer_username`, `buyer_service`, `buyer_amount`, `buyer_prebal`, `buyer_postbal`, `buyer_descr`, `buyer_status`, `buyer_date`, `timestring`, `charge_from`, `user_type`, `sys_ref`, `api_ref`, `api_report`, `src_price`, `profit`, `databyte`,`api_response`,`post_fields`,`extra`,`buyer_quantity`) VALUES (NULL, '$mobile_no', '$account_email', '$account_username', '$service', '$service_price', '$account_balance', '$account_balance', '$order_report', 'FAILED', '$time', '$timestring', 'WALLET', '$level', '$api_reference', '$reference', 'DONE', '0', '0','$databyte','$res','$pstfields','$pins','$no_of_pins')");
 
