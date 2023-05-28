@@ -75,6 +75,13 @@
                 } else if ($network == "AIRTEL" && $a_lock1 == 1 && $airtel_access == 1) {
                     require("dataModule/$api_airtel");
                 } else if ($network == "AIRTEL-CG" && $ag_lock1 == 1 && $airtelcg_access == 1) {
+                    // $response = array(
+                    //     'status' => 'fail',
+                    //     'status_code' => '100',
+                    //     'message' => $api_airtelcg,
+                    // );
+                    // echo json_encode($response);
+                    // exit;
                     require("dataModule/$api_airtelcg");
                 } else if ($network == "GLO" && $g_lock1 == 1 && $glo_access == 1) {
                     require("dataModule/$api_glo");

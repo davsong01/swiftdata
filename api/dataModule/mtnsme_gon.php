@@ -61,12 +61,13 @@
         $error = json_decode($request, true);
         if(isset($error['error'])){
             $status = 'fail';
-            $message = json_encode($error['error']);
+            $message = json_encode($error['error']) ?? 'Something went wrong';
         }else{
             $status = 'success';
-            $message = '';
+            $message = 'You have successfully shared data to '. $mobile_no. '. Thankyou';
         }
 
+        
         // $request = '{"id":5356049,"ident":"Data2a67856c7-02b","network":1,"apiresponse":"You are not sending to valid MTN number.","api_response":"You are not sending to valid MTN number.","balance_before":"42439.0","balance_after":"42331.0","mobile_number":"08054343434","plan":289,"Status":"failed","plan_network":"MTN","plan_name":"500.0MB","plan_amount":"108.0","create_date":"2023-04-18T22:56:02.142025","Ported_number":true}';
 
         // $request = '{"id":5356075,"ident":"Data674d1e13e-b44","network":1,"apiresponse":"Dear Customer, You have successfully shared 500MB Data to 2348143511076. Your SME data balance is 9401.58GB expires 24/07/2023. Thankyou","api_response":"Dear Customer, You have successfully shared 500MB Data to 2348143511076. Your SME data balance is 9401.58GB expires 24/07/2023. Thankyou","balance_before":"42439.0","balance_after":"42331.0","mobile_number":"08143511076","plan":289,"Status":"successful","plan_network":"MTN","plan_name":"500.0MB","plan_amount":"108.0","create_date":"2023-04-18T22:57:15.023383","Ported_number":true}';
@@ -93,7 +94,17 @@
         // );
         // echo json_encode($response);
         // exit;
-
+        // $response = array(
+        //     'status' => 'fail',
+        //     'status_code' => '200',
+        //     'old_balance' => $account_balance,
+        //     'new_balance' => $new_wallet,
+        //     'time' => $time,
+        //     'amountPaid' => $service_price,
+        //     'message' => $message
+        // );
+        // echo json_encode($response);
+        // exit;
         if ($request) {
             if($status == 'success'){
                 $order_report = strtoupper($package_name . ' N' . $service_price . ' Purchase Successful on ' . $mobile_no).'. '.$message;

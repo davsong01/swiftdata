@@ -25,12 +25,39 @@
       }else{
         $response=array(
           'status'=>'fail',
-          'message' => 'A database error occured!',
+          'message' => 'A database error occured!'. addslashes(mysqli_error($con)),
         );
       }
 
       echo json_encode($response);
       exit();
+    } else if ($api_airtelcg == 'gongzo_data.php') { 
+      $gongzo_data312 = mysqli_real_escape_string($con, $_POST['gongzo_data312']);
+      $gongzo_data313 = mysqli_real_escape_string($con, $_POST['gongzo_data313']);
+      $gongzo_data314 = mysqli_real_escape_string($con, $_POST['gongzo_data314']);
+      $gongzo_data315 = mysqli_real_escape_string($con, $_POST['gongzo_data315']);
+      $gongzo_data317 = mysqli_real_escape_string($con, $_POST['gongzo_data317']);
+      $gongzo_data318 = mysqli_real_escape_string($con, $_POST['gongzo_data318']);
+      $gongzo_data319 = mysqli_real_escape_string($con, $_POST['gongzo_data319']);
+     
+      $update = mysqli_query($con, "UPDATE airtelcgdata_plan SET 
+            gongzo_data312='$gongzo_data312', gongzo_data313='$gongzo_data313', gongzo_data314='$gongzo_data314', gongzo_data315='$gongzo_data315',gongzo_data317='$gongzo_data317', gongzo_data318='$gongzo_data318', gongzo_data319='$gongzo_data319'
+  
+            WHERE id='$level'");
+            if ($update) {
+              $response = array(
+                'status' => 'success',
+                'message' => 'Your airtel-cg prices for Level ' . $level . ' has been successfully updated!!!',
+              );
+            } else {
+              $response = array(
+                'status' => 'fail',
+                'message' => 'A database error occured!' . addslashes(mysqli_error($con)),
+              );
+            }
+
+            echo json_encode($response);
+            exit();
   }else{
       if (!empty($_POST['airtelcg_100']) &&  !empty($_POST['airtelcg_300']) &&  !empty($_POST['airtelcg_500']) &&  !empty($_POST['airtelcg_1']) &&  !empty($_POST['airtelcg_2']) &&  !empty($_POST['airtelcg_5']) && !empty($_POST['level'])){
 

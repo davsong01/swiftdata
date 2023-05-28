@@ -5,7 +5,9 @@
                 <div class="footer_iner text-center">
                     <h4>Download our mobile Apps</h4>
         <p>
-                    <a target="_blank" href="https://play.google.com/store/apps/details?id=swift.data.ng">
+                    <!-- <a target="_blank" href="https://play.google.com/store/apps/details?id=swift.data.ng"> -->
+                    <a target="_blank" href="https://drive.google.com/drive/folders/107QE4pPKM4F2ah3c-uUM4nnxjM4O4EeC">
+                        
                         <img src="../homepage/assets/img/play.png" style="width:120px; margin-right:10px">
                     </a>
                     <a href="#">
