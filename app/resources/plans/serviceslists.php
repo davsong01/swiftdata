@@ -41,7 +41,7 @@ if (!empty($_GET['services']) && !empty($_GET['level'])){
 
 		if($api_gift == 'easy_access_data.php'){
 			require('../../../api/easy_access_pricing.php');
-		} else if ($api_airtelcg == 'gongzo_data.php') {
+		} else if ($api_gift == 'gongzo_data.php') {
 			require('../../../api/gongzo_pricing.php');
 		}else{
 			require('../../../api/generic_pricing.php');

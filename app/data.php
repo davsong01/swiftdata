@@ -46,14 +46,14 @@ require ("request_pin.php");
     
     <div id="how_to_load" style="display:none;background: #d5f4d5;padding: 10px;margin-bottom: 10px;">
     <div class="col-lg-12 me">
-						<div class="form-group">
-							<label class="small mb-1" for="amount" style="color: #000000">To Load/Recharge: Dail</label>
-							<span class="text-danger font-italic">MTN (Data Card 1.5GB) &gt;&gt; *312*4*6*1#, then enter the Pin Generated in the prompt shown on your MTN sim.</span>
-							<br>
-							<label class="small mb-1" for="amount" style="color: #000000">To Check Data Balance Dail:</label>
-							<span class="text-danger font-italic">MTN (Data Card 1.5GB) &gt;&gt; *131*4#</span>
-						</div>
-					</div>
+        <div class="form-group">
+            <label class="small mb-1" for="amount" style="color: #000000">To Load/Recharge: Dail</label>
+            <span class="text-danger font-italic">MTN (Data Card 1.5GB) &gt;&gt; *312*4*6*1#, then enter the Pin Generated in the prompt shown on your MTN sim.</span>
+            <br>
+            <label class="small mb-1" for="amount" style="color: #000000">To Check Data Balance Dail:</label>
+            <span class="text-danger font-italic">MTN (Data Card 1.5GB) &gt;&gt; *131*4#</span>
+          </div>
+        </div>
     </div>
 
     <form id="form-data">
