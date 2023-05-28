@@ -69,19 +69,19 @@
                 } else if ($network == "MTN-DATACARD" ){
                     require("dataModule/$mtn_data_card");
                 } else if ($network == "MTN-CG" && $mg_lock1 == 1 && $mtncg_access == 1 || $network == "GIFTING" && $mg_lock1 == 1 && $mtncg_access == 1) {
+                    // $response = array(
+                    //     'status' => 'fail',
+                    //     'status_code' => '100',
+                    //     'message' => $network,
+                    // );
+                    // echo json_encode($response);
+                    // exit;
                     require("dataModule/$api_gift");
                 } else if ($network == "9MOBILE" && $mo_lock1 == 1 && $mobile_access == 1 || $network == "ETISALAT" && $mo_lock1 == 1 && $mobile_access == 1) {
                     require("dataModule/$api_mobile");
                 } else if ($network == "AIRTEL" && $a_lock1 == 1 && $airtel_access == 1) {
                     require("dataModule/$api_airtel");
                 } else if ($network == "AIRTEL-CG" && $ag_lock1 == 1 && $airtelcg_access == 1) {
-                    // $response = array(
-                    //     'status' => 'fail',
-                    //     'status_code' => '100',
-                    //     'message' => $api_airtelcg,
-                    // );
-                    // echo json_encode($response);
-                    // exit;
                     require("dataModule/$api_airtelcg");
                 } else if ($network == "GLO" && $g_lock1 == 1 && $glo_access == 1) {
                     require("dataModule/$api_glo");

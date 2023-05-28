@@ -12,10 +12,10 @@
         $type = 'data';
         $product = 'mtn-cg';
         $ntwk = 01;
-
+        
         // Get mtn sms pricess
-        require('../api/generic_pricing.php');
-        $url ='https://donleson.com/api/data';
+        require('../api/gongzo_pricing.php');
+        $url = 'https://www.gongozconcept.com/api/data/';
 
         foreach ($response as $res) {
             if ($plan_id==$res['code']){
@@ -26,10 +26,10 @@
                 $planCode = $res['code'];
             }
         }
-    }elseif($network == 'AIRTEL-CG'){
+    } elseif($network == 'AIRTEL-CG'){
         $type = 'data';
         $product = 'airtel-cg';
-        
+        $ntwk = 4;
         require('../api/gongzo_pricing.php');
         $url = "https://www.gongozconcept.com/api/data/";
     
@@ -48,23 +48,12 @@
     
     $service_price = $service_price * $no_of_pins;
 
-    if ($service_price <= 0) {
-        $response = array(
-            'status' => 'fail',
-            'status_code' => '100',
-            'message' => 'Price not set!!!',
-        );
-
-        echo json_encode($response);
-        exit;
-    }
-
     if ($account_balance > $service_price ){
             $new_wallet=$account_balance-$service_price;
             mysqli_query($con, "UPDATE users SET wallets='$new_wallet' WHERE id='$user_id' AND username ='$account_username'");
 
             $postdata = [
-                'network' => 4,
+                'network' => $ntwk,
                 'plan' => $planCode,
                 'mobile_number' => $mobile_no,
                 'Ported_number' => true,
@@ -77,7 +66,7 @@
             curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($postdata));  //Post Fields
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $headers = [
-                'Authorization: Token  3b24d3f969dd1aa39cc434ada0c4de75f54e4948',
+                'Authorization: Token 3b24d3f969dd1aa39cc434ada0c4de75f54e4948',
                 'Content-Type: application/json'
             ];
             curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
@@ -112,6 +101,16 @@
                 $true_response = $result['error'][0];
             }else{
                 $status = true;
+            }
+
+            
+            if(isset($result['status']) && $result['status'] !== 'failed'){
+                $status = true;
+                $true_response = $result['apiresponse'];
+
+            }else{
+                $status = false;
+                $true_response = $result['apiresponse'];
             }
 
             if ($status){
