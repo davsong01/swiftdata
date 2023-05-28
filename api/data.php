@@ -153,6 +153,8 @@
 
         if($api == 'easy_access_data.php') {
             require("easy_access_pricing.php");
+        }else if ($api == 'gongzo_data.php') {
+            require("gongzo_pricing.php");
         }else{
             require("generic_pricing.php");
         }
