@@ -54,7 +54,7 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']) {
       $ref_id = $refinfo[6];
       $upline = $refinfo[7];
 
-      // Get admin to credit
+      // Get admin details
       $adinfo = mysqli_fetch_array(mysqli_query($con, "SELECT cashback, wallets, username, email, level, mobile,id,ref_code FROM users WHERE username='ADMIN'"));
 
       $ad_ini_bonus = $adinfo[0];
@@ -89,7 +89,7 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']) {
         $uplineDetails =  mysqli_fetch_array(mysqli_query($con, "SELECT cashback, wallets, username, email, level, mobile,id,ref_by FROM users WHERE ref_code='$upline'"));
 
         if($uplineDetails){
-          $setbonus1 = mysqli_query($con, "UPDATE users SET cashback=cashback+$refb WHERE username='" . $upline . "'");
+          $setbonus1 = mysqli_query($con, "UPDATE users SET cashback=cashback+$refb WHERE ref_code='" . $upline . "'");
           $descr2 = 'Referral bonus of N' . $refb . ' landed from ' . $username;
           
           $upline_pcashback = $uplineDetails[0];
