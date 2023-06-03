@@ -170,6 +170,57 @@
         
     }
 
+    // MTN data
+    if ($type == "data" && $product == "mtn") {
+        $data_query = mysqli_fetch_array(mysqli_query($con, "SELECT mtnsme_500,mtnsme_1, mtnsme_2, mtnsme_3, mtnsme_5, mtnsme_10 FROM mtnsmedata_plan WHERE id='$level'"));
+
+        $response = [
+            [
+                'name' => "MTN SME 500M",
+                'price' => $data_query[0],
+                'code' => 50,
+                'id' => '',
+                'val' => 500,
+            ],
+            [
+                'name' => "MTN-SME 1GB",
+                'price' => $data_query[1],
+                'code' => 51,
+                'id' => '',
+                'val' => 1000,
+            ],
+            [
+                'name' => "MTN-SME 2GB",
+                'price' => $data_query[2],
+                'code' => 52,
+                'id' => '',
+                'val' => 2000,
+            ],
+            [
+                'name' => "MTN-SME 3GB",
+                'price' => $data_query[3],
+                'code' => 53,
+                'id' => '',
+                'val' => 3000,
+            ],
+            [
+                'name' => "MTN-SME 5GB",
+                'price' => $data_query[4],
+                'code' => 54,
+                'id' => '',
+                'val' => 5000,
+            ],
+            [
+                'name' => "MTN-SME 10GB",
+                'price' => $data_query[5],
+                'code' => 91,
+                'id' => '',
+                'val' => 10000,
+            ],
+
+        ];
+    }
+
     if($type == 'data' && $product == 'airtel-cg'){
         $data_query = mysqli_fetch_array(mysqli_query($con, "SELECT easy_access104, easy_access105, easy_access106, easy_access107,easy_access108, easy_access109, easy_access124, easy_access139,easy_access140 FROM airtelcgdata_plan WHERE id='$level'"));
         

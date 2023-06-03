@@ -80,6 +80,58 @@
         
     }
 
+    // MTN data
+    if ($type == "data" && $product == "mtn" ) {
+        $data_query = mysqli_fetch_array(mysqli_query($con, "SELECT mtnsme_500,mtnsme_1, mtnsme_2, mtnsme_3, mtnsme_5, mtnsme_10 FROM mtnsmedata_plan WHERE id='$level'"));
+
+        $response = [
+            [
+                'name' => "MTN SME 500M",
+                'price' => $data_query[0],
+                'code' => 289,
+                'id'=>'',
+                'val'=>500,
+            ],
+            [
+                'name' => "MTN-SME 1GB",
+                'price' => $data_query[1],
+                'code' => 290,
+                'id'=>'',
+                'val'=>1000,
+            ],
+            [
+                'name' => "MTN-SME 2GB",
+                'price' => $data_query[2],
+                'code' => 291,
+                'id'=>'',
+                'val'=>2000,
+            ],
+            [
+                'name' => "MTN-SME 3GB",
+                'price' => $data_query[3],
+                'code' => 292,
+                'id' => '',
+                'val' => 3000,
+            ],
+            [
+                'name' => "MTN-SME 5GB",
+                'price' => $data_query[4],
+                'code' => 293,
+                'id' => '',
+                'val' => 5000,
+            ],
+            [
+                'name' => "MTN-SME 10GB",
+                'price' => $data_query[5],
+                'code' => 294,
+                'id' => '',
+                'val' => 10000,
+            ],
+
+        ];
+
+    }
+
     if($type == 'data' && $product == 'airtel-cg'){
         $data_query = mysqli_fetch_array(mysqli_query($con, "SELECT gongzo_data312, gongzo_data313, gongzo_data314, gongzo_data315,gongzo_data317, gongzo_data318, gongzo_data319 FROM airtelcgdata_plan WHERE id='$level'"));
         

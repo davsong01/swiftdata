@@ -26,6 +26,24 @@
                 $planCode = $res['code'];
             }
         }
+    }elseif ($network == 'MTN') {
+        $type = 'data';
+        $product = 'mtn';
+        $ntwk = 01;
+
+        // Get mtn sms pricess
+        require('../api/easy_access_pricing.php');
+        $url = "https://easyaccess.com.ng/api/data.php";
+
+        foreach ($response as $res) {
+            if ($plan_id == $res['code']) {
+                $service_price = $res['price'];
+                $service = "mtn";
+                $databyte = $res['val'];
+                $package_name = $res['name'];
+                $planCode = $res['code'];
+            }
+        }
     }elseif($network == 'AIRTEL-CG'){
         $type = 'data';
         $product = 'airtel-cg';
@@ -101,7 +119,7 @@
     // Perform operations
     
     $service_price = $service_price * $no_of_pins;
-
+    
     if ($service_price <= 0) {
         $response = array(
             'status' => 'fail',
