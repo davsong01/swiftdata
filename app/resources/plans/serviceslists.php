@@ -61,10 +61,11 @@ if (!empty($_GET['services']) && !empty($_GET['level'])){
 			echo '<option>No Available variations at the moment</option>';
 		}
 	}
-
+	
 	if ($getservices=="airtel-cg"){
 		$type = 'data';
 		$product = $getservices;
+
 		if($api_airtelcg == 'easy_access_data.php'){
 			require('../../../api/easy_access_pricing.php');
 		}else if ($api_airtelcg == 'gongzo_data.php') {

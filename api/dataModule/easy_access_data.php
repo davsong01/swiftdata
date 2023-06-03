@@ -185,9 +185,8 @@
                 'client_reference' => '',
                 'url'=>$url ?? '',
                 'no_of_pins' => $no_of_pins ?? '',
-
             ]);
- 
+            
             // $status="true";
             if ($status==="true"){
                 $order_report=strtoupper('Purchase Successful for '.$package_name.($network != 'MTN-DATACARD' ? ' on '.$mobile_no : '')).'. '.$true_response;

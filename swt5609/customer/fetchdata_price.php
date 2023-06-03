@@ -13,57 +13,57 @@ require ("../../functions/mtnsme_price.php");
 
 $message='
 
-<form method="POST" id="form_submit">
+    <form method="POST" id="form_submit">
 
-<div>
-<label>MTN SME 500MB</label>
-<input type="hidden" value="'.$level.'" id="level">
-<input type="tel" id="mtnsme_500" class="form-control" value="'.$mtnsme_500.'" required>
-</div>
+    <div>
+    <label>MTN SME 500MB</label>
+    <input type="hidden" value="'.$level.'" id="level">
+    <input type="tel" id="mtnsme_500" class="form-control" value="'.$mtnsme_500.'" required>
+    </div>
 
-<br/>
-<div>
-<label>MTN SME 1GB</label>
-<input type="tel" id="mtnsme_1" class="form-control" value="'.$mtnsme_1.'" required>
-</div>
+    <br/>
+    <div>
+    <label>MTN SME 1GB</label>
+    <input type="tel" id="mtnsme_1" class="form-control" value="'.$mtnsme_1.'" required>
+    </div>
 
-<br/>
-<div>
-<label>MTN SME 2GB</label>
-<input type="tel" id="mtnsme_2" class="form-control" value="'.$mtnsme_2.'" required>
-</div>
+    <br/>
+    <div>
+    <label>MTN SME 2GB</label>
+    <input type="tel" id="mtnsme_2" class="form-control" value="'.$mtnsme_2.'" required>
+    </div>
 
-<br/>
-<div>
-<label>MTN SME 3GB</label>
-<input type="tel" id="mtnsme_3" class="form-control" value="'.$mtnsme_3.'" required>
-</div>
+    <br/>
+    <div>
+    <label>MTN SME 3GB</label>
+    <input type="tel" id="mtnsme_3" class="form-control" value="'.$mtnsme_3.'" required>
+    </div>
 
-<br/>
-<div>
-<label>MTN SME 5GB</label>
-<input type="tel" id="mtnsme_5" class="form-control" value="'.$mtnsme_5.'" required>
-</div>
+    <br/>
+    <div>
+    <label>MTN SME 5GB</label>
+    <input type="tel" id="mtnsme_5" class="form-control" value="'.$mtnsme_5.'" required>
+    </div>
 
-<br/>
-<div>
-<label>MTN SME 10GB</label>
-<input type="tel" id="mtnsme_10" class="form-control" value="'.$mtnsme_10.'" required>
-</div>
+    <br/>
+    <div>
+    <label>MTN SME 10GB</label>
+    <input type="tel" id="mtnsme_10" class="form-control" value="'.$mtnsme_10.'" required>
+    </div>
 
-<br/>
-<button class="btn btn-success" type="button" onclick="saveMTNSME()">Save</button>
+    <br/>
+    <button class="btn btn-success" type="button" onclick="saveMTNSME()">Save</button>
 
-</form>
-';
+    </form>
+    ';
 
-$response=array(
-'status' => 'success',
-'data' => $message,
-);
+    $response=array(
+    'status' => 'success',
+    'data' => $message,
+    );
 
-echo json_encode($response);
-exit();
+    echo json_encode($response);
+    exit();
 }
 
 if ($searc_level=="mtncg1" || $searc_level=="mtncg2" || $searc_level=="mtncg3" || $searc_level=="mtncg4"){
@@ -865,8 +865,3 @@ $response=array(
 echo json_encode($response);
 exit();
 }
-
-
-
-
-?>
