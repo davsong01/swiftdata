@@ -12,7 +12,7 @@ if (!empty($_GET['services']) && !empty($_GET['level'])){
 	if ($getservices=="mtn"){
 		$type = 'data';
 		$product = 'mtn';
-
+		
 		if($api_mtn == 'easy_access_data.php'){
 			require('../../../api/easy_access_pricing.php');
 		}else{
