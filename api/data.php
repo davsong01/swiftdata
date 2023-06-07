@@ -1,5 +1,4 @@
 <?php
-    
 
     error_reporting(1);
     $json = file_get_contents('php://input');
@@ -18,6 +17,7 @@
         $plan_id = getPlanId($plan_name, $network,$plan_id ?? '');
         // Get plan code from pricing lists using the plan name
     }
+
 
     if (!empty($mobile_no) && !empty($reference) && !empty($network) && !empty($api_token)) {
     // if (!empty($mobile_no) && !empty($plan_id) && !empty($reference) && !empty($network) && !empty($api_token)) {
@@ -44,7 +44,7 @@
                 echo json_encode($response);
                 exit;
             } else {
-
+           
                 $return_info = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM users WHERE sk_token='$api_token' AND block='0'"));
                 
                 $account_balance = $return_info['wallets'];
@@ -62,27 +62,30 @@
                 $level = $return_info['level'];
                 $user_id = $return_info['id'];
                 $account_mobile = $return_info['mobile'];
-                
+                $type = 'data';
+            
                 if ($network == "MTN" && $m_lock1 == 1 && $mtnsme_access == 1) {
-                    
                     require("dataModule/$api_mtn");
                 } else if ($network == "MTN-DATACARD" ){
                     require("dataModule/$mtn_data_card");
                 } else if ($network == "MTN-CG" && $mg_lock1 == 1 && $mtncg_access == 1 || $network == "GIFTING" && $mg_lock1 == 1 && $mtncg_access == 1) {
-                    // $response = array(
-                    //     'status' => 'fail',
-                    //     'status_code' => '100',
-                    //     'message' => $network,
-                    // );
-                    // echo json_encode($response);
-                    // exit;
                     require("dataModule/$api_gift");
                 } else if ($network == "9MOBILE" && $mo_lock1 == 1 && $mobile_access == 1 || $network == "ETISALAT" && $mo_lock1 == 1 && $mobile_access == 1) {
                     require("dataModule/$api_mobile");
                 } else if ($network == "AIRTEL" && $a_lock1 == 1 && $airtel_access == 1) {
                     require("dataModule/$api_airtel");
                 } else if ($network == "AIRTEL-CG" && $ag_lock1 == 1 && $airtelcg_access == 1) {
+               
                     require("dataModule/$api_airtelcg");
+                    $response = array(
+                        'status' => 'fail',
+                        'status_code' => '100',
+                        'message' => 'Mobile no. found in blacklist !!!' . $api_airtelcg,
+                    );
+                    echo json_encode($response);
+                    exit;
+
+                   
                 } else if ($network == "GLO" && $g_lock1 == 1 && $glo_access == 1) {
                     require("dataModule/$api_glo");
                 } else if ($network == "GLO-CG" && $gcg_lock1 == 1 && $glo_access == 1) {
@@ -122,6 +125,7 @@
 
     function getPlanId($plan_name, $network,$plan_id){
         require("../functions/web_config.php");
+
         $pId = $plan_id;
         $type = "data";
         $product = strtolower($network);
@@ -138,6 +142,7 @@
         } else if ($network == "AIRTEL") {
             $api = $api_airtel;
         } else if ($network == "AIRTEL-CG") {
+            $product = 'airtel-cg';
             $api = $api_airtelcg;
         } else if ($network == "GLO") {
             $api = $api_glo;
@@ -151,6 +156,7 @@
             $product = "apimobile-sme";
         }
 
+   
         if($api == 'easy_access_data.php') {
             require("easy_access_pricing.php");
         }else if ($api == 'gongzo_data.php') {
@@ -158,7 +164,7 @@
         }else{
             require("generic_pricing.php");
         }
-        
+    
         if(isset($response) && !empty($response)){
             foreach($response as $res){
                 if(isset($res['name']) && !empty($res['name'])){

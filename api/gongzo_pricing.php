@@ -134,7 +134,7 @@
 
     if($type == 'data' && $product == 'airtel-cg'){
         $data_query = mysqli_fetch_array(mysqli_query($con, "SELECT gongzo_data312, gongzo_data313, gongzo_data314, gongzo_data315,gongzo_data317, gongzo_data318, gongzo_data319 FROM airtelcgdata_plan WHERE id='$level'"));
-        
+    
         $response = [
             [
                 'name' => "AIRTEL CG 500MB - 7days",

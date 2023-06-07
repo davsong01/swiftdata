@@ -52,6 +52,13 @@
                             'system_status'=>$gcg_lock1,
                             'api'=>$api_glocg
                         ],
+                    'AIRTEL-CG' => [
+                        'type' => 'data',
+                        'product' => 'airtel-cg',
+                        'user_status' => $allowed_services['airtelcg_access'] ?? 0,
+                        'system_status' => $ag_lock1,
+                        'api' => $api_airtelcg
+                    ],
                     'AIRTEL' => [
                         'type' => 'data',
                         'product' => 'airtel',
@@ -59,13 +66,7 @@
                         'system_status'=>$a_lock1 ,
                         'api'=>$api_airtel,
                         ],
-                    'AIRTEL-CG' => [
-                        'type' => 'data',
-                        'product' => 'airtel-cg',
-                        'user_status'=>$allowed_services['airtelcg_access'] ?? 0,
-                        'system_status'=>$ag_lock1,
-                        'api'=>$api_airtelcg
-                        ],
+                    
                     '9MOBILE' => [
                         'type' => 'data',
                         'product' => '9mobile',
@@ -96,7 +97,7 @@
                     ],
                     
                 ];
-                
+           
                 foreach($allowed as $key=>$value){
                     $type = $value['type'];
                     $product = $value['product'];
@@ -105,28 +106,31 @@
                         // Get pricing from the api
                         if($value['api'] == 'easy_access_data.php'){
                             require 'easy_access_pricing.php';
-                        }else{
+                        }else if ($value['api'] == 'gongzo_data.php') {
+                            require 'gongzo_pricing.php';
+                        }
+                        else{
                             require 'generic_pricing.php';
                         }
 
+                    
                         if(isset($response)){
                             $single = [];
                             foreach($response as $r){
                                 if(isset($r['price']) && $r['price'] > 0){
                                     $single[] = $r['price'] > 0 ? $r['name']." = N".$r['price']:0;
-                                    // formatBytes($r['val'])." = N".$r['price'] : 0;
                                 }
                             }
                             if(!empty($single)){
                                 $res[$key] = $single;
                             }
-                                // implode(',',array_map_assoc(function($k,$v){return "$k ($v)";},$response));
+                             
                         }
                     }
                 }
 
                 header("Content-Type: application/json");
-                
+            
                 echo json_encode($res, JSON_PRETTY_PRINT);
                 
                 exit;
