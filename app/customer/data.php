@@ -4,7 +4,9 @@ require("session_controller.php");
 
 $_POST['mobile_no'] = !empty($_POST['mobile_no']) ? $_POST['mobile_no'] : '00000000000';
 
+
 if ($_SESSION['csrftoken'] == $_POST['req_token']){
+ 
   if (!empty($_POST['network_module']) && !empty($_POST['dataplanloader']) && !empty($_POST['mobile_no']) && !empty($_POST['security_pin']) && !empty($_POST['req_token'])){
      
     $network_module=strtoupper(mysqli_real_escape_string($con, $_POST['network_module']));
@@ -14,7 +16,8 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']){
     $security_pin=mysqli_real_escape_string($con, $_POST['security_pin']);
     $req_token=mysqli_real_escape_string($con, $_POST['req_token']);
     $no_of_pins=mysqli_real_escape_string($con, $_POST['no_of_pins']);
-    
+
+   
     if (strlen($mobile_no)==11 && is_numeric($mobile_no)){
         if ($security_pin == $security){
           $payload=array(
@@ -27,7 +30,7 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']){
           );
          
           $url = $api_url.'/data';
-        
+
           $ch = curl_init();
           curl_setopt($ch, CURLOPT_URL, $url);
           curl_setopt($ch, CURLOPT_POST, 1);
@@ -43,7 +46,7 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']){
           $message=$apidata->message;
           $extra = $apidata->extra ?? '';
           $status=$apidata->status;
-          
+
           if ($status == "success"){
             $response=array(
               'title' => 'COMPLETED',
@@ -78,6 +81,8 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']){
             echo json_encode($response);
             exit();
         }
+
+     
     }else{
         $response=array(
             'status'=>'fail',
@@ -87,7 +92,7 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']){
           exit();
 
     }
-
+   
   }else{
 
   $response=array(
@@ -97,10 +102,9 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']){
     echo json_encode($response);
     exit();
   }
+  
 
-}else{
-
- $response=array(
+}else{$response=array(
     'status'=>'fail',
     'message' => '<div class="alert alert-danger text-left">Something went wrong..token issue.</div>',
   );

@@ -1,5 +1,4 @@
 <?php
-
     error_reporting(1);
     $json = file_get_contents('php://input');
     $data = json_decode($json, true);
@@ -17,7 +16,6 @@
         $plan_id = getPlanId($plan_name, $network,$plan_id ?? '');
         // Get plan code from pricing lists using the plan name
     }
-
 
     if (!empty($mobile_no) && !empty($reference) && !empty($network) && !empty($api_token)) {
     // if (!empty($mobile_no) && !empty($plan_id) && !empty($reference) && !empty($network) && !empty($api_token)) {
@@ -77,19 +75,22 @@
                 } else if ($network == "AIRTEL-CG" && $ag_lock1 == 1 && $airtelcg_access == 1) {
                
                     require("dataModule/$api_airtelcg");
-                    $response = array(
-                        'status' => 'fail',
-                        'status_code' => '100',
-                        'message' => 'Mobile no. found in blacklist !!!' . $api_airtelcg,
-                    );
-                    echo json_encode($response);
-                    exit;
+                    // $response = array(
+                    //     'status' => 'fail',
+                    //     'status_code' => '100',
+                    //     'message' => 'Mobile no. found in blacklist !!!' . $api_airtelcg,
+                    // );
+                    // echo json_encode($response);
+                    // exit;
 
-                   
                 } else if ($network == "GLO" && $g_lock1 == 1 && $glo_access == 1) {
                     require("dataModule/$api_glo");
                 } else if ($network == "GLO-CG" && $gcg_lock1 == 1 && $glo_access == 1) {
-                    require("dataModule/$api_glocg");
+                    if($api_glocg == 'gongzo.php'){
+                        require("dataModule/gongzo_data.php");
+                    }else{
+                        require("dataModule/$api_glocg");
+                    }
                 } else if ($network == "9MOBILE-CG" && $mo_lock1 == 1 && $mobile_access == 1 || $network == "ETISALAT" && $mo_lock1 == 1 && $mobile_access == 1) {
                     require("dataModule/$api_mobile");
                 }else if (($network == "MOBILE-SME" || $network == "MOBILE SME") && $mobilesme_lock == 1) {
@@ -156,10 +157,11 @@
             $product = "apimobile-sme";
         }
 
-   
         if($api == 'easy_access_data.php') {
             require("easy_access_pricing.php");
         }else if ($api == 'gongzo_data.php') {
+            require("gongzo_pricing.php");
+        }else if ($api == 'gongzo.php') {
             require("gongzo_pricing.php");
         }else{
             require("generic_pricing.php");

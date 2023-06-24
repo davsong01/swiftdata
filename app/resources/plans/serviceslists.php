@@ -102,10 +102,13 @@ if (!empty($_GET['services']) && !empty($_GET['level'])){
 	}
 
 	if ($getservices=="glo-cg"){
+	
 		$type = 'data';
 		$product = 'glo-cg';
 		if($api_glocg == 'easy_access_data.php'){
 			require('../../../api/easy_access_pricing.php');
+		}else if ($api_glocg == 'gongzo.php') {
+			require('../../../api/gongzo_pricing.php');
 		}else{
 			require('../../../api/generic_pricing.php');
 

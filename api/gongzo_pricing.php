@@ -195,50 +195,63 @@
     }
 
     if($type == 'data' && $product == 'glo-cg'){
-        $data_query = mysqli_fetch_array(mysqli_query($con, "SELECT easy_access158, easy_access159, easy_access160, easy_access161,easy_access162, easy_access163, easy_access164 FROM glocgdata_plan WHERE id='$level'"));
-        
+        $data_query = mysqli_fetch_array(mysqli_query($con, "SELECT gongzo_data321, gongzo_data322, gongzo_data323,gongzo_data324,gongzo_data325, gongzo_data326, gongzo_data327,gongzo_data337 FROM glocgdata_plan WHERE id='$level'"));
+        // 321 	GLO 	CORPORATE GIFTING 	₦225 	1.0 GB 	MONTHLY
+        // 322 	GLO 	CORPORATE GIFTING 	₦450 	2.0 GB 	MONTHLY
+        // 323 	GLO 	CORPORATE GIFTING 	₦690 	3.0 GB 	MONTHLY
+        // 324 	GLO 	CORPORATE GIFTING 	₦1125 	5.0 GB 	MONTHLY
+        // 325 	GLO 	CORPORATE GIFTING 	₦2300 	10.0 GB 	MONTHLY
+        // 326 	GLO 	CORPORATE GIFTING 	₦125 	500.0 MB 	14 DAYS
+        // 327 	GLO 	CORPORATE GIFTING 	₦150 	500.0 MB 	MONTHLY
+        // 337 	GLO 	CORPORATE GIFTING 	₦50 	200.0 MB 	14DAYS
         $response = [
             [
-                'name' => "GLO 200MB (CG) - 14days",
+                'name' => "GLO (CG) 1.0 GB - 30days",
                 'price' => $data_query[0],
-                'code' => 158,
-                'id'=>'easy_access158',
+                'code' => 321,
+                'id'=>'gongzo_data321',
+            ],
+            [
+                'name' => "GLO (CG) 2.0 GB - 30days",
+                'price' => $data_query[1],
+                'code' => 322,
+                'id'=>'gongzo_data322',
+            ],
+            [
+                'name' => "GLO (CG) 3.0 GB - 30days",
+                'price' => $data_query[2],
+                'code' => 323,
+                'id'=>'gongzo_data323',
+            ],
+            [
+                'name' => "GLO (CG) 5.0 GB - 30days",
+                'price' => $data_query[3],
+                'code' => 324,
+                'id'=>'gongzo_data324',
+            ],
+            [
+                'name' => "GLO (CG) 10.0 GB - 30days",
+                'price' => $data_query[4],
+                'code' => 325,
+                'id'=>'gongzo_data325',
+            ],
+            [
+                'name' => "GLO (CG) 500MB (CG) - 14days",
+                'price' => $data_query[5],
+                'code' => 326,
+                'id'=>'gongzo_data326',
             ],
             [
                 'name' => "GLO 500MB (CG) - 30days",
-                'price' => $data_query[1],
-                'code' => 159,
-                'id'=>'easy_access159',
-            ],
-            [
-                'name' => "GLO 1GB (CG) - 30days",
-                'price' => $data_query[2],
-                'code' => 160,
-                'id'=>'easy_access160',
-            ],
-            [
-                'name' => "GLO 2GB (CG) - 30days",
-                'price' => $data_query[3],
-                'code' => 161,
-                'id'=>'easy_access161',
-            ],
-            [
-                'name' => "GLO 3GB (CG) - 30days",
-                'price' => $data_query[4],
-                'code' => 162,
-                'id'=>'easy_access162',
-            ],
-            [
-                'name' => "GLO 5GB (CG) - 30days",
-                'price' => $data_query[5],
-                'code' => 163,
-                'id'=>'easy_access163',
-            ],
-            [
-                'name' => "GLO 10GB (CG) - 30days",
                 'price' => $data_query[6],
-                'code' => 164,
-                'id'=>'easy_access164',
+                'code' => 327,
+                'id'=>'gongzo_data327',
+            ],
+            [
+                'name' => "GLO 200MB (CG) - 14days",
+                'price' => $data_query[7],
+                'code' => 337,
+                'id' => 'gongzo_data337',
             ],
         ];
     }

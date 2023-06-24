@@ -106,7 +106,7 @@
                         // Get pricing from the api
                         if($value['api'] == 'easy_access_data.php'){
                             require 'easy_access_pricing.php';
-                        }else if ($value['api'] == 'gongzo_data.php') {
+                        }else if ($value['api'] == 'gongzo_data.php' || $value['api'] == 'gongzo.php') {
                             require 'gongzo_pricing.php';
                         }
                         else{
