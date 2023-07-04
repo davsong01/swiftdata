@@ -414,7 +414,20 @@ if ($searc_level == "glocg1" || $searc_level == "glocg2" || $searc_level == "glo
         }
 
         $message .= '<button class="btn btn-success" type="button" onclick="saveGLOCG()">Save</button></form>';
-    } else {
+    } else if ($api_glocg == 'gongzo.php') {
+        $type = 'data';
+        $product = 'glo-cg';
+        require('../../api/gongzo_pricing.php');
+        $message = '<form method="POST" id="submit_form">
+        <input type="hidden" value="' . $level . '" id="level">';
+
+        foreach ($response as $res) {
+            $message .= '<div><label>' . $res['name'] . '</label><input type="number" id="' . $res['id'] . '" class="form-control" value="' . $res['price'] . '" required></div><br>';
+        }
+
+        $message .= '<button class="btn btn-success" type="button" onclick="saveGLOCG()">Save</button></form>';
+    } 
+    else {
         require ("../../functions/glo_price.php");
 
         $message='

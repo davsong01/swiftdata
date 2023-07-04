@@ -201,6 +201,15 @@ if ($manage_prices == 1) {
         easy_access163: $("#easy_access163").val(),
         easy_access164: $("#easy_access164").val(),
 
+        gongzo_data321: $("#gongzo_data321").val(),
+        gongzo_data322: $("#gongzo_data322").val(),
+        gongzo_data323: $("#gongzo_data323").val(),
+        gongzo_data324: $("#gongzo_data324").val(),
+        gongzo_data325: $("#gongzo_data325").val(),
+        gongzo_data326: $("#gongzo_data326").val(),
+        gongzo_data327: $("#gongzo_data327").val(),
+        gongzo_data337: $("#gongzo_data337").val(),
+
         level: $("#level").val(),
       };
 
