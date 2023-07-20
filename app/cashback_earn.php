@@ -24,7 +24,7 @@
         <br />
 
         <span style="color: #940798;font-weight: bold;font-size: 25px;">₦
-          <?php echo number_format($Account_Bonus, 2); ?>
+          <?php echo  $Account_Bonus > 0  ? number_format($Account_Bonus, 2) : 0 ; ?>
         </span>
 
       </div>

@@ -44,7 +44,6 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']) {
 
       // Get user that is upgrading
       $refinfo = mysqli_fetch_array(mysqli_query($con, "SELECT cashback, wallets, username, email, level, mobile,id,ref_by FROM users WHERE username='" . $username . "'"));
-
       $ref_ini_bonus = $refinfo[0];
       $ref_ini_mallu = $refinfo[1];
       $ref_username = $refinfo[2];
@@ -56,7 +55,6 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']) {
 
       // Get admin details
       $adinfo = mysqli_fetch_array(mysqli_query($con, "SELECT cashback, wallets, username, email, level, mobile,id,ref_code FROM users WHERE username='ADMIN'"));
-
       $ad_ini_bonus = $adinfo[0];
       $ad_ini_mallu = $adinfo[1];
       $ad_username = $adinfo[2];
@@ -73,6 +71,10 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']) {
 
       // Add bonus to admin
       $setbonus2 = mysqli_query($con, "UPDATE users SET cashback=cashback+$admb WHERE username='ADMIN'");
+
+      // Add bonus to user who initiated upgrae
+      $setbonus2 = mysqli_query($con, "UPDATE users SET cashback=cashback+$refb WHERE username='$username'");
+      
       // Insert admin earnings
       $descr3 = 'Admin bonus of N' . $admb . ' landed from ' . $username;
       $new_ad_bonus = $ad_ini_mallu + $admb;
@@ -83,21 +85,14 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']) {
       $insert = mysqli_query($con, "INSERT INTO `earn_transactions` (`id`, `user_id`, `ref_code`, `amount`, `type`,`description`,`created_at`) VALUES (NULL, '$ad_id','$ref_code', '$refb','credit','$descr3','$time')");
 
       // DEBIT User earnings
+      $descr2 = 'Referral bonus of N' . $refb . ' landed from ' . $username;
 
       // Credit refferal
       if($upline != 'ADMIN'){
         $uplineDetails =  mysqli_fetch_array(mysqli_query($con, "SELECT cashback, wallets, username, email, level, mobile,id,ref_by FROM users WHERE ref_code='$upline'"));
 
-        // $response = array(
-        //   'status' => 'fail',
-        //   'message' => json_code($uplineDetails),
-        // );
-        // echo json_encode($response);
-        // exit();
-
         if($uplineDetails){
           $setbonus1 = mysqli_query($con, "UPDATE users SET cashback=cashback+$refb WHERE ref_code='" . $upline . "'");
-          $descr2 = 'Referral bonus of N' . $refb . ' landed from ' . $username;
           
           $upline_pcashback = $uplineDetails[0];
           $upline_pwallet = $uplineDetails[1];
@@ -106,7 +101,7 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']) {
           $upline_level = $uplineDetails[4];
           $upline_mobile = $uplineDetails[5];
           $upline_id = $uplineDetails[6];
-         
+
           // $upline_new_cashback = $level2_charge - $level2_adminch;
           $new_ref_bonus = $upline_pwallet + $refb;
           $insert1 = mysqli_query($con, "INSERT INTO `final_transactions` (`id`, `mobile_number`, `buyer_email`, `buyer_username`, `buyer_service`, `buyer_amount`, `buyer_prebal`, `buyer_postbal`, `buyer_descr`, `buyer_status`, `buyer_date`, `timestring`, `charge_from`, `user_type`, `sys_ref`, `api_ref`, `api_report`, `src_price`, `profit`, `databyte`) VALUES (NULL, '$upline_mobile', '$upline_email', '$upline_username', 'EARNING', '$refb', '$upline_pwallet', '$new_ref_bonus', '$descr2', 'SUCCESSFUL', '$time', '$timestring', 'CASHBACK', '$upline_level', '$reference3', '$reference4', 'GOOD', '0', '0', '0')");
@@ -117,11 +112,15 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']) {
         //     'status' => 'fail',
         //     'message' => '<div class="alert alert-warning text-left">'. addslashes(mysqli_error($con)).'</div>',
         // );
-       
+        // echo json_encode($response);
+        // exit();
       }
       // set bonuses
-         // User upgrade transaction history
-      mysqli_query($con, "INSERT INTO `final_transactions` (`id`, `mobile_number`, `buyer_email`, `buyer_username`, `buyer_service`, `buyer_amount`, `buyer_prebal`, `buyer_postbal`, `buyer_descr`, `buyer_status`, `buyer_date`, `timestring`, `charge_from`, `user_type`, `sys_ref`, `api_ref`, `api_report`, `src_price`, `profit`, `databyte`) VALUES (NULL, '$mobile', '$email', '$username', 'UPGRADE', '$amount', '$Account_Balance', '$newbal', '$descr1', 'SUCCESSFUL', '$time', '$timestring', 'CASHBACK', '$package', '$reference', '$reference2', 'GOOD', '0', '0', '0')");
+      // User upgrade transaction history
+      $insert = mysqli_query($con, "INSERT INTO `final_transactions` (`id`, `mobile_number`, `buyer_email`, `buyer_username`, `buyer_service`, `buyer_amount`, `buyer_prebal`, `buyer_postbal`, `buyer_descr`, `buyer_status`, `buyer_date`, `timestring`, `charge_from`, `user_type`, `sys_ref`, `api_ref`, `api_report`, `src_price`, `profit`, `databyte`) VALUES (NULL, '$mobile', '$email', '$username', 'UPGRADE', '$amount', '$Account_Balance', '$newbal', '$descr1', 'SUCCESSFUL', '$time', '$timestring', 'CASHBACK', '$package', '$reference', '$reference2', 'GOOD', '0', '0', '0')");
+
+      // Insert earning for user that is upgrading
+      $insert = mysqli_query($con, "INSERT INTO `earn_transactions` (`id`, `user_id`, `ref_code`, `amount`, `type`,`description`,`created_at`) VALUES (NULL, '$ref_id','$ref_code', '$refb','credit','$descr2','$time')");
 
       // mysqli_query($con, "INSERT INTO `final_transactions` (`id`, `mobile_number`, `buyer_email`, `buyer_username`, `buyer_service`, `buyer_amount`, `buyer_prebal`, `buyer_postbal`, `buyer_descr`, `buyer_status`, `buyer_date`, `timestring`, `charge_from`, `user_type`, `sys_ref`, `api_ref`, `api_report`, `src_price`, `profit`, `databyte`) VALUES (NULL, '$mobile', '$email', '$username', 'UPGRADE', '$amount', '$Account_Balance', '$newbal', '$descr1', 'SUCCESSFUL', '$time', '$timestring', 'CASHBACK', '$package', '$reference', '$reference2', 'GOOD', '0', '0', '0')");
 
