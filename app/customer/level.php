@@ -148,7 +148,7 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']) {
 
       $response = array(
         'status' => 'fail',
-        'message' => 'You did not have enough balance to upgrade !!!',
+        'message' => 'You do not have enough balance to upgrade !!!',
       );
       echo json_encode($response);
       exit();
