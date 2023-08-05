@@ -42,7 +42,7 @@ require("request_pin.php");
     <div id="response"></div>
     <div id="extra" style="background: black;color: yellow;padding: 20px;margin-bottom: 15px;font-size: initial; display:none"></div>
 
-    <div id="how_to_load" style="display:block;background: #d5f4d5;padding: 10px;margin-bottom: 10px;">
+    <div id="how_to_load" style="display:none;background: #d5f4d5;padding: 10px;margin-bottom: 10px;">
       <div class="col-lg-12 me">
         <div class="form-group">
           <label class="small mb-1" for="amount" style="color: #000000">To Load MTN Data Card</label>
