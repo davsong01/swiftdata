@@ -108,7 +108,7 @@ require 'request_pin.php';
     </form>
     <hr />
     <div id="checkbal">
-      <h5 style="font-weight:bold">To Check All Networks Airtime Balances: *310#</h5>
+      <h5 style="font-weight:bold;color:#940798">To Check All Networks Airtime Balances: *310#</h5>
       <!-- <h5 style="color:#940798"><img src="backend/img/mtn.png" style="border-radius: 50%;" height="30px"> CHECK MTN VTU BALANCE <=> *556# </h5>
       <h5 style="color:#940798"><img src="backend/img/glo.png" style="border-radius: 50%;" height="30px"> CHECK GLO VTU BALANCE <=> #124*1#</span></h5>
       <h5 style="color:#940798"><img src="backend/img/airtel.png" style="border-radius: 50%;" height="30px"> CHECK AIRTEL VTU BALANCE <=> *123# </h5>
