@@ -94,8 +94,6 @@
 
             
             // $res = '{"id":6340075,"ident":"Data49fb7f30d-33b","network":1,"apiresponse":"Dear Customer, You have gifted 500MB, please dial *312*4*7*5# to check your balance. Thankyou.","api_response":"Dear Customer, You have gifted 500MB, please dial *312*4*7*5# to check your balance. Thankyou.","balance_before":"19022.0","balance_after":"18907.0","mobile_number":"07046734407","plan":280,"Status":"faile","plan_network":"MTN","plan_name":"500.0MB","plan_amount":"115.0","create_date":"2023-05-28T20:48:32.096082","Ported_number":true}';
-
-           
             $pinsx = [];
             $result = json_decode($res, true);
 
@@ -120,10 +118,10 @@
                 'payload' => $postdata, 
             ]);
 
-            if(isset($result['Status']) && $result['Status'] == 'successful'){
-                $status = true;
-            }else{
+            if(isset($result['Status']) && $result['Status'] == 'failed'){
                 $status = false;
+            }else{
+                $status = true;
             }
 
             $res = json_encode($result);
