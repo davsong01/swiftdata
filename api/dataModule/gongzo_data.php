@@ -120,12 +120,14 @@
                 'payload' => $postdata, 
             ]);
 
-            if(isset($result['Status']) && $result['Status'] == 'successful'){
+            $result['Status'] = isset($result['Status']) ? strtoupper($result['Status']) : null;
+            
+            if(isset($result['Status']) && $result['Status'] != 'FAILED'){
                 $status = true;
             }else{
                 $status = false;
             }
-
+            
             $res = json_encode($result);
             $res = str_replace("'", '', $res);
     
