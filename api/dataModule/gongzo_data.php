@@ -93,9 +93,7 @@
             $res = curl_exec($ch);
 
             
-            // $res = '{"id":6340075,"ident":"Data49fb7f30d-33b","network":1,"apiresponse":"Dear Customer, You have gifted 500MB, please dial *312*4*7*5# to check your balance. Thankyou.","api_response":"Dear Customer, You have gifted 500MB, please dial *312*4*7*5# to check your balance. Thankyou.","balance_before":"19022.0","balance_after":"18907.0","mobile_number":"07046734407","plan":280,"Status":"faile","plan_network":"MTN","plan_name":"500.0MB","plan_amount":"115.0","create_date":"2023-05-28T20:48:32.096082","Ported_number":true}';
-
-           
+            // $res = '{"id":8796051,"ident":"Data3c8b22038-740","network":1,"apiresponse":"something went wrong please check back later","api_response":"something went wrong please check back later","balance_before":"3938.0","balance_after":"3711.0","mobile_number":"08149292337","plan":281,"Status":"processing","plan_network":"MTN","plan_name":"1.0GB","plan_amount":"227.0","create_date":"2023-08-21T20:56:25.563155","Ported_number":true}';
             $pinsx = [];
             $result = json_decode($res, true);
 
@@ -122,7 +120,10 @@
 
             $result['Status'] = isset($result['Status']) ? strtoupper($result['Status']) : null;
             
-            if(isset($result['Status']) && $result['Status'] != 'FAILED'){
+            if(isset($result['Status']) && $result['Status'] !== 'FAILED'){
+                if ($result['Status'] == 'PROCESSING') {
+                    $true_response = '';
+                }
                 $status = true;
             }else{
                 $status = false;

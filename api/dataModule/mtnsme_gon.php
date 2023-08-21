@@ -62,62 +62,25 @@
             $error_msg = curl_error($ch);
         }
 
+        // $request = '{"id":8796051,"ident":"Data3c8b22038-740","network":1,"apiresponse":"something went wrong please check back later","api_response":"something went wrong please check back later","balance_before":"3938.0","balance_after":"3711.0","mobile_number":"08149292337","plan":281,"Status":"processing","plan_network":"MTN","plan_name":"1.0GB","plan_amount":"227.0","create_date":"2023-08-21T20:56:25.563155","Ported_number":true}';
+    
         $result = json_decode($request, true);
-        if(isset($result['error'])){
-            $status = 'fail';
-            $message = json_encode($result['error']) ?? 'Something went wrong';
-        }else{
-            $status = 'success';
-            $message = 'You have successfully shared data to '. $mobile_no. '. Thankyou';
-        }
-
-        if (isset($result['Status']) && $result['Status'] == 'successful') {
+       
+        $result['Status'] = isset($result['Status']) ? strtoupper($result['Status']) : null;
+        
+        if (isset($result['Status']) && $result['Status'] !== 'FAILED') {
+            if( $result['Status'] == 'PROCESSING'){
+                $result['apiresponse'] = '';
+            }
             $status = true;
-            $message = $result['apiresponse'];
+            $message = 'You have successfully shared data to ' . $mobile_no . '. '. $result['apiresponse'];
         } else {
             $status = false;
-            $message = $result['apiresponse'];
+            $message = 'Something went wrong. '.$result['apiresponse'];
         }
 
-        // $request = '{"id":5356049,"ident":"Data2a67856c7-02b","network":1,"apiresponse":"You are not sending to valid MTN number.","api_response":"You are not sending to valid MTN number.","balance_before":"42439.0","balance_after":"42331.0","mobile_number":"08054343434","plan":289,"Status":"failed","plan_network":"MTN","plan_name":"500.0MB","plan_amount":"108.0","create_date":"2023-04-18T22:56:02.142025","Ported_number":true}';
-
-        // $request = '{"id":5356075,"ident":"Data674d1e13e-b44","network":1,"apiresponse":"Dear Customer, You have successfully shared 500MB Data to 2348143511076. Your SME data balance is 9401.58GB expires 24/07/2023. Thankyou","api_response":"Dear Customer, You have successfully shared 500MB Data to 2348143511076. Your SME data balance is 9401.58GB expires 24/07/2023. Thankyou","balance_before":"42439.0","balance_after":"42331.0","mobile_number":"08143511076","plan":289,"Status":"successful","plan_network":"MTN","plan_name":"500.0MB","plan_amount":"108.0","create_date":"2023-04-18T22:57:15.023383","Ported_number":true}';
-        // $status = 'fail';
-        // $manipulate = json_decode($request);
-
-        // Determine success and failure message
-        // if(isset($manipulate->apiresponse) && !empty($manipulate->apiresponse)){
-        //     if(str_contains($manipulate->apiresponse, 'have successfully')){
-        //         $status = 'success';
-        //         $manipulate = explode('.', $manipulate->apiresponse);
-        //         $message = $manipulate[0] ?? null;
-        //     }else{
-        //         $status = 'fail';
-        //         $message = $manipulate->apiresponse;
-        //     }
-        // }
-
-        // $response = array(
-        //     'status' => 'fail',
-        //     'status_code' => '100',
-        //     'net'=>$planCode,
-        //     'message' => $request.'Service is currently down or Restricted for this account. kindly check and try again !!!',
-        // );
-        // echo json_encode($response);
-        // exit;
-        // $response = array(
-        //     'status' => 'fail',
-        //     'status_code' => '200',
-        //     'old_balance' => $account_balance,
-        //     'new_balance' => $new_wallet,
-        //     'time' => $time,
-        //     'amountPaid' => $service_price,
-        //     'message' => $message
-        // );
-        // echo json_encode($response);
-        // exit;
         if ($request) {
-            if($status == 'success'){
+            if($status){
                 $order_report = strtoupper($package_name . ' N' . $service_price . ' Purchase Successful on ' . $mobile_no).'. '.$message;
     
                 mysqli_query($con, "INSERT INTO `final_transactions` (`id`, `mobile_number`, `buyer_email`, `buyer_username`, `buyer_service`, `buyer_amount`, `buyer_prebal`, `buyer_postbal`, `buyer_descr`, `buyer_status`, `buyer_date`, `timestring`, `charge_from`, `user_type`, `sys_ref`, `api_ref`, `api_report`, `src_price`, `profit`, `databyte`,`api_response`,`post_fields`) VALUES (NULL, '$mobile_no', '$account_email', '$account_username', '$service', '$service_price', '$account_balance', '$new_wallet', '$order_report', 'SUCCESSFUL', '$time', '$timestring', 'WALLET', '$level', '$api_reference', '$reference', 'DONE', '0', '0', '$databyte','$request','$pstfields')");
