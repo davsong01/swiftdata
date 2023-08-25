@@ -12,7 +12,7 @@
 
       if ($withdrawAmount1>499){
         if ($security_pin == $security){
-
+        
           $payload=array(
             'token' => $sk_token,
             'amount' => $withdrawAmount1,
@@ -32,30 +32,27 @@
           $request = curl_exec($ch);
           curl_close($ch);
           $apidata=json_decode($request);
+          
           $message=$apidata->message;
           $status=$apidata->status;
-          
+       
           if ($status == "success"){
-            $response=array(
-            'title' => 'COMPLETED',
-            'icon' => 'success',
+            $response = [
+              'title' => 'COMPLETED',
+              'icon' => 'success',
               'status'=>'success',
               'message' => $message,
-            );
-
-            echo json_encode($response);
-            exit();
+            ];
           }else{
-            $response=array(
+            $response = [
               'title' => 'FAILED',
               'icon' => 'error',
-                'status'=>'fail',
-                'message' => '<div class="alert alert-danger">'.$message.'</div>',
-              );
-
-            echo json_encode($response);
-            exit();
-        }
+              'status'=>'fail',
+              'message' => '<div class="alert alert-danger">'.$message.'</div>',
+            ];
+          }
+          echo json_encode($response);
+          exit();
       }else{
           $response=array(
               'status'=>'fail',
@@ -66,15 +63,13 @@
         }
       }else{
         $response=array(
-            'status'=>'fail',
-            'message' => '<div class="alert alert-danger text-left">Minimum withdraw at once is N500 !!!</div>',
-          );
-          echo json_encode($response);
-          exit();
-
+          'status'=>'fail',
+          'message' => '<div class="alert alert-danger text-left">Minimum withdraw at once is N500 !!!</div>',
+        );
+        echo json_encode($response);
+        exit();
       }
     }else{
-
       $response=array(
           'status'=>'fail',
           'message' => '<div class="alert alert-danger text-left">Please fill all form !!!</div>',

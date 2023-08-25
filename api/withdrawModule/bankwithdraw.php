@@ -4,9 +4,9 @@ $service_price=$amount;
 
 if ($cashback_balance > $service_price && $service_price > 0){
 
-$new_bonus=$cashback_balance-$service_price;
-$new_wallet=$account_balance+$service_price;
-mysqli_query($con, "UPDATE users SET wallets='$new_wallet', cashback='$new_bonus' WHERE id='$user_id' AND username ='$account_username'");
+  $new_bonus=$cashback_balance-$service_price;
+  $new_wallet=$account_balance+$service_price;
+  mysqli_query($con, "UPDATE users SET wallets='$new_wallet', cashback='$new_bonus' WHERE id='$user_id' AND username ='$account_username'");
 
 $curl = curl_init();
 curl_setopt_array($curl, array(
