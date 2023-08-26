@@ -33,30 +33,23 @@
 
       <div id="response"></div>
 
-      <div class="mb-3">
+      <!-- <div class="mb-3">
         <label>Select Withdraw Option</label>
         <input type="hidden" id="req_token" value="<?php echo $_SESSION['csrftoken']; ?>">
         <select class="form-control" id="withdrawOpt">
           <option value="">--Choose--</option>
           <option value="WALLET">Withdraw To Wallet</option>
         </select>
-      </div>
+      </div> -->
 
-      <div id="WalletOption" style="display: none;">
-        <div class="mb-3">
-          <label>Full Name</label>
-          <input type="text" name="" id="cashName" value="<?php echo $fullname; ?>" readonly="readonly" class="form-control">
-        </div>
+      <div id="WalletOption">
 
-        <div class="mb-3">
-          <label>Email Address</label>
-          <input type="text" name="" id="cashEmail" value="<?php echo $email; ?>" readonly="readonly" class="form-control">
-        </div>
-
-        <div class="mb-3">
+        <!-- <div class="mb-3">
           <label>Amount To Cash</label>
           <input type="number" name="" id="withdrawAmount1" data-max="<?php echo $Account_Bonus ?>" placeholder="Amount To Cash" max="<?php echo $Account_Bonus ?>" class="form-control">
-        </div>
+        </div> -->
+        <input type="hidden" id="req_token" value="<?php echo $_SESSION['csrftoken']; ?>">
+
 
         <div class="mb-3">
           <label>Security PIN</label>
@@ -64,70 +57,8 @@
         </div>
 
         <div class="mb-3">
-          <button class="btn btn-success btn-block" style="width: 100%" id="cashToWallet">CASH TO WALLET</button>
+          <button class="btn btn-success btn-block" style="width: 100%" id="cashToWallet">WITHDRAW CASH TO WALLET</button>
         </div>
-      </div>
-
-
-      <div id="bankOption" style="display: none;">
-
-        <div class="mb-3">
-          <label>Bank Name</label>
-          <select class="form-control" id="bankName">
-            <option value="">--Choose--</option>
-            <option value="access">Access Bank</option>
-            <option value="citibank">Citibank</option>
-            <option value="diamond">Diamond Bank</option>
-            <option value="ecobank">Ecobank</option>
-            <option value="fidelity">Fidelity Bank</option>
-            <option value="firstbank">First Bank</option>
-            <option value="fcmb">First City Monument Bank (FCMB)</option>
-            <option value="gtb">Guaranty Trust Bank (GTB)</option>
-            <option value="heritage">Heritage Bank</option>
-            <option value="keystone">Keystone Bank</option>
-            <option value="polaris">Polaris Bank</option>
-            <option value="providus">Providus Bank</option>
-            <option value="stanbic">Stanbic IBTC Bank</option>
-            <option value="standard">Standard Chartered Bank</option>
-            <option value="sterling">Sterling Bank</option>
-            <option value="suntrust">Suntrust Bank</option>
-            <option value="union">Union Bank</option>
-            <option value="uba">United Bank for Africa (UBA)</option>
-            <option value="unity">Unity Bank</option>
-            <option value="wema">Wema Bank</option>
-            <option value="zenith">Zenith Bank</option>
-          </select>
-        </div>
-
-        <div class="mb-3">
-          <label>Account Number</label>
-          <input type="tel" name="" id="accountNo" placeholder="Bank account no." class="form-control">
-        </div>
-
-        <div class="mb-3" id="bankOptionInfo" style="display: none;">
-          <label>Account Name</label>
-          <input type="hidden" name="" id="accountCode" class="form-control">
-          <input type="text" name="" id="accountName" placeholder="Bank account name" class="form-control">
-        </div>
-
-
-        <div class="mb-3" id="bankOptionPrice" style="display: none;">
-          <label>Amount To Cash</label>
-          <input type="number" name="" id="withdrawAmount2" placeholder="Amount To Cash" class="form-control">
-        </div>
-
-        <div class="mb-3" id="bankOptionSc" style="display: none;">
-          <label>Security PIN</label>
-          <input type="password" class="form-control" placeholder="Security PIN" id="security_pin2" required>
-        </div>
-
-        <br>
-
-        <div class="mb-3">
-          <button class="btn btn-success btn-block" style="width: 100%" id="verifyBank">VERIFY BANK</button>
-          <button class="btn btn-success btn-block" style="width: 100%;display: none;" id="cashToBank">TRANSFER NOW</button>
-        </div>
-
       </div>
 
     </div>
@@ -227,7 +158,7 @@
     var withdrawAmount1 = $("#withdrawAmount1").val();
     var withdrawAmount1 = Number(withdrawAmount1);
 
-    if(withdrawAmount1 <= 0){
+    if (withdrawAmount1 <= 0) {
       $("#errorModal").modal("show");
       $("#errorModal .modal-body").html("<div class='alert alert-danger text-left'>Invalid Amount!!!</div>");
 

@@ -1,18 +1,11 @@
 <?php
   require("session_controller.php");
+  $security_pin = mysqli_real_escape_string($con, $_POST['security_pin']);
+  $req_token = mysqli_real_escape_string($con, $_POST['req_token']);
+
 
   if ($_SESSION['csrftoken'] == $_POST['req_token']){
-
-    if (!empty($_POST['withdrawAmount1']) && !empty($_POST['security_pin']) && !empty($_POST['req_token']) && $_POST['withdrawAmount1']>0){
-
-      $withdrawAmount1=mysqli_real_escape_string($con, $_POST['withdrawAmount1']);
-      $security_pin=mysqli_real_escape_string($con, $_POST['security_pin']);
-      $req_token=mysqli_real_escape_string($con, $_POST['req_token']);
-
-
-      if ($withdrawAmount1>499){
-        if ($security_pin == $security){
-        
+      if ($security_pin == $security){
           $payload=array(
             'token' => $sk_token,
             'amount' => $withdrawAmount1,
@@ -54,37 +47,19 @@
           echo json_encode($response);
           exit();
       }else{
-          $response=array(
-              'status'=>'fail',
-              'message' => '<div class="alert alert-danger text-left">Incorrect security pin !!!</div>',
-            );
-          echo json_encode($response);
-          exit();
-        }
-      }else{
         $response=array(
-          'status'=>'fail',
-          'message' => '<div class="alert alert-danger text-left">Minimum withdraw at once is N500 !!!</div>',
-        );
+            'status'=>'fail',
+            'message' => '<div class="alert alert-danger text-left">Incorrect security pin !!!</div>',
+          );
         echo json_encode($response);
         exit();
       }
-    }else{
-      $response=array(
-          'status'=>'fail',
-          'message' => '<div class="alert alert-danger text-left">Please fill all form !!!</div>',
-        );
-        echo json_encode($response);
-        exit();
-
-    }
   }else{
       $response=array(
-          'status'=>'fail',
-          'message' => '<div class="alert alert-danger text-left">Something went wrong...</div>',
-        );
-        echo json_encode($response);
-        exit();
+        'status'=>'fail',
+        'message' => '<div class="alert alert-danger text-left">Something went wrong...</div>',
+      );
+      echo json_encode($response);
+      exit();
   }
-
 ?>

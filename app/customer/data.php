@@ -17,7 +17,6 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']){
     $req_token=mysqli_real_escape_string($con, $_POST['req_token']);
     $no_of_pins=mysqli_real_escape_string($con, $_POST['no_of_pins']);
 
-   
     if (strlen($mobile_no)==11 && is_numeric($mobile_no)){
         if ($security_pin == $security){
           $payload=array(
