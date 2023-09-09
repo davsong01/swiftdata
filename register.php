@@ -2,10 +2,10 @@
 require("functions/web_config.php");
 require("functions/csrf_token.php"); 
 if (isset($_REQUEST['referral'])){
-$myrefferal=$_REQUEST['referral'];
+  $myrefferal=$_REQUEST['referral'];
 }
 else{
-$myrefferal="ADMIN";
+  $myrefferal="ADMIN";
 }
 ?>
 <!DOCTYPE html>

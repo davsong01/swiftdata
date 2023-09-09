@@ -76,13 +76,18 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']) {
       $new_ad_bonus = $ad_ini_mallu + $admb;
 
       // Credit refferal
-      if($upline != 'ADMIN'){
+      if($upline !== 'ADMIN'){
         // Credit referral
-        $uplineDetails =  mysqli_fetch_array(mysqli_query($con, "SELECT cashback, wallets, username, email, level, mobile,id,ref_by FROM users WHERE ref_code='$upline'"));
+        $uplineDetails =  mysqli_fetch_array(mysqli_query($con, "SELECT cashback, wallets, username, email, level, mobile,id,ref_by,username FROM users WHERE ref_code='$upline'"));
 
+        if(!$uplineDetails){
+          $uplineDetails =  mysqli_fetch_array(mysqli_query($con, "SELECT cashback, wallets, username, email, level, mobile,id,ref_by,username FROM users WHERE username='$upline'"));
+        }
+        
+  
         if($uplineDetails){
           // Update cash back balance
-          $setbonus1 = mysqli_query($con, "UPDATE users SET cashback=cashback+$refb WHERE ref_code='" . $upline . "'");
+          $setbonus1 = mysqli_query($con, "UPDATE users SET cashback=cashback+$refb WHERE email='" . $uplineDetails[3] . "'");
           
           $upline_pcashback = $uplineDetails[0];
           $upline_pwallet = $uplineDetails[1];
@@ -124,15 +129,8 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']) {
 
         // Update cash back balance for balance
         $setbonus2 = mysqli_query($con, "UPDATE users SET cashback=cashback+$amount WHERE username='ADMIN'");
-
       }
 
-      // $response = array(
-      //   'status' => 'fail',
-      //   'message'=> $amount,
-      // );
-      // echo json_encode($response);
-      // exit();
 
       // User upgrade transaction history
       $insert = mysqli_query($con, "INSERT INTO `final_transactions` (`id`, `mobile_number`, `buyer_email`, `buyer_username`, `buyer_service`, `buyer_amount`, `buyer_prebal`, `buyer_postbal`, `buyer_descr`, `buyer_status`, `buyer_date`, `timestring`, `charge_from`, `user_type`, `sys_ref`, `api_ref`, `api_report`, `src_price`, `profit`, `databyte`) VALUES (NULL, '$mobile', '$email', '$username', 'UPGRADE', '$amount', '$Account_Balance', '$newbal', '$descr1', 'SUCCESSFUL', '$time', '$timestring', 'CASHBACK', '$package', '$reference', '$reference2', 'GOOD', '0', '0', '0')");

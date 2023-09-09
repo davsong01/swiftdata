@@ -16,8 +16,14 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']) {
 
     $check_username = mysqli_query($con, "SELECT username FROM users WHERE username='$username'");
     $check_email = mysqli_query($con, "SELECT email FROM users WHERE email='$email_address'");
-    $check_refby = mysqli_query($con, "SELECT username FROM users WHERE username='$myrefferal'");
+    $check_refby = mysqli_query($con, "SELECT username FROM users WHERE ref_code='$myrefferal'");
 
+    // $response = array(
+    //   'status' => 'fail',
+    //   'message' => '<div class="alert alert-danger text-left">' . $myrefferal  .' !!!</div>',
+    // );
+    // echo json_encode($response);
+    // exit();
 
     if (strlen($mobile_no) > 11 || strlen($mobile_no) < 11) {
 

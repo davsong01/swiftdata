@@ -215,7 +215,7 @@ if ($notification_mode=="ON"){
             <label style="color: red;">Refer a friend and earn extra cash on <?php echo $sitename; ?></label>
             <p>Get 50% bonus immediately a user you referred upgrade to level 2 or 3.</p>
             <p class="text-dark" style="font-weight: bold;">Referral Link
-                <span><?php echo $mainpage; ?>/regsiter?referral=<?php echo $username; ?></span> <i class="fa fa-copy"
+                <span><?php echo $mainpage; ?>/regsiter?referral=<?php echo $ref_code; ?></span> <i class="fa fa-copy"
                     style="font-size: 13px;cursor: pointer;" onclick="copyFunction()">Copy</i> <span id="refres"></span>
             </p>
             <input type="hidden" id="req_token" value="<?php echo $_SESSION['csrftoken']; ?>">
@@ -248,7 +248,7 @@ if ($notification_mode=="ON"){
 </div>
 
 
-<input type="text" id="myCode" value="<?php echo $mainpage; ?>/register?referral=<?php echo $username; ?>"
+    <input type="text" id="myCode" value="<?php echo $mainpage; ?>/register?referral=<?php echo $ref_code ?>"
     style="background-color: transparent; color: transparent; height: 0px;border: none;">
 
 <script>

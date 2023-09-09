@@ -45,6 +45,8 @@ $Account_Bonus=$return_data['cashback'];
 $kyc_update=$return_data['kyc_update'];
 $webhook=$return_data['webhook'];
 $username=$return_data['username'];
+$myreferral=$return_data['ref_by'];
+
 $email=$return_data['email'];
 $status=$return_data['status'];
 $block=$return_data['block'];
