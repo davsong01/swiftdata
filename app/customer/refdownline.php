@@ -6,7 +6,7 @@
   $myreferral = strtoupper($myreferral);
   $transaction="";
   $lettr= mysqli_query($con, "SELECT * FROM users WHERE ref_by='$referral_code' OR ref_by='$username' ORDER BY id DESC");
-
+  
   if (mysqli_num_rows($lettr) < 1){
     $transaction='<div class="alert" style="background-color: #fff;border-radius: 10px 5px;color:black">You have not referred anyone on this platform.</div>';
   }else{
