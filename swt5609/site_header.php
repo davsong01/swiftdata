@@ -178,9 +178,9 @@
                 </a>
                 <ul>
                     <li><a href="<?php echo $adminurl; ?>/upgrade_users">Upgrade users</a></li>
-                    <li><a href="<?php echo $adminurl; ?>/all_active_users">All active users</a></li>
-                    <li><a href="<?php echo $adminurl; ?>/all_pend_users">All pending users</a></li>
-                    <li><a href="<?php echo $adminurl; ?>/all_block_users">All suspend users</a></li>
+                    <li><a href="<?php echo $adminurl; ?>/all_active_users">Active users</a></li>
+                    <li><a href="<?php echo $adminurl; ?>/all_pend_users">Pending users</a></li>
+                    <li><a href="<?php echo $adminurl; ?>/all_block_users">Suspended users</a></li>
                     <li><a href="<?php echo $adminurl; ?>/query_users.php">Find accounts</a></li>
                     <li><a href="<?php echo $adminurl; ?>/all_mobiles">All Users Mobile</a></li>
                     <li><a href="<?php echo $adminurl; ?>/all_emails">All Users Email</a></li>

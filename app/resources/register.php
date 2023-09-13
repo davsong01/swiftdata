@@ -7,6 +7,8 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']) {
   if (!empty($_POST['full_name']) && !empty($_POST['username']) && !empty($_POST['mobile_no']) && !empty($_POST['email_address']) && !empty($_POST['password']) && !empty($_POST['req_token']) && !empty($_POST['myrefferal'])) {
 
     $full_name = mysqli_real_escape_string($con, $_POST['full_name']);
+    $middle_name = mysqli_real_escape_string($con, $_POST['middle_name']);
+    $last_name = mysqli_real_escape_string($con, $_POST['last_name']);
     $mobile_no = mysqli_real_escape_string($con, $_POST['mobile_no']);
     $email_address = trim(strtolower(mysqli_real_escape_string($con, $_POST['email_address'])));
     $myrefferal = mysqli_real_escape_string($con, $_POST['myrefferal']);
@@ -26,7 +28,6 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']) {
     // exit();
 
     if (strlen($mobile_no) > 11 || strlen($mobile_no) < 11) {
-
       $response = array(
         'status' => 'fail',
         'message' => '<div class="alert alert-danger text-left">Please use a valid mobile no. !!!</div>',
@@ -92,7 +93,7 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']) {
         $f_emailaddress = str_replace("'", "", $email_address);
         $f_username = str_replace("'", "", $username);
 
-        $createUser = mysqli_query($con, "INSERT INTO `users` (`id`, `full_name`, `ref_code`, `ref_by`, `mobile`, `username`, `password`, `wallets`, `cashback`, `block`, `users_sid`, `referral`, `level`, `last_login`, `email`, `sk_token`, `wema`, `acctname`, `rolez`, `sterling`, `fidelity`, `reg_date`, `status`, `mtnsme_access`, `mtncg_access`, `glo_access`, `airtel_access`, `airtelcg_access`, `mobile_access`, `cable_access`, `bills_access`, `epin_access`, `airtime_access`, `susbscription`, `webhook`, `security_pin`, `rating`, `reserved_account`) VALUES (NULL, '$full_name', '$f_username', '$myrefferal', '$mobile_no', '$f_username', '$hashpassword', '0', '0', '0', '$users_sid', '0', '1', '$time', '$f_emailaddress', '$sk_token', '', '', '', '', '', '$time', '0', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '0', '', '', 0, '')");
+        $createUser = mysqli_query($con, "INSERT INTO `users` (`id`, `full_name`, `ref_code`, `ref_by`, `mobile`, `username`, `password`, `wallets`, `cashback`, `block`, `users_sid`, `referral`, `level`, `last_login`, `email`, `sk_token`, `wema`, `acctname`, `rolez`, `sterling`, `fidelity`, `reg_date`, `status`, `mtnsme_access`, `mtncg_access`, `glo_access`, `airtel_access`, `airtelcg_access`, `mobile_access`, `cable_access`, `bills_access`, `epin_access`, `airtime_access`, `susbscription`, `webhook`, `security_pin`, `rating`, `reserved_account`,`middle_name`,`last_name`) VALUES (NULL, '$full_name', '$f_username', '$myrefferal', '$mobile_no', '$f_username', '$hashpassword', '0', '0', '0', '$users_sid', '0', '1', '$time', '$f_emailaddress', '$sk_token', '', '', '', '', '', '$time', '0', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '0', '', '', 0, '','$middle_name','$last_name')");
         
         if ($createUser) {
           mysqli_query($con, "UPDATE users SET referral=referral+1 WHERE ref_code='" . $myrefferal . "'");
@@ -145,7 +146,7 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']) {
   } else {
     $response = array(
       'status' => 'fail',
-      'message' => '<div class="alert alert-danger text-left">Please fill all form !!!</div>',
+      'message' => '<div class="alert alert-danger text-left">Please fill all required inputs !!!</div>',
     );
     echo json_encode($response);
     exit();
