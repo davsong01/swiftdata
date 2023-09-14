@@ -82,7 +82,7 @@ if (isset($_REQUEST['referral'])) {
                                     <label for="email" class="form-label required">First Name</label>
                                     <input type="hidden" id="myrefferal" value="<?php echo $myrefferal; ?>">
                                     <input type="hidden" id="req_token" value="<?php echo $_SESSION['csrftoken']; ?>">
-                                    <input required type="text" class="form-control" id="full_name" placeholder="Enter your full name" autofocus />
+                                    <input required type="text" class="form-control" id="full_name" placeholder="Enter your first name" autofocus />
                                 </div>
 
                                 <div class="col-md-6 mb-3">
