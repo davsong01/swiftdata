@@ -50,9 +50,9 @@ if ($manage_users == 1) {
                 if (mysqli_num_rows($getUser) < 1) {
 
                   $message = '
-<div class="alert alert-danger">
-<h4>No Pending Users Sign Up Yet !!!</h4>
-</div>';
+                  <div class="alert alert-danger">
+                  <h4>No Pending Users Sign Up Yet !!!</h4>
+                  </div>';
                 } else {
                   while ($viewUsers = mysqli_fetch_array($getUser, MYSQLI_ASSOC)) {
 
@@ -70,7 +70,8 @@ if ($manage_users == 1) {
                     Reg. Date: ' . $viewUsers['reg_date'] . '<br/>
                     Email : ' . $viewUsers['email'] . '<br/>
                     User : ' . $viewUsers['username'] . '<br/>
-                    Current Bal. : ' . $viewUsers['wallets'] . '<br/>
+                    Wallet Bal. : ' . $viewUsers['wallets'] . '<br/>
+                    Cashback Bal. : ' . $viewUsers['cashback'] . '<br/>
                     Last Seen. : ' . $viewUsers['last_login'] . '<br/><br/>
 
 

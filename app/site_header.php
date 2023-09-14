@@ -95,9 +95,9 @@
 
     <nav class="sidebar">
         <div class="logo">
-
-            <h5 class="">Available Balance. <br /> <span style="color: #940798;font-weight: bold;font-size: 25px;">
+            <h5 class="">Available Balance. <br /> <span style="color: #940798;font-weight: bold;font-size: 20px;">
                     ₦<?php echo number_format($Account_Balance,2); ?></span></h5>
+            <h6 class="">Level: <?php echo $level; ?> <span style="color: #940798;font-weight: bold;font-size: 18px;"></span></h6>
             <div class="sidebar_close_icon d-lg-none">
                 <i class="ti-close"></i>
             </div>

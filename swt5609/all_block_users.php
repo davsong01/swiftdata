@@ -24,7 +24,7 @@ if ($manage_users == 1) {
         </div>
       </div>
 
-      <div class="row ">
+      <div class="row">
         <div class="col-xl-12">
           <div class="white_card card_height_100 mb_30 social_media_card" style="background-color:#fff;">
             <div class="white_card_header">
@@ -39,7 +39,7 @@ if ($manage_users == 1) {
             <div class="alert">
               <br />
 
-              <div id="resultHandle">
+              <div class="row">
 
                 <?php
 
@@ -65,12 +65,13 @@ if ($manage_users == 1) {
                     }
 
                     $message .= '
-                    <div class="alert" style="background-color:#24B678;color:#fff;cursor:pointer;" id="' . $viewUsers['id'] . '">
+                    <div class="alert half col-md-6" style="background-color:#24B678;color:#fff;cursor:pointer;" id="' . $viewUsers['id'] . '">
                     Full Name: ' . $viewUsers['full_name'] . '<br/>
                     Reg. Date: ' . $viewUsers['reg_date'] . '<br/>
                     Email : ' . $viewUsers['email'] . '<br/>
                     User : ' . $viewUsers['username'] . '<br/>
-                    Current Bal. : ' . $viewUsers['wallets'] . '<br/>
+                    Wallet Bal. : ' . $viewUsers['wallets'] . '<br/>
+                    Cashback Bal. : ' . $viewUsers['cashback'] . '<br/>
                     Last Seen. : ' . $viewUsers['last_login'] . '<br/><br/>
 
                     ' . $todobtn . '

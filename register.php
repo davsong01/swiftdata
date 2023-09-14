@@ -74,61 +74,7 @@ if (isset($_REQUEST['referral'])) {
                         <h5>PART A: Personal Information</h5>
                         <p class="mb-4" style="color:red">Please ensure you submit valid details and accessible email address as they are used for further verification</p>
 
-                        <!-- <div id="response"></div>
-                        <form id="form-data">
 
-
-                            <div class="mb-3">
-                                <label for="email" class="form-label">First Name</label>
-                                <input type="hidden" id="myrefferal" value="<?php echo $myrefferal; ?>">
-                                <input type="hidden" id="req_token" value="<?php echo $_SESSION['csrftoken']; ?>">
-                                <input type="text" class="form-control" id="full_name" placeholder="Enter your full name" autofocus />
-                            </div>
-
-
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Telephone</label>
-                                <input type="tel" class="form-control" id="mobile_no" placeholder="Enter your mobile no." autofocus />
-                            </div>
-
-
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email_address" placeholder="Enter your email" autofocus />
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Username</label>
-                                <input type="text" class="form-control" id="username" placeholder="Enter your username" autofocus />
-                            </div>
-
-                            <div class="mb-3 form-password-toggle">
-                                <div class="d-flex justify-content-between">
-                                    <label class="form-label" for="password">Password</label>
-
-                                </div>
-                                <div class="input-group input-group-merge">
-                                    <input type="password" id="password" class="form-control" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
-                                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="remember-me" checked />
-                                    <label class="form-check-label" for="remember-me"> I agree to terms and conditions </label>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <button class="btn btn-primary d-grid w-100" id="submitBtn">Sign Up</button>
-                            </div>
-
-                        </form>
-                        <p class="text-center">
-                            <span>Already a member?</span>
-                            <a href="<?php echo $mainpage; ?>/login">
-                                <span>Sign In</span>
-                            </a>
-                        </p> -->
                         <div id="response"></div>
                         <form id="form-data">
                             <div class="row" style="display:flex">
@@ -146,7 +92,7 @@ if (isset($_REQUEST['referral'])) {
 
                                 <div class="col-md-6 mb-3">
                                     <label for="email" class="form-label required">Last Name</label>
-                                    <input required type="text" class="form-control" id="last_name" placeholder="Enter your last name" autofocus/>
+                                    <input required type="text" class="form-control" id="last_name" placeholder="Enter your last name" autofocus />
                                 </div>
 
                                 <div class="col-md-6 mb-3">
@@ -156,11 +102,19 @@ if (isset($_REQUEST['referral'])) {
 
                                 <div class="col-md-6 mb-3">
                                     <label for="tel" class="form-label required">Telephone</label>
-                                    <input type="tel" class="form-control" id="mobile_no" placeholder="Enter your mobile no." autofocus />
+                                    <input required type="tel" class="form-control" id="mobile_no" placeholder="Enter your mobile no." autofocus />
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="username" class="form-label">Username</label>
-                                    <input type="text" class="form-control" id="username" placeholder="Enter your username" autofocus />
+                                    <input required type="text" class="form-control" id="username" placeholder="Enter your username" autofocus />
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="gender" class="form-label required">Gender</label>
+                                    <select name="gender" class="form-control" id="gender" required>
+                                        <option value="">Select Option</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Femal">Femal</option>
+                                    </select>
                                 </div>
 
                                 <div class="col-md-6 mb-3 form-password-toggle">
@@ -176,14 +130,14 @@ if (isset($_REQUEST['referral'])) {
                             </div>
 
                             <hr>
-                            <div class="row" style="display:flex">
+                            <!-- <div class="row" style="display:flex">
                                 <h5>PART B: Smart KYC Verification</h5>
                                 <p class="mb-4" style="color:red">Note: Your information is safe and not shared. This is used for customer verification only. Please read and accept our privacy policy & terms below before submiting.</p>
-                            </div>
+                            </div> -->
                             <div class="row" style="display:flex">
                                 <div class="col-md-12 mb-3">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="remember-me" checked />
+                                        <input required class="form-check-input" type="checkbox" id="remember-me" required />
                                         <label class="form-check-label" for="remember-me"> I agree to <a href="tac.php" target="_blank"> <strong>terms and conditions</strong></a> </label>
                                     </div>
                                 </div>
@@ -250,6 +204,9 @@ if (isset($_REQUEST['referral'])) {
                 password: $("#password").val(),
                 myrefferal: $("#myrefferal").val(),
                 req_token: $("#req_token").val(),
+                gender: $("#gender").val(),
+                rememberme: $("#remember-me").val(),
+
             };
             $.ajax({
                 url: 'app/resources/register',
@@ -268,6 +225,9 @@ if (isset($_REQUEST['referral'])) {
                         $("#email_address").val("");
                         $("#password").val("");
                         $("#mobile_no").val("");
+                        $("#gender").val("");
+                        $("#remember-me").val("");
+
                     } else {
                         $("#submitBtn").html('Sign Up');
                         $("#response").html(response_fd.message);

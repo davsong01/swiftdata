@@ -33,6 +33,13 @@ body {
   }
 }
 
+@media (min-width: 460px) {
+  .col-md-6 {
+    width: 47% !important;
+    margin: 10px !important;
+  }
+}
+
 /* line 17, G:/admin_project/8 admin/Analytic/scss/_reset.scss */
 .body_white_bg {
   background: #fff;

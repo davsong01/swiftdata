@@ -56,7 +56,7 @@
         foreach ($response as $res) {
             if ($plan_id == $res['code']) {
                 $service_price = $res['price'];
-                $service = "airtel-cg";
+                $service = "glo-cg";
                 $databyte = $res['val'];
                 $package_name = $res['name'];
                 $planCode = $res['code'];
