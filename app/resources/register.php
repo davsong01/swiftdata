@@ -2,21 +2,51 @@
 session_start();
 require("../../functions/web_config.php");
 
+  //  $response = array(
+  //       'status' => 'fail',
+  //       'message' => '<div class="alert alert-danger text-left">'. 'Full name ' . ($_POST['full_name']) .' Last name'. ($_POST['last_name']) .' Gender'.  ($_POST['gender']) .' username'.  ($_POST['username']) .' Phone'.  ($_POST['mobile_no']) .' '.  ($_POST['email_address']) .' '.  ($_POST['password']) .' '.  ($_POST['req_token']) .' '.  ($_POST['myrefferal']). ($_POST['rememberme']).'</div>',
+  //     );
+  //     echo json_encode($response);
+  //     exit();
+    
+
 if ($_SESSION['csrftoken'] == $_POST['req_token']) {
 
-  if (!empty($_POST['full_name']) && !empty($_POST['username']) && !empty($_POST['mobile_no']) && !empty($_POST['email_address']) && !empty($_POST['password']) && !empty($_POST['req_token']) && !empty($_POST['myrefferal'])) {
+  if (!empty($_POST['full_name']) && !empty($_POST['last_name']) && !empty($_POST['gender']) && !empty($_POST['username']) && !empty($_POST['mobile_no']) && !empty($_POST['email_address']) && !empty($_POST['password']) && !empty($_POST['req_token']) && !empty($_POST['myrefferal'])) {
 
     $full_name = mysqli_real_escape_string($con, $_POST['full_name']);
+    $middle_name = mysqli_real_escape_string($con, $_POST['middle_name']);
+    $last_name = mysqli_real_escape_string($con, $_POST['last_name']);
     $mobile_no = mysqli_real_escape_string($con, $_POST['mobile_no']);
     $email_address = trim(strtolower(mysqli_real_escape_string($con, $_POST['email_address'])));
     $myrefferal = mysqli_real_escape_string($con, $_POST['myrefferal']);
     $username = trim(strtoupper(mysqli_real_escape_string($con, $_POST['username'])));
+    $gender = trim(strtoupper(mysqli_real_escape_string($con, $_POST['gender'])));
     $password = mysqli_real_escape_string($con, $_POST['password']);
     $req_token = mysqli_real_escape_string($con, $_POST['req_token']);
+    $rememberme = mysqli_real_escape_string($con, $_POST['rememberme']);
 
     $check_username = mysqli_query($con, "SELECT username FROM users WHERE username='$username'");
     $check_email = mysqli_query($con, "SELECT email FROM users WHERE email='$email_address'");
     $check_refby = mysqli_query($con, "SELECT username FROM users WHERE ref_code='$myrefferal'");
+
+    if (strlen($mobile_no) > 11 || strlen($mobile_no) < 11) {
+      $response = array(
+        'status' => 'fail',
+        'message' => '<div class="alert alert-danger text-left">Please use a valid mobile no. !!!</div>',
+      );
+      echo json_encode($response);
+      exit();
+    }
+
+    // if ($rememberme != 'on') {
+    //   $response = array(
+    //     'status' => 'fail',
+    //     'message' => '<div class="alert alert-danger text-left">You must agree to the terms and conditions. !!!</div>',
+    //   );
+    //   echo json_encode($response);
+    //   exit();
+    // } 
 
     // $response = array(
     //   'status' => 'fail',
@@ -26,7 +56,6 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']) {
     // exit();
 
     if (strlen($mobile_no) > 11 || strlen($mobile_no) < 11) {
-
       $response = array(
         'status' => 'fail',
         'message' => '<div class="alert alert-danger text-left">Please use a valid mobile no. !!!</div>',
@@ -71,18 +100,7 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']) {
         );
         echo json_encode($response);
         exit();
-      }
-
-      /*
-      else if ($password1 != $password2){
-      $response=array(
-      'status'=>'fail',
-      'message' => '<div class="alert alert-danger text-left">Password entered not match !!!</div>',
-      );
-      echo json_encode($response);
-      exit();
-      }
-      */else {
+      }else {
 
         $dateTime = new DateTime('now', new DateTimeZone('Africa/Lagos'));
         $time = $dateTime->format("d-M-y  h:i A");
@@ -92,7 +110,7 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']) {
         $f_emailaddress = str_replace("'", "", $email_address);
         $f_username = str_replace("'", "", $username);
 
-        $createUser = mysqli_query($con, "INSERT INTO `users` (`id`, `full_name`, `ref_code`, `ref_by`, `mobile`, `username`, `password`, `wallets`, `cashback`, `block`, `users_sid`, `referral`, `level`, `last_login`, `email`, `sk_token`, `wema`, `acctname`, `rolez`, `sterling`, `fidelity`, `reg_date`, `status`, `mtnsme_access`, `mtncg_access`, `glo_access`, `airtel_access`, `airtelcg_access`, `mobile_access`, `cable_access`, `bills_access`, `epin_access`, `airtime_access`, `susbscription`, `webhook`, `security_pin`, `rating`, `reserved_account`) VALUES (NULL, '$full_name', '$f_username', '$myrefferal', '$mobile_no', '$f_username', '$hashpassword', '0', '0', '0', '$users_sid', '0', '1', '$time', '$f_emailaddress', '$sk_token', '', '', '', '', '', '$time', '0', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '0', '', '', 0, '')");
+        $createUser = mysqli_query($con, "INSERT INTO `users` (`id`, `full_name`, `ref_code`, `ref_by`, `mobile`, `username`, `password`, `wallets`, `cashback`, `block`, `users_sid`, `referral`, `level`, `last_login`, `email`, `sk_token`, `wema`, `acctname`, `rolez`, `sterling`, `fidelity`, `reg_date`, `status`, `mtnsme_access`, `mtncg_access`, `glo_access`, `airtel_access`, `airtelcg_access`, `mobile_access`, `cable_access`, `bills_access`, `epin_access`, `airtime_access`, `susbscription`, `webhook`, `security_pin`, `rating`, `reserved_account`,`middle_name`,`last_name`,`gender`) VALUES (NULL, '$full_name', '$f_username', '$myrefferal', '$mobile_no', '$f_username', '$hashpassword', '0', '0', '0', '$users_sid', '0', '1', '$time', '$f_emailaddress', '$sk_token', '', '', '', '', '', '$time', '0', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '0', '', '', 0, '','$middle_name','$last_name','$gender')");
         
         if ($createUser) {
           mysqli_query($con, "UPDATE users SET referral=referral+1 WHERE ref_code='" . $myrefferal . "'");
@@ -145,7 +163,7 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']) {
   } else {
     $response = array(
       'status' => 'fail',
-      'message' => '<div class="alert alert-danger text-left">Please fill all form !!!</div>',
+      'message' => '<div class="alert alert-danger text-left">Please fill all required inputs !!!</div>',
     );
     echo json_encode($response);
     exit();
@@ -172,4 +190,3 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']) {
       'X-Mailer: PHP/' . phpversion();
     return mail($email_to, $subject, $body, $headers);
   }
-?>
