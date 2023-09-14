@@ -10,7 +10,14 @@
     $network = strtoupper($data['network'] ?? $_POST['network']);
     $reference = $data['request_id'] ?? $_POST['request_id'];
     $no_of_pins = $data['no_of_pins'] ?? $_POST['no_of_pins'];
+    $domain = $_SERVER['SERVER_NAME'];
+    if (substr($domain, 0, 4) === 'www.') $domain = substr($domain, 4, strlen($domain));
+    // $domain =  explode('.', $_SERVER['SERVER_NAME'])[0] ?? '';
+    $allowed_domains = ['localhost', 'ambiedata', 'swiftdatang'];
 
+    if(!in_array($domain, $allowed_domains)){
+        die();
+    }
     // Check if request has plan name and get the plan_id from the pricing lists
     if(isset($plan_name) && !empty($plan_name)){
         $plan_id = getPlanId($plan_name, $network,$plan_id ?? '');
@@ -118,7 +125,7 @@
         $response = array(
             'status' => 'fail',
             'status_code' => '100',
-            'message' => 'Please make sure all the parameters are included. Parameters sent are: '.$json,
+            'message' => 'Please make sure all the parameters are included.',
         );
         echo json_encode($response);
         exit();
