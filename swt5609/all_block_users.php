@@ -66,7 +66,7 @@ if ($manage_users == 1) {
 
                     $message .= '
                     <div class="alert half col-md-6" style="background-color:#24B678;color:#fff;cursor:pointer;" id="' . $viewUsers['id'] . '">
-                    Full Name: ' . $viewUsers['full_name'] . '<br/>
+                    Full Name: ' . $viewUsers['full_name'] . ' ' . $viewUsers['middle_name'] . ' ' . $viewUsers['last_name'] .  '<br/>
                     Reg. Date: ' . $viewUsers['reg_date'] . '<br/>
                     Email : ' . $viewUsers['email'] . '<br/>
                     User : ' . $viewUsers['username'] . '<br/>

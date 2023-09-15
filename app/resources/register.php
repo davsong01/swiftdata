@@ -132,13 +132,12 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']) {
 
           // send admin email
           $admin_subject = 'New Registration';
-          $admin_body = 'Hello Admin, <br>New registration on '. $mainpage.'. Please find details below: <br><br>
-          Full Name: '. $full_name .' <br>
+          $admin_body = 'Hello Admin, <br>New registration on '. $mainpage. '. Please find details below: <br><br>
+          Full Name: ' . $full_name . ' ' . $middle_name . '' . $last_name . ' <br>
           Email: '.$email_address.'<br>
           Phone Number: '.$mobile_no.'<br>
           Registration Date: '.$time.'<br>
           Referral : '.$myrefferal.'
-          
           ';
 
           $admin_email = sendAdminNotificationEmail($admin_subject, $admin_body);
