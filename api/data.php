@@ -10,14 +10,9 @@
     $network = strtoupper($data['network'] ?? $_POST['network']);
     $reference = $data['request_id'] ?? $_POST['request_id'];
     $no_of_pins = $data['no_of_pins'] ?? $_POST['no_of_pins'];
-    $domain = $_SERVER['SERVER_NAME'];
-    if (substr($domain, 0, 4) === 'www.') $domain = substr($domain, 4, strlen($domain));
-    // $domain =  explode('.', $_SERVER['SERVER_NAME'])[0] ?? '';
-    $allowed_domains = ['localhost', 'ambiedata', 'swiftdatang'];
 
-    if(!in_array($domain, $allowed_domains)){
-        die();
-    }
+    require("checkip.php");
+
     // Check if request has plan name and get the plan_id from the pricing lists
     if(isset($plan_name) && !empty($plan_name)){
         $plan_id = getPlanId($plan_name, $network,$plan_id ?? '');
@@ -27,7 +22,6 @@
     if (!empty($mobile_no) && !empty($reference) && !empty($network) && !empty($api_token)) {
     // if (!empty($mobile_no) && !empty($plan_id) && !empty($reference) && !empty($network) && !empty($api_token)) {
 
-        require("../functions/web_config.php");
         $dateTime = new DateTime('now', new DateTimeZone('Africa/Lagos'));
         $time = $dateTime->format("d-M-y  h:i A");
         $timexx = $dateTime->format("YmdHi");
@@ -188,4 +182,3 @@
         }
         return $pId;
     }
-?>

@@ -10,10 +10,10 @@ $plan_id=$data['plan_code'];
 $service=strtoupper($data['service_id']);
 $reference=$data['request_id'];
 
-
+require("checkip.php");
 
 if (!empty($smart_no) && !empty($plan_id) && !empty($reference) && !empty($service) && !empty($api_token)){
-    require("../functions/web_config.php");
+    // require("../functions/web_config.php");
     $dateTime = new DateTime('now', new DateTimeZone('Africa/Lagos')); 
     $time=$dateTime->format("d-M-y  h:i A");
     $timexx=$dateTime->format("YmdHi");
@@ -85,6 +85,3 @@ else {
     );
     echo json_encode($response);
 }
-
-
-?>

@@ -4,12 +4,12 @@
     $json = file_get_contents('php://input');
     $data = json_decode($json, true);
 
-    $token=trim($data['token']);  
+    $token=trim($data['token']);
 
+    require("checkip.php");
     // First check if a username was provided.
     if (!empty($token)) {
         if (strlen($token)>0){
-            require("../functions/web_config.php");
             $check_user=mysqli_query($con, "SELECT * FROM users WHERE sk_token='$token'");
 
             if (mysqli_num_rows($check_user)>0){
