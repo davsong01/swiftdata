@@ -30,14 +30,26 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']) {
     $check_email = mysqli_query($con, "SELECT email FROM users WHERE email='$email_address'");
     $check_refby = mysqli_query($con, "SELECT username FROM users WHERE ref_code='$myrefferal'");
 
-    if (strlen($mobile_no) > 11 || strlen($mobile_no) < 11) {
+    // Check against multiple registrations
+    $count = mysqli_query($con, "SELECT * FROM users WHERE email='$email' OR mobile='$mobile_no' OR username='$username'");
+
+    if (mysqli_num_rows($count) > 0) {
       $response = array(
         'status' => 'fail',
-        'message' => '<div class="alert alert-danger text-left">Please use a valid mobile no. !!!</div>',
+        'message' => '<div class="alert alert-danger text-left">Email, Username or Phone number already exist. Please sign in or use different details !!!</div>',
       );
       echo json_encode($response);
       exit();
     }
+
+    // if (strlen($mobile_no) > 11 || strlen($mobile_no) < 11) {
+    //   $response = array(
+    //     'status' => 'fail',
+    //     'message' => '<div class="alert alert-danger text-left">Please use a valid mobile no. !!!</div>',
+    //   );
+    //   echo json_encode($response);
+    //   exit();
+    // }
 
     // if ($rememberme != 'on') {
     //   $response = array(
