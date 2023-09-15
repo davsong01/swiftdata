@@ -10,8 +10,10 @@
     $receipent_no=$data['receipent_no'];
     $message_body=$data['message'];
 
+    require("checkip.php");
+
     if (!empty($sender_id) && !empty($reference) && !empty($receipent_no) && !empty($message_body)){
-        require("../functions/web_config.php");
+        // require("../functions/web_config.php");
         $dateTime = new DateTime('now', new DateTimeZone('Africa/Lagos')); 
         $time=$dateTime->format("d-M-y  h:i A");
         $timexx=$dateTime->format("YmdHi");

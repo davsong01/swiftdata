@@ -1,6 +1,7 @@
 <?php
     error_reporting(1);
-    require("../functions/web_config.php");
+    require("checkip.php");
+    // require("../functions/web_config.php");
 
     $json = file_get_contents('php://input');
     $data = json_decode($json, true);

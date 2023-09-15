@@ -13,9 +13,11 @@ $amountxx0=$data['amount'];
 $amountxx1=str_replace("-", "", $amountxx0);
 $amount=str_replace("+", "", $amountxx1);
 
+require("checkip.php");
+
 if (!empty($smart_no) && !empty($service_type) && !empty($reference) && !empty($service) && !empty($api_token) && !empty($amount)){
 
-require("../functions/web_config.php");
+// require("../functions/web_config.php");
 $dateTime = new DateTime('now', new DateTimeZone('Africa/Lagos')); 
 $time=$dateTime->format("d-M-y  h:i A");
 $timexx=$dateTime->format("YmdHi");

@@ -12,11 +12,13 @@
     $airtelcg_access = $return_info['airtelcg_access'];
     $mobile_access = $return_info['mobile_access'];
 
+    require("checkip.php");
+
     $res = [];
     // // First check if a username was provided.
     if (!empty($token)) {
         if (strlen($token)>0){
-            require("../functions/web_config.php");
+            // require("../functions/web_config.php");
             $check_user=mysqli_query($con, "SELECT * FROM users WHERE sk_token='$token'");
            
             if (mysqli_num_rows($check_user)>0){

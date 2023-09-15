@@ -8,9 +8,11 @@ $api_token=trim($data['token']);
 $service=strtoupper($data['service_id']); // getting user post service
 $reference=$data['request_id'];
 
+require("checkip.php");
+
 if (!empty($reference) && !empty($service) && !empty($api_token)){
 
-require("../functions/web_config.php");
+// require("../functions/web_config.php");
 $dateTime = new DateTime('now', new DateTimeZone('Africa/Lagos')); 
 $time=$dateTime->format("d-M-y  h:i A");
 $timexx=$dateTime->format("YmdHi");
