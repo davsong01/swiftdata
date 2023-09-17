@@ -64,6 +64,7 @@
                 $type = 'data';
             
                 if ($network == "MTN" && $m_lock1 == 1 && $mtnsme_access == 1) {
+                    
                     require("dataModule/$api_mtn");
                 } else if ($network == "MTN-DATACARD" ){
                     require("dataModule/$mtn_data_card");
@@ -76,13 +77,7 @@
                 } else if ($network == "AIRTEL-CG" && $ag_lock1 == 1 && $airtelcg_access == 1) {
                
                     require("dataModule/$api_airtelcg");
-                    // $response = array(
-                    //     'status' => 'fail',
-                    //     'status_code' => '100',
-                    //     'message' => 'Mobile no. found in blacklist !!!' . $api_airtelcg,
-                    // );
-                    // echo json_encode($response);
-                    // exit;
+                   
 
                 } else if ($network == "GLO" && $g_lock1 == 1 && $glo_access == 1) {
                     require("dataModule/$api_glo");
