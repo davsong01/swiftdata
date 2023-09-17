@@ -1,24 +1,33 @@
 <div class="footer_part">
-<div class="container-fluid">
-<div class="row">
-<div class="col-lg-12">
-<div class="footer_iner text-center">
-<p><?php echo date("Y"); ?> © <?php echo $domain; ?> </p>
-</div>
-</div>
-</div>
-</div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="footer_iner text-center">
+                    <p><?php echo date("Y"); ?> © <?php echo $domain; ?> </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 </section>
 
 <div id="back-top" style="display: none;">
-<a title="Go to Top" href="#">
-<i class="ti-angle-up"></i>
-</a>
+    <a title="Go to Top" href="#">
+        <i class="ti-angle-up"></i>
+    </a>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap4.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/js-loading-overlay@1.1.0/dist/js-loading-overlay.min.js"></script>
+<script type="text/javascript" src="backend/js/overlay.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"></script>
-<script src="backend/js/jquery1-3.4.1.min.js"></script>
+<!-- <script src="backend/js/jquery1-3.4.1.min.js"></script> -->
 
 <script src="backend/js/popper1.min.js"></script>
 
@@ -35,16 +44,6 @@
 <script src="backend/vendors/niceselect/js/jquery.nice-select.min.js"></script>
 
 <script src="backend/vendors/owl_carousel/js/owl.carousel.min.js"></script>
-
-<script src="backend/vendors/datatable/js/jquery.dataTables.min.js"></script>
-<script src="backend/vendors/datatable/js/dataTables.responsive.min.js"></script>
-<script src="backend/vendors/datatable/js/dataTables.buttons.min.js"></script>
-<script src="backend/vendors/datatable/js/buttons.flash.min.js"></script>
-<script src="backend/vendors/datatable/js/jszip.min.js"></script>
-<script src="backend/vendors/datatable/js/pdfmake.min.js"></script>
-<script src="backend/vendors/datatable/js/vfs_fonts.js"></script>
-<script src="backend/vendors/datatable/js/buttons.html5.min.js"></script>
-<script src="backend/vendors/datatable/js/buttons.print.min.js"></script>
 
 <script src="backend/vendors/datepicker/datepicker.js"></script>
 <script src="backend/vendors/datepicker/datepicker.en.js"></script>
@@ -76,6 +75,32 @@
 <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
 <script src="backend/js/dashboard_init.js"></script>
 <script src="backend/js/custom.js"></script>
+<script>
+    new DataTable('#example', {
+        lengthMenu: [
+            [500, 1000, 2000, 5000, -1],
+            [500, 1000, 2000, 5000, 'All']
+        ]
+    });
+    new DataTable('#example2', {
+        lengthMenu: [
+            [500, 1000, 2000, 5000, -1],
+            [500, 1000, 2000, 5000, 'All']
+        ]
+    });
+    new DataTable('#example3', {
+        lengthMenu: [
+            [500, 1000, 2000, 5000, -1],
+            [500, 1000, 2000, 5000, 'All']
+        ]
+    });
+    new DataTable('#example4', {
+        lengthMenu: [
+            [500, 1000, 2000, 5000, -1],
+            [500, 1000, 2000, 5000, 'All']
+        ]
+    });
+</script>
 </body>
 
 </html>

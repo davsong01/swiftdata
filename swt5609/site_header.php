@@ -1,4 +1,4 @@
-<?php require ("session_controller.php"); ?>
+<?php require("session_controller.php"); ?>
 <!DOCTYPE html>
 <html lang="zxx">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
@@ -28,10 +28,6 @@
 
     <link rel="stylesheet" href="backend/vendors/scroll/scrollable.css" />
 
-    <link rel="stylesheet" href="backend/vendors/datatable/css/jquery.dataTables.min.css" />
-    <link rel="stylesheet" href="backend/vendors/datatable/css/responsive.dataTables.min.css" />
-    <link rel="stylesheet" href="backend/vendors/datatable/css/buttons.dataTables.min.css" />
-
     <link rel="stylesheet" href="backend/vendors/text_editor/summernote-bs4.css" />
 
     <link rel="stylesheet" href="backend/vendors/morris/morris.css">
@@ -43,22 +39,22 @@
 
     <link rel="stylesheet" href="backend/css/style1.css" />
     <link rel="stylesheet" href="backend/css/colors/default.css" id="colorSkinCSS">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/js-loading-overlay@1.1.0/dist/js-loading-overlay.min.js"></script>
-    <script type="text/javascript" src="backend/js/overlay.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"> -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap4.min.css">
+
     <style>
-        .ENABLED{
+        .ENABLED {
             font-weight: bolder !important;
             font-size: small;
             color: blue;
         }
 
-        .DISABLED{
+        .DISABLED {
             font-weight: bolder !important;
             font-size: small;
             color: red;
         }
+
         .post-data {
             background: black;
             color: yellow;
@@ -66,7 +62,7 @@
             font-size: 11px;
             max-width: 400px;
             word-wrap: anywhere;
-            float:right
+            float: right
         }
 
         .api-response {
@@ -76,14 +72,34 @@
             font-size: 11px;
             max-width: 400px;
             word-wrap: anywhere;
-             /* float:left */
+            /* float:left */
         }
+
         .load-data {
             color: white;
             font-weight: bolder;
         }
-        .price-label{
+
+        .price-label {
             margin-top: 10px;
+        }
+
+        .page-item.disabled .page-link {
+            color: #000 !important;
+            border-color: #884ffb;
+            padding-right: 28px !important;
+            display: inline list-item;
+            padding: 7px !important;
+        }
+
+        .page-item.active .page-link {
+            color: black !important;
+        }
+
+        tbody, td, tfoot, th, thead, tr {
+            border-color: #dde0e4 !important;
+            border-style: solid  !important;
+            border-width: 1  !important;
         }
     </style>
 </head>
@@ -178,9 +194,9 @@
                 </a>
                 <ul>
                     <li><a href="<?php echo $adminurl; ?>/upgrade_users">Upgrade users</a></li>
-                    <li><a href="<?php echo $adminurl; ?>/all_active_users">Active users</a></li>
-                    <li><a href="<?php echo $adminurl; ?>/all_pend_users">Pending users</a></li>
-                    <li><a href="<?php echo $adminurl; ?>/all_block_users">Suspended users</a></li>
+                    <li><a href="<?php echo $adminurl; ?>/all_active_users">All active users</a></li>
+                    <li><a href="<?php echo $adminurl; ?>/all_pend_users">All pending users</a></li>
+                    <li><a href="<?php echo $adminurl; ?>/all_block_users">All suspended users</a></li>
                     <li><a href="<?php echo $adminurl; ?>/query_users.php">Find accounts</a></li>
                     <li><a href="<?php echo $adminurl; ?>/all_mobiles">All Users Mobile</a></li>
                     <li><a href="<?php echo $adminurl; ?>/all_emails">All Users Email</a></li>
@@ -402,8 +418,7 @@
         </div>
 
 
-        <div id="successModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-            aria-hidden="true">
+        <div id="successModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
 
@@ -423,8 +438,7 @@
             </div>
         </div>
 
-        <div id="errorModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-            aria-hidden="true">
+        <div id="errorModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
 
@@ -444,8 +458,7 @@
             </div>
         </div>
 
-        <div id="priceModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-            aria-hidden="true">
+        <div id="priceModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
 
@@ -464,8 +477,7 @@
             </div>
         </div>
 
-        <div id="rateRes" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-            aria-hidden="true">
+        <div id="rateRes" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">

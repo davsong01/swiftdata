@@ -9,7 +9,6 @@ require("../../functions/web_config.php");
   //     echo json_encode($response);
   //     exit();
     
-
 if ($_SESSION['csrftoken'] == $_POST['req_token']) {
 
   if (!empty($_POST['full_name']) && !empty($_POST['last_name']) && !empty($_POST['gender']) && !empty($_POST['username']) && !empty($_POST['mobile_no']) && !empty($_POST['email_address']) && !empty($_POST['password']) && !empty($_POST['req_token']) && !empty($_POST['myrefferal'])) {
@@ -42,31 +41,6 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']) {
       exit();
     }
 
-    // if (strlen($mobile_no) > 11 || strlen($mobile_no) < 11) {
-    //   $response = array(
-    //     'status' => 'fail',
-    //     'message' => '<div class="alert alert-danger text-left">Please use a valid mobile no. !!!</div>',
-    //   );
-    //   echo json_encode($response);
-    //   exit();
-    // }
-
-    // if ($rememberme != 'on') {
-    //   $response = array(
-    //     'status' => 'fail',
-    //     'message' => '<div class="alert alert-danger text-left">You must agree to the terms and conditions. !!!</div>',
-    //   );
-    //   echo json_encode($response);
-    //   exit();
-    // } 
-
-    // $response = array(
-    //   'status' => 'fail',
-    //   'message' => '<div class="alert alert-danger text-left">' . $myrefferal  .' !!!</div>',
-    // );
-    // echo json_encode($response);
-    // exit();
-
     if (strlen($mobile_no) > 11 || strlen($mobile_no) < 11) {
       $response = array(
         'status' => 'fail',
@@ -76,9 +50,7 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']) {
       exit();
 
     } else {
-
       if (mysqli_num_rows($check_email) > 0) {
-
         $response = array(
           'status' => 'fail',
           'message' => '<div class="alert alert-danger text-left">Email has already been used!!!</div>',
@@ -188,16 +160,16 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']) {
   exit();
 }
 
-  function sendAdminNotificationEmail($subject, $body){
-    require("../../functions/web_config.php");
+function sendAdminNotificationEmail($subject, $body){
+  require("../../functions/web_config.php");
 
-    $email_to = $admin_notification_email;
-    $email_from = $mail_username; 
+  $email_to = $admin_notification_email;
+  $email_from = $mail_username; 
 
-    $headers = 'MIME-Version: 1.0' . "\r\n";
-    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-    $headers .= 'From: ' . $email_from . "\r\n" .
-      'Reply-To: ' . $email_from . "\r\n" .
-      'X-Mailer: PHP/' . phpversion();
-    return mail($email_to, $subject, $body, $headers);
-  }
+  $headers = 'MIME-Version: 1.0' . "\r\n";
+  $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+  $headers .= 'From: ' . $email_from . "\r\n" .
+    'Reply-To: ' . $email_from . "\r\n" .
+    'X-Mailer: PHP/' . phpversion();
+  return mail($email_to, $subject, $body, $headers);
+}

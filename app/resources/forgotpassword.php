@@ -13,25 +13,27 @@ $check_email=mysqli_query($con, "SELECT * FROM users WHERE email='$email'");
 
 if (mysqli_num_rows($check_email)>0){
 
- $return_info=mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM users WHERE email='$email'"));
- $users_sid=$return_info['users_sid'];
+  $token = md5($emailId) . rand(10, 9999);
+  $expFormat = mktime(date("H"), date("i"), date("s"), date("m"), date("d") + 1, date("Y"));
+
+  $expDate = date("Y-m-d H:i:s", $expFormat);
+  $update = mysqli_query($con, "UPDATE users SET pass_reset_token='$token', pass_exp_date='$expDate' WHERE email='$email'");
+
+  $subject = "Your Password Recovery Link Has Arrived";
+  $body = '<p>Hello! ' . $full_name . '</p>';
+  $reset_link =  $mainpage . "/reset-password?token=" . $token;
+  $body .= '<p>Please click the button below to reset your password <a class="btn btn-info" target="_blank" href="' . $reset_link . '" style="position: relative;color: #fff;font-weight: 500;padding: 8px 20px;font-size: 13px;line-height: 24px;letter-spacing: 0.01em;border-radius: 4px;border: 1px solid;transition: all .4s ease;background:#950eb3;text-align: center;white-space: nowrap;vertical-align: middle;text-decoration:none">RESET PASSWORD</a><br/>If you did not request for Password Recovery, kindly notify us on ' . $contact_no . '. immediately.<b><hr/><br>Warm Regards. (' . $sitename . ')<br/></p>';
 
 
-     $reset_link=$mainpage.'/resetpassword?email='.$email.'&hashtoken='.$return_info['users_sid'].'';
-     $subject = "Your Password Recovery Link Has Arrived";
-     $body ='<p>Hello '.$return_info['username'].'!</p>';
-     $body .='<p>Your request for password reset was successful. Click the link below to reset your password'.'<br/>'.$reset_link.'<br/><br/><b>If you did not request for Password Recovery, kindly notify us on '.$contact_no.'. immediately.<b><hr/><br>Warm Regards. ('.$sitename.')<br/></p>';
+  $email_to =$email;
+  $email_from =$mail_username; // Enter Sender Email
 
-     $email_to =$email;
-     $email_from =$mail_username; // Enter Sender Email
-
-
-    $headers  = 'MIME-Version: 1.0' . "\r\n";
-    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-    $headers .= 'From: '.$email_from."\r\n".
-    'Reply-To: '.$email_from."\r\n" .
-    'X-Mailer: PHP/' . phpversion();
-    $mailSend=mail($email_to, $subject, $body, $headers);
+  $headers  = 'MIME-Version: 1.0' . "\r\n";
+  $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+  $headers .= 'From: '.$email_from."\r\n".
+  'Reply-To: '.$email_from."\r\n" .
+  'X-Mailer: PHP/' . phpversion();
+  $mailSend=mail($email_to, $subject, $body, $headers);
 
 if ($mailSend){
 
@@ -47,7 +49,7 @@ if ($mailSend){
 
  $response=array(
     'status'=>'fail',
-    'message' => '<div class="alert alert-danger text-left">Fatal error occur when pushing recovery mail to your address !!!</div>',
+    'message' => '<div class="alert alert-danger text-left">Fatal error occur when pushing recovery mail to your email address !!!</div>',
   );
   echo json_encode($response);
   exit();
@@ -60,7 +62,7 @@ else{
 
  $response=array(
     'status'=>'fail',
-    'message' => '<div class="alert alert-danger text-left">This email is not register here or might be transfer !!!</div>',
+    'message' => '<div class="alert alert-danger text-left">This email is not registered here !!!</div>',
   );
   echo json_encode($response);
   exit();
