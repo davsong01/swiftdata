@@ -39,7 +39,7 @@ if ($mailSend){
 
  $response=array(
     'status'=>'success',
-    'message' => '<div class="alert alert-success text-left">Thank you for reaching to us. Password recover link has been forwarded to your email !!!'.$body.'</div>',
+    'message' => '<div class="alert alert-success text-left">Thank you for reaching to us. Password recover link has been forwarded to your email !!!</div>',
   );
   echo json_encode($response);
   exit();
