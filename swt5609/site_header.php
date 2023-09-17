@@ -41,6 +41,7 @@
     <link rel="stylesheet" href="backend/css/colors/default.css" id="colorSkinCSS">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"> -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap4.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 
     <style>
         .ENABLED {
@@ -96,10 +97,15 @@
             color: black !important;
         }
 
-        tbody, td, tfoot, th, thead, tr {
+        tbody,
+        td,
+        tfoot,
+        th,
+        thead,
+        tr {
             border-color: #dde0e4 !important;
-            border-style: solid  !important;
-            border-width: 1  !important;
+            border-style: solid !important;
+            border-width: 1 !important;
         }
     </style>
 </head>

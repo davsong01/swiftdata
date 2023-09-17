@@ -8,7 +8,6 @@
 <div class="col-lg-12">
 
 <div class="alert" style="background-color: #fff;color: #000;">
-
 	<input type="text" id="search_data" class="form-control" placeholder="Search Mobile No.">
     <hr/>
     <button class="btn btn-danger" onclick="findRec()">Search</button>

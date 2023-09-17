@@ -41,6 +41,8 @@ if (mysqli_num_rows($lettr) < 1) {
     $oldbal = $data['buyer_prebal'];
     $newbal = $data['buyer_postbal'];
     $service = $data['buyer_service'];
+    $domain = $data['domain_name'];
+    $ip_address = $data['ip_address'];
 
     $shortDesrc = substr($descr, 0, 25);
     $queryable_services = ['EKO-ELECTRIC','IKEJA-ELECTRIC','ABUJA-ELECTRIC','JOS-ELECTRIC','BENIN-ELECTRIC','PORTHARCOURT-ELECTRIC','KADUNA-ELECTRIC','KANO-ELECTRIC'];
@@ -62,9 +64,12 @@ if (mysqli_num_rows($lettr) < 1) {
        <span>Date: ' . $date . '</span><br/>
        <span>Amount: ₦' . $amount . '</span><br/>
 
-      <span>Prev Bal:</span> <span style="cursor: pointer;">₦' . $oldbal . '</span>
+      <span>Prev Bal:</span> <span style="cursor: pointer;">₦' . $oldbal . '</span> 
 
-      <span style="float:right">Post Bal: ₦' . $newbal . '</span>
+      <span style="float:right">Post Bal: ₦' . $newbal . '</span><br>
+      <span>Domain: ' . $domain . '</span><br/>
+      <span>Ip Address: ' . $ip_address . '</span><br/>
+
         </p>
           '. $qu.'  
     </div>';
