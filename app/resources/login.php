@@ -32,7 +32,6 @@ if (mysqli_num_rows($check_username)>0){
  $return_info=mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM users WHERE email='$username'"));
 
  if (md5($password) == $return_info['password']){
-
     $_SESSION['username']=$username;
     $_SESSION['users_sid']=$return_info['users_sid'];
     $_SESSION['LAST_ACTIVITY']=$_SERVER['REQUEST_TIME'];

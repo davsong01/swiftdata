@@ -49,7 +49,7 @@
     $hashpass = md5($password1);
     $newhash = md5(uniqid() . time() . rand(1000000, 90000000));
     
-    $update = mysqli_query($con, "UPDATE users SET password='$hashpass', token='$newhash' WHERE pass_reset_token='$token'");
+    $update = mysqli_query($con, "UPDATE users SET password='$hashpass', pass_reset_token='$newhash' WHERE pass_reset_token='$token'");
 
     if ($update) {
       $response = array(
