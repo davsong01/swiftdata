@@ -19,6 +19,7 @@ if ($security_pin == $security){
 $payload=array(
   'token' => $sk_token,
   'service_id' => $service_module,
+  'quantity' => $service_quantity,
   'request_id' => strtoupper(time().rand(10000000, 90000000).mt_rand()),
 );
 
