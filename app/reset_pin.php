@@ -25,6 +25,8 @@
         <input type="password" class="form-control" maxlength="5" placeholder="Old Pin" id="old_pin" required>
       </div>
       <br>
+      <input type="hidden" id="req_token" value="<?php echo $_SESSION['csrftoken']; ?>">
+
       <button class="btn btn-success btn-block" style="width: 100%">SUBMIT</button>
       <br>
       <br>
@@ -60,7 +62,7 @@
 </div>
 
 <script type="text/javascript">
-  $("#form-data").submit(function (event) {
+  $("#form-data").submit(function(event) {
     var formData = {
       old_pin: $("#old_pin").val(),
       // new_pin: $("#new_pin").val(),
@@ -74,12 +76,12 @@
       method: 'POST',
       dataType: 'json',
       data: formData,
-      success: function (response_fd) {
+      success: function(response_fd) {
         $.LoadingOverlay("hide");
         if (response_fd.status == 'success') {
           $("#successModal").modal("show");
           $("#successModal .modal-body").html(response_fd.message);
-          setTimeout(function () {
+          setTimeout(function() {
             window.location.reload();
           }, 2000);
         } else {
@@ -93,12 +95,12 @@
   });
 
   ///
-  $("#form-data2").submit(function (event) {
+  $("#form-data2").submit(function(event) {
     var formData2 = {
       accountpass: $("#accountpass").val(),
       // new_pin2: $("#new_pin2").val(),
       // retype_pin2: $("#retype_pin2").val(),
-      req_token2: $("#req_token2").val(),
+      req_token: $("#req_token").val(),
     };
 
     $.LoadingOverlay("show");
@@ -107,12 +109,12 @@
       method: 'POST',
       dataType: 'json',
       data: formData2,
-      success: function (response_fd) {
+      success: function(response_fd) {
         $.LoadingOverlay("hide");
         if (response_fd.status == 'success') {
           $("#successModal").modal("show");
           $("#successModal .modal-body").html(response_fd.message);
-          setTimeout(function () {
+          setTimeout(function() {
             window.location.reload();
           }, 2000);
         } else {

@@ -4,6 +4,7 @@
   $old_pin = mysqli_real_escape_string($con, $_POST['old_pin']);
   $req_token = mysqli_real_escape_string($con, $_POST['req_token']);
 
+
   if ($_SESSION['csrftoken'] == $_POST['req_token']){
     if(empty($req_token || empty($old_pin))){
       $response = array(
