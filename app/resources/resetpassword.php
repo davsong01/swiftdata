@@ -37,13 +37,6 @@
   }
   $check_data = mysqli_query($con, "SELECT * FROM users WHERE pass_reset_token='$token'");
 
-  // $response = array(
-  //   'status' => 'fail',
-  //   'message' => '<div class="alert alert-danger text-left">'. mysqli_num_rows($check_data).'...'. $token.'</div>',
-  // );
-  // echo json_encode($response);
-  // exit();
-
   if (mysqli_num_rows($check_data) > 0) {
     // Reset the password
     $hashpass = md5($password1);
