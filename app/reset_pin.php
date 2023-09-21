@@ -22,7 +22,7 @@
         <div class="input-group-text">
           <span class="" id="basic-addon1"><i class="fa fa-unlock-alt" style="font-size: 25px;"></i></span>
         </div>
-        <input type="password" class="form-control" maxlength="5" placeholder="Old Pin" id="old_pin" required>
+        <input type="password" class="form-control" placeholder="Enter your password" id="old_pin" required>
       </div>
       <br>
       <input type="hidden" id="req_token" value="<?php echo $_SESSION['csrftoken']; ?>">
@@ -81,9 +81,9 @@
         if (response_fd.status == 'success') {
           $("#successModal").modal("show");
           $("#successModal .modal-body").html(response_fd.message);
-          setTimeout(function() {
-            window.location.reload();
-          }, 2000);
+          // setTimeout(function() {
+          //   window.location.reload();
+          // }, 10000);
         } else {
           $("#errorModal").modal("show");
           $("#errorModal .modal-body").html(response_fd.message);
@@ -94,38 +94,6 @@
     event.preventDefault();
   });
 
-  ///
-  $("#form-data2").submit(function(event) {
-    var formData2 = {
-      accountpass: $("#accountpass").val(),
-      // new_pin2: $("#new_pin2").val(),
-      // retype_pin2: $("#retype_pin2").val(),
-      req_token: $("#req_token").val(),
-    };
-
-    $.LoadingOverlay("show");
-    $.ajax({
-      url: '<?php echo $baseurl; ?>/customer/forgot_pin',
-      method: 'POST',
-      dataType: 'json',
-      data: formData2,
-      success: function(response_fd) {
-        $.LoadingOverlay("hide");
-        if (response_fd.status == 'success') {
-          $("#successModal").modal("show");
-          $("#successModal .modal-body").html(response_fd.message);
-          setTimeout(function() {
-            window.location.reload();
-          }, 2000);
-        } else {
-          $("#errorModal").modal("show");
-          $("#errorModal .modal-body").html(response_fd.message);
-        }
-      }
-    });
-
-    event.preventDefault();
-  });
 </script>
 
 <?php require("site_footer.php"); ?>

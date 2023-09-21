@@ -15,20 +15,22 @@
       exit();
     }
 
-    if ($old_pin != $security) {
-      $response = array(
-        'status' => 'fail',
-        'message' => '<div class="alert alert-danger text-left">Incorrect old pin !!!</div>',
-      );
-      echo json_encode($response);
-      exit();
-    }
-
     if (!empty($req_token) && !empty($old_pin)){
       // Process pin reset
-      $check_email = mysqli_query($con, "SELECT * FROM users WHERE email='$email'");
+      $check_email  = mysqli_fetch_assoc(mysqli_query($con, "SELECT `password`,`id` FROM users WHERE email='$email'"));
 
-      if (mysqli_num_rows($check_email) > 0) {
+      if ($check_email) {
+        $password = $check_email['password'];
+
+        if (md5($old_pin) != $password) {
+          $response = array(
+            'status' => 'fail',
+            'message' => '<div class="alert alert-danger text-left">Please enter your correct login password !!!</div>',
+          );
+          echo json_encode($response);
+          exit();
+        }
+      
         $token = md5($emailId) . rand(10,9999).base64_encode(date("Y/m/d"));
         $expFormat = mktime(date("H"), date("i"), date("s"), date("m"), date("d") + 1, date("Y"));
 
