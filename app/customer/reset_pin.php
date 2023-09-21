@@ -40,7 +40,7 @@
         $subject = "Your PIN Reset Link Has Arrived";
         $body = '<p>Hello! ' . $full_name . '</p>';
         $reset_link =  $mainpage . "/confirm_reset_pin?token=" . $token;
-        $body .= '<p style="line-height: 2.0;">Please <strong>login</strong> to your account on '.$sitename.' and click the button below to reset your security pin <br> <a class="btn btn-info" target="_blank" href="' . $reset_link . '" style="position: margin:5px; relative;margin-bottom:50px;color: #fff;font-weight: 500;padding: 8px 20px;font-size: 13px;line-height: 24px;letter-spacing: 0.01em;border-radius: 4px;border: 1px solid;transition: all .4s ease;background:#950eb3;text-align: center;white-space: nowrap;vertical-align: middle;text-decoration:none">RESET PIN</a><br/>If you did not request for a PIN change, kindly notify us on ' . $contact_no . '. immediately.<b><hr/><br>Warm Regards. (' . $sitename . ')<br/></p>';
+        $body .= '<p style="line-height: 2.0;">Please <strong>login</strong> to your account on '.$sitename.' and click the button below to reset your security pin <br> <a class="btn btn-info" target="_blank" href="' . $reset_link . '" style="position: margin:5px; relative;margin-bottom:50px;color: #fff;font-weight: 500;padding: 8px 20px;font-size: 13px;line-height: 24px;letter-spacing: 0.01em;border-radius: 4px;border: 1px solid;transition: all .4s ease;background:#950eb3;text-align: center;white-space: nowrap;vertical-align: middle;text-decoration:none">RESET PIN</a><br/>If you did not request for a PIN change, Kindly notify us via WhatsApp us via whatsapp( ' . $contact_no . ') immediately.<b><hr/><br>Warm Regards. (' . $sitename . ')<br/></p>';
 
         $email_to = $email;
         $email_from = $mail_username; // Enter Sender Email
