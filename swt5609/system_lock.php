@@ -112,6 +112,8 @@ if ($manage_lock == 1) {
         mobile_lock: $("#mobile_lock").val(),
         mobilesme_lock: $("#mobilesme_lock").val(),
         mtn_data_card_lock: $("#mtn_data_card_lock").val(),
+        spectranet_lock: $("#spectranet_lock").val(),
+        smile_lock: $("#smile_lock").val(),
 
         level: 1,
       };

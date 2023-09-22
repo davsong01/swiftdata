@@ -3,9 +3,8 @@ require ("session_controller.php");
 $searc_level=$_GET['load_id'];
 
 if ($searc_level=="datalock"){
-
-$message='
- <div class="row">
+    $message='
+    <div class="row">
         <form id="form-data">
             <div class="row mb-3">
                 <div class="col-md-6">
@@ -77,68 +76,75 @@ $message='
                     </select>
                 </div>
                 <div class="col-md-6">
+                    <label class="price-label">SPECTRANET DATA*</label>
+                    <select class="form-control" id="spectranet_lock" required>
+
+                    <option value="1" ' . ($spectranet_lock == 1 ? 'selected' : '') . '>ENABLE</option>
+                    <option value="0" ' . ($spectranet_lock == 0 ? 'selected' : '') . '>DISABLE</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
                 </div>
                 <div class="col-md-6">
                     <button class="btn btn-success price-label" type="button" onclick="saveDATALOCK()">Save</button>
                 </div>
             </div>
-        </div>
-</form>
-';
+    </div>
+    </form>
+    ';
 
-$response=array(
-    'status' => 'success',
-    'data' => $message,
-    );
+    $response=array(
+        'status' => 'success',
+        'data' => $message,
+        );
 
-    echo json_encode($response);
-    exit();
+        echo json_encode($response);
+        exit();
 }
 
 ///////DATA END
 
 if ($searc_level=="vtulock"){
+    $message='
+    <form id="form-data">
+        <label>MTN *</label>
+        <select class="form-control" id="mtn_lock" required>
 
-$message='
-<form id="form-data">
-    <label>MTN *</label>
-    <select class="form-control" id="mtn_lock" required>
+        <option value="1">ENABLE</option>
+        <option value="0">DISABLE</option>
+        </select>
 
-    <option value="1">ENABLE</option>
-    <option value="0">DISABLE</option>
-    </select>
+        <br/>
+        <label>GLO *</label>
+        <select class="form-control" id="glo_lock" required>
 
-    <br/>
-    <label>GLO *</label>
-    <select class="form-control" id="glo_lock" required>
+        <option value="1">ENABLE</option>
+        <option value="0">DISABLE</option>
+        </select>
 
-    <option value="1">ENABLE</option>
-    <option value="0">DISABLE</option>
-    </select>
+        <br/>
+        <label>AIRTEL *</label>
+        <select class="form-control" id="airtel_lock" required>
 
-    <br/>
-    <label>AIRTEL *</label>
-    <select class="form-control" id="airtel_lock" required>
+        <option value="1">ENABLE</option>
+        <option value="0">DISABLE</option>
+        </select>
 
-    <option value="1">ENABLE</option>
-    <option value="0">DISABLE</option>
-    </select>
+        <br/>
+        <label>9MOBILE *</label>
+        <select class="form-control" id="mobile_lock" required>
 
-    <br/>
-    <label>9MOBILE *</label>
-    <select class="form-control" id="mobile_lock" required>
+        <option value="1">ENABLE</option>
+        <option value="0">DISABLE</option>
+        </select>
 
-    <option value="1">ENABLE</option>
-    <option value="0">DISABLE</option>
-    </select>
+        <br/>
+    <button class="btn btn-success" type="button" onclick="saveVTULOCK()">Save</button>
 
-    <br/>
-<button class="btn btn-success" type="button" onclick="saveVTULOCK()">Save</button>
+    </form>
+    ';
 
-</form>
-';
-
-$response=array(
+    $response=array(
     'status' => 'success',
     'data' => $message,
     );
@@ -149,105 +155,103 @@ $response=array(
 ///VTULOCK END
 
 if ($searc_level=="snslock"){
+    $message='
+    <form id="form-data">
+        <label>MTN *</label>
+        <select class="form-control" id="mtn_lock3" required>
 
-$message='
-<form id="form-data">
-    <label>MTN *</label>
-    <select class="form-control" id="mtn_lock3" required>
+        <option value="1">ENABLE</option>
+        <option value="0">DISABLE</option>
+        </select>
 
-    <option value="1">ENABLE</option>
-    <option value="0">DISABLE</option>
-    </select>
+        <br/>
+        <label>GLO *</label>
+        <select class="form-control" id="glo_lock3" required>
 
-    <br/>
-    <label>GLO *</label>
-    <select class="form-control" id="glo_lock3" required>
+        <option value="1">ENABLE</option>
+        <option value="0">DISABLE</option>
+        </select>
 
-    <option value="1">ENABLE</option>
-    <option value="0">DISABLE</option>
-    </select>
+        <br/>
+        <label>AIRTEL *</label>
+        <select class="form-control" id="airtel_lock3" required>
 
-    <br/>
-    <label>AIRTEL *</label>
-    <select class="form-control" id="airtel_lock3" required>
+        <option value="1">ENABLE</option>
+        <option value="0">DISABLE</option>
+        </select>
 
-    <option value="1">ENABLE</option>
-    <option value="0">DISABLE</option>
-    </select>
+        <br/>
+        <label>9MOBILE *</label>
+        <select class="form-control" id="mobile_lock3" required>
 
-    <br/>
-    <label>9MOBILE *</label>
-    <select class="form-control" id="mobile_lock3" required>
+        <option value="1">ENABLE</option>
+        <option value="0">DISABLE</option>
+        </select>
 
-    <option value="1">ENABLE</option>
-    <option value="0">DISABLE</option>
-    </select>
+        <br/>
+    <button class="btn btn-success" type="button" onclick="saveSNSLOCK()">Save</button>
 
-    <br/>
-<button class="btn btn-success" type="button" onclick="saveSNSLOCK()">Save</button>
+    </form>
+    ';
 
-</form>
-';
+    $response=array(
+    'status' => 'success',
+    'data' => $message,
+    );
 
-$response=array(
-'status' => 'success',
-'data' => $message,
-);
-
-echo json_encode($response);
-exit();
+    echo json_encode($response);
+    exit();
 }
 
 ////SNSLOCK END
 
 if ($searc_level=="cablelock"){
+    $message='
+    <form id="form-data">
+        <label>GOTV *</label>
+        <select class="form-control" id="gotv" required>
 
-$message='
-<form id="form-data">
-    <label>GOTV *</label>
-    <select class="form-control" id="gotv" required>
+        <option value="1">ENABLE</option>
+        <option value="0">DISABLE</option>
+        </select>
 
-    <option value="1">ENABLE</option>
-    <option value="0">DISABLE</option>
-    </select>
+        <br/>
+        <label>DSTV *</label>
+        <select class="form-control" id="dstv" required>
 
-    <br/>
-    <label>DSTV *</label>
-    <select class="form-control" id="dstv" required>
+        <option value="1">ENABLE</option>
+        <option value="0">DISABLE</option>
+        </select>
 
-    <option value="1">ENABLE</option>
-    <option value="0">DISABLE</option>
-    </select>
+        <br/>
+        <label>STARTIMES *</label>
+        <select class="form-control" id="startime" required>
 
-    <br/>
-    <label>STARTIMES *</label>
-    <select class="form-control" id="startime" required>
+        <option value="1">ENABLE</option>
+        <option value="0">DISABLE</option>
+        </select>
 
-    <option value="1">ENABLE</option>
-    <option value="0">DISABLE</option>
-    </select>
+        <br/>
+        <label>SHOWMAX *</label>
+        <select class="form-control" id="showmax" required>
 
-    <br/>
-    <label>SHOWMAX *</label>
-    <select class="form-control" id="showmax" required>
+        <option value="1">ENABLE</option>
+        <option value="0">DISABLE</option>
+        </select>
 
-    <option value="1">ENABLE</option>
-    <option value="0">DISABLE</option>
-    </select>
+        <br/>
+    <button class="btn btn-success" type="button" onclick="saveCABLELOCK()">Save</button>
 
-    <br/>
-<button class="btn btn-success" type="button" onclick="saveCABLELOCK()">Save</button>
+    </form>
+    ';
 
-</form>
-';
+    $response=array(
+    'status' => 'success',
+    'data' => $message,
+    );
 
-$response=array(
-'status' => 'success',
-'data' => $message,
-);
-
-echo json_encode($response);
-exit();
+    echo json_encode($response);
+    exit();
 }
 //CABLELOCK END
 
@@ -260,9 +264,16 @@ if ($searc_level=="epinslock"){
     $nab_style = isset($nabt_lock) && $nabt_lock == 1 ? 'ENABLED' : 'DISABLED';
     $neco_status = isset($neco_lock) && $neco_lock == 1 ? 'ENABLED' : 'DISABLED';
     $neco_style = isset($neco_lock) && $neco_lock == 1 ? 'ENABLED' : 'DISABLED';
-    $waec_reg_style = isset($waec_reg_lock) && $waec_reg_lock == 1 ? 'ENABLED' : 'DISABLED';
     $waec_reg_status = isset($waec_reg_lock) && $waec_reg_lock == 1 ? 'ENABLED' : 'DISABLED';
+    $waec_reg_style = isset($waec_reg_lock) && $waec_reg_lock == 1 ? 'ENABLED' : 'DISABLED';
 
+    // <br/>
+    // <label>GCE * <span class="'. $gce_style.'">(' . $gce_status . ')</span></label>
+    // <select class="form-control" id="gce" required>
+
+    // <option value="1">ENABLE</option>
+    // <option value="0">DISABLE</option>
+    // </select>
     $message='
     <form id="form-data">
         <label>WAEC * <span class="'. $waec_style.'">('.$waec_status . ')</span></label>
@@ -276,14 +287,6 @@ if ($searc_level=="epinslock"){
         <label>WAEC REGISTRATION * <span class="' . $waec_reg_style . '">(' . $waec_reg_status . ')</span></label>
         <select class="form-control" id="waec-reg" required>
         
-        <option value="1">ENABLE</option>
-        <option value="0">DISABLE</option>
-        </select>
-
-        <br/>
-        <label>GCE * <span class="'. $gce_style.'">(' . $gce_status . ')</span></label>
-        <select class="form-control" id="gce" required>
-
         <option value="1">ENABLE</option>
         <option value="0">DISABLE</option>
         </select>
