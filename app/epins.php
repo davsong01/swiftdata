@@ -1,30 +1,24 @@
 <?php require("site_header.php"); ?>
 
 <?php
-
-require 'request_pin.php';
-
+  require 'request_pin.php';
 ?>
 <div class="alert">
   <div class="col-xl-12">
     <div class="alert" style="background-color: #fff;color: blue;">
-
       <div id="response" style="text-align: center;">
         <h4>Result E-Pins</h4>
       </div>
-
     </div>
   </div>
 
   <div class="col-xl-12">
     <div class="alert" style="box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;">
-
       <div id="response" style="text-align: left;">
         <span>Available Balance
           <span style="float: right;"><button class="btn btn-dark" onclick="FundWallet()" style="font-size:10px">Fund Wallet</button></span>
         </span>
         <br />
-
         <span style="color: #940798;font-weight: bold;font-size: 25px;">₦<?php echo number_format($Account_Balance, 2); ?></span>
 
       </div>
@@ -52,6 +46,9 @@ require 'request_pin.php';
           if ($waec_lock != 0) {
             echo '<option value="WAEC">WAEC</option>';
           }
+          if ($waec_reg_lock != 0) {
+            echo '<option value="WAEC-REG">WAEC REGISTRATION PIN</option>';
+          }
           // if ($gce_lock != 0) {
           //   echo '<option value="GCE">GCE</option>';
           // }
@@ -74,12 +71,12 @@ require 'request_pin.php';
         </div>
         <select class="form-control" id="service_quantity">
           <option value="">--Choose--</option>
-          <option value="1">1 Result Epin</option>
-          <option value="2">2 Result Epins</option>
-          <option value="3">3 Result Epins</option>
-          <option value="4">4 Result Epins</option>
-          <option value="5">5 Result Epins</option>
-          <option value="10">10 Result Epins</option>
+          <option value="1">One Unit</option>
+          <option value="2">Two Units</option>
+          <option value="3">Three Units</option>
+          <option value="4">Four Units</option>
+          <option value="5">Five Units</option>
+          <option value="10">Ten Units</option>
         </select>
       </div>
 
@@ -119,22 +116,14 @@ require 'request_pin.php';
 </div>
 </div>
 </div>
-
 <!-- end-->
-
-
 </div>
-
-
-
-
 </div>
 </div>
 </div>
 
 <script type="text/javascript">
   $("#service_module").change(function() {
-
     if ($("#service_module").val() != "") {
       var service_module = $("#service_module").val();
       $.LoadingOverlay("show");

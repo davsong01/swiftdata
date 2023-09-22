@@ -252,61 +252,71 @@ exit();
 //CABLELOCK END
 
 if ($searc_level=="epinslock"){
-$waec_status = isset($waec_lock) && $waec_lock == 1 ? ENABLED : DISABLED;
-$waec_style = isset($waec_lock) && $waec_lock == 1 ? ENABLED : DISABLED;
-$gce_status = isset($gce_lock) && $gce_lock == 1 ? ENABLED : DISABLED;
-$gce_style = isset($gce_lock) && $gce_lock == 1 ? ENABLED : DISABLED;
-$nab_status = isset($nabt_lock) && $nabt_lock == 1 ? ENABLED : DISABLED;
-$nab_style = isset($nabt_lock) && $nabt_lock == 1 ? ENABLED : DISABLED;
-$neco_status = isset($neco_lock) && $neco_lock == 1 ? ENABLED : DISABLED;
-$neco_style = isset($neco_lock) && $neco_lock == 1 ? ENABLED : DISABLED;
+    $waec_status = isset($waec_lock) && $waec_lock == 1 ? 'ENABLED' : 'DISABLED';
+    $waec_style = isset($waec_lock) && $waec_lock == 1 ? 'ENABLED' : 'DISABLED';
+    $gce_status = isset($gce_lock) && $gce_lock == 1 ? 'ENABLED' : 'DISABLED';
+    $gce_style = isset($gce_lock) && $gce_lock == 1 ? 'ENABLED' : 'DISABLED';
+    $nab_status = isset($nabt_lock) && $nabt_lock == 1 ? 'ENABLED' : 'DISABLED';
+    $nab_style = isset($nabt_lock) && $nabt_lock == 1 ? 'ENABLED' : 'DISABLED';
+    $neco_status = isset($neco_lock) && $neco_lock == 1 ? 'ENABLED' : 'DISABLED';
+    $neco_style = isset($neco_lock) && $neco_lock == 1 ? 'ENABLED' : 'DISABLED';
+    $waec_reg_style = isset($waec_reg_lock) && $waec_reg_lock == 1 ? 'ENABLED' : 'DISABLED';
+    $waec_reg_status = isset($waec_reg_lock) && $waec_reg_lock == 1 ? 'ENABLED' : 'DISABLED';
 
-$message='
-<form id="form-data">
-    <label>WAEC * <span class="'. $waec_style.'">('.$waec_status .')</span></label>
-    <select class="form-control" id="waec" required>
-    
-    <option value="1">ENABLE</option>
-    <option value="0">DISABLE</option>
-    </select>
+    $message='
+    <form id="form-data">
+        <label>WAEC * <span class="'. $waec_style.'">('.$waec_status . ')</span></label>
+        <select class="form-control" id="waec" required>
+        
+        <option value="1">ENABLE</option>
+        <option value="0">DISABLE</option>
+        </select>
 
-    <br/>
-     <label>GCE * <span class="'. $gce_style.'">(' . $gce_status . ')</span></label>
-    <select class="form-control" id="gce" required>
+        <br/>
+        <label>WAEC REGISTRATION * <span class="' . $waec_reg_style . '">(' . $waec_reg_status . ')</span></label>
+        <select class="form-control" id="waec-reg" required>
+        
+        <option value="1">ENABLE</option>
+        <option value="0">DISABLE</option>
+        </select>
 
-    <option value="1">ENABLE</option>
-    <option value="0">DISABLE</option>
-    </select>
+        <br/>
+        <label>GCE * <span class="'. $gce_style.'">(' . $gce_status . ')</span></label>
+        <select class="form-control" id="gce" required>
 
-    <br/>
-    <label>NECO *<span class="'. $neco_style.'">(' . $neco_status . ')</span></label>
-    <select class="form-control" id="neco" required>
+        <option value="1">ENABLE</option>
+        <option value="0">DISABLE</option>
+        </select>
 
-    <option value="1">ENABLE</option>
-    <option value="0">DISABLE</option>
-    </select>
+        <br/>
+        <label>NECO *<span class="'. $neco_style.'">(' . $neco_status . ')</span></label>
+        <select class="form-control" id="neco" required>
 
-    <br/>
-    <label>NABTEB * <span class="'. $nab_style.'">('.$nab_status .')</span></label>
-    <select class="form-control" id="nabteb" required>
+        <option value="1">ENABLE</option>
+        <option value="0">DISABLE</option>
+        </select>
 
-    <option value="1">ENABLE</option>
-    <option value="0">DISABLE</option>
-    </select>
+        <br/>
+        <label>NABTEB * <span class="'. $nab_style.'">('.$nab_status .')</span></label>
+        <select class="form-control" id="nabteb" required>
 
-    <br/>
-<button class="btn btn-success" type="button" onclick="saveEPINSLOCK()">Save</button>
+        <option value="1">ENABLE</option>
+        <option value="0">DISABLE</option>
+        </select>
 
-</form>
-';
+        <br/>
+    <button class="btn btn-success" type="button" onclick="saveEPINSLOCK()">Save</button>
 
-$response=array(
-'status' => 'success',
-'data' => $message,
-);
+    </form>
+    ';
 
-echo json_encode($response);
-exit();
+    $response=array(
+    'status' => 'success',
+    'data' => $message,
+    );
+
+    echo json_encode($response);
+    exit();
 }
 
 ///E-PINSLOCK END

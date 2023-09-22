@@ -1,7 +1,7 @@
 <?php require("site_header.php"); ?>
 <?php
 if ($manage_prices == 1) {
-    ?>
+?>
 
     <div class="main_content_iner ">
         <div class="container-fluid p-0 sm_padding_15px">
@@ -37,7 +37,7 @@ if ($manage_prices == 1) {
             $.ajax({
                 url: 'customer/fetchepins_price?load_id=' + id,
                 dataType: 'json',
-                success: function (responseData) {
+                success: function(responseData) {
                     $.LoadingOverlay("hide");
                     $("#priceModal").modal("show");
                     $("#priceModal .modal-body").html(responseData.data);
@@ -50,6 +50,7 @@ if ($manage_prices == 1) {
             $.LoadingOverlay("show");
             var formData = {
                 waec: $("#waec").val(),
+                waec_registration: $("#waec_registration").val(),
                 gce: $("#gce").val(),
                 neco: $("#neco").val(),
                 nabteb: $("#nabteb").val(),
@@ -60,7 +61,7 @@ if ($manage_prices == 1) {
                 type: "POST",
                 data: formData,
                 dataType: 'json',
-                success: function (savingRes) {
+                success: function(savingRes) {
                     $.LoadingOverlay("hide");
                     if (savingRes.status == 'success') {
                         $("#successModal").modal("show");
@@ -74,7 +75,7 @@ if ($manage_prices == 1) {
 
         };
     </script>
-    <?php
+<?php
 } else {
     require("admin_pushfail.php");
     echo $admin_pushfail;

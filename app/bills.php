@@ -10,7 +10,7 @@ require 'request_pin.php';
     <div class="alert" style="background-color: #fff;color: blue;">
 
       <div id="response" style="text-align: center;">
-        <h4>Bills Payment</h4>
+        <h4>Electricity Bills Payment</h4>
       </div>
 
     </div>

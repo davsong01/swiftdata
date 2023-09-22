@@ -49,7 +49,7 @@ while ($data = mysqli_fetch_array($lettr, MYSQLI_ASSOC)){
 
        <span>Refrence No. : '.$trx.'</span><br/>
        <span>Order: ' . $descr . '</span><br>' . (isset($extra) && !empty($extra) ? '
-       <strong style="background: black;color: yellow;padding: 8px;font-size: medium;display: inline-flex;"><br>Extras: '.$extra.'<br>' : '') . '</strong><br/>
+       <strong style="margin:5px 0; background: black;color: yellow;padding: 8px;font-size: medium;display: inline-flex;"><br>Extras: '.$extra.'<br>' : '') . '</strong><br/>
        <span>Date: '.$date.'</small><br/>
        <span>Amount: ₦'.$amount.'</span> <span style="float:right"><i class="fa fa-eye"></i></span><br/>
 

@@ -432,6 +432,13 @@ if ($getservices=="waec"){
 		<div class="alert alert-warning">WAEC = ₦'.$data_query[0].' / Pin</div>
 	';
 }
+
+if ($getservices == "waec-reg") {
+	$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT waec_registration FROM epin_planlist WHERE id='$level'"));
+	echo '
+	<div class="alert alert-warning">WAEC REGISTRATION PIN = ₦' . $data_query[0] . ' / Pin</div>
+';
+}
 if ($getservices == "gce") {
 	$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT gce FROM epin_planlist WHERE id='$level'"));
 	echo '

@@ -1,48 +1,41 @@
 <?php
-require("session_controller.php");
+  require("session_controller.php");
 
-if (!empty($_POST['level'])){
+  if (!empty($_POST['level'])){
+    $waec=mysqli_real_escape_string($con, $_POST['waec']);
+    $waec_reg=mysqli_real_escape_string($con, $_POST['waec_reg']);
+    $neco=mysqli_real_escape_string($con, $_POST['neco']);
+    $nabteb=mysqli_real_escape_string($con, $_POST['nabteb']);
+    $gce=mysqli_real_escape_string($con, $_POST['gce']);
+    $level=mysqli_real_escape_string($con, $_POST['level']);
 
-$waec=mysqli_real_escape_string($con, $_POST['waec']);
-$neco=mysqli_real_escape_string($con, $_POST['neco']);
-$nabteb=mysqli_real_escape_string($con, $_POST['nabteb']);
-$gce=mysqli_real_escape_string($con, $_POST['gce']);
-$level=mysqli_real_escape_string($con, $_POST['level']);
+    $update=mysqli_query($con, "UPDATE web_settings SET waec_lock='$waec', waec_registration_lock='$waec_reg', gce_lock='$gce', neco_lock='$neco', nabt_lock='$nabteb' WHERE id='$level'");
 
-$update=mysqli_query($con, "UPDATE web_settings SET waec_lock='$waec', gce_lock='$gce', neco_lock='$neco', nabt_lock='$nabteb' WHERE id='$level'");
+    if ($update){
 
-if ($update){
+      $response=array(
+        'status'=>'success',
+        'message' => 'Your store control has been successfully updated !!!',
+      );
+      echo json_encode($response);
+      exit();
 
- $response=array(
-    'status'=>'success',
-    'message' => 'Your store control has been successfully updated !!!',
-  );
-  echo json_encode($response);
-  exit();
+    }else{
+      $response=array(
+        'status'=>'fail',
+        'message' => 'Critical error occur when updating website settings !!!',
+      );
+      echo json_encode($response);
+      exit();
 
-}
-
-else{
-
- $response=array(
-    'status'=>'fail',
-    'message' => 'Critical error occur when updating website settings !!!',
-  );
-  echo json_encode($response);
-  exit();
-
-}
-
-}
-
-else{
-
-   $response=array(
-    'status'=>'fail',
-    'message' => 'Please fill all form !!!',
-  );
-  echo json_encode($response);
-  exit();
-}
+    }
+  }else{
+    $response=array(
+      'status'=>'fail',
+      'message' => 'Please fill all form !!!',
+    );
+    echo json_encode($response);
+    exit();
+  }
 
 ?>

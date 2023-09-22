@@ -40,7 +40,7 @@ require("request_pin.php");
 
 
     <div id="response"></div>
-    <div id="extra" style="background: black;color: yellow;padding: 20px;margin-bottom: 15px;font-size: initial; display:none"></div>
+    <div id="extra" style="margin:5px 0;background: black;color: yellow;padding: 20px;margin-bottom: 15px;font-size: initial; display:none"></div>
 
     <div id="how_to_load" style="display:none;background: #d5f4d5;padding: 10px;margin-bottom: 10px;">
       <div class="col-lg-12 me">

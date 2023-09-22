@@ -228,7 +228,7 @@
                         <i class="fas fa-lightbulb"></i>
                     </div>
                     <div class="nav_title">
-                        <span>Bills Payment </span>
+                        <span>Buy Electricity Bills </span>
                     </div>
                 </a>
             </li>

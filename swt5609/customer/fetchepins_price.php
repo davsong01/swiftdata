@@ -11,8 +11,15 @@ $message='
 <div>
 <label>WAEC</label>
 <input type="hidden" value="'.$level.'" id="level">
-<input type="tel" id="waec" class="form-control" value="'.$waec.'" required>
+<input type="tel" id="waec" class="form-control" value="'.$waec. '" required>
 </div>
+<br/>
+<div>
+<label>WAEC REGISTRATION PIN</label>
+<input type="hidden" value="' . $level . '" id="level">
+<input type="tel" id="waec_registration" class="form-control" value="' . $waec_registration . '" required>
+</div>
+<br/>
 <div>
 <label>GCE</label>
 <input type="hidden" value="' . $level . '" id="level">
