@@ -160,6 +160,38 @@ if ($manage_prices == 1) {
             </div>
           </div>
         </div>
+        <div class="col-md-6">
+          <div class="justify-content-center">
+            <div class="alert" style="background-color: brown;color: #fff;">
+              <center>
+                <h4 style="color: white;">SPECTRANET PRICES <button id="pull_spectranet_prices" class="btn btn-info btn-sm">Pull prices from provider</button></h4>
+                <p style="color: white;">Click on the level you want to change and a pop up will be display.</p>
+                <br />
+                <button class="btn btn-dark btn-block" id="spectranet1" onclick="editData  (this.id)">Level 1</button>
+                <button class="btn btn-dark btn-block" id="spectranet2" onclick="editData  (this.id)">Level 2</button>
+                <button class="btn btn-dark btn-block" id="spectranet3" onclick="editData  (this.id)">Level 3</button>
+                <button class="btn btn-dark btn-block" id="spectranet4" onclick="editData  (this.id)">Level 4</button>
+
+              </center>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="justify-content-center">
+            <div class="alert" style="background-color: brown;color: #fff;">
+              <center>
+                <h4 style="color: white;">SMILE PRICES <button id="pull_smile_prices" class="btn btn-info btn-sm">Pull prices from provider</button></h4>
+                <p style="color: white;">Click on the level you want to change and a pop up will be display.</p>
+                <br />
+                <button class="btn btn-dark btn-block" id="smile1" onclick="editData  (this.id)">Level 1</button>
+                <button class="btn btn-dark btn-block" id="smile2" onclick="editData  (this.id)">Level 2</button>
+                <button class="btn btn-dark btn-block" id="smile3" onclick="editData  (this.id)">Level 3</button>
+                <button class="btn btn-dark btn-block" id="smile4" onclick="editData  (this.id)">Level 4</button>
+
+              </center>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
@@ -232,7 +264,58 @@ if ($manage_prices == 1) {
 
     }
     ////
+    ////
+    function saveSPECTRANETDATA() {
+      $("#priceModal").modal("hide");
+      $.LoadingOverlay("show");
+      var formData = {
+        glocg_200: $("#glocg_200").val(),
+        glocg_500: $("#glocg_500").val(),
+        glocg_1: $("#glocg_1").val(),
+        glocg_2: $("#glocg_2").val(),
+        glocg_3: $("#glocg_3").val(),
+        glocg_5: $("#glocg_5").val(),
+        glocg_10: $("#glocg_10").val(),
 
+        easy_access158: $("#easy_access158").val(),
+        easy_access159: $("#easy_access159").val(),
+        easy_access160: $("#easy_access160").val(),
+        easy_access161: $("#easy_access161").val(),
+        easy_access162: $("#easy_access162").val(),
+        easy_access163: $("#easy_access163").val(),
+        easy_access164: $("#easy_access164").val(),
+
+        gongzo_data321: $("#gongzo_data321").val(),
+        gongzo_data322: $("#gongzo_data322").val(),
+        gongzo_data323: $("#gongzo_data323").val(),
+        gongzo_data324: $("#gongzo_data324").val(),
+        gongzo_data325: $("#gongzo_data325").val(),
+        gongzo_data326: $("#gongzo_data326").val(),
+        gongzo_data327: $("#gongzo_data327").val(),
+        gongzo_data337: $("#gongzo_data337").val(),
+
+        level: $("#level").val(),
+      };
+
+      $.ajax({
+        url: 'customer/saveglocg_price',
+        type: "POST",
+        data: formData,
+        dataType: 'json',
+        success: function(savingRes) {
+          $.LoadingOverlay("hide");
+          if (savingRes.status == 'success') {
+            $("#successModal").modal("show");
+            $("#successModal .modal-body").html(savingRes.message);
+          } else {
+            $("#errorModal").modal("show");
+            $("#errorModal .modal-body").html(savingRes.message);
+          }
+        }
+      });
+
+    }
+    ////
 
     function saveMTNSME() {
       $("#priceModal").modal("hide");
@@ -312,7 +395,6 @@ if ($manage_prices == 1) {
       });
 
     }
-
 
     function saveMTNCG() {
       $("#priceModal").modal("hide");
@@ -487,7 +569,6 @@ if ($manage_prices == 1) {
       });
 
     };
-
 
     function saveMOBILE() {
       $("#priceModal").modal("hide");

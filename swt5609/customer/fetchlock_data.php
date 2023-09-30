@@ -78,9 +78,16 @@ if ($searc_level=="datalock"){
                 <div class="col-md-6">
                     <label class="price-label">SPECTRANET DATA*</label>
                     <select class="form-control" id="spectranet_lock" required>
-
                     <option value="1" ' . ($spectranet_lock == 1 ? 'selected' : '') . '>ENABLE</option>
                     <option value="0" ' . ($spectranet_lock == 0 ? 'selected' : '') . '>DISABLE</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="price-label">SMILE DATA*</label>
+                    <select class="form-control" id="smile_lock" required>
+
+                    <option value="1" ' . ($smile_lock == 1 ? 'selected' : '') . '>ENABLE</option>
+                    <option value="0" ' . ($smile_lock == 0 ? 'selected' : '') . '>DISABLE</option>
                     </select>
                 </div>
                 <div class="col-md-6">

@@ -226,7 +226,6 @@
                 exit;
             }else{
                
-
                 $result->true_response = str_replace("'", "", $result->true_response);
                 $api_res = json_encode($result);
                 

@@ -85,6 +85,18 @@ if ($searc_level=="data"){
                     </select>
                 </div>
                 <div class="col-md-6">
+                    <label class="price-label">SPECTRANET DATA*</label>
+                    <select class="form-control" id="api_spectranet" required>
+                        <option value="vtpass_data.php"' . ($api_spectranet == 'vtpass_data.php' ? 'selected' : '') . '>VTPASS</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="price-label">SMILE DATA *</label>
+                    <select class="form-control" id="api_smile" required>
+                        <option value="vtpass_data.php"' . ($api_smile == 'vtpass_data.php' ? 'selected' : '') . '>VTPASS</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
                 </div>
                 <div class="col-md-6">
                     <button class="btn btn-success price-label" type="button" onclick="saveDATA()">Save</button>

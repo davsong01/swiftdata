@@ -3,7 +3,13 @@ require ("session_controller.php");
 $level=$_GET['load_id'];
 
 require ("../../functions/epins_price.php");
+// <label>GCE</label>
+// <input type="hidden" value="' . $level . '" id="level">
+// <input type="tel" id="gce" class="form-control" value="' . $gce . '" required>
+// </div>
 
+// <br/>
+// <div>
 $message='
 
 <form method="POST" id="submit_form">
@@ -21,13 +27,7 @@ $message='
 </div>
 <br/>
 <div>
-<label>GCE</label>
-<input type="hidden" value="' . $level . '" id="level">
-<input type="tel" id="gce" class="form-control" value="' . $gce . '" required>
-</div>
 
-<br/>
-<div>
 <label>NECO</label>
 <input type="tel" id="neco" class="form-control" value="'.$neco.'" required>
 </div>

@@ -47,17 +47,24 @@ if ($account_balance > $service_price && $service_price > 0){
     ),
     )); 
     $response = curl_exec($curl);
+
+    // $response = '{"success":"true","message":"E-pin was Successful","pin":"175913539286","amount":775,"transaction_date":"30-09-2023 08:27:05 am","reference_no":"ID67964548679","status":"fail"}';
+
     curl_close($curl);
+
     $result=json_decode($response);
     $status=strtolower($result->status);
     $epin=$result->message;
 
-    $status = 'successful';
-    if ($status=="successful"){
+    if (str_contains($service_url, 'easyaccess.com.ng')) {
+        $epin = 'PIN: '. $result->pin;
+    } 
+
+    if (isset($status) && $status == "successful"){
         $order_report=strtoupper($service.' N'.number_format($service_price).' E-Pin Purchase Successful. '. $epin);
 
-        mysqli_query($con, "INSERT INTO `final_transactions` (`id`, `mobile_number`, `buyer_email`, `buyer_username`, `buyer_service`, `buyer_amount`, `buyer_prebal`, `buyer_postbal`, `buyer_descr`, `buyer_status`, `buyer_date`, `timestring`, `charge_from`, `user_type`, `sys_ref`, `api_ref`, `api_report`, `src_price`, `profit`, `databyte`,`api_response`,`domain_name`,`ip_address`,`api_response`,`post_fields`) VALUES (NULL, '$mobile_no', '$account_email', '$account_username', '$service', '$service_price', '$account_balance', '$new_wallet', '$order_report', 'SUCCESSFUL', '$time', '$timestring', 'WALLET', '$level', '$api_reference', '$reference', 'DONE', '0', '0','0','$response','$domain','$ipaddress','$response','$post_fields')");
-
+        mysqli_query($con, "INSERT INTO `final_transactions` (`id`, `mobile_number`, `buyer_email`, `buyer_username`, `buyer_service`, `buyer_amount`, `buyer_prebal`, `buyer_postbal`, `buyer_descr`, `buyer_status`, `buyer_date`, `timestring`, `charge_from`, `user_type`, `sys_ref`, `api_ref`, `api_report`, `src_price`, `profit`, `databyte`,`domain_name`,`ip_address`,`api_response`,`post_fields`) VALUES (NULL, '$mobile_no', '$account_email', '$account_username', '$service', '$service_price', '$account_balance', '$account_balance', '$order_report', 'SUCCESSFUL', '$time', '$timestring', 'WALLET', '$level', '$api_reference', '$reference', 'DONE', '0', '0','0','$domain','$ipaddress','$response','$post_fields')");
+    
         $response=array(
         'status' => 'success',
         'status_code' =>'200',
