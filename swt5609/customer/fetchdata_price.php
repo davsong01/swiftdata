@@ -539,12 +539,12 @@
             require("../../api/vtpass_pricing.php");
             $message = '<form method="POST" id="submit_form">
                 <input type="hidden" value="' . $level . '" id="level">';
-
+            
             foreach ($response as $res) {
                 $message .= '<div><label>' . $res['name'] . '</label><input type="number" id="' . $res['id'] . '" class="form-control" value="' . $res['price'] . '" required></div><br>';
             }
 
-            $message .= '<button class="btn btn-success" type="button" onclick="saveGLOCG()">Save</button></form>';
+            $message .= '<button class="btn btn-success" type="button" onclick="saveSPECTRANETDATA()">Save</button></form>';
         } 
 
         $response = array(
@@ -583,7 +583,7 @@
                 $message .= '<div><label>' . $res['name'] . '</label><input type="number" id="' . $res['id'] . '" class="form-control" value="' . $res['price'] . '" required></div><br>';
             }
 
-            $message .= '<button class="btn btn-success" type="button" onclick="saveSPECTRANETDATA()">Save</button></form>';
+            $message .= '<button class="btn btn-success" type="button" onclick="saveSMILEDATA()">Save</button></form>';
         }
 
         $response = array(

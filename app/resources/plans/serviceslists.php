@@ -72,17 +72,6 @@ if (!empty($_GET['services']) && !empty($_GET['level'])){
 			require('../../../api/gongzo_pricing.php');
 		}else{
 			require('../../../api/generic_pricing.php');
-
-			// $data_query = mysqli_fetch_array(mysqli_query($con, "SELECT airtelcg_100,airtelcg_300, airtelcg_500, airtelcg_1, airtelcg_2, airtelcg_5  FROM airtelcgdata_plan WHERE id='$level'"));
-
-			// $echo = '
-			// 	<option value="601">AIRTEL-CG 100MB - ₦'.$data_query[0].'</option>
-			// 	<option value="602">AIRTEL-CG 300MB - ₦'.$data_query[1].'</option>
-			// 	<option value="603">AIRTEL-CG 500MB - ₦'.$data_query[2].'</option>
-			// 	<option value="604">AIRTEL-CG 1GB - ₦'.$data_query[3].'</option>
-			// 	<option value="605">AIRTEL-CG 2GB - ₦'.$data_query[4].'</option>
-			// 	<option value="606">AIRTEL-CG 5GB - ₦'.$data_query[5].'</option>
-			// ';
 		}
 
 		if (isset($response) && !empty($response)) {
@@ -111,17 +100,6 @@ if (!empty($_GET['services']) && !empty($_GET['level'])){
 			require('../../../api/gongzo_pricing.php');
 		}else{
 			require('../../../api/generic_pricing.php');
-
-			// $data_query = mysqli_fetch_array(mysqli_query($con, "SELECT glocg_200, glocg_500, glocg_1, glocg_2, glocg_3, glocg_5, glocg_10 FROM glocgdata_plan WHERE id='$level'"));
-			// $echo = '
-			// 	<option value="901">GLO-CG 200MB - ₦' . $data_query[0] . '</option>
-			// 	<option value="902">GLO-CG 500MB - ₦' . $data_query[1] . '</option>
-			// 	<option value="903">GLO-CG 1GB - ₦' . $data_query[2] . '</option>
-			// 	<option value="904">GLO-CG 2GB - ₦' . $data_query[3] . '</option>
-			// 	<option value="905">GLO-CG 3GB - ₦' . $data_query[4] . '</option>
-			// 	<option value="906">GLO-CG 5GB - ₦' . $data_query[5] . '</option>
-			// 	<option value="907">GLO-CG 10GB - ₦' . $data_query[6] . '</option>
-			// ';
 		}
 
 		if (isset($response) && !empty($response)) {
@@ -186,6 +164,30 @@ if (!empty($_GET['services']) && !empty($_GET['level'])){
 			echo '<option>No Available variations at the moment</option>';
 		}
 	}
+
+	if ($getservices == "spectranet-data") {
+		$type = 'datacard';
+		$product = 'mtn-data-card';
+		if ($mtn_data_card  == 'easy_access_data.php') {
+			require('../../../api/easy_access_pricing.php');
+		} else {
+			require('../../../api/generic_pricing.php');
+		}
+		if (isset($response) && !empty($response)) {
+			foreach ($response as $res) {
+				if (isset($res['price']) && $res['price'] > 0) {
+					$echo .= '<option style="font-size: 11px" value="' . $res['code'] . '">' . $res['name'] . ' - ₦' . $res['price'] . '</option>';
+				}
+			}
+		}
+		if (!empty($echo)) {
+			echo $echo;
+		} else {
+			echo '<option>No Available variations at the moment</option>';
+		}
+	}
+
+	
 
 	if ($getservices=="glo"){
 		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT glo_105,glo_29, glo_41, glo_58, glo_77, glo_10, glo_1325, glo_1825, glo_295, glo_50, glo_93  FROM glodata_plan WHERE id='$level'"));

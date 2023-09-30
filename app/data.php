@@ -92,6 +92,9 @@ require("request_pin.php");
           if ($mobilesme_lock != 0) {
             echo '<option value="MOBILE-SME">9MOBILE SME</option>';
           }
+          if ($spectranet_lock != 0) {
+            echo '<option value="SPECTRANET-DATA">SPECTRANET</option>';
+          }
           ?>
         </select>
       </div>

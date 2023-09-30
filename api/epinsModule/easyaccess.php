@@ -19,6 +19,7 @@ if ($service=="NABTEB"){
     $service_comm=$nabteb_comm;
 }
 
+
 if ($account_balance > $service_price && $service_price > 0){
     $new_wallet=$account_balance-$service_price;
     mysqli_query($con, "UPDATE users SET wallets='$new_wallet' WHERE id='$user_id' AND username ='$account_username'");
@@ -54,12 +55,9 @@ if ($account_balance > $service_price && $service_price > 0){
 
     $result=json_decode($response);
     $status=strtolower($result->status);
-    $epin=$result->message;
-
-    if (str_contains($service_url, 'easyaccess.com.ng')) {
-        $epin = 'PIN: '. $result->pin;
-    } 
-
+    
+    $epin = 'PIN: '. $result->pin ?? '';
+    
     if (isset($status) && $status == "successful"){
         $order_report=strtoupper($service.' N'.number_format($service_price).' E-Pin Purchase Successful. '. $epin);
 
@@ -78,7 +76,6 @@ if ($account_balance > $service_price && $service_price > 0){
         echo json_encode($response);
         exit;
     }else{
-
         $new_wallet=$account_balance;
         mysqli_query($con, "UPDATE users SET wallets='$new_wallet' WHERE id='$user_id' AND username ='$account_username'");
 
@@ -107,5 +104,3 @@ if ($account_balance > $service_price && $service_price > 0){
     echo json_encode($response);
     exit;
 }
-
-?>

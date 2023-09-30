@@ -16,18 +16,22 @@
                 'variation_code' => $environment == 'local' ? "" : "vt-5000",
                 'price' => $data_query[0],
                 'val'=>5000,
+                'id'=> 'spectranet1',
             ],
             [
                 'name' => $environment == 'local' ? "Spectranet N7000" : "Spectranet N7000",
                 'variation_code' => $environment == 'local' ? "" : "vt-7000",
                 'price' => $data_query[1],
                 'val' => 7000,
+                'id' => 'spectranet2',
             ],
             [
                 'name' => $environment == 'local' ? "Spectranet N10000" : "Spectranet N10000",
                 'variation_code' => $environment == 'local' ? "" : "vt-10000",
                 'price' => $data_query[2],
                 'val' => 10000,
+                'id' => 'spectranet3',
+
             ],
         ];
         
