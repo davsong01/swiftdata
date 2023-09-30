@@ -166,17 +166,15 @@ if (!empty($_GET['services']) && !empty($_GET['level'])){
 	}
 
 	if ($getservices == "spectranet-data") {
-		$type = 'datacard';
-		$product = 'mtn-data-card';
-		if ($mtn_data_card  == 'easy_access_data.php') {
-			require('../../../api/easy_access_pricing.php');
-		} else {
-			require('../../../api/generic_pricing.php');
-		}
+		$type = 'data';
+		$product = 'spectranet-data';
+		if ($api_spectranet  == 'vtpass_data.php') {
+			require('../../../api/vtpass_pricing.php');
+		} 
 		if (isset($response) && !empty($response)) {
 			foreach ($response as $res) {
 				if (isset($res['price']) && $res['price'] > 0) {
-					$echo .= '<option style="font-size: 11px" value="' . $res['code'] . '">' . $res['name'] . ' - ₦' . $res['price'] . '</option>';
+					$echo .= '<option style="font-size: 11px" value="' . $res['variation_code'] . '">' . $res['name'] . ' - ₦' . $res['price'] . '</option>';
 				}
 			}
 		}

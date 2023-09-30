@@ -1,6 +1,4 @@
 <?php
-
-
     if ($environment == 'local') {
         $url = "https://sandbox.vtpass.com/api/pay";
         $credentials = base64_encode($vtpass_sandbox_account);
@@ -26,6 +24,5 @@
     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
     $response = curl_exec($ch);
     curl_close($ch);
-
 
 ?>

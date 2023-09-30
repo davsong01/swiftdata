@@ -21,7 +21,6 @@
 
     if (!empty($mobile_no) && !empty($reference) && !empty($network) && !empty($api_token)) {
     // if (!empty($mobile_no) && !empty($plan_id) && !empty($reference) && !empty($network) && !empty($api_token)) {
-
         $dateTime = new DateTime('now', new DateTimeZone('Africa/Lagos'));
         $time = $dateTime->format("d-M-y  h:i A");
         $timexx = $dateTime->format("YmdHi");
@@ -62,9 +61,8 @@
                 $user_id = $return_info['id'];
                 $account_mobile = $return_info['mobile'];
                 $type = 'data';
-            
+
                 if ($network == "MTN" && $m_lock1 == 1 && $mtnsme_access == 1) {
-                    
                     require("dataModule/$api_mtn");
                 } else if ($network == "MTN-DATACARD" ){
                     require("dataModule/$mtn_data_card");
@@ -75,10 +73,7 @@
                 } else if ($network == "AIRTEL" && $a_lock1 == 1 && $airtel_access == 1) {
                     require("dataModule/$api_airtel");
                 } else if ($network == "AIRTEL-CG" && $ag_lock1 == 1 && $airtelcg_access == 1) {
-               
                     require("dataModule/$api_airtelcg");
-                   
-
                 } else if ($network == "GLO" && $g_lock1 == 1 && $glo_access == 1) {
                     require("dataModule/$api_glo");
                 } else if ($network == "GLO-CG" && $gcg_lock1 == 1 && $glo_access == 1) {
@@ -91,7 +86,11 @@
                     require("dataModule/$api_mobile");
                 }else if (($network == "MOBILE-SME" || $network == "MOBILE SME") && $mobilesme_lock == 1) {
                     require("dataModule/$api_mobilesme");
+                } else if ($network == "SPECTRANET-DATA" && $spectranet_lock == 1) {
+                    require("dataModule/$api_spectranet");
                 } else {
+                
+
                     $response = array(
                         'status' => 'fail',
                         'status_code' => '100',
