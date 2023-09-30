@@ -535,7 +535,7 @@
 
         if ($api_spectranet == 'vtpass_data.php') {
             $type = 'data';
-            $product = 'spectranet';
+            $product = 'spectranet-data';
             require("../../api/vtpass_pricing.php");
             $message = '<form method="POST" id="submit_form">
                 <input type="hidden" value="' . $level . '" id="level">';
