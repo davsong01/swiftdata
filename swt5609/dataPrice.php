@@ -277,7 +277,7 @@ if ($manage_prices == 1) {
         spectranet2: $("#spectranet2").val(),
         spectranet3: $("#spectranet3").val(),
         spectranet4: $("#spectranet4").val(),
-       
+
         level: $("#level").val(),
       };
 
@@ -607,6 +607,80 @@ if ($manage_prices == 1) {
       };
       $.ajax({
         url: 'customer/saveglo_price',
+        type: "POST",
+        data: formData,
+        dataType: 'json',
+        success: function(savingRes) {
+          $.LoadingOverlay("hide");
+          if (savingRes.status == 'success') {
+            $("#successModal").modal("show");
+            $("#successModal .modal-body").html(savingRes.message);
+          } else {
+            $("#errorModal").modal("show");
+            $("#errorModal .modal-body").html(savingRes.message);
+          }
+        }
+      });
+    }
+
+    function saveSMILEDATA() {
+      $("#priceModal").modal("hide");
+      $.LoadingOverlay("show");
+      var formData = {
+        smile1: $("#smile1").val(),
+        smile2: $("#smile2").val(),
+        smile3: $("#smile3").val(),
+        smile4: $("#smile4").val(),
+        smile5: $("#smile5").val(),
+        smile6: $("#smile6").val(),
+        smile7: $("#smile7").val(),
+        smile8: $("#smile8").val(),
+        smile9: $("#smile9").val(),
+        smile10: $("#smile10").val(),
+        smile11: $("#smile11").val(),
+        smile12: $("#smile12").val(),
+        smile13: $("#smile13").val(),
+        smile14: $("#smile14").val(),
+        smile15: $("#smile15").val(),
+        smile16: $("#smile16").val(),
+        smile17: $("#smile17").val(),
+        smile18: $("#smile18").val(),
+        smile19: $("#smile19").val(),
+        smile20: $("#smile20").val(),
+        smile21: $("#smile21").val(),
+        smile22: $("#smile22").val(),
+        smile23: $("#smile23").val(),
+        smile24: $("#smile24").val(),
+        smile25: $("#smile25").val(),
+        smile26: $("#smile26").val(),
+        smile27: $("#smile27").val(),
+        smile28: $("#smile28").val(),
+        smile29: $("#smile29").val(),
+        smile30: $("#smile30").val(),
+        smile31: $("#smile31").val(),
+        smile32: $("#smile32").val(),
+        smile33: $("#smile33").val(),
+        smile34: $("#smile34").val(),
+        smile35: $("#smile35").val(),
+        smile36: $("#smile36").val(),
+        smile37: $("#smile37").val(),
+        smile38: $("#smile38").val(),
+        smile39: $("#smile39").val(),
+        smile40: $("#smile40").val(),
+        smile41: $("#smile41").val(),
+        smile42: $("#smile42").val(),
+        smile43: $("#smile43").val(),
+        smile44: $("#smile44").val(),
+        smile45: $("#smile45").val(),
+        smile46: $("#smile46").val(),
+        smile47: $("#smile47").val(),
+        smile48: $("#smile48").val(),
+        smile49: $("#smile49").val(),
+
+        level: $("#level").val(),
+      };
+      $.ajax({
+        url: 'customer/savesmile_price',
         type: "POST",
         data: formData,
         dataType: 'json',

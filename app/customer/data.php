@@ -4,7 +4,6 @@ require("session_controller.php");
 
 $_POST['mobile_no'] = !empty($_POST['mobile_no']) ? $_POST['mobile_no'] : '00000000000';
 
-
 if ($_SESSION['csrftoken'] == $_POST['req_token']){
  
   if (!empty($_POST['network_module']) && !empty($_POST['dataplanloader']) && !empty($_POST['mobile_no']) && !empty($_POST['security_pin']) && !empty($_POST['req_token'])){
@@ -15,19 +14,22 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']){
     
     $security_pin=mysqli_real_escape_string($con, $_POST['security_pin']);
     $req_token=mysqli_real_escape_string($con, $_POST['req_token']);
-    $no_of_pins=mysqli_real_escape_string($con, $_POST['no_of_pins']);
+    $no_of_pins = mysqli_real_escape_string($con, $_POST['no_of_pins']);
+    $account_id=mysqli_real_escape_string($con, $_POST['account_id']);
 
+    
     if (strlen($mobile_no)==11 && is_numeric($mobile_no)){
         if ($security_pin == $security){
           $payload=array(
             'token' => $sk_token,
             'mobile' => $mobile_no,
+            'account_id' => $account_id,
             'network' => $network_module,
             'request_id' => strtoupper(time().rand(10000000, 90000000).mt_rand()),
             'plan_code' => $dataplanloader,
             'no_of_pins' => $no_of_pins ?? 1
           );
-         
+          
           $url = $api_url.'/data';
 
           $ch = curl_init();

@@ -5,20 +5,58 @@
         $type = 'data';
         $product = 'spectranet-data';
         
-        // Get mtn sms pricess
+        // Get spectranet sms pricess
         require('../api/vtpass_pricing.php');
         
         foreach ($response as $res) {
             if ($plan_id == $res['variation_code']) {
                 $service_price = $res['price'];
-                $databyte = $res['val'];
+                $databyte = $res['val'] ?? '';
                 $package_name = $res['name'];
                 $planCode = $res['variation_code'];
             }
         }
+
+        $service_price = $service_price * $no_of_pins;
+
+        $payload = [
+            'serviceID' => 'spectranet',
+            'variation_code' => $planCode,
+            'quantity' => $quantity,
+            'phone' => $mobile_no,
+            'amount' => $service_price,
+            'billersCode' => $mobile_no
+        ];
+    }
+
+    if ($network == 'SMILE-DATA') {
+        $type = 'data';
+        $product = 'smile-data';
+
+        // Get mtn sms pricess
+        require('../api/vtpass_pricing.php');
+
+        foreach ($response as $res) {
+            if ($plan_id == $res['variation_code']) {
+                $service_price = $res['variation_amount'];
+                $databyte = $res['val'] ?? '';
+                $package_name = $res['name'];
+                $planCode = $res['variation_code'];
+            }
+        }
+
+        $payload = [
+            'serviceID' => 'smile-direct',
+            'variation_code' => $planCode,
+            'quantity' => $quantity ?? $no_of_pins,
+            'phone' => $mobile_no,
+            'amount' => $service_price,
+            'billersCode' => $account_id
+        ];
+
+        $service_price = $service_price * $no_of_pins;
     }
     
-    $service_price = $service_price * $no_of_pins;
     if ($service_price <= 0) {
         $response = array(
             'status' => 'fail',
@@ -29,15 +67,6 @@
         echo json_encode($response);
         exit;
     }
-
-    $payload = [
-        'serviceID' => 'spectranet',
-        'variation_code' => $planCode,
-        'quantity' => $quantity,
-        'phone' => $mobile_no,
-        'amount' => $service_price,
-        'billersCode' => $mobile_no
-    ];
 
     if ($account_balance > $service_price && $service_price > 0) {
         $new_wallet = $account_balance - $service_price;
@@ -59,10 +88,26 @@
 
         $service = $network;
 
-        if ($status=="successful"){
-            $order_report=strtoupper($service.' N'.$service_price.' E-Pin Purchase Successful on '.$mobile_no.' ['.$epin.']');
+    // $response = array(
+    //     'status' => 'fail',
+    //     'status_code' => '100',
+    //     'message' => 'Price not set!!!' . json_encode($rdata),
+    // );
 
-            mysqli_query($con, "INSERT INTO `final_transactions` (`id`, `mobile_number`, `buyer_email`, `buyer_username`, `buyer_service`, `buyer_amount`, `buyer_prebal`, `buyer_postbal`, `buyer_descr`, `buyer_status`, `buyer_date`, `timestring`, `charge_from`, `user_type`, `sys_ref`, `api_ref`, `api_report`, `src_price`, `profit`, `databyte`,`domain_name`,`ip_address`,`extra`,`api_response`,`post_fields`) VALUES (NULL, '$mobile_no', '$account_email', '$account_username', '$service', '$service_price', '$account_balance', '$new_wallet', '$order_report', 'SUCCESSFUL', '$time', '$timestring', 'WALLET', '$level', '$api_reference', '$reference', 'DONE', '0', '0','0','$domain','$ipaddress','$epin','$response','$post_fields')");
+    // echo json_encode($response);
+    // exit;
+
+
+        if ($status=="successful"){
+            if ($network == 'SMILE-DATA') {
+                $order_report=strtoupper($service.' N'.$service_price.' Purchase Successful on '.$account_id);
+            }elseif($network == 'SEPCTRANET-DATA'){
+                $order_report = strtoupper($service . ' N' . $service_price . ' Purchase Successful on ' . $mobile_no . ' [' . $epin . ']');
+            }else{
+                $order_report = strtoupper($service . ' N' . $service_price . ' Purchase Successful on ' . $mobile_no);
+            }
+
+            mysqli_query($con, "INSERT INTO `final_transactions` (`id`, `mobile_number`, `buyer_email`, `buyer_username`, `buyer_service`, `buyer_amount`, `buyer_prebal`, `buyer_postbal`, `buyer_descr`, `buyer_status`, `buyer_date`, `timestring`, `charge_from`, `user_type`, `sys_ref`, `api_ref`, `api_report`, `src_price`, `profit`, `databyte`,`domain_name`,`ip_address`,`extra`,`api_response`,`post_fields`,`buyer_quantity`) VALUES (NULL, '$mobile_no', '$account_email', '$account_username', '$service', '$service_price', '$account_balance', '$new_wallet', '$order_report', 'SUCCESSFUL', '$time', '$timestring', 'WALLET', '$level', '$api_reference', '$reference', 'DONE', '0', '0','$databyte','$domain','$ipaddress','$epin','$response','$post_fields','$no_of_pins')");
 
             $response=array(
             'status' => 'success',
@@ -79,9 +124,16 @@
         }else{
             $new_wallet=$account_balance;
             mysqli_query($con, "UPDATE users SET wallets='$new_wallet' WHERE id='$user_id' AND username ='$account_username'");
-            $order_report=strtoupper($service.' N'.$service_price.' E-pin Purchase failed on '.$mobile_no);
 
-            mysqli_query($con, "INSERT INTO `final_transactions` (`id`, `mobile_number`, `buyer_email`, `buyer_username`, `buyer_service`, `buyer_amount`, `buyer_prebal`, `buyer_postbal`, `buyer_descr`, `buyer_status`, `buyer_date`, `timestring`, `charge_from`, `user_type`, `sys_ref`, `api_ref`, `api_report`, `src_price`, `profit`, `databyte`,`domain_name`,`ip_address`,`api_response`,`post_fields`) VALUES (NULL, '$mobile_no', '$account_email', '$account_username', '$service', '$service_price', '$account_balance', '$account_balance', '$order_report', 'FAILED', '$time', '$timestring', 'WALLET', '$level', '$api_reference', '$reference', 'DONE', '0', '0','0','$domain','$ipaddress','$response','$post_fields')");
+            if ($network == 'SMILE-DATA') {
+                $order_report = strtoupper($service . ' N' . $service_price . ' Purchase failed on ' . $account_id);
+            } elseif ($network == 'SEPCTRANET-DATA') {
+                $order_report=strtoupper($service.' N'.$service_price.' E-pin Purchase failed on '.$mobile_no);
+            }else{
+                $order_report = strtoupper($service . ' N' . $service_price . ' Purchase failed on ' . $mobile_no);
+            }
+
+            mysqli_query($con, "INSERT INTO `final_transactions` (`id`, `mobile_number`, `buyer_email`, `buyer_username`, `buyer_service`, `buyer_amount`, `buyer_prebal`, `buyer_postbal`, `buyer_descr`, `buyer_status`, `buyer_date`, `timestring`, `charge_from`, `user_type`, `sys_ref`, `api_ref`, `api_report`, `src_price`, `profit`, `databyte`,`domain_name`,`ip_address`,`api_response`,`post_fields`,`buyer_quantity`) VALUES (NULL, '$mobile_no', '$account_email', '$account_username', '$service', '$service_price', '$account_balance', '$account_balance', '$order_report', 'FAILED', '$time', '$timestring', 'WALLET', '$level', '$api_reference', '$reference', 'DONE', '0', '0','$databyte','$domain','$ipaddress','$response','$post_fields','$no_of_pins')");
 
             $response=array(
                 'status' => 'fail',

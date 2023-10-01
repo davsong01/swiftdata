@@ -7,6 +7,10 @@
         $credentials = base64_encode($vtpass_account);
     }
 
+    if(isset($verify) && $verify == true){
+       $url = $verify_link;
+    }
+
     date_default_timezone_set('Africa/Lagos');
     $date = date('YmdHis', time());
     $api_reference = $date . 'SWIFTDATANG-'.rand(10000, 90000);

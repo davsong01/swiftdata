@@ -95,6 +95,9 @@ require("request_pin.php");
           if ($spectranet_lock != 0) {
             echo '<option value="SPECTRANET-DATA">SPECTRANET</option>';
           }
+          if ($smile_lock != 0) {
+            echo '<option value="SMILE-DATA">SMILE</option>';
+          }
           ?>
         </select>
       </div>
@@ -129,6 +132,15 @@ require("request_pin.php");
         <input type="tel" class="form-control" placeholder="Mobile No." id="mobile_no" maxlength="11" required>
       </div>
 
+      <div class="input-group mb-3" id="smile-verify-email" style="margin-top: 35px;display:none">
+        <div class=" input-group-text">
+          <br><br>
+          <span class="" id="smile-email"><i class="fas fa-envelope" style="font-size: 25px;"></i></span>
+        </div>
+        <input type="email" class="form-control" placeholder="Email address associated with smile Account" id="smile_email">
+      </div>
+
+      <div id="extra" style="margin:5px 0;background: black;color: yellow;padding: 20px;margin-bottom: 15px;font-size: initial; display:none"></div>
 
       <small>Forget Pin ? <a href="<?php echo $baseurl; ?>/reset_pin">Reset Here</a></small>
       <div class="input-group mb-3">
@@ -183,7 +195,18 @@ require("request_pin.php");
 
 </div>
 
+<div id="myModal2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="myModalLabel"></h3>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+      </div>
+      <div class="modal-body"> </div>
 
+    </div>
+  </div>
+</div>
 
 
 </div>
@@ -200,6 +223,13 @@ require("request_pin.php");
         method: 'GET',
         success: function(RES_data) {
           $.LoadingOverlay("hide");
+
+          if ($("#network_module").val() == 'SMILE-DATA') {
+            $("#smile-verify-email").show();
+          } else {
+            $("#smile-verify-email").hide();
+
+          }
           if (network_module == 'MTN-DATACARD') {
             $("#ask_pins").show();
             $("#ask_pins_small").show();
@@ -235,8 +265,10 @@ require("request_pin.php");
       no_of_pins: $("#no_of_pins").val()
     };
 
+    if ($("#network_module").val() == 'SMILE-DATA') {
+      return verifySmile();
+    }
     $.LoadingOverlay("show");
-
     $.ajax({
       url: '<?php echo $baseurl; ?>/customer/data',
       method: 'POST',
@@ -271,6 +303,81 @@ require("request_pin.php");
 
     event.preventDefault();
   });
+
+  function verifySmile() {
+    var formData = {
+      service_module: $("#network_module").val(),
+      smart_no: $("#smile_email").val(),
+      dataplanloader: $("#dataplanloader").val(),
+      mobile_no: $("#mobile_no").val(),
+      security_pin: $("#security_pin").val(),
+      req_token: $("#req_token").val(),
+      no_of_pins: $("#no_of_pins").val(),
+    };
+
+    $.LoadingOverlay("show");
+
+    $.ajax({
+      url: '<?php echo $baseurl; ?>/customer/verify',
+      method: 'POST',
+      dataType: 'json',
+      data: formData,
+      success: function(response_fd) {
+        $.LoadingOverlay("hide");
+
+        if (response_fd.status == 'success') {
+          $("#myModal2 .modal-header").html(response_fd.title);
+          $("#myModal2 .modal-body").html(response_fd.message);
+          $("#myModal2").modal("show");
+        } else {
+          $("#errorModal").modal("show");
+          $("#errorModal .modal-body").html(response_fd.message);
+        }
+      }
+
+    });
+
+    event.preventDefault();
+  }
+
+  function pay4smile(account_id) {
+    var formData = {
+      network_module: $("#network_module").val(),
+      smart_no: $("#smile_email").val(),
+      dataplanloader: $("#dataplanloader").val(),
+      mobile_no: $("#mobile_no").val(),
+      security_pin: $("#security_pin").val(),
+      req_token: $("#req_token").val(),
+      no_of_pins: $("#no_of_pins").val(),
+      account_id: account_id,
+    };
+
+    $("#myModal2").modal("hide");
+    $.LoadingOverlay("show");
+    $.ajax({
+      url: '<?php echo $baseurl; ?>/customer/data',
+      method: 'POST',
+      dataType: 'json',
+      data: formData,
+      success: function(response_fd) {
+        $.LoadingOverlay("hide");
+        if (response_fd.status == 'success') {
+          $("#successModal").modal("show");
+          $("#successModal .modal-body").html(response_fd.message);
+          setTimeout(function() {
+            window.location.reload();
+          }, 3000);
+        } else {
+          $("#errorModal").modal("show");
+          $("#errorModal .modal-body").html(response_fd.message);
+        }
+      }
+    });
+  };
+
+  function closeModal() {
+    $("#myModal2").modal("hide");
+  }
 </script>
 
 <?php require("site_footer.php"); ?>

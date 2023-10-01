@@ -5,6 +5,7 @@
 
     $api_token = trim($data['token'] ?? $_POST['token'] );
     $mobile_no = trim($data['mobile'] ?? $_POST['mobile']); // getting mobile no
+    $account_id = trim($data['account_id'] ?? $_POST['account_id']); // getting mobile no
     $plan_id = $data['plan_code'] ?? $_POST['plan_code'];
     $plan_name = $data['plan_name'] ?? $_POST['plan_name'];
     $network = strtoupper($data['network'] ?? $_POST['network']);
@@ -88,9 +89,9 @@
                     require("dataModule/$api_mobilesme");
                 } else if ($network == "SPECTRANET-DATA" && $spectranet_lock == 1) {
                     require("dataModule/$api_spectranet");
-                } else {
-                
-
+                } else if ($network == "SMILE-DATA" && $smile_lock == 1) {
+                    require("dataModule/$api_smile");
+                }else {
                     $response = array(
                         'status' => 'fail',
                         'status_code' => '100',

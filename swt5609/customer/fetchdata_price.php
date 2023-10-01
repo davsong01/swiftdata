@@ -545,7 +545,7 @@
             }
 
             $message .= '<button class="btn btn-success" type="button" onclick="saveSPECTRANETDATA()">Save</button></form>';
-        } 
+        }
 
         $response = array(
             'status' => 'success',
@@ -572,20 +572,20 @@
             $level = 4;
         }
 
-        if ($api_spectranet == 'vtpass_data.php') {
+        if ($api_smile == 'vtpass_data.php') {
             $type = 'data';
-            $product = 'smile';
+            $product = 'smile-data';
             require("../../api/vtpass_pricing.php");
             $message = '<form method="POST" id="submit_form">
-                    <input type="hidden" value="' . $level . '" id="level">';
+                        <input type="hidden" value="' . $level . '" id="level">
+                        <div class="row mb-3">';
 
             foreach ($response as $res) {
-                $message .= '<div><label>' . $res['name'] . '</label><input type="number" id="' . $res['id'] . '" class="form-control" value="' . $res['price'] . '" required></div><br>';
+                $message .= '<div class="col-md-4" style="margin: 10px 0;"><label>' . $res['name'] . '</label><input type="number" id="' . $res['id'] . '" class="form-control" value="' . $res['variation_amount'] . '" required></div><br>';
             }
 
-            $message .= '<button class="btn btn-success" type="button" onclick="saveSMILEDATA()">Save</button></form>';
-        }
-
+            $message .= '<button class="btn btn-success" type="button" onclick="saveSMILEDATA()">Save</button></div></form>';
+        } 
         $response = array(
             'status' => 'success',
             'data' => $message,
