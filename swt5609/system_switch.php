@@ -167,6 +167,8 @@ if ($manage_automation == 1) {
                 glo_vtu: $("#glo_vtu").val(),
                 airtel_vtu: $("#airtel_vtu").val(),
                 mobile_vtu: $("#mobile_vtu").val(),
+                smile_vtu: $("#smile_vtu").val(),
+                
                 level: 1,
             };
             $.ajax({

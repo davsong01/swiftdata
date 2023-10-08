@@ -37,7 +37,6 @@ $message=$apidata->message;
 $status=$apidata->status;
 
 if ($status == "success"){
-
  $response=array(
  	'title' => 'COMPLETED',
  	'icon' => 'success',
@@ -45,13 +44,9 @@ if ($status == "success"){
     'message' => $message,
   );
 
-echo json_encode($response);
-exit();
-
-}
-
-else{
-
+  echo json_encode($response);
+  exit();
+}else{
  $response=array(
  	'title' => 'FAILED',
  	'icon' => 'error',
@@ -59,16 +54,10 @@ else{
     'message' => '<div class="alert alert-danger">'.$message.'</div>',
   );
 
-echo json_encode($response);
-exit();
-
+  echo json_encode($response);
+  exit();
 }
-
-}
-
-else{
-
-
+}else{
  $response=array(
     'status'=>'fail',
     'message' => '<div class="alert alert-danger text-left">Incorrect security pin !!!</div>',

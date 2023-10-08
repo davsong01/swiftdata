@@ -7,9 +7,10 @@ $mtn_lock=mysqli_real_escape_string($con, $_POST['mtn_lock']);
 $glo_lock=mysqli_real_escape_string($con, $_POST['glo_lock']);
 $airtel_lock=mysqli_real_escape_string($con, $_POST['airtel_lock']);
 $mobile_lock=mysqli_real_escape_string($con, $_POST['mobile_lock']);
+$smile_vtu_lock=mysqli_real_escape_string($con, $_POST['smile_vtu_lock']);
 $level=mysqli_real_escape_string($con, $_POST['level']);
-
-$update=mysqli_query($con, "UPDATE web_settings SET m_lock2='$mtn_lock', g_lock2='$glo_lock', a_lock2='$airtel_lock', mo_lock2='$mobile_lock' WHERE id='$level'");
+  
+$update=mysqli_query($con, "UPDATE web_settings SET m_lock2='$mtn_lock', g_lock2='$glo_lock', a_lock2='$airtel_lock', mo_lock2='$mobile_lock',smile_vtu_lock='$smile_vtu_lock' WHERE id='$level'");
 
 if ($update){
 

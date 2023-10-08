@@ -7,9 +7,10 @@ $mtn_vtu=mysqli_real_escape_string($con, $_POST['mtn_vtu']);
 $glo_vtu=mysqli_real_escape_string($con, $_POST['glo_vtu']);
 $airtel_vtu=mysqli_real_escape_string($con, $_POST['airtel_vtu']);
 $mobile_vtu=mysqli_real_escape_string($con, $_POST['mobile_vtu']);
+$smile_vtu=mysqli_real_escape_string($con, $_POST['smile_vtu']);
 $level=mysqli_real_escape_string($con, $_POST['level']);
 
-$update=mysqli_query($con, "UPDATE web_settings SET api_mtn2='$mtn_vtu', api_glo2='$glo_vtu', api_airtel2='$airtel_vtu', api_mobile2='$mobile_vtu' WHERE id='$level'");
+$update=mysqli_query($con, "UPDATE web_settings SET api_mtn2='$mtn_vtu', api_glo2='$glo_vtu', api_airtel2='$airtel_vtu', api_mobile2='$mobile_vtu',api_smile_vtu='$smile_vtu' WHERE id='$level'");
 
 if ($update){
 

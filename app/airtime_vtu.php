@@ -60,6 +60,9 @@ require 'request_pin.php';
           if ($mo_lock2 != 0) {
             echo '<option value="9MOBILE-VTU">9MOBILE-VTU</option>';
           }
+          if ($smile_vtu_lock != 0) {
+            echo '<option value="SMILE-VTU">SMILE-VTU</option>';
+          }
           ?>
         </select>
       </div>
@@ -152,7 +155,6 @@ require 'request_pin.php';
   }
 
   $("#network_module").change(function() {
-
     if ($("#network_module").val() != "") {
       var network_module = $("#network_module").val();
       $.LoadingOverlay("show");

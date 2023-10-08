@@ -29,6 +29,7 @@ if ($network=="9MOBILE-VTU" || $network=="9MOBILE" || $network=="ETISALAT-VTU" |
     $service_comm=$moair_comm;
 }
 
+
 $discount_now=$amount*$discount/100;
 $service_price=$amount-$discount_now;
 

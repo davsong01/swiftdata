@@ -169,7 +169,7 @@
                     <li><a href="<?php echo $adminurl; ?>/query_funding">Query Funding</a></li>
                     <li><a href="<?php echo $adminurl; ?>/wallet_summary">Wallet Summary</a></li>
                     <li><a href="<?php echo $adminurl; ?>/sales_analysis">Sales Analysis</a></li>
-                    <li><a href="<?php echo $adminurl; ?>/query_staff">Query Staffs</a></li>
+                    <li><a href="<?php echo $adminurl; ?>/query_staff">Query Staff</a></li>
                 </ul>
             </li>
 
@@ -179,7 +179,7 @@
                         <i class="fa-solid fa-credit-card"></i>
                     </div>
                     <div class="nav_title">
-                        <span>Financial Sect.</span>
+                        <span>Finance Management</span>
                     </div>
                 </a>
                 <ul>
@@ -218,7 +218,7 @@
                         <i class="fa-solid fa-users"></i>
                     </div>
                     <div class="nav_title">
-                        <span>Manage Staffs</span>
+                        <span>Manage Staff</span>
                     </div>
                 </a>
                 <ul>
@@ -248,7 +248,7 @@
                         <i class="fa-solid fa-gear"></i>
                     </div>
                     <div class="nav_title">
-                        <span>Store Control</span>
+                        <span>Lock/Unlock Products</span>
                     </div>
                 </a>
                 <ul>
@@ -262,7 +262,7 @@
                         <i class="fa-solid fa-plug"></i>
                     </div>
                     <div class="nav_title">
-                        <span>Set Automation</span>
+                        <span>Set Provider</span>
                     </div>
                 </a>
                 <ul>

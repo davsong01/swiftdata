@@ -56,6 +56,21 @@
 
         $service_price = $service_price * $no_of_pins;
     }
+
+    if ($network == 'SMILE-VTU') {
+        $type = 'data';
+        $product = 'smile-vtu';
+        $service_price = $amount;
+       
+        $payload = [
+            'serviceID' => 'smile-direct',
+            'variation_code' => 'airtime',
+            'quantity' => $quantity ?? $no_of_pins,
+            'phone' => $mobile_no,
+            'amount' => $amount,
+            'billersCode' => $mobile_no
+        ];
+    }
     
     if ($service_price <= 0) {
         $response = array(
@@ -73,7 +88,7 @@
         mysqli_query($con, "UPDATE users SET wallets='$new_wallet' WHERE id='$user_id' AND username ='$account_username'");
 
         require '../api/vtpass_curl.php';
-    
+
         $rdata = json_decode($response, true);
         $status = $rdata['content']['transactions']['status'];
         $response_description = $rdata['response_description'];
@@ -87,16 +102,6 @@
         }
 
         $service = $network;
-
-    // $response = array(
-    //     'status' => 'fail',
-    //     'status_code' => '100',
-    //     'message' => 'Price not set!!!' . json_encode($rdata),
-    // );
-
-    // echo json_encode($response);
-    // exit;
-
 
         if ($status=="successful"){
             if ($network == 'SMILE-DATA') {

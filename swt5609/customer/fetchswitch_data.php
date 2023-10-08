@@ -150,7 +150,12 @@ if ($searc_level=="vtu"){
         <option value="airtimevtu_vtpass.php"' . ($api_mobile2== 'airtimevtu_vtpass.php' ? 'selected' : '') . '>VTPASS</option>
         <option value="airtimevtu_host.php"' . ($api_mobile2 == 'airtimevtu_host.php' ? 'selected' : '') . '>SIMHOSTING</option>
         </select>
+        <br/>
+        <label>SMILE *</label>
+        <select class="form-control" id="smile_vtu" required>
 
+        <option value="vtpass_data.php"' . ($api_smile_vtu == 'vtpass_data.php' ? 'selected' : '') . '>VTPASS</option>
+        </select>
         <br/>
     <button class="btn btn-success" type="button" onclick="saveVTU()">Save</button>
 

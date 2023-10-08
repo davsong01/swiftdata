@@ -29,9 +29,14 @@ $message='
 <br/>
 <div>
 <label>9MOBILE DISCOUNT</label>
-<input type="text" id="mobile_discount" class="form-control" value="'.$mobile_discount.'" required>
+<input type="text" id="mobile_discount" class="form-control" value="'.$mobile_discount. '" required>
 </div>
 
+<br/>
+<div>
+<label>SMILE DISCOUNT</label>
+<input type="text" id="smile_vtu_discount" class="form-control" value="' . $smile_vtu_discount . '" required>
+</div>
 <br/>
 <button class="btn btn-success" type="button" onclick="saveData()">Save</button>
 

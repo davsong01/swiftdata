@@ -43,7 +43,7 @@
                     'flash' => 0,
                 ],
                 "auth" => [
-                    "username" => "adebolaademilekan27@gmail.com",
+                    "username" => "adeglobaltelecom@gmail.com",
                     "apikey" => "d75a8f986bf4e6eadebd88c1fc5eb14497d31f10"
                 ],
                 "flash" => "0",
@@ -56,7 +56,7 @@
             // CURLOPT_URL => 'https://api.ebulksms.com:8080/sendsms.json',
             // https://api.ebulksms.com:8080/sendsms.json
             
-            CURLOPT_URL => 'https://api.ebulksms.com:8080/sendsms.jsonn',
+            CURLOPT_URL => 'https://api.ebulksms.com:8080/sendsms.json',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -80,7 +80,6 @@
            
             $order_report=strtoupper('BulkSMS Sent To '.$plus_denos.' Numbers(s)');
 
-           
             mysqli_query($con, "INSERT INTO `final_transactions` (`id`, `mobile_number`, `buyer_email`, `buyer_username`, `buyer_service`, `buyer_amount`, `buyer_prebal`, `buyer_postbal`, `buyer_descr`, `buyer_status`, `buyer_date`, `timestring`, `charge_from`, `user_type`, `sys_ref`, `api_ref`, `api_report`, `src_price`, `profit`, `databyte`,`post_fields`,`api_response`,`buyer_quantity`) VALUES (NULL, '$mobile', '$account_email', '$account_username', 'BULKSMS', '$service_price', '$account_balance', '$new_wallet', '$order_report', 'SUCCESSFUL', '$time', '$timestring', 'WALLET', '$level', '$api_reference', '$reference', 'DONE', '0', '0','0','$encodedRequest','$res','$quantity')");
 
 

@@ -7,9 +7,11 @@ $mtn_discount=mysqli_real_escape_string($con, $_POST['mtn_discount']);
 $glo_discount=mysqli_real_escape_string($con, $_POST['glo_discount']);
 $airtel_discount=mysqli_real_escape_string($con, $_POST['airtel_discount']);
 $mobile_discount=mysqli_real_escape_string($con, $_POST['mobile_discount']);
+$smile_vtu_discount=mysqli_real_escape_string($con, $_POST['smile_vtu_discount']);
+
 $level=mysqli_real_escape_string($con, $_POST['level']);
 
-$update=mysqli_query($con, "UPDATE airtimevtu_plan SET mtn_discount='$mtn_discount', glo_discount='$glo_discount', airtel_discount='$airtel_discount', mobile_discount='$mobile_discount' WHERE id='$level'");
+$update=mysqli_query($con, "UPDATE airtimevtu_plan SET mtn_discount='$mtn_discount', glo_discount='$glo_discount', airtel_discount='$airtel_discount', mobile_discount='$mobile_discount',smile_vtu_discount='$smile_vtu_discount' WHERE id='$level'");
 
 if ($update){
 

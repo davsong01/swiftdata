@@ -112,7 +112,7 @@ if ($searc_level=="datalock"){
 ///////DATA END
 
 if ($searc_level=="vtulock"){
-    $message='
+    $message= '
     <form id="form-data">
         <label>MTN *</label>
         <select class="form-control" id="mtn_lock" required>
@@ -145,6 +145,12 @@ if ($searc_level=="vtulock"){
         <option value="0">DISABLE</option>
         </select>
 
+        <br/>
+        <label>SMILE *</label>
+        <select class="form-control" id="smile_vtu_lock" required>
+        <option value="1" ' . ($smile_vtu_lock == 1 ? 'selected' : '') . '>ENABLE</option>
+        <option value="0"' . ($smile_vtu_lock == 0 ? 'selected' : '').'>DISABLE</option>
+        </select>
         <br/>
     <button class="btn btn-success" type="button" onclick="saveVTULOCK()">Save</button>
 
