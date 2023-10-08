@@ -54,7 +54,9 @@
         $curl = curl_init();
         curl_setopt_array($curl, array(
             // CURLOPT_URL => 'https://api.ebulksms.com:8080/sendsms.json',
-            CURLOPT_URL => 'https://api.ebulksms.com/sendsms.json',
+            // https://api.ebulksms.com:8080/sendsms.json
+            
+            CURLOPT_URL => 'https://api.ebulksms.com:8080/sendsms.jsonn',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
