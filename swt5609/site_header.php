@@ -303,6 +303,7 @@
                 <ul>
                     <li><a href="<?php echo $adminurl; ?>/withdraw_charge">Withdraw Charges</a></li>
                     <li><a href="<?php echo $adminurl; ?>/account_charge">User Level Charges</a></li>
+                    <li><a href="<?php echo $adminurl; ?>/kyc_setting">KYC Setting</a></li>
                 </ul>
             </li>
 

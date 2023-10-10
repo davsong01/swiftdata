@@ -51,27 +51,20 @@
             ],
         ];
         $encodedRequest = json_encode($request);
-        $curl = curl_init();
-        curl_setopt_array($curl, array(
-            // CURLOPT_URL => 'https://api.ebulksms.com:8080/sendsms.json',
-            // https://api.ebulksms.com:8080/sendsms.json
-            
-            CURLOPT_URL => 'https://api.ebulksms.com:8080/sendsms.json',
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => '',
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS => json_encode($request),
-            CURLOPT_HTTPHEADER => [
-                'Accept: application/json',
-                'Content-Type: application/json'
-            ],
-        ));
-        $res = curl_exec($curl);
-        curl_close($curl);
+
+        $url = "https://api.ebulksms.com:443/sendsms";
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $encodedRequest); 
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $headers = [
+            'Content-Type: application/json',
+        ];
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        $res = curl_exec($ch);
+        curl_close($ch);
+
 
         // $res= '{"response":{"status":"SUCCESS","totalsent":1,"cost":2}}';
         $decodedResponse = json_decode($res);

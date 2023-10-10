@@ -3,52 +3,54 @@
 if ($manage_prices==1){
 ?>
 <div class="alert">
-<div class="col-xl-12">
-<div class="alert" style="background-color: #fff;color: blue;">
-
-        <div id="response" style="text-align: center;">
-          <h4>USER LEVEL CHARGES</h4>
-        </div>
-                
-</div>
-</div>
+  <div class="col-xl-12">
+    <div class="alert" style="background-color: #fff;color: blue;">
+      <div id="response" style="text-align: center;">
+        <h4>USER LEVEL CHARGES</h4>
+      </div>
+    </div>
+  </div>
 
 
-<div class="alert" style="background-color: #fff; border-radius: 0px 0px 0px 0px;">
+  <div class="alert" style="background-color: #fff; border-radius: 0px 0px 0px 0px;">
 
-<!-- start -->
+    <!-- start -->
+    <div class="mb-3">
+      <input type="hidden" id="req_token" value="<?php echo $_SESSION['csrftoken']; ?>">
+      <label>Charges For Level 2</label>
+      <input type="tel" id="charges2" class="form-control" placeholder="Level 2 Charges"
+        value="<?php echo $level2_charge; ?>">
+      <label style="color: red;">Admin Default Charges</label>
+      <input type="tel" id="admin2" class="form-control" placeholder="Admin Charges"
+        value="<?php echo $level2_adminch; ?>">
+    </div>
 
+    <div class="mb-3">
+      <label>Charges For Level 3</label>
+      <input type="tel" id="charges3" class="form-control" placeholder="Level 3 Charges"
+        value="<?php echo $level3_charge; ?>">
+      <label style="color: red;">Admin Default Charges</label>
+      <input type="tel" id="admin3" class="form-control" placeholder="Admin Charges"
+        value="<?php echo $level3_adminch; ?>">
+    </div>
 
-<div class="mb-3">
-  <input type="hidden" id="req_token" value="<?php echo $_SESSION['csrftoken']; ?>">
-  <label>Charges For Level 2</label>
-  <input type="tel" id="charges2" class="form-control" placeholder="Level 2 Charges" value="<?php echo $level2_charge; ?>">
-  <label style="color: red;">Admin Default Charges</label>
-  <input type="tel" id="admin2" class="form-control" placeholder="Admin Charges" value="<?php echo $level2_adminch; ?>">
-</div>
+    <div class="mb-3">
+      <label>Charges For Level 4</label>
+      <input type="tel" id="charges4" class="form-control" placeholder="Admin Charges"
+        value="<?php echo $level4_charge; ?>">
+      <label style="color: red;">Admin Default Charges</label>
+      <input type="tel" id="admin4" class="form-control" placeholder="Admin Charges"
+        value="<?php echo $level4_adminch; ?>">
+    </div>
 
-<div class="mb-3">
-  <label>Charges For Level 3</label>
-  <input type="tel" id="charges3" class="form-control" placeholder="Level 3 Charges" value="<?php echo $level3_charge; ?>">
-  <label style="color: red;">Admin Default Charges</label>
-  <input type="tel" id="admin3" class="form-control" placeholder="Admin Charges" value="<?php echo $level3_adminch; ?>">
-</div>
+    <button class="btn btn-block btn-success" onclick="saveUPDATES()" style="width: 100%">Save Data</button>
 
-<div class="mb-3">
-  <label>Charges For Level 4</label>
-  <input type="tel" id="charges4" class="form-control" placeholder="Admin Charges" value="<?php echo $level4_charge; ?>">
-  <label style="color: red;">Admin Default Charges</label>
-  <input type="tel" id="admin4" class="form-control" placeholder="Admin Charges" value="<?php echo $level4_adminch; ?>">
-</div>
+    <br>
+    <br>
 
-<button class="btn btn-block btn-success" onclick="saveUPDATES()" style="width: 100%">Save Data</button>
+    <div id="transactionsDiv"></div>
 
-<br>
-<br>
-
-<div id="transactionsDiv"></div>
-
-</div>
+  </div>
 </div>
 </div>
 
@@ -70,10 +72,9 @@ if ($manage_prices==1){
 </div>
 
 <script type="text/javascript">
-
-    function saveUPDATES() {
+  function saveUPDATES() {
     $.LoadingOverlay("show");
-     var formData = {
+    var formData = {
       charges2: $("#charges2").val(),
       charges3: $("#charges3").val(),
       charges4: $("#charges4").val(),
@@ -83,27 +84,25 @@ if ($manage_prices==1){
       req_token: $("#req_token").val(),
     };
     $.ajax({
-    url:'customer/save_accountcharge',
-    type:"POST",
-    data:formData,
-    dataType:'json',
-    success:function(savingRes){   
-    $.LoadingOverlay("hide");
-    if (savingRes.status=='success'){
-     $("#successModal").modal("show");
-     $("#successModal .modal-body").html(savingRes.message);
-          setTimeout(function() {
-                        window.location.reload();
-                    }, 2000);
-    }
-    else{
-    alert(savingRes.message);
-    }
-            }
-        });
-    
-    };
+      url: 'customer/save_accountcharge',
+      type: "POST",
+      data: formData,
+      dataType: 'json',
+      success: function (savingRes) {
+        $.LoadingOverlay("hide");
+        if (savingRes.status == 'success') {
+          $("#successModal").modal("show");
+          $("#successModal .modal-body").html(savingRes.message);
+          setTimeout(function () {
+            window.location.reload();
+          }, 2000);
+        } else {
+          alert(savingRes.message);
+        }
+      }
+    });
 
+  };
 </script>
 
 <?php
