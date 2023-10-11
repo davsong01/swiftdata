@@ -268,37 +268,43 @@ if ($searc_level=="sms"){
 }
 
 if ($searc_level=="education"){
-    $message='
+    $message= '
     <form id="form-data">
-        <label>WAEC *</label>
-        <select class="form-control" id="waec_education" required>
-        <option value="airtimesns_sms.php">BULKSMS</option>
-        <option value="mtnsme_gon.php">GONGOZ WAEC</option>
+        <label>WAEC *</label> 
+        <select class="form-control" id="waec" required>
+        <option value="easyaccess.php"' . ($api_waec == 'easyaccess.php' ? 'selected' : '') . '>EASY ACCESS</option>
+        <option value="naijaresultpins.php"' . ($api_waec == 'naijaresultpins.php' ? 'selected' : '') . '>NAIJA RESULTS PINS</option>
         </select>
 
         <br/>
-        <label>GCE *</label>
-        <select class="form-control" id="gce_education" required>
-
-        <option value="airtimesns_sms.php">BULKSMS</option>
-        <option value="mtnsme_gon.php">GONGOZ WAEC</option>
+        <label>WAEC REGISTRATION PIN *</label>
+        <select class="form-control" id="waec_registration" required>
+        <option value="vtpasseducation.php"' . ($api_waec_registration == 'vtpasseducation.php.php' ? 'selected' : '') . '>VTPASS</option>
+        <option value="naijaresultpins.php"' . ($api_waec_registration == 'naijaresultpins.php' ? 'selected' : '') . '>NAIJA RESULTS PINS</option>
 
         </select>
 
         <br/>
         <label>NECO *</label>
-        <select class="form-control" id="airtel_sns" required>
+        <select class="form-control" id="neco" required>
+        <option value="easyaccess.php"' . ($api_neco == 'easyaccess.php' ? 'selected' : '') . '>EASY ACCESS</option>
+        <option value="naijaresultpins.php"' . ($api_neco == 'naijaresultpins.php' ? 'selected' : '') . '>NAIJA RESULTS PINS</option>
 
-        <option value="airtimesns_sms.php">BULKSMS</option>
         </select>
 
         <br/>
         <label>NABTEB *</label>
-        <select class="form-control" id="mobile_sns" required>
+        <select class="form-control" id="nabteb" required>
+        <option value="easyaccess.php"' . ($api_nabteb == 'easyaccess.php' ? 'selected' : '') . '>EASY ACCESS</option>
+        <option value="naijaresultpins.php"' . ($api_nabteb == 'naijaresultpins.php' ? 'selected' : '') . '>NAIJA RESULTS PINS</option>
 
-        <option value="airtimesns_sms.php">BULKSMS</option>
         </select>
+        <br/>
+        <label>NBAIS *</label>
+        <select class="form-control" id="nbais" required>
+        <option value="naijaresultpins.php"' . ($api_nbais == 'naijaresultpins.php' ? 'selected' : '') . '>NAIJA RESULTS PINS</option>
 
+        </select>
         <br/>
     <button class="btn btn-success" type="button" onclick="saveEducation()">Save</button>
 

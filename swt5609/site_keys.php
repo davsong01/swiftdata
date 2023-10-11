@@ -1,12 +1,12 @@
 <?php require("site_header.php"); ?>
 
-<?php 
+<?php
 
-if ($manage_message==1){
+if ($manage_message == 1) {
 
 
 
-echo '<div class="main_content_iner overly_inner ">
+  echo '<div class="main_content_iner overly_inner ">
 <div class="container-fluid p-0 ">
 
 <div class="row">
@@ -29,8 +29,8 @@ echo '<div class="main_content_iner overly_inner ">
 <div class="white_card card_height_100 mb_30 social_media_card" style="background-color:#fff;">
 <div class="white_card_header">
 <div class="main-title">
-<h3 class="m-0">'.strtoupper($domain).'</h3>
-<p>Welcome '.$fullname.'</p>
+<h3 class="m-0">' . strtoupper($domain) . '</h3>
+<p>Welcome ' . $fullname . '</p>
 </div>
 </div>
 
@@ -42,18 +42,23 @@ echo '<div class="main_content_iner overly_inner ">
     <form id="form-data">
 
     <label>Vtpass Logins *</label>
-    <input type="text" class="form-control" id="vtpass_account" value="'.$vtpass_account.'" placeholder="Vtpass Login">
+    <input type="text" class="form-control" id="vtpass_account" value="' . $vtpass_account . '" placeholder="Vtpass Login">
 
     <br/>
 
     <label>SMS Username *</label>
-    <input type="text" class="form-control" id="sms_username" value="'.$sms_username.'" placeholder="SMS Username">
+    <input type="text" class="form-control" id="sms_username" value="' . $sms_username . '" placeholder="SMS Username">
 
     <br/>
 
      <label>SMS Password *</label>
-     <input type="hidden" id="req_token" value="'.$_SESSION['csrftoken'].'">
-    <input type="text" class="form-control" id="sms_password" value="'.$sms_password.'" placeholder="SMS Password">
+     <input type="hidden" id="req_token" value="' . $_SESSION['csrftoken'] . '">
+    <input type="text" class="form-control" id="sms_password" value="' . $sms_password . '" placeholder="SMS Password">
+    <br/>
+
+     <label>NAIJA RESULTS API KEY *</label>
+     <input type="hidden" id="req_token" value="' . $_SESSION['csrftoken'] . '">
+    <input type="text" class="form-control" id="naijaresultpins_api_key" value="' . $naijaresultpins_api_key . '" placeholder="NAIJA RESULTS API KEY">
 
     <br/>
 
@@ -75,50 +80,47 @@ echo '<div class="main_content_iner overly_inner ">
 </div>
 </div>
 </div>';
-}
+} else {
 
-else{
-
-require ("admin_pushfail.php"); 
-echo $admin_pushfail;
-
+  require("admin_pushfail.php");
+  echo $admin_pushfail;
 }
 
 ?>
 
 
-    <script type="text/javascript">
-
-     $("#form-data").submit(function (event) {
-     var formData = {
+<script type="text/javascript">
+  $("#form-data").submit(function(event) {
+    var formData = {
       vtpass_account: $("#vtpass_account").val(),
       sms_username: $("#sms_username").val(),
       sms_password: $("#sms_password").val(),
+      naijaresultpins_api_key: $("#naijaresultpins_api_key").val(),
+      
       req_token: $("#req_token").val(),
     };
     $.LoadingOverlay("show");
     $.ajax({
-      url:'customer/keys',
-      method:'POST',
-      dataType:'json',
-      data:formData,
-      success:function(response_fd){
-     $.LoadingOverlay("hide");
-     if (response_fd.status == 'success'){
-      $("#successModal").modal("show");
-      $("#successModal .modal-body").html(response_fd.message);
-                    setTimeout(function() {
-                        window.location.reload();
-                    }, 2000);
-     }
-    else {
-   $("#resultHandle").html(response_fd.message);
-    }
-}
+      url: 'customer/keys',
+      method: 'POST',
+      dataType: 'json',
+      data: formData,
+      success: function(response_fd) {
+        $.LoadingOverlay("hide");
+        if (response_fd.status == 'success') {
+          $("#successModal").modal("show");
+          $("#successModal .modal-body").html(response_fd.message);
+          setTimeout(function() {
+            window.location.reload();
+          }, 2000);
+        } else {
+          $("#resultHandle").html(response_fd.message);
+        }
+      }
     });
 
-      event.preventDefault();
-     });
-  </script>
+    event.preventDefault();
+  });
+</script>
 
 <?php require("site_footer.php"); ?>

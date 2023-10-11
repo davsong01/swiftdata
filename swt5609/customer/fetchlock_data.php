@@ -273,6 +273,8 @@ if ($searc_level=="epinslock"){
     $waec_style = isset($waec_lock) && $waec_lock == 1 ? 'ENABLED' : 'DISABLED';
     $gce_status = isset($gce_lock) && $gce_lock == 1 ? 'ENABLED' : 'DISABLED';
     $gce_style = isset($gce_lock) && $gce_lock == 1 ? 'ENABLED' : 'DISABLED';
+    $nbais_status = isset($nbais_lock) && $nbais_lock == 1 ? 'ENABLED' : 'DISABLED';
+    $nbais_style = isset($nbais_lock) && $nbais_lock == 1 ? 'ENABLED' : 'DISABLED';
     $nab_status = isset($nabt_lock) && $nabt_lock == 1 ? 'ENABLED' : 'DISABLED';
     $nab_style = isset($nabt_lock) && $nabt_lock == 1 ? 'ENABLED' : 'DISABLED';
     $neco_status = isset($neco_lock) && $neco_lock == 1 ? 'ENABLED' : 'DISABLED';
@@ -313,8 +315,15 @@ if ($searc_level=="epinslock"){
         </select>
 
         <br/>
-        <label>NABTEB * <span class="'. $nab_style.'">('.$nab_status .')</span></label>
+        <label>NABTEB * <span class="'. $nab_style.'">('.$nab_status . ')</span></label>
         <select class="form-control" id="nabteb" required>
+
+        <option value="1">ENABLE</option>
+        <option value="0">DISABLE</option>
+        </select>
+         <br/>
+        <label>NBAIS * <span class="' . $nbais_style . '">(' . $nbais_status . ')</span></label>
+        <select class="form-control" id="nbais" required>
 
         <option value="1">ENABLE</option>
         <option value="0">DISABLE</option>

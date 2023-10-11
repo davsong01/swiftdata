@@ -6,12 +6,13 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']){
 if (!empty($_POST['vtpass_account']) &&  !empty($_POST['sms_username']) && !empty($_POST['sms_password']) && !empty($_POST['req_token'])){
 
 $vtpass_account=mysqli_real_escape_string($con, $_POST['vtpass_account']);
+$naijaresultpins_api_key=mysqli_real_escape_string($con, $_POST['naijaresultpins_api_key']);
 $sms_username=mysqli_real_escape_string($con, $_POST['sms_username']);
 $sms_password=mysqli_real_escape_string($con, $_POST['sms_password']);
 $req_token=mysqli_real_escape_string($con, $_POST['req_token']);
 
-$update=mysqli_query($con, "UPDATE web_settings SET sms_password='$sms_password', sms_username='$sms_username', vtpass_account='$vtpass_account' WHERE id='1'");
-
+$update=mysqli_query($con, "UPDATE web_settings SET sms_password='$sms_password', sms_username='$sms_username', vtpass_account='$vtpass_account',naijaresultpins_api_key='$naijaresultpins_api_key' WHERE id='1'");
+    
 if ($update){
 
  $response=array(

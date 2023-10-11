@@ -145,7 +145,7 @@ if ($manage_lock == 1) {
         airtel_lock: $("#airtel_lock").val(),
         mobile_lock: $("#mobile_lock").val(),
         smile_vtu_lock: $("#smile_vtu_lock").val(),
-        
+
         level: 1,
       };
       $.ajax({
@@ -234,6 +234,7 @@ if ($manage_lock == 1) {
         neco: $("#neco").val(),
         gce: $("#gce").val(),
         nabteb: $("#nabteb").val(),
+        nbais: $("#nbais").val(),
         level: 1,
       };
       $.ajax({

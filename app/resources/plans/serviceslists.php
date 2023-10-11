@@ -424,64 +424,72 @@ echo ''.$data_query[0].'
 ';
 }
 
-if ($getservices=="airtel-swap"){
+	if ($getservices=="airtel-swap"){
 
-$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT airtel_rate FROM airtimeswap_plan WHERE id='$level'"));
+	$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT airtel_rate FROM airtimeswap_plan WHERE id='$level'"));
 
-echo ''.$data_query[0].'
-';
-}
-
-if ($getservices=="9mobile-swap"){
-
-$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT mobile_rate FROM airtimeswap_plan WHERE id='$level'"));
-
-echo ''.$data_query[0].'
-';
-}
-
-///AIRTIME SWAP-END
-
-//EPINS-START
-
-if ($getservices=="waec"){
-	$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT waec FROM epin_planlist WHERE id='$level'"));
-	echo '
-		<div class="alert alert-warning">WAEC = ₦'.$data_query[0].' / Pin</div>
+	echo ''.$data_query[0].'
 	';
-}
+	}
 
-if ($getservices == "waec-reg") {
-	$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT waec_registration FROM epin_planlist WHERE id='$level'"));
+	if ($getservices=="9mobile-swap"){
+
+	$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT mobile_rate FROM airtimeswap_plan WHERE id='$level'"));
+
+	echo ''.$data_query[0].'
+	';
+	}
+
+	///AIRTIME SWAP-END
+
+	//EPINS-START
+
+	if ($getservices=="waec"){
+		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT waec FROM epin_planlist WHERE id='$level'"));
+		echo '
+			<div class="alert alert-warning">WAEC = ₦'.$data_query[0].' / Pin</div>
+		';
+	}
+
+	if ($getservices == "waec-reg") {
+		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT waec_registration FROM epin_planlist WHERE id='$level'"));
+		echo '
+		<div class="alert alert-warning">WAEC REGISTRATION PIN = ₦' . $data_query[0] . ' / Pin</div>
+	';
+	}
+	if ($getservices == "gce") {
+		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT gce FROM epin_planlist WHERE id='$level'"));
+		echo '
+		<div class="alert alert-warning">GCE = ₦' . $data_query[0] . ' / Pin</div>
+	';
+	}
+
+	if ($getservices=="neco"){
+
+	$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT neco FROM epin_planlist WHERE id='$level'"));
+
 	echo '
-	<div class="alert alert-warning">WAEC REGISTRATION PIN = ₦' . $data_query[0] . ' / Pin</div>
-';
-}
-if ($getservices == "gce") {
-	$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT gce FROM epin_planlist WHERE id='$level'"));
+		<div class="alert alert-success">NECO = ₦'.$data_query[0]. ' / Pin</div>
+	';
+	}
+
+	
+	if ($getservices == "nabteb") {
+		
+		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT nabteb FROM epin_planlist WHERE id='$level'"));
+		
+		echo '
+		<div class="alert alert-danger">NABTEB = ₦' . $data_query[0] . ' / Pin</div>';
+	}
+	
+	if ($getservices=="nbais"){
+
+	$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT nbais FROM epin_planlist WHERE id='$level'"));
+
 	echo '
-	<div class="alert alert-warning">GCE = ₦' . $data_query[0] . ' / Pin</div>
-';
-}
-
-if ($getservices=="neco"){
-
-$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT neco FROM epin_planlist WHERE id='$level'"));
-
-echo '
-	<div class="alert alert-success">NECO = ₦'.$data_query[0]. ' / Pin</div>
-';
-}
-
-if ($getservices=="nabteb"){
-
-$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT nabteb FROM epin_planlist WHERE id='$level'"));
-
-echo '
-	<div class="alert alert-danger">NABTEB = ₦'.$data_query[0]. ' / Pin</div>
-';
-}
-
+		<div class="alert alert-danger">NBAIS = ₦'.$data_query[0]. ' / Pin</div>
+	';
+	}
 ///EPINS-END
 
 

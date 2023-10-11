@@ -1,16 +1,17 @@
 <?php
   require("session_controller.php");
 
-  if (!empty($_POST['gce']) && !empty($_POST['waec_registration']) && !empty($_POST['waec']) && !empty($_POST['neco']) &&  !empty($_POST['nabteb']) && !empty($_POST['level'])){
+// if (!empty($_POST['waec_registration']) && !empty($_POST['waec']) && !empty($_POST['neco']) &&  !empty($_POST['nabteb']) && !empty($_POST['nbais']) && !empty($_POST['level'])){
 
     $waec=mysqli_real_escape_string($con, $_POST['waec']);
     $waec_registration=mysqli_real_escape_string($con, $_POST['waec_registration']);
-    $gce=mysqli_real_escape_string($con, $_POST['gce']);
+    // $gce=mysqli_real_escape_string($con, $_POST['gce']);
     $neco = mysqli_real_escape_string($con, $_POST['neco']);
     $nabteb=mysqli_real_escape_string($con, $_POST['nabteb']);
+    $nbais=mysqli_real_escape_string($con, $_POST['nbais']);
     $level=mysqli_real_escape_string($con, $_POST['level']);
 
-    $update=mysqli_query($con, "UPDATE epin_planlist SET waec='$waec',gce='$gce', neco='$neco', nabteb='$nabteb',waec_registration='$waec_registration' WHERE id='$level'");
+    $update=mysqli_query($con, "UPDATE epin_planlist SET waec='$waec',neco='$neco', nabteb='$nabteb',waec_registration='$waec_registration',nbais='$nbais' WHERE id='$level'");
 
     if ($update){
       $response=array(
@@ -29,13 +30,14 @@
 
     }
 
-  }else{
-    $response=array(
-      'status'=>'fail',
-      'message' => 'Please fill all form !!!',
-    );
-    echo json_encode($response);
-    exit();
-  }
+  // }
+  // else{
+  //   $response=array(
+  //     'status'=>'fail',
+  //     'message' => 'Please fill all form !!!',
+  //   );
+  //   echo json_encode($response);
+  //   exit();
+  // }
 
 ?>

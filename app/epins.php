@@ -58,6 +58,10 @@
           if ($nabt_lock != 0) {
             echo '<option value="NABTEB">NABTEB</option>';
           }
+
+          if ($nbais_lock != 0) {
+            echo '<option value="NBAIS">NBAIS</option>';
+          }
           ?>
         </select>
       </div>

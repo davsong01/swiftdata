@@ -54,6 +54,7 @@ if ($manage_prices == 1) {
                 gce: $("#gce").val(),
                 neco: $("#neco").val(),
                 nabteb: $("#nabteb").val(),
+                nbais: $("#nbais").val(),
                 level: $("#level").val(),
             };
             $.ajax({

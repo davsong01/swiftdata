@@ -38,15 +38,44 @@
             $mobile=$return_info['mobile'];
 
             if ($service=="WAEC" && $waec_lock==1 && $service_access==1){
-                require("epinsModule/easyaccess.php");
+                if( $api_waec == 'naijaresultpins.php'){
+                    require("epinsModule/naijaresultpins.php");
+                }
+
+                if( $api_waec == 'easyaccess.php'){
+                    require("epinsModule/easyaccess.php");
+                }
+
             }else if ($service=="WAEC-REG" && $waec_reg_lock==1 && $service_access==1){
-                require("epinsModule/vtpasseducation.php");
+                if ($api_waec_registration == 'naijaresultpins.php') {
+                    require("epinsModule/naijaresultpins.php");
+                }
+                if ($api_waec_registration == 'vtpasseducation.php') {
+                    require("epinsModule/vtpasseducation.php");
+                }
             }else if ($service=="GCE" && $gce_lock==1 && $service_access==1){
-                require("epinsModule/vtpasseducation.php");
+                if ($api_gce == 'easyaccess.php') {
+                    require("epinsModule/easyaccess.php");
+                }
+                if ($api_gec == 'naijaresultpins.php') {
+                    require("epinsModule/naijaresultpins.php");
+                }
             }else if ($service=="NECO" && $neco_lock==1 && $service_access==1){
-                require("epinsModule/easyaccess.php");
+                if ($api_neco == 'easyaccess.php') {
+                    require("epinsModule/easyaccess.php");
+                }
+                if ($api_neco == 'naijaresultpins.php') {
+                    require("epinsModule/naijaresultpins.php");
+                }
+                
             }else if ($service=="NABTEB" && $nabt_lock==1 && $service_access==1){
-                require("epinsModule/easyaccess.php");
+                if( $api_nabteb == 'naijaresultpins.php'){
+                    require("epinsModule/naijaresultpins.php");
+                }
+
+                if( $api_nabteb == 'easyaccess.php'){
+                    require("epinsModule/easyaccess.php");
+                }
             }else {
                 $response=array(
                     'status' => 'fail',

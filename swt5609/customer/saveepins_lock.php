@@ -6,16 +6,17 @@
     $waec_reg=mysqli_real_escape_string($con, $_POST['waec_reg']);
     $neco=mysqli_real_escape_string($con, $_POST['neco']);
     $nabteb=mysqli_real_escape_string($con, $_POST['nabteb']);
-    $gce=mysqli_real_escape_string($con, $_POST['gce']);
+    $nbais=mysqli_real_escape_string($con, $_POST['nbais']);
+    // $gce=mysqli_real_escape_string($con, $_POST['gce']);
+    $gce=0;
     $level=mysqli_real_escape_string($con, $_POST['level']);
 
-    $update=mysqli_query($con, "UPDATE web_settings SET waec_lock='$waec', waec_registration_lock='$waec_reg', gce_lock='$gce', neco_lock='$neco', nabt_lock='$nabteb' WHERE id='$level'");
+    $update=mysqli_query($con, "UPDATE web_settings SET waec_lock='$waec', waec_registration_lock='$waec_reg', gce_lock='$gce', neco_lock='$neco', nabt_lock='$nabteb',nbais_lock='$nbais' WHERE id='$level'");
 
     if ($update){
-
       $response=array(
         'status'=>'success',
-        'message' => 'Your store control has been successfully updated !!!',
+        'message' => 'Updated successfully !!!',
       );
       echo json_encode($response);
       exit();

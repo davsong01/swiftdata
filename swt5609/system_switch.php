@@ -14,12 +14,12 @@ if ($manage_automation == 1) {
                 <div class="col-md-6">
                     <div class="alert" style="background-color:<?php echo $colors[$key]; ?>;color: #000;">
                         <center>
-                            <h4 style="color: white;">CHANGE DATA AUTOMATION</h4>
+                            <h4 style="color: white;">CHANGE DATA PROVIDER</h4>
 
                             <p style="color: white;">click the button to see option.</p>
                             <br />
                             <button class="btn btn-danger btn-block" id="data" onclick="switchFun(this.id)">EDIT
-                                INFORMATION</button>
+                            </button>
 
                         </center>
                     </div>
@@ -28,12 +28,12 @@ if ($manage_automation == 1) {
                 <div class="col-md-6">
                     <div class="alert" style="background-color:<?php echo $colors[$key]; ?>;color: #000;">
                         <center>
-                            <h4 style="color: white;">CHANGE DATA CARD</h4>
+                            <h4 style="color: white;">CHANGE DATA CARD PROVIDER</h4>
 
                             <p style="color: white;">click the button to see option.</p>
                             <br />
                             <button class="btn btn-danger btn-block" id="data_card" onclick="switchFun(this.id)">EDIT
-                                INFORMATION</button>
+                            </button>
 
                         </center>
                     </div>
@@ -42,12 +42,12 @@ if ($manage_automation == 1) {
                 <div class="col-md-6">
                     <div class="alert" style="background-color: <?php echo $colors[$key]; ?>;color: #000;">
                         <center>
-                            <h4 style="color: white;">CHANGE VTU AUTOMATION</h4>
+                            <h4 style="color: white;">CHANGE VTU PROVIDER</h4>
 
                             <p style="color: white;">click the button to see option.</p>
                             <br />
                             <button class="btn btn-danger btn-block" id="vtu" onclick="switchFun(this.id)">EDIT
-                                INFORMATION</button>
+                            </button>
 
                         </center>
                     </div>
@@ -55,12 +55,12 @@ if ($manage_automation == 1) {
                 <div class="col-md-6">
                     <div class="alert" style="background-color: <?php echo $colors[$key]; ?>;color: #000;">
                         <center>
-                            <h4 style="color: white;">CHANGE SNS AUTOMATION</h4>
+                            <h4 style="color: white;">CHANGE SNS PROVIDER</h4>
 
                             <p style="color: white;">click the button to see option.</p>
                             <br />
                             <button class="btn btn-danger btn-block" id="sns" onclick="switchFun(this.id)">EDIT
-                                INFORMATION</button>
+                            </button>
 
                         </center>
                     </div>
@@ -68,11 +68,22 @@ if ($manage_automation == 1) {
                 <div class="col-md-6">
                     <div class="alert" style="background-color: <?php echo $colors[$key]; ?>;color: #000;">
                         <center>
-                            <h4 style="color: white;">CHANGE SMS AUTOMATION</h4>
+                            <h4 style="color: white;">CHANGE SMS PROVIDER</h4>
                             <p style="color: white;">click the button to see option.</p>
                             <br />
                             <button class="btn btn-danger btn-block" id="sms" onclick="switchFun(this.id)">EDIT
-                                INFORMATION</button>
+                            </button>
+                        </center>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="alert" style="background-color: <?php echo $colors[$key]; ?>;color: #000;">
+                        <center>
+                            <h4 style="color: white;">CHANGE EDUCATION PINS PROVIDER</h4>
+                            <p style="color: white;">click the button to see option.</p>
+                            <br />
+                            <button class="btn btn-danger btn-block" id="education" onclick="switchFun(this.id)">EDIT
+                            </button>
                         </center>
                     </div>
                 </div>
@@ -158,7 +169,6 @@ if ($manage_automation == 1) {
 
         }
 
-
         function saveVTU() {
             $("#priceModal").modal("hide");
             $.LoadingOverlay("show");
@@ -168,7 +178,7 @@ if ($manage_automation == 1) {
                 airtel_vtu: $("#airtel_vtu").val(),
                 mobile_vtu: $("#mobile_vtu").val(),
                 smile_vtu: $("#smile_vtu").val(),
-                
+
                 level: 1,
             };
             $.ajax({
@@ -228,6 +238,38 @@ if ($manage_automation == 1) {
             };
             $.ajax({
                 url: 'customer/savesms_switch',
+                type: "POST",
+                data: formData,
+                dataType: 'json',
+                success: function(savingRes) {
+                    $.LoadingOverlay("hide");
+                    if (savingRes.status == 'success') {
+                        $("#successModal").modal("show");
+                        $("#successModal .modal-body").html(savingRes.message);
+                    } else {
+                        $("#errorModal").modal("show");
+                        $("#errorModal .modal-body").html(savingRes.message);
+                    }
+                }
+            });
+
+        }
+
+        function saveEducation() {
+            $("#priceModal").modal("hide");
+            $.LoadingOverlay("show");
+            var formData = {
+                waec: $("#waec").val(),
+                waec_registration: $("#waec_registration").val(),
+                neco: $("#neco").val(),
+                nabteb: $("#nabteb").val(),
+                nbais: $("#nbais").val(),
+                type: 'education',
+                level: 1
+            };
+           
+            $.ajax({
+                url: 'customer/update_provider',
                 type: "POST",
                 data: formData,
                 dataType: 'json',

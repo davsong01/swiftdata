@@ -35,7 +35,12 @@ $message='
 <br/>
 <div>
 <label>NABTEB</label>
-<input type="tel" id="nabteb" class="form-control" value="'.$nabteb.'" required>
+<input type="tel" id="nabteb" class="form-control" value="'.$nabteb. '" required>
+</div>
+<br/>
+<div>
+<label>NBAIS</label>
+<input type="tel" id="nbais" class="form-control" value="' . $nbais . '" required>
 </div>
 
 <br/>
