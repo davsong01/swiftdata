@@ -45,6 +45,23 @@
             }
         }
     
+    } elseif ($network == 'AIRTEL') {
+        $type = 'data';
+        $product = 'airtel';
+        $ntwk = 4;
+
+        require('../api/gongzo_pricing.php');
+        $url = "https://www.gongozconcept.com/api/data/";
+
+        foreach ($response as $res) {
+            if ($plan_id == $res['code']) {
+                $service_price = $res['price'];
+                $service = "airtel";
+                $databyte = $res['val'];
+                $package_name = $res['name'];
+                $planCode = $res['code'];
+            }
+        }
     } elseif ($network == 'GLO-CG') {
         $type = 'data';
         $product = 'glo-cg';
@@ -62,7 +79,25 @@
                 $planCode = $res['code'];
             }
         }
+    } elseif ($network == 'GLO') {
+        $type = 'data';
+        $product = 'glo';
+        $ntwk = 2;
+
+        require('../api/gongzo_pricing.php');
+        $url = "https://www.gongozconcept.com/api/data/";
+
+        foreach ($response as $res) {
+            if ($plan_id == $res['code']) {
+                $service_price = $res['price'];
+                $service = "glo";
+                $databyte = $res['val'];
+                $package_name = $res['name'];
+                $planCode = $res['code'];
+            }
+        }
     }
+
 
     // Perform operations
     

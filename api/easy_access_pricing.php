@@ -292,6 +292,190 @@
         ];
     }
 
+    if ($type == 'data' && $product == 'airtel') {
+        $data_query = mysqli_fetch_array(mysqli_query($con, "SELECT easy_access66, easy_access67, easy_access68, easy_access69,easy_access70, easy_access71, easy_access72, easy_access74, easy_access96,easy_access97,easy_access157 FROM airteldata_plan WHERE id='$level'"));
+        
+        $response = [
+            [
+                'name' => "750MB (Direct) - 14days",
+                'val' => 750,
+                'price' => $data_query[0],
+                'code' => 66,
+                'id' => 'easy_access66',
+            ],
+            [
+                'name' => "1.5GB (Direct) - 30days",
+                'price' => $data_query[1],
+                'val' => 1500,
+                'code' => 67,
+                'id' => 'easy_access67',
+            ],
+            [
+                'name' => "2GB (Direct) - 30days",
+                'val' => 2000,
+                'price' => $data_query[2],
+                'code' => 68,
+                'id' => 'easy_access68',
+            ],
+            [
+                'name' => '3GB (Direct) - 30days',
+                'val' => 3000,
+                'price' => $data_query[3],
+                'code' => 69,
+                'id' => 'easy_access69',
+            ],
+            [
+                'name' => "4.5GB (Direct) - 30days",
+                'val' => 4500,
+                'price' => $data_query[4],
+                'code' => 70,
+                'id' => 'easy_access70',
+            ],
+            [
+                'name' => "6GB (Direct) - 30days",
+                'val' => 6000,
+                'price' => $data_query[5],
+                'code' => 71,
+                'id' => 'easy_access71',
+            ],
+            [
+                'name' => "10GB (Direct) - 30days,",
+                'price' => $data_query[6],
+                'val' => 15000,
+                'code' => 72,
+                'id' => 'easy_access72'
+            ],
+           
+            [
+                'name' => "20GB (Direct) - 30days",
+                'val' => 20000,
+                'price' => $data_query[7],
+                'code' => 74,
+                'id' => 'easy_access74',
+            ],
+            [
+                'name' => "40GB (Direct) - 30days",
+                'val' => 40000,
+                'price' => $data_query[8],
+                'code' => 96,
+                'id' => 'easy_access96',
+            ],
+            [
+                'name' => "75GB (Direct) - 30days",
+                'val' => 75000,
+                'price' => $data_query[9],
+                'code' => 97,
+                'id' => 'easy_access97',
+            ],
+            [
+                'name' => "120GB (Direct) - 30days",
+                'val' => 120000,
+                'price' => $data_query[10],
+                'code' => 157,
+                'id' => 'easy_access157',
+            ],
+
+        ];
+    }
+
+    if ($type == 'data' && $product == 'glo') {
+        $data_query = mysqli_fetch_array(mysqli_query($con, "SELECT easy_access59, easy_access60, easy_access87, easy_access61,easy_access62,easy_access63,easy_access64,easy_access92,easy_access93,easy_access94, easy_access100,easy_access101, easy_access102 FROM glodata_plan WHERE id='$level'"));
+
+        $response = [
+            [
+                'name' => "1.35GB (Direct) - 14days",
+                'val' => 1500,
+                'price' => $data_query[0],
+                'code' => 59,
+                'id' => 'easy_access59',
+            ],
+            [
+                'name' => "2.9GB (Direct) - 30days",
+                'price' => $data_query[1],
+                'val' => 2900,
+                'code' => 60,
+                'id' => 'easy_access60',
+            ],
+            [
+                'name' => "4.1GB (Direct) - 30days",
+                'val' => 4100,
+                'price' => $data_query[2],
+                'code' => 87,
+                'id' => 'easy_access87',
+            ],
+            [
+                'name' => '5.8GB (Direct) - 30days',
+                'val' => 5800,
+                'price' => $data_query[3],
+                'code' => 61,
+                'id' => 'easy_access61',
+            ],
+            [
+                'name' => "7.7GB (Direct) - 30days",
+                'val' => 7700,
+                'price' => $data_query[4],
+                'code' => 62,
+                'id' => 'easy_access62',
+            ],
+            [
+                'name' => "10GB (Direct) - 30days",
+                'val' => 10000,
+                'price' => $data_query[5],
+                'code' => 63,
+                'id' => 'easy_access64',
+            ],
+            [
+                'name' => "10GB (Direct) - 30days",
+                'val' => 10000,
+                'price' => $data_query[6],
+                'code' => 64,
+                'id' => 'easy_access64',
+            ],
+            [
+                'name' => "18.25GB (Direct) - 30days",
+                'val' => 18225,
+                'price' => $data_query[7],
+                'code' => 92,
+                'id' => 'easy_access92',
+            ],
+            [
+                'name' => "29.5GB (Direct) - 30days",
+                'price' => $data_query[8],
+                'val' => 29500,
+                'code' => 93,
+                'id' => 'easy_access93'
+            ],
+            [
+                'name' => "50GB (Direct) - 30days",
+                'val' => 50000,
+                'price' => $data_query[9],
+                'code' => 94,
+                'id' => 'easy_access94',
+            ],
+            [
+                'name' => "93GB (Direct) - 30days",
+                'val' => 93000,
+                'price' => $data_query[10],
+                'code' => 100,
+                'id' => 'easy_access100',
+            ],
+            [
+                'name' => "119GB (Direct) - 30days",
+                'val' => 119000,
+                'price' => $data_query[11],
+                'code' => 101,
+                'id' => 'easy_access101',
+            ],
+            [
+                'name' => "138GB (Direct) - 30days",
+                'val' => 75000,
+                'price' => $data_query[12],
+                'code' => 102,
+                'id' => 'easy_access102',
+            ],
+        ];
+    }
+
     if($type == 'data' && $product == 'glo-cg'){
         $data_query = mysqli_fetch_array(mysqli_query($con, "SELECT easy_access158, easy_access159, easy_access160, easy_access161,easy_access162, easy_access163, easy_access164 FROM glocgdata_plan WHERE id='$level'"));
         

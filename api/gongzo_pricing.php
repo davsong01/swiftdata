@@ -194,16 +194,94 @@
 
     }
 
+    if ($type == 'data' && $product == 'airtel') {
+        $data_query = mysqli_fetch_array(mysqli_query($con, "SELECT gongzo_data40, gongzo_data45, gongzo_data46,gongzo_data47,gongzo_data48, gongzo_data144, gongzo_data145,gongzo_data146,gongzo_data296,gongzo_data297,gongzo_data298 FROM airteldata_plan WHERE id='$level'"));
+
+        $response = [
+            [
+                'name' => "	AIRTEL GIFTING 750.0 MB - 14DAYS",
+                'price' => $data_query[0],
+                'code' => 40,
+                'id' => 'gongzo_data40',
+                'val' => '750',
+            ],
+            [
+                'name' => "AIRTEL GIFTING 3.0 GB - MONTHLY",
+                'price' => $data_query[1],
+                'code' => 45,
+                'id' => 'gongzo_data45',
+                'val' => '3000',
+            ],
+            [
+                'name' => "AIRTEL GIFTING 2.0 GB - MONTHLY",
+                'price' => $data_query[2],
+                'code' => 46,
+                'id' => 'gongzo_data46',
+                'val' => '2000',
+            ],
+            [
+                'name' => "AIRTEL GIFTING 20.0 GB - MONTHLY",
+                'price' => $data_query[3],
+                'code' => 47,
+                'id' => 'gongzo_data47',
+                'val' => '20000',
+            ],
+            [
+                'name' => "AIRTEL GIFTING 40.0 GB - MONTHLY",
+                'price' => $data_query[4],
+                'code' => 48,
+                'id' => 'gongzo_data48',
+                'val' => '40000',
+            ],
+            [
+                'name' => "AIRTEL GIFTING 1.5 GB - MONTHLY",
+                'price' => $data_query[5],
+                'code' => 144,
+                'id' => 'gongzo_data144',
+                'val' => '1500',
+            ],
+            [
+                'name' => "AIRTEL GIFTING 4.5 GB - MONTHLY",
+                'price' => $data_query[6],
+                'code' => 145,
+                'id' => 'gongzo_data145',
+                'val' => '4500',
+            ],
+            [
+                'name' => " AIRTEL GIFTING 10.0 GB - MONTHLY",
+                'price' => $data_query[7],
+                'code' => 146,
+                'id' => 'gongzo_data146',
+                'val' => '4500',
+            ],
+            [
+                'name' => "AIRTEL GIFTING 6.0 GB - MONTHLY",
+                'price' => $data_query[8],
+                'code' => 296,
+                'id' => 'gongzo_data296',
+                'val' => '6000',
+            ],
+            [
+                'name' => "AIRTEL GIFTING 75.0 GB - MONTHLY",
+                'price' => $data_query[9],
+                'code' => 297,
+                'id' => 'gongzo_data297',
+                'val' => '6000',
+            ],
+            [
+                'name' => "AIRTEL GIFTING 120.0 GB - MONTHLY",
+                'price' => $data_query[10],
+                'code' => 298,
+                'id' => 'gongzo_data298',
+                'val' => '120000',
+            ],
+        ];
+
+    }
+
     if($type == 'data' && $product == 'glo-cg'){
         $data_query = mysqli_fetch_array(mysqli_query($con, "SELECT gongzo_data321, gongzo_data322, gongzo_data323,gongzo_data324,gongzo_data325, gongzo_data326, gongzo_data327,gongzo_data337 FROM glocgdata_plan WHERE id='$level'"));
-        // 321 	GLO 	CORPORATE GIFTING 	₦225 	1.0 GB 	MONTHLY
-        // 322 	GLO 	CORPORATE GIFTING 	₦450 	2.0 GB 	MONTHLY
-        // 323 	GLO 	CORPORATE GIFTING 	₦690 	3.0 GB 	MONTHLY
-        // 324 	GLO 	CORPORATE GIFTING 	₦1125 	5.0 GB 	MONTHLY
-        // 325 	GLO 	CORPORATE GIFTING 	₦2300 	10.0 GB 	MONTHLY
-        // 326 	GLO 	CORPORATE GIFTING 	₦125 	500.0 MB 	14 DAYS
-        // 327 	GLO 	CORPORATE GIFTING 	₦150 	500.0 MB 	MONTHLY
-        // 337 	GLO 	CORPORATE GIFTING 	₦50 	200.0 MB 	14DAYS
+      
         $response = [
             [
                 'name' => "GLO (CG) 1.0 GB - 30days",
@@ -252,6 +330,79 @@
                 'price' => $data_query[7],
                 'code' => 337,
                 'id' => 'gongzo_data337',
+            ],
+        ];
+    }
+
+    if ($type == 'data' && $product == 'glo') {
+        $data_query = mysqli_fetch_array(mysqli_query($con, "SELECT glo_105,glo_29, glo_41, glo_58, glo_77, glo_10, glo_1325, glo_1825, glo_295, glo_50, glo_93  FROM glodata_plan WHERE id='$level'"));
+
+        $response = [
+            [
+                'name' => "GLO 1.03GB",
+                'price' => $data_query[0],
+                'code' => 252,
+                'id' => 'glo_105',
+            ],
+            [
+                'name' => "GLO 2.9GB",
+                'price' => $data_query[1],
+                'code' => 253,
+                'id' => 'glo_29',
+            ],
+            [
+                'name' => "GLO 4.1GB",
+                'price' => $data_query[2],
+                'code' => 254,
+                'id' => 'glo_41',
+            ],
+            [
+                'name' => "GLO 5.8GB",
+                'price' => $data_query[3],
+                'code' => 256,
+                'id' => 'glo_58',
+            ],
+            [
+                'name' => "GLO 7.7GB",
+                'price' => $data_query[4],
+                'code' => 205,
+                'id' => 'glo_77',
+            ],
+            [
+                'name' => "GLO 10GB",
+                'price' => $data_query[5],
+                'code' => 257,
+                'id' => 'glo_10',
+            ],
+            [
+                'name' => "GLO 13.25GB",
+                'price' => $data_query[6],
+                'code' => 258,
+                'id' => 'glo_1325',
+            ],
+            [
+                'name' => "GLO 18.25GB",
+                'price' => $data_query[7],
+                'code' => 259,
+                'id' => 'glo_1825',
+            ],
+            [
+                'name' => "GLO 29G",
+                'price' => $data_query[8],
+                'code' => 260,
+                'id' => 'glo_295',
+            ],
+            [
+                'name' => "GLO 50GB",
+                'price' => $data_query[9],
+                'code' => 261,
+                'id' => 'glo_50',
+            ],
+            [
+                'name' => "GLO 93GB",
+                'price' => $data_query[10],
+                'code' => 262,
+                'id' => 'glo_93',
             ],
         ];
     }
@@ -389,29 +540,6 @@
             ],
             
         ];
-
-
-    // 166 => 100MB (SME) - N28 30days, 
-    // 167 => 300MB (SME) - N63 30days, 
-    // 168 => 500MB (SME) - N96 30days, 
-    // 128 => 1GB (SME) - N190 30days, 
-    // 129 => 1.5GB (SME) - N285 30days, 
-    // 130 => 2GB (SME) - N380 30days, 
-    // 131 => 2.5GB (SME) - N485 30days, 
-    // 132 => 3GB (SME) - N570 30days, 
-    // 169 => 4GB (SME) - N760 30days, 
-    // 134 => 5GB (SME) - N950 30days,
-    //  135 => 6GB (SME) - N1140 30days, 
-    //  170 => 7.5GB (SME) - N1425 30days, 
-    //  136 => 10GB (SME) - N1900 30days, 
-    //  171 => 11GB (SME) - N2090 30days, 
-    //  137 => 15GB (SME) - N2850 30days, 
-    //  138 => 20GB (SME) - N3800 30days, 
-    //  172 => 25GB (SME) - N4750 30days, 
-    //  173 => 30GB (SME) - N5700 30days, 
-    //  174 => 40GB (SME) - N7600 30days, 
-    //  175 => 50GB (SME) - N9500 30days, 
-    //  176 => 100GB (SME) - N19000 30days,
     }
     
 ?>

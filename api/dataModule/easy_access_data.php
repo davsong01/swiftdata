@@ -61,6 +61,23 @@
                 $planCode = $res['code'];
             }
         }
+    }elseif($network == 'AIRTEL'){
+        $type = 'data';
+        $product = 'airtel';
+        $ntwk = 03;
+
+        require('../api/easy_access_pricing.php');
+        $url = "https://easyaccess.com.ng/api/data.php";
+        
+        foreach ($response as $res) {
+            if ($plan_id==$res['code']){
+                $service_price = $res['price'];
+                $service = "airtel-cg";
+                $databyte = $res['val'];
+                $package_name = $res['name'];
+                $planCode = $res['code'];
+            }
+        }
     }elseif($network == 'GLO-CG'){
         $type = 'data';
         $product = 'glo-cg';
@@ -73,6 +90,24 @@
             if ($plan_id==$res['code']){
                 $service_price = $res['price'];
                 $service = "glo-cg";
+                $databyte = $res['val'];
+                $package_name = $res['name'];
+                $planCode = $res['code'];
+            }
+        }
+        
+    } elseif($network == 'GLO'){
+        $type = 'data';
+        $product = 'glo';
+        $ntwk = 02;
+           
+        require('../api/easy_access_pricing.php');
+        $url = "https://easyaccess.com.ng/api/data.php";
+        
+        foreach ($response as $res) {
+            if ($plan_id==$res['code']){
+                $service_price = $res['price'];
+                $service = "glo";
                 $databyte = $res['val'];
                 $package_name = $res['name'];
                 $planCode = $res['code'];

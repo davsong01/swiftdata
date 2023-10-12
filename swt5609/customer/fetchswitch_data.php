@@ -35,12 +35,14 @@ if ($searc_level=="data"){
                     </select>
                 </div>
                 <div class="col-md-6">
-                    <label class="price-label">GLO *</label>
+                    <label class="price-label">GLO GIFTING *</label>
                     <select class="form-control" id="glo_data" required>
 
                     <option value="glo_sms.php"' . ($api_glo == 'glo_sms.php' ? 'selected' : '') . '>BULKSMS</option>
                     <option value="glo_don.php"' . ($api_glo == 'glo_don.php' ? 'selected' : '') . '>DONLESON</option>
-                    <option value="glo_gon.php"' . ($api_glo == 'glo_gon.php' ? 'selected' : '') . '>GONGOZDATA</option>
+                    <option value="gongzo_data.php"' . ($api_glo == 'gongzo_data.php' ? 'selected' : '') . '>GONGOZDATA</option>
+                    <option value="easy_access_data.php"' . ($api_glo == 'easy_access_data.php' ? 'selected' : '') . '>EASY ACCESS</option>
+
                     </select>
                 </div>
                 <div class="col-md-6">
@@ -54,12 +56,14 @@ if ($searc_level=="data"){
                     </select>
                 </div>
                 <div class="col-md-6">
-                    <label class="price-label">AIRTEL *</label>
+                    <label class="price-label">AIRTEL GIFTING *</label>
                     <select class="form-control" id="airtel_data" required>
 
                     <option value="airtel_sms.php"' . ($api_airtel == 'airtel_sms.php' ? 'selected' : '') . '>BULKSMS</option>
                     <option value="airtel_don.php"' . ($api_airtel == 'airtel_don.php' ? 'selected' : '') . '>DONLESON</option>
-                    <option value="airtel_gon.php"' . ($api_airtel == 'airtel_gon.php' ? 'selected' : '') . '>GONGOZDATA</option>
+                    <option value="gongzo_data.php"' . ($api_airtel == 'gongzo_data.php' ? 'selected' : '') . '>GONGOZDATA</option>
+                    <option value="easy_access_data.php"' . ($api_airtel == 'easy_access_data.php' ? 'selected' : '') . '>EASY ACCESS</option>
+
                     </select>
                 </div>
                 <div class="col-md-6">

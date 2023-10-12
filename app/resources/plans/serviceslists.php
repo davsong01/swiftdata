@@ -206,31 +206,67 @@ if (!empty($_GET['services']) && !empty($_GET['level'])){
 	}
 	
 	if ($getservices=="glo"){
-		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT glo_105,glo_29, glo_41, glo_58, glo_77, glo_10, glo_1325, glo_1825, glo_295, glo_50, glo_93  FROM glodata_plan WHERE id='$level'"));
+		$type = 'data';
+		$product = 'glo';
 
-		echo '
-			<option value="201">GLO 1.05GB - ₦'.$data_query[0].'</option>
-			<option value="202">GLO 2.9GB - ₦'.$data_query[1].'</option>
-			<option value="203">GLO 4.1GB - ₦'.$data_query[2].'</option>
-			<option value="204">GLO 5.8GB - ₦'.$data_query[3].'</option>
-			<option value="205">GLO 7.7GB - ₦'.$data_query[4].'</option>
-			<option value="206">GLO 10GB - ₦'.$data_query[5].'</option>
-			<option value="207">GLO 13.25GB - ₦'.$data_query[6].'</option>
-			<option value="208">GLO 18.25GB - ₦'.$data_query[7].'</option>
-			<option value="209">GLO 29.5GB - ₦'.$data_query[8].'</option>
-			<option value="210">GLO 50GB - ₦'.$data_query[9].'</option>
-			<option value="211">GLO 93GB - ₦'.$data_query[10].'</option>
-		';
+		if ($api_glo  == 'easy_access_data.php') {
+			require('../../../api/easy_access_pricing.php');
+	
+			if (isset($response) && !empty($response)) {
+				foreach ($response as $res) {
+					if (isset($res['price']) && $res['price'] > 0) {
+						$echo .= '<option style="font-size: 11px" value="' . $res['code'] . '">' . $res['name'] . ' - ₦' . $res['price'] . '</option>';
+					}
+				}
+			}
+		
+		}elseif ($api_glo  == 'gongzo_data.php') {
+			require('../../../api/gongzo_pricing.php');
+
+			if (isset($response) && !empty($response)) {
+				foreach ($response as $res) {
+					if (isset($res['price']) && $res['price'] > 0) {
+						$echo .= '<option style="font-size: 11px" value="' . $res['code'] . '">' . $res['name'] . ' - ₦' . $res['price'] . '</option>';
+					}
+				}
+			}
+		}
+		// else{
+		// 	$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT glo_105,glo_29, glo_41, glo_58, glo_77, glo_10, glo_1325, glo_1825, glo_295, glo_50, glo_93  FROM glodata_plan WHERE id='$level'"));
+		// 	echo '
+		// 		<option value="201">GLO 1.05GB - ₦'.$data_query[0].'</option>
+		// 		<option value="202">GLO 2.9GB - ₦'.$data_query[1].'</option>
+		// 		<option value="203">GLO 4.1GB - ₦'.$data_query[2].'</option>
+		// 		<option value="204">GLO 5.8GB - ₦'.$data_query[3].'</option>
+		// 		<option value="205">GLO 7.7GB - ₦'.$data_query[4].'</option>
+		// 		<option value="206">GLO 10GB - ₦'.$data_query[5].'</option>
+		// 		<option value="207">GLO 13.25GB - ₦'.$data_query[6].'</option>
+		// 		<option value="208">GLO 18.25GB - ₦'.$data_query[7].'</option>
+		// 		<option value="209">GLO 29.5GB - ₦'.$data_query[8].'</option>
+		// 		<option value="210">GLO 50GB - ₦'.$data_query[9].'</option>
+		// 		<option value="211">GLO 93GB - ₦'.$data_query[10].'</option>
+		// 	';
+		// }
+
+		if (!empty($echo)) {
+			echo $echo;
+		} else {
+			echo '<option>No Available variations at the moment</option>';
+		}
 	}
 
 	if ($getservices=="airtel"){
 		$type = 'data';
 		$product = 'airtel';
+
 		if ($api_airtel  == 'easy_access_data.php') {
 			require('../../../api/easy_access_pricing.php');
-		} else {
+		}else if ($api_airtel  == 'gongzo_data.php') {
+			require('../../../api/gongzo_pricing.php');
+		} else{
 			require('../../../api/generic_pricing.php');
 		}
+		
 		if (isset($response) && !empty($response)) {
 			foreach ($response as $res) {
 				if (isset($res['price']) && $res['price'] > 0) {

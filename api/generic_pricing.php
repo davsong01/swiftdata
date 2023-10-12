@@ -168,21 +168,6 @@
     if ($type == "data" && $product == "airtel") {        
         $data_query = mysqli_fetch_array(mysqli_query($con, "SELECT airtel_750,airtel_15, airtel_2, airtel_3, airtel_45, airtel_6, airtel_10, airtel_11, airtel_20, airtel_40, airtel_75,airtel_120  FROM airteldata_plan WHERE id='$level'"));
 
-		// echo '
-		// 	<option value="501">AIRTEL 750MB - ₦'.$data_query[0].'</option>
-		// 	<option value="502">AIRTEL 1.5GB - ₦'.$data_query[1].'</option>
-		// 	<option value="503">AIRTEL 2GB - ₦'.$data_query[2].'</option>
-		// 	<option value="504">AIRTEL 3GB - ₦'.$data_query[3].'</option>
-		// 	<option value="505">AIRTEL 4.5GB - ₦'.$data_query[4].'</option>
-		// 	<option value="506">AIRTEL 6GB - ₦'.$data_query[5].'</option>
-		// 	<option value="507">AIRTEL 10GB - ₦'.$data_query[6].'</option>
-		// 	<option value="508">AIRTEL 11GB - ₦'.$data_query[7].'</option>
-		// 	<option value="509">AIRTEL 20GB - ₦'.$data_query[8].'</option>
-		// 	<option value="510">AIRTEL 40GB - ₦'.$data_query[9].'</option>
-		// 	<option value="511">AIRTEL 75GB - ₦'.$data_query[10].'</option>
-		// 	<option value="512">AIRTEL 120GB - ₦'.$data_query[11].'</option>
-		// ';
-
         $response = [
             [
                 'name' => "AIRTEL 750MB",

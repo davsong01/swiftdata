@@ -62,7 +62,7 @@ if ($manage_prices == 1) {
           <div class="justify-content-center">
             <div class="alert" style="background-color: #3b513b;color: white;">
               <center>
-                <h4 style="color: white;">SET GLO PRICES</h4>
+                <h4 style="color: white;">SET GLO GIFTING PRICES</h4>
 
                 <p style="color: white;">Click on the level you want to change and a pop up will be display.</p>
                 <br />
@@ -97,7 +97,7 @@ if ($manage_prices == 1) {
           <div class="justify-content-center">
             <div class="alert" style="background-color: green;color: white;">
               <center>
-                <h4 style="color: white;">SET AIRTEL PRICES</h4>
+                <h4 style="color: white;">SET AIRTEL GIFTING</h4>
 
                 <p style="color: white;">Click on the level you want to change and a pop up will be display.</p>
                 <br />
@@ -447,29 +447,29 @@ if ($manage_prices == 1) {
       $("#priceModal").modal("hide");
       $.LoadingOverlay("show");
       var formData = {
-        airtelcg_100: $("#airtelcg_100").val(),
-        airtelcg_300: $("#airtelcg_300").val(),
-        airtelcg_500: $("#airtelcg_500").val(),
-        airtelcg_1: $("#airtelcg_1").val(),
-        airtelcg_2: $("#airtelcg_2").val(),
-        airtelcg_5: $("#airtelcg_5").val(),
-        easy_access104: $("#easy_access104").val(),
-        easy_access105: $("#easy_access105").val(),
-        easy_access106: $("#easy_access106").val(),
-        easy_access107: $("#easy_access107").val(),
-        easy_access108: $("#easy_access108").val(),
-        easy_access109: $("#easy_access109").val(),
-        easy_access124: $("#easy_access124").val(),
-        easy_access139: $("#easy_access139").val(),
-        easy_access140: $("#easy_access140").val(),
+        airtelcg_100: $("#airtelcg_100").val() ?? 0,
+        airtelcg_300: $("#airtelcg_300").val() ?? 0,
+        airtelcg_500: $("#airtelcg_500").val() ?? 0,
+        airtelcg_1: $("#airtelcg_1").val() ?? 0,
+        airtelcg_2: $("#airtelcg_2").val() ?? 0,
+        airtelcg_5: $("#airtelcg_5").val() ?? 0,
+        easy_access104: $("#easy_access104").val() ?? 0,
+        easy_access105: $("#easy_access105").val() ?? 0,
+        easy_access106: $("#easy_access106").val() ?? 0,
+        easy_access107: $("#easy_access107").val() ?? 0,
+        easy_access108: $("#easy_access108").val() ?? 0,
+        easy_access109: $("#easy_access109").val() ?? 0,
+        easy_access124: $("#easy_access124").val() ?? 0,
+        easy_access139: $("#easy_access139").val() ?? 0,
+        easy_access140: $("#easy_access140").val() ?? 0,
 
-        gongzo_data312: $("#gongzo_data312").val(),
-        gongzo_data313: $("#gongzo_data313").val(),
-        gongzo_data314: $("#gongzo_data314").val(),
-        gongzo_data315: $("#gongzo_data315").val(),
-        gongzo_data317: $("#gongzo_data317").val(),
-        gongzo_data318: $("#gongzo_data318").val(),
-        gongzo_data319: $("#gongzo_data319").val(),
+        gongzo_data312: $("#gongzo_data312").val() ?? 0,
+        gongzo_data313: $("#gongzo_data313").val() ?? 0,
+        gongzo_data314: $("#gongzo_data314").val() ?? 0,
+        gongzo_data315: $("#gongzo_data315").val() ?? 0,
+        gongzo_data317: $("#gongzo_data317").val() ?? 0,
+        gongzo_data318: $("#gongzo_data318").val() ?? 0,
+        gongzo_data319: $("#gongzo_data319").val() ?? 0,
         level: $("#level").val(),
       };
       $.ajax({
@@ -495,20 +495,48 @@ if ($manage_prices == 1) {
       $("#priceModal").modal("hide");
       $.LoadingOverlay("show");
       var formData = {
-        airtel_750: $("#airtel_750").val(),
-        airtel_15: $("#airtel_15").val(),
-        airtel_2: $("#airtel_2").val(),
-        airtel_3: $("#airtel_3").val(),
-        airtel_45: $("#airtel_45").val(),
-        airtel_6: $("#airtel_6").val(),
-        airtel_10: $("#airtel_10").val(),
-        airtel_11: $("#airtel_11").val(),
-        airtel_20: $("#airtel_20").val(),
-        airtel_40: $("#airtel_40").val(),
-        airtel_75: $("#airtel_75").val(),
-        airtel_120: $("#airtel_120").val(),
+
+        gongzo_data40: $("#gongzo_data40").val() ?? 0,
+        gongzo_data45: $("#gongzo_data45").val() ?? 0,
+        gongzo_data46: $("#gongzo_data46").val() ?? 0,
+        gongzo_data47: $("#gongzo_data47").val() ?? 0,
+        gongzo_data48: $("#gongzo_data48").val() ?? 0,
+        gongzo_data144: $("#gongzo_data144").val() ?? 0,
+        gongzo_data145: $("#gongzo_data145").val() ?? 0,
+        gongzo_data146: $("#gongzo_data146").val() ?? 0,
+        gongzo_data296: $("#gongzo_data296").val() ?? 0,
+        gongzo_data297: $("#gongzo_data297").val() ?? 0,
+        gongzo_data298: $("#gongzo_data298").val() ?? 0,
+
+        easy_access66: $("#easy_access66").val() ?? 0,
+        easy_access67: $("#easy_access67").val() ?? 0,
+        easy_access68: $("#easy_access68").val() ?? 0,
+        easy_access69: $("#easy_access69").val() ?? 0,
+        easy_access70: $("#easy_access70").val() ?? 0,
+        easy_access71: $("#easy_access71").val() ?? 0,
+        easy_access72: $("#easy_access72").val() ?? 0,
+        easy_access74: $("#easy_access74").val() ?? 0,
+        easy_access96: $("#easy_access96").val() ?? 0,
+        easy_access97: $("#easy_access97").val() ?? 0,
+        easy_access157: $("#easy_access157").val() ?? 0,
+
+        airtel_750: $("#airtel_750").val() ?? 0,
+        airtel_15: $("#airtel_15").val() ?? 0,
+        airtel_2: $("#airtel_2").val() ?? 0,
+        airtel_3: $("#airtel_3").val() ?? 0,
+        airtel_45: $("#airtel_45").val() ?? 0,
+        airtel_6: $("#airtel_6").val() ?? 0,
+        airtel_10: $("#airtel_10").val() ?? 0,
+        airtel_11: $("#airtel_11").val() ?? 0,
+        airtel_20: $("#airtel_20").val() ?? 0,
+        airtel_40: $("#airtel_40").val() ?? 0,
+        airtel_75: $("#airtel_75").val() ?? 0,
+        airtel_120: $("#airtel_120").val() ?? 0,
+
         level: $("#level").val(),
+
       };
+
       $.ajax({
         url: 'customer/saveairtel_price',
         type: "POST",
@@ -603,6 +631,21 @@ if ($manage_prices == 1) {
         glo_295: $("#glo_295").val(),
         glo_50: $("#glo_50").val(),
         glo_93: $("#glo_93").val(),
+
+        easy_access59: $("#easy_access59").val(),
+        easy_access60: $("#easy_access60").val(),
+        easy_access87: $("#easy_access87").val(),
+        easy_access61: $("#easy_access61").val(),
+        easy_access62: $("#easy_access62").val(),
+        easy_access63: $("#easy_access63").val(),
+        easy_access64: $("#easy_access64").val(),
+        easy_access92: $("#easy_access92").val(),
+        easy_access93: $("#easy_access93").val(),
+        easy_access94: $("#easy_access94").val(),
+        easy_access100: $("#easy_access100").val(),
+        easy_access101: $("#easy_access101").val(),
+        easy_access102: $("#easy_access102").val(),
+        
         level: $("#level").val(),
       };
       $.ajax({

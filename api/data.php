@@ -1,4 +1,5 @@
 <?php
+
     error_reporting(1);
     $json = file_get_contents('php://input');
     $data = json_decode($json, true);
@@ -72,10 +73,20 @@
                 } else if ($network == "9MOBILE" && $mo_lock1 == 1 && $mobile_access == 1 || $network == "ETISALAT" && $mo_lock1 == 1 && $mobile_access == 1) {
                     require("dataModule/$api_mobile");
                 } else if ($network == "AIRTEL" && $a_lock1 == 1 && $airtel_access == 1) {
-                    require("dataModule/$api_airtel");
+                    $product = 'airtel';
+                    
+                    if ($api_airtel == 'gongzo_data.php') {
+                        require("dataModule/gongzo_data.php");
+                    }
+                    if ($api_airtel == 'easy_access_data.php') {
+                        require("dataModule/easy_access_data.php");
+                    } else {
+                        require("dataModule/$api_airtel");
+                    }
                 } else if ($network == "AIRTEL-CG" && $ag_lock1 == 1 && $airtelcg_access == 1) {
                     require("dataModule/$api_airtelcg");
                 } else if ($network == "GLO" && $g_lock1 == 1 && $glo_access == 1) {
+                    $product = 'glo';
                     require("dataModule/$api_glo");
                 } else if ($network == "GLO-CG" && $gcg_lock1 == 1 && $glo_access == 1) {
                     if($api_glocg == 'gongzo.php'){

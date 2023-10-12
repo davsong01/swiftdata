@@ -4,14 +4,14 @@
 
     if ($searc_level=="mtnsme1" || $searc_level=="mtnsme2" || $searc_level=="mtnsme3" || $searc_level=="mtnsme4"){
 
-    if ($searc_level=="mtnsme1"){$level=1;}
-    if ($searc_level=="mtnsme2"){$level=2;}
-    if ($searc_level=="mtnsme3"){$level=3;}
-    if ($searc_level=="mtnsme4"){$level=4;}
+        if ($searc_level=="mtnsme1"){$level=1;}
+        if ($searc_level=="mtnsme2"){$level=2;}
+        if ($searc_level=="mtnsme3"){$level=3;}
+        if ($searc_level=="mtnsme4"){$level=4;}
 
-    require ("../../functions/mtnsme_price.php");
+        require ("../../functions/mtnsme_price.php");
 
-    $message='
+        $message='
 
         <form method="POST" id="form_submit">
 
@@ -595,97 +595,123 @@
         exit();
     }
 
-    // END MTN SME
     if ($searc_level=="glo1" || $searc_level=="glo2" || $searc_level=="glo3" || $searc_level=="glo4"){
         if ($searc_level=="glo1"){$level=1;}
         if ($searc_level=="glo2"){$level=2;}
         if ($searc_level=="glo3"){$level=3;}
         if ($searc_level=="glo4"){$level=4;}
 
-        require ("../../functions/glo_price.php");
+        if ($api_glo == 'easy_access_data.php') {
+            $type = 'data';
+            $product = 'glo';
+            require("../../api/easy_access_pricing.php");
+            $message = '<form method="POST" id="submit_form">
+                            <input type="hidden" value="' . $level . '" id="level">
+                            <div class="row mb-3">';
 
-        $message='<form method="POST" id="submit_form">
+            foreach ($response as $res) {
+                $message .= '<div class="col-md-4" style="margin: 10px 0;"><label>' . $res['name'] . '</label><input type="number" id="' . $res['id'] . '" class="form-control" value="' . $res['price'] . '" required></div><br>';
+            }
 
-            <div>
-            <label>GLO 1.05GB</label>
-            <input type="hidden" value="'.$level.'" id="level">
-            <input type="tel" id="glo_105" class="form-control" value="'.$glo_105.'" required>
-            </div>
+            $message .= '<button class="btn btn-success" type="button" onclick="saveGLO()">Save</button></div></form>';
+        }else if ($api_glo == 'gongzo_data.php') {
+            $type = 'data';
+            $product = 'glo';
+            require("../../api/gongzo_pricing.php");
+            $message = '<form method="POST" id="submit_form">
+                                <input type="hidden" value="' . $level . '" id="level">
+                                <div class="row mb-3">';
 
-            <br/>
-            <div>
-            <label>GLO 2.9GB</label>
-            <input type="tel" id="glo_29" class="form-control" value="'.$glo_29.'" required>
-            </div>
+            foreach ($response as $res) {
+                $message .= '<div class="col-md-4" style="margin: 10px 0;"><label>' . $res['name'] . '</label><input type="number" id="' . $res['id'] . '" class="form-control" value="' . $res['price'] . '" required></div><br>';
+            }
 
-            <br/>
-            <div>
-            <label>GLO 4.1GB</label>
-            <input type="tel" id="glo_41" class="form-control" value="'.$glo_41.'" required>
-            </div>
+            $message .= '<button class="btn btn-success" type="button" onclick="saveGLO()">Save</button></div></form>';
+        } else{
+            require("../../functions/glo_price.php");
 
-            <br/>
-            <div>
-            <label>GLO 5.8GB</label>
-            <input type="tel" id="glo_58" class="form-control" value="'.$glo_58.'" required>
-            </div>
+            $message = '<form method="POST" id="submit_form">
 
-            <br/>
-            <div>
-            <label>GLO 7.7GB</label>
-            <input type="tel" id="glo_77" class="form-control" value="'.$glo_77.'" required>
-            </div>
+                <div>
+                <label>GLO 1.05GB</label>
+                <input type="hidden" value="' . $level . '" id="level">
+                <input type="tel" id="glo_105" class="form-control" value="' . $glo_105 . '" required>
+                </div>
 
-            <br/>
-            <div>
-            <label>GLO 10GB</label>
-            <input type="tel" id="glo_10" class="form-control" value="'.$glo_10.'" required>
-            </div>
+                <br/>
+                <div>
+                <label>GLO 2.9GB</label>
+                <input type="tel" id="glo_29" class="form-control" value="' . $glo_29 . '" required>
+                </div>
 
-            <br/>
-            <div>
-            <label>GLO 13.25GB</label>
-            <input type="tel" id="glo_1325" class="form-control" value="'.$glo_1325.'" required>
-            </div>
+                <br/>
+                <div>
+                <label>GLO 4.1GB</label>
+                <input type="tel" id="glo_41" class="form-control" value="' . $glo_41 . '" required>
+                </div>
 
-            <br/>
-            <div>
-            <label>GLO 18.25GB</label>
-            <input type="tel" id="glo_1825" class="form-control" value="'.$glo_1825.'" required>
-            </div>
+                <br/>
+                <div>
+                <label>GLO 5.8GB</label>
+                <input type="tel" id="glo_58" class="form-control" value="' . $glo_58 . '" required>
+                </div>
 
-            <br/>
-            <div>
-            <label>GLO 29.5GB</label>
-            <input type="tel" id="glo_295" class="form-control" value="'.$glo_295.'" required>
-            </div>
+                <br/>
+                <div>
+                <label>GLO 7.7GB</label>
+                <input type="tel" id="glo_77" class="form-control" value="' . $glo_77 . '" required>
+                </div>
 
-            <br/>
-            <div>
-            <label>GLO 50GB</label>
-            <input type="tel" id="glo_50" class="form-control" value="'.$glo_50.'" required>
-            </div>
+                <br/>
+                <div>
+                <label>GLO 10GB</label>
+                <input type="tel" id="glo_10" class="form-control" value="' . $glo_10 . '" required>
+                </div>
 
-            <br/>
-            <div>
-            <label>GLO 93GB</label>
-            <input type="tel" id="glo_93" class="form-control" value="'.$glo_93.'" required>
-            </div>
+                <br/>
+                <div>
+                <label>GLO 13.25GB</label>
+                <input type="tel" id="glo_1325" class="form-control" value="' . $glo_1325 . '" required>
+                </div>
 
+                <br/>
+                <div>
+                <label>GLO 18.25GB</label>
+                <input type="tel" id="glo_1825" class="form-control" value="' . $glo_1825 . '" required>
+                </div>
 
-            <br/>
-            <button class="btn btn-success" type="button" onclick="saveGLO()">Save</button>
+                <br/>
+                <div>
+                <label>GLO 29.5GB</label>
+                <input type="tel" id="glo_295" class="form-control" value="' . $glo_295 . '" required>
+                </div>
 
-            </form>
-        ';
+                <br/>
+                <div>
+                <label>GLO 50GB</label>
+                <input type="tel" id="glo_50" class="form-control" value="' . $glo_50 . '" required>
+                </div>
 
-        $response=array(
-        'status' => 'success',
-        'data' => $message,
+                <br/>
+                <div>
+                <label>GLO 93GB</label>
+                <input type="tel" id="glo_93" class="form-control" value="' . $glo_93 . '" required>
+                </div>
+                <br/>
+                <button class="btn btn-success" type="button" onclick="saveGLO()">Save</button>
+
+                </form>
+            ';
+        }
+
+        $response = array(
+            'status' => 'success',
+            'data' => $message,
         );
 
         echo json_encode($response);
         exit();
+
     }
 
     ////GLO-CG PRICE END
@@ -696,89 +722,118 @@
         if ($searc_level=="airtel3"){$level=3;}
         if ($searc_level=="airtel4"){$level=4;}
 
-        require ("../../functions/airtel_price.php");
+        if ($api_airtel == 'easy_access_data.php') {
+            $type = 'data';
+            $product = 'airtel';
+            require("../../api/easy_access_pricing.php");
+            $message = '<form method="POST" id="submit_form">
+                                <input type="hidden" value="' . $level . '" id="level">
+                                <div class="row mb-3">';
 
-        $message='<form method="POST" id="submit_form">
+            foreach ($response as $res) {
+                $message .= '<div class="col-md-4" style="margin: 10px 0;"><label>' . $res['name'] . '</label><input type="number" id="' . $res['id'] . '" class="form-control" value="' . $res['price'] . '" required></div><br>';
+            }
 
-        <div>
-        <label>AIRTEL 750MB</label>
-        <input type="hidden" value="'.$level.'" id="level">
-        <input type="tel" id="airtel_750" class="form-control" value="'.$airtel_750.'" required>
-        </div>
+            $message .= '<button class="btn btn-success" type="button" onclick="saveAIRTEL()">Save</button>';
+        }elseif ($api_airtel == 'gongzo_data.php') {
+            $type = 'data';
+            $product = 'airtel';
 
-        <br/>
-        <div>
-        <label>AIRTEL 1.5GB</label>
-        <input type="tel" id="airtel_15" class="form-control" value="'.$airtel_15.'" required>
-        </div>
+            require("../../api/gongzo_pricing.php");
 
-        <br/>
-        <div>
-        <label>AIRTEL 2.0GB</label>
-        <input type="tel" id="airtel_2" class="form-control" value="'.$airtel_2.'" required>
-        </div>
+            $message = '<form method="POST" id="submit_form">
+                        <input type="hidden" value="' . $level . '" id="level">
+                        <div class="row mb-3">';
 
-        <br/>
-        <div>
-        <label>AIRTEL 3.0GB</label>
-        <input type="tel" id="airtel_3" class="form-control" value="'.$airtel_3.'" required>
-        </div>
+            foreach ($response as $res) {
+                $message .= '<div class="col-md-4" style="margin: 10px 0;"><label>' . $res['name'] . '</label><input type="number" id="' . $res['id'] . '" class="form-control" value="' . $res['price'] . '" required></div><br>';
+            }
 
-        <br/>
-        <div>
-        <label>AIRTEL 4.5GB</label>
-        <input type="tel" id="airtel_45" class="form-control" value="'.$airtel_45.'" required>
-        </div>
+            $message .= '<button class="btn btn-success" type="button" onclick="saveAIRTEL()">Save</button>';
+        }else{
+            require ("../../functions/airtel_price.php");
+            $message = '<form method="POST" id="submit_form">
 
-        <br/>
-        <div>
-        <label>AIRTEL 6.0GB</label>
-        <input type="tel" id="airtel_6" class="form-control" value="'.$airtel_6.'" required>
-        </div>
-        <br/>
+                <div>
+                <label>AIRTEL 750MB</label>
+                <input type="hidden" value="' . $level . '" id="level">
+                <input type="tel" id="airtel_750" class="form-control" value="' . $airtel_750 . '" required>
+                </div>
 
-        <br/>
-        <div>
-        <label>AIRTEL 10GB</label>
-        <input type="tel" id="airtel_10" class="form-control" value="'.$airtel_10.'" required>
-        </div>
+                <br/>
+                <div>
+                <label>AIRTEL 1.5GB</label>
+                <input type="tel" id="airtel_15" class="form-control" value="' . $airtel_15 . '" required>
+                </div>
 
-        <br/>
-        <div>
-        <label>AIRTEL 11GB</label>
-        <input type="tel" id="airtel_11" class="form-control" value="'.$airtel_11.'" required>
-        </div>
+                <br/>
+                <div>
+                <label>AIRTEL 2.0GB</label>
+                <input type="tel" id="airtel_2" class="form-control" value="' . $airtel_2 . '" required>
+                </div>
 
-        <br/>
-        <div>
-        <label>AIRTEL 20GB</label>
-        <input type="tel" id="airtel_20" class="form-control" value="'.$airtel_20.'" required>
-        </div>
+                <br/>
+                <div>
+                <label>AIRTEL 3.0GB</label>
+                <input type="tel" id="airtel_3" class="form-control" value="' . $airtel_3 . '" required>
+                </div>
 
-        <br/>
-        <div>
-        <label>AIRTEL 40GB</label>
-        <input type="tel" id="airtel_40" class="form-control" value="'.$airtel_40.'" required>
-        </div>
+                <br/>
+                <div>
+                <label>AIRTEL 4.5GB</label>
+                <input type="tel" id="airtel_45" class="form-control" value="' . $airtel_45 . '" required>
+                </div>
 
-        <br/>
-        <div>
-        <label>AIRTEL 75GB</label>
-        <input type="tel" id="airtel_75" class="form-control" value="'.$airtel_75.'" required>
-        </div>
+                <br/>
+                <div>
+                <label>AIRTEL 6.0GB</label>
+                <input type="tel" id="airtel_6" class="form-control" value="' . $airtel_6 . '" required>
+                </div>
+                <br/>
 
-        <br/>
-        <div>
-        <label>AIRTEL 120GB</label>
-        <input type="tel" id="airtel_120" class="form-control" value="'.$airtel_120.'" required>
-        </div>
+                <br/>
+                <div>
+                <label>AIRTEL 10GB</label>
+                <input type="tel" id="airtel_10" class="form-control" value="' . $airtel_10 . '" required>
+                </div>
+
+                <br/>
+                <div>
+                <label>AIRTEL 11GB</label>
+                <input type="tel" id="airtel_11" class="form-control" value="' . $airtel_11 . '" required>
+                </div>
+
+                <br/>
+                <div>
+                <label>AIRTEL 20GB</label>
+                <input type="tel" id="airtel_20" class="form-control" value="' . $airtel_20 . '" required>
+                </div>
+
+                <br/>
+                <div>
+                <label>AIRTEL 40GB</label>
+                <input type="tel" id="airtel_40" class="form-control" value="' . $airtel_40 . '" required>
+                </div>
+
+                <br/>
+                <div>
+                <label>AIRTEL 75GB</label>
+                <input type="tel" id="airtel_75" class="form-control" value="' . $airtel_75 . '" required>
+                </div>
+
+                <br/>
+                <div>
+                <label>AIRTEL 120GB</label>
+                <input type="tel" id="airtel_120" class="form-control" value="' . $airtel_120 . '" required>
+                </div>
 
 
-        <br/>
-        <button class="btn btn-success" type="button" onclick="saveAIRTEL()">Save</button>
+                <br/>
+                <button class="btn btn-success" type="button" onclick="saveAIRTEL()">Save</button>
 
-        </form>
-        ';
+                </form>
+            ';
+        }
 
         $response=array(
         'status' => 'success',
@@ -788,7 +843,6 @@
         echo json_encode($response);
         exit();
     }
-    //AIRTEL-GIFT PRICE END
 
     if ($searc_level=="airtelcg1" || $searc_level=="airtelcg2" || $searc_level=="airtelcg3" || $searc_level=="airtelcg4"){
 
