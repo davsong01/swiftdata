@@ -74,7 +74,6 @@
                     require("dataModule/$api_mobile");
                 } else if ($network == "AIRTEL" && $a_lock1 == 1 && $airtel_access == 1) {
                     $product = 'airtel';
-                    
                     if ($api_airtel == 'gongzo_data.php') {
                         require("dataModule/gongzo_data.php");
                     }
