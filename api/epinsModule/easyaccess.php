@@ -19,7 +19,6 @@ if ($service=="NABTEB"){
     $service_comm=$nabteb_comm;
 }
 
-
 if ($account_balance > $service_price && $service_price > 0){
     $new_wallet=$account_balance-$service_price;
     mysqli_query($con, "UPDATE users SET wallets='$new_wallet' WHERE id='$user_id' AND username ='$account_username'");
@@ -51,12 +50,27 @@ if ($account_balance > $service_price && $service_price > 0){
 
     // $response = '{"success":"true","message":"E-pin was Successful","pin":"175913539286","amount":775,"transaction_date":"30-09-2023 08:27:05 am","reference_no":"ID67964548679","status":"fail"}';
 
+    // $response = '{"success":"true","message":"E-pin was Successful","pin":"212171481223","pin2":"213366968668","amount":1360,"transaction_date":"13-10-2023 10:00:25 pm","reference_no":"ID35929683779","status":"Successful"}';
+
     curl_close($curl);
 
     $result=json_decode($response);
     $status=strtolower($result->status);
+
+    if ($service == "WAEC" || $service == 'NECO' || $service == 'NABTEB') {
+        if (isset($result) && !empty($result)) {
+            foreach ($result as $key => $value) {
+                if (strpos($key, 'pin') !== false) {
+                    $pinsx[] = $value;
+                }
+            }
+        }
+        
+        $epin = (isset($pinsx) && !empty($pinsx)) ? 'PINS: ' . implode(', ', $pinsx) : '';
+    }else{
+        $epin = 'PIN: '. $result->pin ?? '';
+    }
     
-    $epin = 'PIN: '. $result->pin ?? '';
     
     if (isset($status) && $status == "successful"){
         $order_report=strtoupper($service.' N'.number_format($service_price).' E-Pin Purchase Successful. '. $epin);
