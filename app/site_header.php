@@ -459,10 +459,11 @@ echo '<li>
 
         <?php
 
-if ($monnify_mode=="ON" && $reserved_account==""){
-    
+// if ($monnify_mode=="ON" && $reserved_account==""){
+    // handle reserved account
     require("monnify.php");
-}
+    // echo 'dsdssd';
+// }
 
 
 ?>

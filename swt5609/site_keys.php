@@ -61,17 +61,66 @@ if ($manage_message == 1) {
     <input type="text" class="form-control" id="naijaresultpins_api_key" value="' . $naijaresultpins_api_key . '" placeholder="NAIJA RESULTS API KEY">
 
     <br/>
+    <label style="color:green">PAY VESSEL STATUS *</label>
+    <input type="hidden" id="req_token" value="' . $_SESSION['csrftoken'] . '">
+    <select class="form-control" id="payvessel_mode" required>
+    <option value="ON"' . ($payvessel_mode == 'ON' ? 'selected' : '') . '>ON</option>
+    <option value="OFF"' . ($payvessel_mode == 'OFF' ? 'selected' : '') . '>OFF</option>
+    </select>
+    <br/>
+    <label style="color:green">PAY VESSEL API KEY *</label>
+     <input type="hidden" id="req_token" value="' . $_SESSION['csrftoken'] . '">
+    <input type="text" class="form-control" id="payvessel_api_key" value="' . $payvessel_api_key . '" placeholder="">
+
+    <br/>
+    
+    <label style="color:green">PAY VESSEL SECRET KEY *</label>
+     <input type="hidden" id="req_token" value="' . $_SESSION['csrftoken'] . '">
+    <input type="text" class="form-control" id="payvessel_api_secret_key" value="' . $payvessel_api_secret_key . '" placeholder="">
+
+    <br/>
+    <label style="color:green">PAY VESSEL PUBLIC KEY *</label>
+     <input type="hidden" id="req_token" value="' . $_SESSION['csrftoken'] . '">
+    <input type="text" class="form-control" id="payvessel_api_public_key" value="' . $payvessel_api_public_key . '" placeholder="">
+
+    <br/>
+    <label style="color:green">PAY VESSEL MERCHANT ID *</label>
+     <input type="hidden" id="req_token" value="' . $_SESSION['csrftoken'] . '">
+    <input type="text" class="form-control" id="payvessel_merchant_id" value="' . $payvessel_merchant_id . '" placeholder="">
+
+    <br/>
+    
+    <label style="color:blue">MONIFY STATUS *</label>
+    <input type="hidden" id="req_token" value="' . $_SESSION['csrftoken'] . '">
+    <select class="form-control" id="monnify_mode" required>
+    <option value="ON"' . ($monnify_mode == 'ON' ? 'selected' : '') . '>ON</option>
+    <option value="OFF"' . ($monnify_mode == 'OFF' ? 'selected' : '') . '>OFF</option>
+    </select>
+
+    <br/>
+    <label style="color:blue">MONIFY SECRET KEY *</label>
+    <input type="hidden" id="req_token" value="' . $_SESSION['csrftoken'] . '">
+    <input type="text" class="form-control" id="monnify_sk" value="' . $monnify_sk . '" placeholder="">
+
+    <br/>
+    <label style="color:blue">MONIFY PUBLIC KEY *</label>
+    <input type="hidden" id="req_token" value="' . $_SESSION['csrftoken'] . '">
+    <input type="text" class="form-control" id="monnify_pk" value="' . $monnify_pk . '" placeholder="">
+
+    <br/>
+    <label style="color:blue">MONIFY CC *</label>
+    <input type="hidden" id="req_token" value="' . $_SESSION['csrftoken'] . '">
+    <input type="text" class="form-control" id="monnify_cc" value="' . $monnify_cc . '" placeholder="">
+
+    <br/>
 
     <button class="btn btn-success btn-block type="submit" style="width:100%">SUBMIT</button>
 
     </form>
-
   <br>
   <br>
   <br/>
 </div>
-
-
 </div>
 </div>
 
@@ -96,7 +145,16 @@ if ($manage_message == 1) {
       sms_username: $("#sms_username").val(),
       sms_password: $("#sms_password").val(),
       naijaresultpins_api_key: $("#naijaresultpins_api_key").val(),
-      
+      payvessel_api_public_key: $("#payvessel_api_public_key").val(),
+      payvessel_api_secret_key: $("#payvessel_api_secret_key").val(),
+      payvessel_api_key: $("#payvessel_api_key").val(),
+      monnify_pk: $("#monnify_pk").val(),
+      monnify_cc: $("#monnify_cc").val(),
+      monnify_sk: $("#monnify_sk").val(),
+      payvessel_mode: $("#payvessel_mode").val(),
+      monnify_mode: $("#monnify_mode").val(),
+      payvessel_merchant_id: $("#payvessel_merchant_id").val(),
+
       req_token: $("#req_token").val(),
     };
     $.LoadingOverlay("show");

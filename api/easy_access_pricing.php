@@ -425,7 +425,7 @@
                 'id' => 'easy_access64',
             ],
             [
-                'name' => "10GB (Direct) - 30days",
+                'name' => "12GB (Direct) - 30days",
                 'val' => 10000,
                 'price' => $data_query[6],
                 'code' => 64,

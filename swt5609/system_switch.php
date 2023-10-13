@@ -7,7 +7,6 @@ $key = array_rand($colors);
 if ($manage_automation == 1) {
 
 ?>
-
     <div class="main_content_iner ">
         <div class="container-fluid p-0 sm_padding_15px">
             <div class="row justify-content-center">
@@ -83,6 +82,17 @@ if ($manage_automation == 1) {
                             <p style="color: white;">click the button to see option.</p>
                             <br />
                             <button class="btn btn-danger btn-block" id="education" onclick="switchFun(this.id)">EDIT
+                            </button>
+                        </center>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="alert" style="background-color: <?php echo $colors[$key]; ?>;color: #000;">
+                        <center>
+                            <h4 style="color: white;">CHANGE PAYMENT PROCESSOR</h4>
+                            <p style="color: white;">click the button to see option.</p>
+                            <br />
+                            <button class="btn btn-danger btn-block" id="payment_gateway" onclick="switchFun(this.id)">EDIT
                             </button>
                         </center>
                     </div>
@@ -229,6 +239,32 @@ if ($manage_automation == 1) {
 
         }
 
+        function savePaymentGateway() {
+            $("#priceModal").modal("hide");
+            $.LoadingOverlay("show");
+            var formData = {
+                selected: $("#patment_gateway").val(),
+                type: 'payment_gateway'
+            };
+            $.ajax({
+                url: 'customer/save_all_switch',
+                type: "POST",
+                data: formData,
+                dataType: 'json',
+                success: function(savingRes) {
+                    $.LoadingOverlay("hide");
+                    if (savingRes.status == 'success') {
+                        $("#successModal").modal("show");
+                        $("#successModal .modal-body").html(savingRes.message);
+                    } else {
+                        $("#errorModal").modal("show");
+                        $("#errorModal .modal-body").html(savingRes.message);
+                    }
+                }
+            });
+
+        }
+
         function saveSMS() {
             $("#priceModal").modal("hide");
             $.LoadingOverlay("show");
@@ -267,7 +303,7 @@ if ($manage_automation == 1) {
                 type: 'education',
                 level: 1
             };
-           
+
             $.ajax({
                 url: 'customer/update_provider',
                 type: "POST",

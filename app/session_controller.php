@@ -33,38 +33,38 @@ $try_session=mysqli_query($con, "SELECT * FROM users WHERE email='".$_SESSION['u
     }
 
  else{
+    $return_data=mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM users WHERE email='".$_SESSION['username']."'"));
 
-$return_data=mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM users WHERE email='".$_SESSION['username']."'"));
+    $id=$return_data['id'];
+    $fullname=$return_data['full_name'];
+    $reg_date=$return_data['reg_date'];
+    $mobile=$return_data['mobile'];
+    $Account_Balance=$return_data['wallets'];
+    $Account_Bonus=$return_data['cashback'];
+    $kyc_update=$return_data['kyc_update'];
+    $webhook=$return_data['webhook'];
+    $username=$return_data['username'];
+    $myreferral=$return_data['ref_by'];
 
-$id=$return_data['id'];
-$fullname=$return_data['full_name'];
-$reg_date=$return_data['reg_date'];
-$mobile=$return_data['mobile'];
-$Account_Balance=$return_data['wallets'];
-$Account_Bonus=$return_data['cashback'];
-$kyc_update=$return_data['kyc_update'];
-$webhook=$return_data['webhook'];
-$username=$return_data['username'];
-$myreferral=$return_data['ref_by'];
+    $email=$return_data['email'];
+    $mobile=$return_data['mobile'];
+    $status=$return_data['status'];
+    $block=$return_data['block'];
+    $sk_token=$return_data['sk_token'];
+    $level=$return_data['level'];
+    $ref_code=$return_data['ref_code'];
+    $rating=$return_data['rating'];
+    $admin_access = $return_data['admin_access'];
+    $admin_token = $return_data['admin_token'];
+    $security=$return_data['security_pin'];
 
-$email=$return_data['email'];
-$status=$return_data['status'];
-$block=$return_data['block'];
-$sk_token=$return_data['sk_token'];
-$level=$return_data['level'];
-$ref_code=$return_data['ref_code'];
-$rating=$return_data['rating'];
-$admin_access = $return_data['admin_access'];
-$admin_token = $return_data['admin_token'];
-$security=$return_data['security_pin'];
-
-$acctname=$return_data['acctname'];
-$wema=$return_data['wema'];
-$rolez=$return_data['rolez'];
-$sterling=$return_data['sterling'];
-$fidelity=$return_data['fidelity'];
-$reserved_account=$return_data['reserved_account'];
-
+    $acctname=$return_data['acctname'];
+    $wema=$return_data['wema'];
+    $rolez=$return_data['rolez'];
+    $sterling=$return_data['sterling'];
+    $fidelity=$return_data['fidelity'];
+    $reserved_account=$return_data['reserved_account'];
+    $payvessel_reserved_account=$return_data['payvessel_reserved_account'];
  }
 
 if ($sk_token==""){

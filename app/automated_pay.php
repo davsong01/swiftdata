@@ -33,35 +33,35 @@
 <!-- start -->
 
 <?php
+  $bankinfos = [];
 
-
- if ($reserved_account !== ""){
-     
-     
-  $json_decoded = json_decode($reserved_account,true);
-
-  $acctName=$json_decoded['responseBody']['accountName']; 
-  $accountReference=$json_decoded['responseBody']['accountReference']; 
-  $bankinfos=$json_decoded['responseBody']["accounts"];
-
-  $message =  '<div><p style="font-size: 15px;text-align: center;text-transform: uppercase;color:red;font-weight:bold;">'.$sitename.' / '.$acctName.'<br/>1% charges apply on all funding through Monnify</p></div>';
-                
-  if(isset($bankinfos) && !empty($bankinfos)){
-    foreach($bankinfos as $info){
-      $message .= ' <div class="alert alert-primary" style="font-size: 15px;text-align: center;text-transform: uppercase;">'.$info['bankName'].' - <b>'.$info['accountNumber'].'</b></div><hr/>';
-    }
-    
+  if($payvessel_mode == 'ON'){
+    $payve = !empty($payvessel_reserved_account) ? json_decode($payvessel_reserved_account, true): [];
+    $bankinfos[] = $payve['banks'];
   }
-             
- }else {
-     $message = '<div class="alert alert-primary" style="font-size: 15px;text-align: center;text-transform: uppercase;">
-              NO RESERVED ACCOUNT YET
-              </div><hr/>';
 
+  if ($monnify_mode == 'ON') {
+    $json_decoded = json_decode($reserved_account, true);
+    $bankinfos[] = $json_decoded['responseBody']["accounts"];
+    $message =  '<div><p style="font-size: 15px;text-align: center;text-transform: uppercase;color:red;font-weight:bold;">' . $sitename . ' / ' . $acctName . '<br/>1% charges apply on all funding through Monnify</p></div>';
+  }
 
- }
+  if (!empty($bankinfos)) {
+    foreach ($bankinfos as $bank) {
+      foreach($bank as $info){
+        $message .= '<p class="alert alert-primary" style="font-size: 15px;text-align: center;text-transform: uppercase;">
+        <strong>Bank Name: </strong>' .  $info['bankName']  . '<br>
+        <strong>Account NUmber: </strong>' . $info['accountNumber']  . '<br>
+        <strong>Account Name: </strong>' . $info['accountName'] . '<br>
+        </p>';
+      }
+    }   
+  }else {
+    $message = '<div class="alert alert-primary" style="font-size: 15px;text-align: center;text-transform: uppercase;">NO RESERVED ACCOUNT YET</div><hr/>';
+  }
 
- echo $message;
+  echo $message;
+
 ?>
 
 </div>
