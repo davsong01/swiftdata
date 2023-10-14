@@ -8,7 +8,7 @@ if(isset($type) && $type == 'payvessel'){
   
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // CSRF exemption
-   
+      // {"transaction":{"date":"2023-10-14T19:36:29","reference":"100033231014183603000986812789","sessionid":"100033231014183603000986812789"},"order":{"currency":"NGN","amount":500,"settlement_amount":470,"fee":30,"description":"Inbound Transfer From PALMPAY - TAOFEEK PHILIP ADEBOLA/Palmpay to ADEGLOBAL-Admin/5121073865-9Payment Service Bank"},"customer":{"email":"adeglobaltelecom@gmail.com","phone":"09057566532"},"virtualAccount":{"virtualAccountNumber":"5121073865","virtualBank":"120001"},"sender":{"senderAccountNumber":"7046734407","SenderBankCode":"100033","senderBankName":"Palmpay","senderName":"PALMPAY - TAOFEEK PHILIP ADEBOLA"},"message":"Success","code":"00"}
       $payload = file_get_contents('php://input');
       $payvessel_signature = $_SERVER['HTTP_PAYVESSEL_HTTP_SIGNATURE'];
 
@@ -17,10 +17,10 @@ if(isset($type) && $type == 'payvessel'){
       // $payvessel_api_secret_key = "PVSECRET-";
       $hashkey = hash_hmac('sha512', $payload, $payvessel_api_secret_key);
     
-      // if($environment == 'local'){
-      //   $ip_address = '162.246.254.36';
-      //   $payvessel_signature = $hashkey;
-      // }
+      if($environment == 'local'){
+        $ip_address = '162.246.254.36';
+        $payvessel_signature = $hashkey;
+      }
      
       if ($payvessel_signature == $hashkey && $ip_address == "162.246.254.36") {
         $data = json_decode($payload, true);
@@ -30,6 +30,10 @@ if(isset($type) && $type == 'payvessel'){
         $reference = $data['transaction']['reference'];
         $description = $data['order']['description'];
         $customer_email = $data['customer']['email'];
+
+        $dateTime = new DateTime('now', new DateTimeZone('Africa/Lagos'));
+        $time = $dateTime->format("d-M-y  h:i A");
+        $timexx = time();
 
         if($final_amount > 0){
           // check if reference exists
