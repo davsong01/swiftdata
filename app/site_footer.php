@@ -23,7 +23,7 @@
 </section>
 <script type="text/javascript">
     function FundWallet() {
-        window.location.href = "wallet_option";
+        window.location.href = "automated_pay";
     }
 </script>
 <script type="text/javascript">

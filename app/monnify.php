@@ -27,8 +27,13 @@ if ($payvessel_mode == 'ON'&& $payvessel_reserved_account == "") {
     //     'api-secret' => 'Bearer PVSECRET-XM5C80TFP0E20WB4ZRLRAMY46B4ZBCJY22HXG6RNL0VS25SEX19MGC86SQAKMSL8',
     //     'Content-Type' => 'application/json'
     // ];
-   
-    $url = "https://api.payvessel.com/api/external/request/customerReservedAccount/";
+    if($environment == 'local'){
+        // $url = "https://sandbox.payvessel.com/api/external/request/customerReservedAccount/";
+        $url = "https://api.payvessel.com/api/external/request/customerReservedAccount/";
+
+    }else{
+        $url = "https://api.payvessel.com/api/external/request/customerReservedAccount/";
+    }
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_POST, 1);

@@ -1,70 +1,93 @@
 <?php require("site_header.php"); ?>
 <div class="alert">
-<div class="col-xl-12">
-<div class="alert" style="background-color: #fff;color: blue;">
+  <div class="col-xl-12">
+    <div class="alert" style="background-color: #fff;color: blue;">
 
-        <div id="response" style="text-align: center;">
-          <h4>Add Money</h4>
-          <p style="color: red;font-weight: bold;">Transfer money into one of the reserved account below and your wallet will be automatically credited.</p>
+      <div id="response" style="text-align: center;">
+        <h4>Add Money</h4>
+        <p style="color: red;font-weight: bold;">Transfer money into one of the reserved account below and your wallet will be automatically credited.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="col-xl-12">
+    <div class="alert" style="box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;">
+
+      <div id="response" style="text-align: left;">
+        <span>Available Balance
+          <span style="float: right;"></span>
+        </span>
+        <br />
+
+        <span style="color: #940798;font-weight: bold;font-size: 25px;">₦ <?php echo number_format($Account_Balance, 2); ?></span>
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="alert" style="background-color: #fff; border-radius: 0px 0px 0px 0px;">
+
+    <!-- start -->
+
+    
+    <div class="row">
+      <div class="col-md12">
+        <p style="color:black; margin-bottom:20px">Deposit/Transfer Money using any of the automated transfer payment options below.</p>
+      </div>
+      <?php
+        if ($payvessel_mode == 'ON') {
+          $payve = !empty($payvessel_reserved_account) ? json_decode($payvessel_reserved_account, true) : [];
+          $bankinfos1[] = $payve['banks'];
+          $message1 = '<div class="row">';
+          foreach ($bankinfos1 as $bank) {
+            foreach ($bank as $info) {
+              $message1 .= '<div class="col-md-6" style="margin-bottom: 20px;"><p style="color:#940798;font-weight: 500;"><strong>Bank: </strong>' .  $info['bankName']  . '<br><strong>Acct Number: </strong>' . $info['accountNumber']  . '<br><strong>Acct Name: </strong>' . $info['accountName'] . '</p></div>';
+            }
+          }
+          $message1 .= '</div>'
+        ?>
+
+        <div class="col-md-6 alert alert-primary" style="background-color: #94079803;color:black;font-size: 15px;border-color: #940798;">
+          <h6>Automated Payment 1</h2>
+            <p style="color:red"><i class="fa fa-info-circle"></i> #30 charges is incurred on transfer made to this/these bank/banks. We advise you to make use of this payment option if you are funding any amount above #5,000.</p>
+            <?php
+            echo $message1;
+
+            ?>
+
         </div>
-                
-</div>
-</div>
+      <?php } ?>
+      <?php
+      if ($monnify_mode == 'ON') {
+        $json_decoded = json_decode($reserved_account, true);
+        $bankinfos[] = $json_decoded['responseBody']["accounts"];
 
-<div class="col-xl-12">
-<div class="alert" style="box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;">
+        $message = '<div class="row">';
+        foreach ($bankinfos as $bank) {
+          foreach ($bank as $info) {
+            $message .= '<div class="col-md-6" style="margin-bottom: 20px;"><p style="color:#940798;font-weight: 500;"><strong>Bank: </strong>' .  $info['bankName']  . '<br><strong>Acct Number: </strong>' . $info['accountNumber']  . '<br><strong>Acct Name: </strong>' . $info['accountName'] . '</p></div>';
+          }
+        }
+        $message .= '</div>'
+      ?>
 
-        <div id="response" style="text-align: left;">
-          <span>Available Balance 
-            <span style="float: right;"></span>
-          </span>
-          <br/>
+        <div class="col-md-6 alert alert-primary" style="background-color: #94079803;color:black;font-size: 15px;border-color: #940798;">
+          <h6>Automated Payment 2</h2>
+            <p style="color:red"><i class="fa fa-info-circle"></i> Transfer money into one of the reserved account(s) below and your wallet will be automatically credited. Though moniepoint is fast. Note that 1% charge is incurred on every funding.</p>
+            <?php
+            echo $message;
 
-           <span style="color: #940798;font-weight: bold;font-size: 25px;">₦ <?php echo number_format($Account_Balance,2); ?></span>
-         
+            ?>
+
         </div>
-                
-</div>
-</div>
+      <?php } ?>
 
+    </div>
 
-<div class="alert" style="background-color: #fff; border-radius: 0px 0px 0px 0px;">
-
-<!-- start -->
-
-<?php
-  $bankinfos = [];
-
-  if($payvessel_mode == 'ON'){
-    $payve = !empty($payvessel_reserved_account) ? json_decode($payvessel_reserved_account, true): [];
-    $bankinfos[] = $payve['banks'];
-  }
-
-  if ($monnify_mode == 'ON') {
-    $json_decoded = json_decode($reserved_account, true);
-    $bankinfos[] = $json_decoded['responseBody']["accounts"];
-    $message =  '<div><p style="font-size: 15px;text-align: center;text-transform: uppercase;color:red;font-weight:bold;">' . $sitename . ' / ' . $acctName . '<br/>1% charges apply on all funding through Monnify</p></div>';
-  }
-
-  if (!empty($bankinfos)) {
-    foreach ($bankinfos as $bank) {
-      foreach($bank as $info){
-        $message .= '<p class="alert alert-primary" style="font-size: 15px;text-align: center;text-transform: uppercase;">
-        <strong>Bank Name: </strong>' .  $info['bankName']  . '<br>
-        <strong>Account NUmber: </strong>' . $info['accountNumber']  . '<br>
-        <strong>Account Name: </strong>' . $info['accountName'] . '<br>
-        </p>';
-      }
-    }   
-  }else {
-    $message = '<div class="alert alert-primary" style="font-size: 15px;text-align: center;text-transform: uppercase;">NO RESERVED ACCOUNT YET</div><hr/>';
-  }
-
-  echo $message;
-
-?>
-
-</div>
+  </div>
 </div>
 </div>
 
