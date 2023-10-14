@@ -422,7 +422,7 @@
                 'val' => 10000,
                 'price' => $data_query[5],
                 'code' => 63,
-                'id' => 'easy_access64',
+                'id' => 'easy_access63',
             ],
             [
                 'name' => "13.25GB (Direct) - 30days",
