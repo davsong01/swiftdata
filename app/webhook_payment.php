@@ -14,8 +14,8 @@ if(isset($type) && $type == 'payvessel'){
 
       //$ip_address = $_SERVER['HTTP_X_FORWARDED_FOR']; 
       $ip_address = $_SERVER['REMOTE_ADDR'] ?? $_SERVER['HTTP_X_FORWARDED_FOR'];
-      $payvessel_api_secret_key = "PVSECRET-";
-      $hashkey = hash_hmac('sha512', $payload, $secret);
+      // $payvessel_api_secret_key = "PVSECRET-";
+      $hashkey = hash_hmac('sha512', $payload, $payvessel_api_secret_key);
     
       // if($environment == 'local'){
       //   $ip_address = '162.246.254.36';
