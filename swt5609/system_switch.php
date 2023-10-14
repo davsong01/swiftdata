@@ -86,7 +86,7 @@ if ($manage_automation == 1) {
                         </center>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <!-- <div class="col-md-6">
                     <div class="alert" style="background-color: <?php echo $colors[$key]; ?>;color: #000;">
                         <center>
                             <h4 style="color: white;">CHANGE PAYMENT PROCESSOR</h4>
@@ -96,7 +96,7 @@ if ($manage_automation == 1) {
                             </button>
                         </center>
                     </div>
-                </div>
+                </div> -->
 
             </div>
         </div>

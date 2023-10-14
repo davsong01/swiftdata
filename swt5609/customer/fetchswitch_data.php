@@ -324,30 +324,30 @@ if ($searc_level=="education"){
     exit();
 }
 
-if ($searc_level == "payment_gateway") {
-    $message = '
-    <form id="form-data">
-        <label>PAYMENT GATEWAY *</label> 
-        <select class="form-control" id="patment_gateway" required>
-        <option value="monnify"' . ($api_payment_gateway == 'monnify' ? 'selected' : '') . '>MONNIFY</option>
-        <option value="payvessel"' . ($api_payment_gateway == 'payvessel' ? 'selected' : '') . '>PAYVESSEL</option>
-        </select>
+// if ($searc_level == "payment_gateway") {
+//     $message = '
+//     <form id="form-data">
+//         <label>PAYMENT GATEWAY *</label> 
+//         <select class="form-control" id="patment_gateway" required>
+//         <option value="monnify"' . ($api_payment_gateway == 'monnify' ? 'selected' : '') . '>MONNIFY</option>
+//         <option value="payvessel"' . ($api_payment_gateway == 'payvessel' ? 'selected' : '') . '>PAYVESSEL</option>
+//         </select>
 
-        <br/>
+//         <br/>
        
-    <button class="btn btn-success" type="button" onclick="savePaymentGateway()">Save</button>
+//     <button class="btn btn-success" type="button" onclick="savePaymentGateway()">Save</button>
 
-    </form>
-    ';
+//     </form>
+//     ';
 
-    $response = array(
-        'status' => 'success',
-        'data' => $message,
-    );
+//     $response = array(
+//         'status' => 'success',
+//         'data' => $message,
+//     );
 
-    echo json_encode($response);
-    exit();
-}
+//     echo json_encode($response);
+//     exit();
+// }
 
 ////SNSLOCK END
 

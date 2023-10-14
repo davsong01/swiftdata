@@ -1,14 +1,14 @@
 <?php require("site_header.php"); ?>
 <?php
 
-if ($notification_mode=="ON"){
+if ($notification_mode == "ON") {
 ?>
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#myModal3").modal("show");
-    })
-</script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#myModal3").modal("show");
+        })
+    </script>
 
 <?php
 
@@ -51,23 +51,62 @@ if ($notification_mode=="ON"){
 
     <div class="col-xl-12">
         <span style="color:blue">
-            <marquee><?php if ($scrolling_mode=="ON"){ echo $notification_scroll; } ?> </marquee>
+            <marquee><?php if ($scrolling_mode == "ON") {
+                            echo $notification_scroll;
+                        } ?> </marquee>
         </span>
-        <div class="alert"
-            style="box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;">
+        <div class="alert" style="box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;">
 
             <div id="response" style="text-align: left;">
                 <span>Available Balance
-                    <span style="float: right;"><button class="btn btn-dark" onclick="FundWallet()"
-                            style="font-size:10px">Fund Wallet</button></span>
+                    <!-- <span style="float: right;"><button class="btn btn-dark" onclick="FundWallet()" style="font-size:10px">Fund Wallet</button></span> -->
                 </span>
                 <br />
 
-                <span
-                    style="color: #940798;font-weight: bold;font-size: 25px;">₦<?php echo number_format($Account_Balance,2); ?></span>
+                <span style="color: #940798;font-weight: bold;font-size: 25px;">₦<?php echo number_format($Account_Balance, 2); ?></span>
 
             </div>
 
+            <div id="response" style="text-align: center;">
+                <h4>Add Money</h4>
+                <p style="color: red;font-weight: bold;">Transfer money into one of the reserved account below and your wallet will be automatically credited.</p>
+            </div>
+            <?php
+            $bankinfos = [];
+
+            if ($payvessel_mode == 'ON') {
+                $payve = !empty($payvessel_reserved_account) ? json_decode($payvessel_reserved_account, true) : [];
+                $bankinfos[] = $payve['banks'];
+            }
+
+            if ($monnify_mode == 'ON') {
+                $json_decoded = json_decode($reserved_account, true);
+                $bankinfos[] = $json_decoded['responseBody']["accounts"];
+                $message =  '<div><p style="font-size: 15px;text-align: center;text-transform: uppercase;color:red;font-weight:bold;">' . $sitename . ' / ' . $acctName . '<br/>1% charges apply on all funding through Monnify</p></div>';
+            }
+            if (!empty($bankinfos)) {
+                $message = '<div class="row">';
+                foreach ($bankinfos as $bank) {
+                    foreach ($bank as $info) {
+                        $message .= '<div class="col-md-6 alert alert-primary" style="font-size: 15px;text-align: center;text-transform: uppercase;border-color: #940798;">
+                            <strong>Bank Name: </strong>' .  $info['bankName']  . '<br>
+                            <strong>Account NUmber: </strong>' . $info['accountNumber']  . '<br>
+                            <strong>Account Name: </strong>' . $info['accountName'] . '<br>
+                            </div>';
+
+                        // $message .= '<p class="alert alert-primary" style="font-size: 15px;text-align: center;text-transform: uppercase;">
+                        // <strong>Bank Name: </strong>' .  $info['bankName']  . '<br>
+                        // <strong>Account NUmber: </strong>' . $info['accountNumber']  . '<br>
+                        // <strong>Account Name: </strong>' . $info['accountName'] . '<br>
+                        // </p>';
+                    }
+                }
+                $message .= '</div>';
+            } else {
+                $message = '<div class="alert alert-primary" style="font-size: 15px;text-align: center;text-transform: uppercase;">NO RESERVED ACCOUNT YET</div><hr/>';
+            }
+            echo $message;
+            ?>
         </div>
     </div>
 
@@ -76,8 +115,7 @@ if ($notification_mode=="ON"){
             <center>
                 <span class="btn" style="font-size:12px;background-color:#940798;color:#fff" onclick="SalesAna()">Sales
                     Summary</span>
-                <span class="btn" style="font-size:12px;background-color:#940798;color:#fff"
-                    onclick="Transact()">Transactions</span>
+                <span class="btn" style="font-size:12px;background-color:#940798;color:#fff" onclick="Transact()">Transactions</span>
             </center>
         </div>
     </div>
@@ -88,8 +126,7 @@ if ($notification_mode=="ON"){
         <div class="alert" style="background-color: #fff;color:#fff;border-radius: 7px 7px;">
             <div class="option-section mb-15">
                 <div class="row gx-3">
-                    <div class="col pb-15"
-                        style="box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;height: 70px;border-radius: 20px;margin: 5px;">
+                    <div class="col pb-15" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;height: 70px;border-radius: 20px;margin: 5px;">
                         <div class="option-card border-2 border-rose-600">
                             <a href="<?php echo $baseurl; ?>/airtime_vtu">
                                 <div class="option-card-icon">
@@ -99,8 +136,7 @@ if ($notification_mode=="ON"){
                             </a>
                         </div>
                     </div>
-                    <div class="col pb-15"
-                        style="box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;height: 70px;border-radius: 20px;margin: 5px;">
+                    <div class="col pb-15" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;height: 70px;border-radius: 20px;margin: 5px;">
                         <div class="option-card">
                             <a href="<?php echo $baseurl; ?>/data">
                                 <div class="option-card-icon">
@@ -110,8 +146,7 @@ if ($notification_mode=="ON"){
                             </a>
                         </div>
                     </div>
-                    <div class="col pb-15"
-                        style="box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;height: 70px;border-radius: 20px;margin: 5px;">
+                    <div class="col pb-15" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;height: 70px;border-radius: 20px;margin: 5px;">
                         <div class="option-card">
                             <a href="<?php echo $baseurl; ?>/cable">
                                 <div class="option-card-icon">
@@ -126,8 +161,7 @@ if ($notification_mode=="ON"){
                 <br />
 
                 <div class="row gx-3">
-                    <div class="col pb-15"
-                        style="box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;height: 70px;border-radius: 20px;margin: 5px;">
+                    <div class="col pb-15" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;height: 70px;border-radius: 20px;margin: 5px;">
                         <div class="option-card">
                             <a href="<?php echo $baseurl; ?>/bills">
                                 <div class="option-card-icon">
@@ -137,8 +171,7 @@ if ($notification_mode=="ON"){
                             </a>
                         </div>
                     </div>
-                    <div class="col pb-15"
-                        style="box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;height: 70px;border-radius: 20px;margin: 5px;">
+                    <div class="col pb-15" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;height: 70px;border-radius: 20px;margin: 5px;">
                         <div class="option-card">
                             <a href="<?php echo $baseurl; ?>/epins">
                                 <div class="option-card-icon">
@@ -148,8 +181,7 @@ if ($notification_mode=="ON"){
                             </a>
                         </div>
                     </div>
-                    <div class="col pb-15"
-                        style="box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;height: 70px;border-radius: 20px;margin: 5px;">
+                    <div class="col pb-15" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;height: 70px;border-radius: 20px;margin: 5px;">
                         <div class="option-card">
                             <a href="<?php echo $baseurl; ?>/withdraw">
                                 <div class="option-card-icon">
@@ -165,8 +197,7 @@ if ($notification_mode=="ON"){
                 <br />
 
                 <div class="row gx-3">
-                    <div class="col pb-15"
-                        style="box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;height: 70px;border-radius: 20px;margin: 5px;">
+                    <div class="col pb-15" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;height: 70px;border-radius: 20px;margin: 5px;">
                         <div class="option-card">
                             <a href="<?php echo $baseurl; ?>/bulk_sms">
                                 <div class="option-card-icon">
@@ -176,8 +207,7 @@ if ($notification_mode=="ON"){
                             </a>
                         </div>
                     </div>
-                    <div class="col pb-15"
-                        style="box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;height: 70px;border-radius: 20px;margin: 5px;">
+                    <div class="col pb-15" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;height: 70px;border-radius: 20px;margin: 5px;">
                         <div class="option-card">
                             <a href="<?php echo $baseurl; ?>/exchange_airtime">
                                 <div class="option-card-icon">
@@ -187,13 +217,11 @@ if ($notification_mode=="ON"){
                             </a>
                         </div>
                     </div>
-                    <div class="col pb-15"
-                        style="box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;height: 70px;border-radius: 20px;margin: 5px;">
+                    <div class="col pb-15" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;height: 70px;border-radius: 20px;margin: 5px;">
                         <div class="option-card">
                             <a href="<?php echo $baseurl; ?>/get_flyer">
                                 <div class="option-card-icon">
-                                    <i class="fa fa-paper-plane"
-                                        style="font-size: 25px;color: #940798;margin: 5px;"></i>
+                                    <i class="fa fa-paper-plane" style="font-size: 25px;color: #940798;margin: 5px;"></i>
                                 </div>
                                 <p style="font-weight:bold;font-size:10px;">Get Graphic</p>
                             </a>
@@ -215,8 +243,7 @@ if ($notification_mode=="ON"){
             <label style="color: red;">Refer a friend and earn extra cash on <?php echo $sitename; ?></label>
             <p>Get 50% bonus immediately a user you referred upgrade to level 2 or 3.</p>
             <p class="text-dark" style="font-weight: bold;">Referral Link
-                <span><?php echo $mainpage; ?>/regsiter?referral=<?php echo $ref_code; ?></span> <i class="fa fa-copy"
-                    style="font-size: 13px;cursor: pointer;" onclick="copyFunction()">Copy</i> <span id="refres"></span>
+                <span><?php echo $mainpage; ?>/regsiter?referral=<?php echo $ref_code; ?></span> <i class="fa fa-copy" style="font-size: 13px;cursor: pointer;" onclick="copyFunction()">Copy</i> <span id="refres"></span>
             </p>
             <input type="hidden" id="req_token" value="<?php echo $_SESSION['csrftoken']; ?>">
             <select class="form-control" id="level">
@@ -248,8 +275,7 @@ if ($notification_mode=="ON"){
 </div>
 
 
-    <input type="text" id="myCode" value="<?php echo $mainpage; ?>/register?referral=<?php echo $ref_code ?>"
-    style="background-color: transparent; color: transparent; height: 0px;border: none;">
+<input type="text" id="myCode" value="<?php echo $mainpage; ?>/register?referral=<?php echo $ref_code ?>" style="background-color: transparent; color: transparent; height: 0px;border: none;">
 
 <script>
     function LiveChat() {
@@ -278,7 +304,7 @@ if ($notification_mode=="ON"){
         $("#refres").text("COPIED");
     }
 
-    $("#contactus").click(function () {
+    $("#contactus").click(function() {
         var message_report = $("#message").val();
         var req_token = $("#req_token").val();
         $.LoadingOverlay("show");
@@ -290,7 +316,7 @@ if ($notification_mode=="ON"){
                 message_report: message_report,
                 req_token: req_token
             },
-            success: function (response) {
+            success: function(response) {
                 $.LoadingOverlay("hide");
                 if (response.status == 'success') {
                     $("#message").val("");
@@ -304,7 +330,7 @@ if ($notification_mode=="ON"){
         })
     })
 
-    $("#upgrade").click(function () {
+    $("#upgrade").click(function() {
         var level = $("#level").val();
         var req_token = $("#req_token").val();
         $.LoadingOverlay("show");
@@ -316,7 +342,7 @@ if ($notification_mode=="ON"){
                 level: level,
                 req_token: req_token
             },
-            success: function (response) {
+            success: function(response) {
                 $.LoadingOverlay("hide");
                 if (response.status == 'success') {
                     $("#message").val("");
