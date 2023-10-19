@@ -8,6 +8,13 @@ if ($service=="WAEC"){
     $service_comm = $waec_comm;
 }
 
+if ($service == "NABTEB") {
+    $service_url = "https://www.naijaresultpins.com/api/v1/exam-card";
+    $card_type_id = 3;
+    $service_price = $nabteb * $quantity;
+    $service_comm = $nabteb_comm;
+}
+
 if ($service=="NECO"){
     $card_type_id = 2;
     $service_url= "https://www.naijaresultpins.com/api/v1/exam-card";

@@ -1,7 +1,7 @@
 <?php
 
     require ("../functions/sms_price.php");
-   
+    
     $check_nom=strlen($message_body);
     if ($check_nom<165){$msgVolume=1;}
     if ($check_nom>165 && $check_nom<=330){$msgVolume=2;}
@@ -66,7 +66,7 @@
         curl_close($ch);
 
 
-        // $res= '{"response":{"status":"SUCCESS","totalsent":1,"cost":2}}';
+        $res= '{"response":{"status":"SUCCESS","totalsent":1,"cost":2}}';
         $decodedResponse = json_decode($res);
             
         if (isset($decodedResponse->response) && $decodedResponse->response->status == "SUCCESS"){
@@ -91,14 +91,14 @@
             exit;
         }else{
 
-        $new_wallet=$account_balance;
-        mysqli_query($con, "UPDATE users SET wallets='$new_wallet' WHERE id='$user_id' AND username ='$account_username'");
-        
-        $order_report=strtoupper('BulkSMS Sending Failed To '.$plus_denos.' Member(s) ').curl_error($curl);
+            $new_wallet=$account_balance;
+            mysqli_query($con, "UPDATE users SET wallets='$new_wallet' WHERE id='$user_id' AND username ='$account_username'");
 
-        mysqli_query($con, "INSERT INTO `final_transactions` (`id`, `mobile_number`, `buyer_email`, `buyer_username`, `buyer_service`, `buyer_amount`, `buyer_prebal`, `buyer_postbal`, `buyer_descr`, `buyer_status`, `buyer_date`, `timestring`, `charge_from`, `user_type`, `sys_ref`, `api_ref`, `api_report`, `src_price`, `profit`, `databyte`,`post_fields`,`api_response`,`buyer_quantity`) VALUES (NULL, '$mobile', '$account_email', '$account_username', 'BULKSMS', '$service_price', '$account_balance', '$account_balance', '$order_report', 'FAILED', '$time', '$timestring', 'WALLET', '$level', '$api_reference', '$reference', 'DONE', '0', '0','0','$encodedRequest','$res','$quantity')");
+            $order_report=strtoupper('BulkSMS Sending Failed To '.$plus_denos.' Member(s) ');
+            
+            mysqli_query($con, "INSERT INTO `final_transactions` (`id`, `mobile_number`, `buyer_email`, `buyer_username`, `buyer_service`, `buyer_amount`, `buyer_prebal`, `buyer_postbal`, `buyer_descr`, `buyer_status`, `buyer_date`, `timestring`, `charge_from`, `user_type`, `sys_ref`, `api_ref`, `api_report`, `src_price`, `profit`, `databyte`,`post_fields`,`api_response`,`buyer_quantity`) VALUES (NULL, '$mobile', '$account_email', '$account_username', 'BULKSMS', '$service_price', '$account_balance', '$account_balance', '$order_report', 'FAILED', '$time', '$timestring', 'WALLET', '$level', '$api_reference', '$reference', 'DONE', '0', '0','0','$encodedRequest','$res','$quantity')");
 
-        mysqli_query($con, "INSERT INTO `sms_transactions` (`id`, `sender`, `message_body`, `buyer_date`, `buyer_email`, `reference`,`status`) VALUES (NULL, '$sender_id', '$message_body2', '$time', '$account_email', '$api_reference', 'FAILED')");
+            mysqli_query($con, "INSERT INTO `sms_transactions` (`id`, `sender`, `message_body`, `buyer_date`, `buyer_email`, `reference`,`status`) VALUES (NULL, '$sender_id', '$message_body2', '$time', '$account_email', '$api_reference', 'FAILED')");
 
             $response=array(
                 'status' => 'fail',

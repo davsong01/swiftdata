@@ -63,8 +63,9 @@ if ($monnify_mode == 'ON' && $reserved_account == "") {
     curl_close($ch);
 
     $result = json_decode($json, true);
+   
     $accessToken = $result['responseBody']['accessToken'];
-
+   
     $monnifyfullname = $fullname;
     $c_code = rand(1000000000, 9000000000);
     $aref = uniqid();
@@ -101,7 +102,7 @@ if ($monnify_mode == 'ON' && $reserved_account == "") {
     );
     $json = curl_exec($ch);
     curl_close($ch);
-
+    
     mysqli_query($con, "UPDATE users SET reserved_account='" . $json . "' WHERE email='" . $monnifyemail . "'");
 }
 ?>

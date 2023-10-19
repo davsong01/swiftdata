@@ -12,9 +12,7 @@ if(isset($type) && $type == 'payvessel'){
       $payload = file_get_contents('php://input');
       $payvessel_signature = $_SERVER['HTTP_PAYVESSEL_HTTP_SIGNATURE'];
 
-      //$ip_address = $_SERVER['HTTP_X_FORWARDED_FOR']; 
       $ip_address = $_SERVER['REMOTE_ADDR'] ?? $_SERVER['HTTP_X_FORWARDED_FOR'];
-      // $payvessel_api_secret_key = "PVSECRET-";
       $hashkey = hash_hmac('sha512', $payload, $payvessel_api_secret_key);
     
       if($environment == 'local'){
