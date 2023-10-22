@@ -13,7 +13,7 @@
     $service_price=$amount;
 
     if ($account_balance > $service_price && $service_price > 0){
-        $new_wallet=$account_balance+$service_price;
+        $new_wallet=$account_balance-$service_price;
         mysqli_query($con, "UPDATE users SET wallets='$new_wallet' WHERE id='$user_id' AND username ='$account_username'");
         $message_body2=htmlentities($message_body);
 

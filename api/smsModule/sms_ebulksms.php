@@ -14,7 +14,7 @@
     $quantity = $msgVolume * $plus_denos;
 
     if ($account_balance > $service_price && $service_price > 0){
-        $new_wallet=$account_balance+$service_price;
+        $new_wallet=$account_balance-$service_price;
         mysqli_query($con, "UPDATE users SET wallets='$new_wallet' WHERE id='$user_id' AND username ='$account_username'");
         
         $message_body2=htmlentities($message_body);
@@ -50,6 +50,7 @@
                 "dndsender" => 1,
             ],
         ];
+
         $encodedRequest = json_encode($request);
 
         $url = "https://api.ebulksms.com:443/sendsms";
@@ -66,7 +67,7 @@
         curl_close($ch);
 
 
-        $res= '{"response":{"status":"SUCCESS","totalsent":1,"cost":2}}';
+        // $res= '{"response":{"status":"SUCCESS","totalsent":1,"cost":2}}';
         $decodedResponse = json_decode($res);
             
         if (isset($decodedResponse->response) && $decodedResponse->response->status == "SUCCESS"){
