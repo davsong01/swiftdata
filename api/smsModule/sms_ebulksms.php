@@ -67,7 +67,7 @@
         curl_close($ch);
 
 
-        // $res= '{"response":{"status":"SUCCESS","totalsent":1,"cost":2}}';
+        // $res= '{"response":{"status":"Failed","totalsent":1,"cost":2}}';
         $decodedResponse = json_decode($res);
             
         if (isset($decodedResponse->response) && $decodedResponse->response->status == "SUCCESS"){
@@ -75,7 +75,6 @@
             $order_report=strtoupper('BulkSMS Sent To '.$plus_denos.' Numbers(s)');
 
             mysqli_query($con, "INSERT INTO `final_transactions` (`id`, `mobile_number`, `buyer_email`, `buyer_username`, `buyer_service`, `buyer_amount`, `buyer_prebal`, `buyer_postbal`, `buyer_descr`, `buyer_status`, `buyer_date`, `timestring`, `charge_from`, `user_type`, `sys_ref`, `api_ref`, `api_report`, `src_price`, `profit`, `databyte`,`post_fields`,`api_response`,`buyer_quantity`) VALUES (NULL, '$mobile', '$account_email', '$account_username', 'BULKSMS', '$service_price', '$account_balance', '$new_wallet', '$order_report', 'SUCCESSFUL', '$time', '$timestring', 'WALLET', '$level', '$api_reference', '$reference', 'DONE', '0', '0','0','$encodedRequest','$res','$quantity')");
-
 
             mysqli_query($con, "INSERT INTO `sms_transactions` (`id`, `sender`, `message_body`, `buyer_date`, `buyer_email`, `reference` ,`status`) VALUES (NULL, '$sender_id', '$message_body2', '$time', '$account_email', '$api_reference', 'SUCCESSFUL')");
 
