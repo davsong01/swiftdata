@@ -36,7 +36,17 @@ if ($service == "WAEC-REG") {
     $service_comm = $waec_comm;
 }
 
-if ($account_balance > $service_price && $service_price > 0){
+if($service_price <= 0){
+    $response = array(
+        'status' => 'fail',
+        'status_code' => '100',
+        'message' => 'An error occured, price cannot be less than 1!!!',
+    );
+    echo json_encode($response);
+    exit;
+}
+
+if ($account_balance > $service_price ){
     $new_wallet=$account_balance-$service_price;
     mysqli_query($con, "UPDATE users SET wallets='$new_wallet' WHERE id='$user_id' AND username ='$account_username'");
 
