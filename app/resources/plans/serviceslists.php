@@ -307,172 +307,172 @@ if (!empty($_GET['services']) && !empty($_GET['level'])){
 		
 	}
 
-/////////////// DATA ENDS
+	/////////////// DATA ENDS
 
-if ($getservices=="gotv"){
-	$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT gotv_1,gotv_2, gotv_3, gotv_4, gotv_5 FROM gotv_planlist WHERE id='1'"));
+	if ($getservices=="gotv"){
+		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT gotv_1,gotv_2, gotv_3, gotv_4, gotv_5 FROM gotv_planlist WHERE id='1'"));
 
-	echo '
-		<option value="600">Gotv Supa - ₦'.$data_query[0].'</option>
-		<option value="601">Gotv Max - ₦'.$data_query[1].'</option>
-		<option value="603">Gotv Jolli - ₦'.$data_query[2].'</option>
-		<option value="602">Gotv Jinja - ₦'.$data_query[3].'</option>
-		<option value="604">Gotv Smallie - ₦'.$data_query[4].'</option>
-	';
-}
+		echo '
+			<option value="600">Gotv Supa - ₦'.$data_query[0].'</option>
+			<option value="601">Gotv Max - ₦'.$data_query[1].'</option>
+			<option value="603">Gotv Jolli - ₦'.$data_query[2].'</option>
+			<option value="602">Gotv Jinja - ₦'.$data_query[3].'</option>
+			<option value="604">Gotv Smallie - ₦'.$data_query[4].'</option>
+		';
+	}
 
-if ($getservices=="startimes"){
-	$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT star_1,star_2, star_3, star_4, star_5, star_6, star_7, star_8, star_9, star_10 FROM startime_planlist WHERE id='1'"));
+	if ($getservices=="startimes"){
+		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT star_1,star_2, star_3, star_4, star_5, star_6, star_7, star_8, star_9, star_10 FROM startime_planlist WHERE id='1'"));
 
-	echo '
-		<option value="701">Nova Weekly - ₦'.$data_query[0].'</option>
-		<option value="702">Nova Monthly - ₦'.$data_query[1].'</option>
-		<option value="703">Basic Weekly - ₦'.$data_query[2].'</option>
-		<option value="704">Basic Monthly - ₦'.$data_query[3].'</option>
-		<option value="705">Smart Weekly - ₦'.$data_query[4].'</option>
-		<option value="706">Smart Monthly - ₦'.$data_query[5].'</option>
-		<option value="707">Classic Weekly - ₦'.$data_query[6].'</option>
-		<option value="708">Classic Monthly - ₦'.$data_query[7].'</option>
-		<option value="709">Super Weekly - ₦'.$data_query[8].'</option>
-		<option value="710">Super Monthly - ₦'.$data_query[9].'</option>
-	';
-}
+		echo '
+			<option value="701">Nova Weekly - ₦'.$data_query[0].'</option>
+			<option value="702">Nova Monthly - ₦'.$data_query[1].'</option>
+			<option value="703">Basic Weekly - ₦'.$data_query[2].'</option>
+			<option value="704">Basic Monthly - ₦'.$data_query[3].'</option>
+			<option value="705">Smart Weekly - ₦'.$data_query[4].'</option>
+			<option value="706">Smart Monthly - ₦'.$data_query[5].'</option>
+			<option value="707">Classic Weekly - ₦'.$data_query[6].'</option>
+			<option value="708">Classic Monthly - ₦'.$data_query[7].'</option>
+			<option value="709">Super Weekly - ₦'.$data_query[8].'</option>
+			<option value="710">Super Monthly - ₦'.$data_query[9].'</option>
+		';
+	}
 
-if ($getservices=="dstv"){
-	$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT dstv_1,dstv_2, dstv_3, dstv_4, dstv_5, dstv_6, dstv_7, dstv_8, dstv_9, dstv_10, dstv_11,dstv_12 FROM dstv_planlist WHERE id='1'"));
+	if ($getservices=="dstv"){
+		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT dstv_1,dstv_2, dstv_3, dstv_4, dstv_5, dstv_6, dstv_7, dstv_8, dstv_9, dstv_10, dstv_11,dstv_12 FROM dstv_planlist WHERE id='1'"));
 
-	echo '
-		<option value="800">Dstv Padi - ₦'.$data_query[0].'</option>
-		<option value="801">Dstv Yanga - ₦'.$data_query[1].'</option>
-		<option value="802">Dstv Confam - ₦'.$data_query[2].'</option>
-		<option value="803">Dstv Padi Extra - ₦'.$data_query[3].'</option>
-		<option value="804">Dstv Yanga Extra - ₦'.$data_query[4].'</option>
-		<option value="805">Dstv Asia - ₦'.$data_query[5].'</option>
-		<option value="806">Dstv Confam Extra - ₦'.$data_query[6].'</option>
-		<option value="807">Dstv Compact - N'.$data_query[7].'</option>
-		<option value="808">Dstv Compact Plus - ₦'.$data_query[8].'</option>
-		<option value="811">Dstv Extra View Access - ₦'.$data_query[9].'</option>
-		<option value="809">Dstv Premium - ₦'.$data_query[10].'</option>
-		<option value="810">Dstv Premium Asia - ₦'.$data_query[11].'</option>
-	';
-}
+		echo '
+			<option value="800">Dstv Padi - ₦'.$data_query[0].'</option>
+			<option value="801">Dstv Yanga - ₦'.$data_query[1].'</option>
+			<option value="802">Dstv Confam - ₦'.$data_query[2].'</option>
+			<option value="803">Dstv Padi Extra - ₦'.$data_query[3].'</option>
+			<option value="804">Dstv Yanga Extra - ₦'.$data_query[4].'</option>
+			<option value="805">Dstv Asia - ₦'.$data_query[5].'</option>
+			<option value="806">Dstv Confam Extra - ₦'.$data_query[6].'</option>
+			<option value="807">Dstv Compact - N'.$data_query[7].'</option>
+			<option value="808">Dstv Compact Plus - ₦'.$data_query[8].'</option>
+			<option value="811">Dstv Extra View Access - ₦'.$data_query[9].'</option>
+			<option value="809">Dstv Premium - ₦'.$data_query[10].'</option>
+			<option value="810">Dstv Premium Asia - ₦'.$data_query[11].'</option>
+		';
+	}
 
-if ($getservices == "showmax") {
-	$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT showmax1,showmax2, showmax3, showmax4 FROM showmax_planlist WHERE id='1'"));
+	if ($getservices == "showmax") {
+		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT showmax1,showmax2, showmax3, showmax4 FROM showmax_planlist WHERE id='1'"));
 
-	echo '
-		<option value="900">Showmax Full - ₦' . $data_query[0] . '</option>
-		<option value="901">Showmax Mobile Only - ₦' . $data_query[1] . '</option>
-		<option value="902">Showmax Sports Full - ₦' . $data_query[2] . '</option>
-		<option value="903">Showmax Sports Mobile Only - ₦' . $data_query[3] . '</option>
+		echo '
+			<option value="900">Showmax Full - ₦' . $data_query[0] . '</option>
+			<option value="901">Showmax Mobile Only - ₦' . $data_query[1] . '</option>
+			<option value="902">Showmax Sports Full - ₦' . $data_query[2] . '</option>
+			<option value="903">Showmax Sports Mobile Only - ₦' . $data_query[3] . '</option>
+		';
+		}
+	/////////////////CABLTEV ENDS
+
+	//AIRTIME VTU-START
+
+	if ($getservices=="mtn-vtu"){
+
+		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT mtn_discount FROM airtimevtu_plan WHERE id='$level'"));
+
+		echo ''.$data_query[0].'
+		';
+	}
+
+	if ($getservices=="glo-vtu"){
+
+		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT glo_discount FROM airtimevtu_plan WHERE id='$level'"));
+
+		echo ''.$data_query[0].'
+		';
+	}
+
+	if ($getservices=="airtel-vtu"){
+
+		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT airtel_discount FROM airtimevtu_plan WHERE id='$level'"));
+
+		echo ''.$data_query[0].'
+		';
+	}
+
+	if ($getservices=="9mobile-vtu"){
+
+	$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT mobile_discount FROM airtimevtu_plan WHERE id='$level'"));
+
+	echo ''.$data_query[0].'
 	';
 	}
-/////////////////CABLTEV ENDS
 
-//AIRTIME VTU-START
+	///AIRTIME VTU-END
 
-if ($getservices=="mtn-vtu"){
 
-	$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT mtn_discount FROM airtimevtu_plan WHERE id='$level'"));
+	//AIRTIME SNS-START
 
-	echo ''.$data_query[0].'
+	if ($getservices=="mtn-sns"){
+
+		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT mtn_discount FROM airtimesns_plan WHERE id='$level'"));
+
+		echo ''.$data_query[0].'
 	';
-}
+	}
 
-if ($getservices=="glo-vtu"){
+	if ($getservices=="glo-sns"){
 
-	$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT glo_discount FROM airtimevtu_plan WHERE id='$level'"));
+		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT glo_discount FROM airtimesns_plan WHERE id='$level'"));
 
-	echo ''.$data_query[0].'
+		echo ''.$data_query[0].'
 	';
-}
+	}
 
-if ($getservices=="airtel-vtu"){
+	if ($getservices=="airtel-sns"){
 
-	$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT airtel_discount FROM airtimevtu_plan WHERE id='$level'"));
+		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT airtel_discount FROM airtimesns_plan WHERE id='$level'"));
 
-	echo ''.$data_query[0].'
+		echo ''.$data_query[0].'
 	';
-}
+	}
 
-if ($getservices=="9mobile-vtu"){
+	if ($getservices=="9mobile-sns"){
 
-$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT mobile_discount FROM airtimevtu_plan WHERE id='$level'"));
+		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT mobile_discount FROM airtimesns_plan WHERE id='$level'"));
 
-echo ''.$data_query[0].'
-';
-}
+		echo ''.$data_query[0].'
+	';
+	}
 
-///AIRTIME VTU-END
+	///AIRTIME SNS-END
 
+	//AIRTIME SWAP-START
 
-//AIRTIME SNS-START
+	if ($getservices=="mtn-swap"){
 
-if ($getservices=="mtn-sns"){
+		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT mtn_rate FROM airtimeswap_plan WHERE id='$level'"));
 
-$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT mtn_discount FROM airtimesns_plan WHERE id='$level'"));
+		echo ''.$data_query[0].'
+	';
+	}
 
-echo ''.$data_query[0].'
-';
-}
+	if ($getservices=="glo-swap"){
 
-if ($getservices=="glo-sns"){
+		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT glo_rate FROM airtimeswap_plan WHERE id='$level'"));
 
-$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT glo_discount FROM airtimesns_plan WHERE id='$level'"));
-
-echo ''.$data_query[0].'
-';
-}
-
-if ($getservices=="airtel-sns"){
-
-$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT airtel_discount FROM airtimesns_plan WHERE id='$level'"));
-
-echo ''.$data_query[0].'
-';
-}
-
-if ($getservices=="9mobile-sns"){
-
-$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT mobile_discount FROM airtimesns_plan WHERE id='$level'"));
-
-echo ''.$data_query[0].'
-';
-}
-
-///AIRTIME SNS-END
-
-//AIRTIME SWAP-START
-
-if ($getservices=="mtn-swap"){
-
-$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT mtn_rate FROM airtimeswap_plan WHERE id='$level'"));
-
-echo ''.$data_query[0].'
-';
-}
-
-if ($getservices=="glo-swap"){
-
-$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT glo_rate FROM airtimeswap_plan WHERE id='$level'"));
-
-echo ''.$data_query[0].'
-';
-}
+		echo ''.$data_query[0].'
+	';
+	}
 
 	if ($getservices=="airtel-swap"){
 
-	$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT airtel_rate FROM airtimeswap_plan WHERE id='$level'"));
+		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT airtel_rate FROM airtimeswap_plan WHERE id='$level'"));
 
-	echo ''.$data_query[0].'
+		echo ''.$data_query[0].'
 	';
 	}
 
 	if ($getservices=="9mobile-swap"){
 
-	$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT mobile_rate FROM airtimeswap_plan WHERE id='$level'"));
+		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT mobile_rate FROM airtimeswap_plan WHERE id='$level'"));
 
-	echo ''.$data_query[0].'
+		echo ''.$data_query[0].'
 	';
 	}
 
@@ -520,15 +520,18 @@ echo ''.$data_query[0].'
 	
 	if ($getservices=="nbais"){
 
-	$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT nbais FROM epin_planlist WHERE id='$level'"));
+		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT nbais FROM epin_planlist WHERE id='$level'"));
 
-	echo '
+		echo '
 		<div class="alert alert-danger">NBAIS = ₦'.$data_query[0]. ' / Pin</div>
 	';
 	}
-///EPINS-END
 
-
+	if ($getservices == "graphics") {
+		$graphics = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM graphics_planlist WHERE id='$level'"));
+		echo $graphics[$_GET['type']];
+	}
+	
 //BILLS-START
 
 if ($getservices=="abuja-electric"){

@@ -288,6 +288,7 @@
                     <li><a href="<?php echo $adminurl; ?>/billsPrice">Utility-Bills</a></li>
                     <li><a href="<?php echo $adminurl; ?>/epinsPrice">Exam-Epins Prices</a></li>
                     <li><a href="<?php echo $adminurl; ?>/smsPrice">BulkSMS Prices</a></li>
+                    <li><a href="<?php echo $adminurl; ?>/graphics-prices">Graphics Prices</a></li>
                 </ul>
             </li>
 

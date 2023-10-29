@@ -65,6 +65,7 @@ $try_session=mysqli_query($con, "SELECT * FROM users WHERE email='".$_SESSION['u
     $fidelity=$return_data['fidelity'];
     $reserved_account=$return_data['reserved_account'];
     $payvessel_reserved_account=$return_data['payvessel_reserved_account'];
+
  }
 
 if ($sk_token==""){
