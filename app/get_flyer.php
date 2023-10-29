@@ -50,7 +50,7 @@ if ($notification_mode == "ON") {
       </div>
       <div class="mb-3">
         <label>Price</label>
-        <input id="price" disabled type="number" class="form-control">
+        <input id="price" disabled type="number" class="form-control" required>
       </div>
       <div class="mb-3">
         <label>Business Name</label>

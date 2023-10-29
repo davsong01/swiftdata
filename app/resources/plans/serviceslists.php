@@ -529,7 +529,10 @@ if (!empty($_GET['services']) && !empty($_GET['level'])){
 
 	if ($getservices == "graphics") {
 		$graphics = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM graphics_planlist WHERE id='$level'"));
-		echo $graphics[$_GET['type']];
+		
+		if($graphics[$_GET['type']] > 0){
+			echo $graphics[$_GET['type']];
+		}
 	}
 	
 //BILLS-START
