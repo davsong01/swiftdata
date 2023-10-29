@@ -44,17 +44,14 @@ if (mysqli_num_rows($check_user)>0){
  $account_mobile=$return_info['mobile'];
 
 if ($service=="IBADAN-ELECTRIC" && $ibadan_lock==1 && $service_access==1){
-
 	require("billModule/bills_vtpass.php");
 }
 
 else if ($service=="ABUJA-ELECTRIC" && $abuja_lock==1 && $service_access==1){
-
 	require("billModule/bills_vtpass.php");
 }
 
 else if ($service=="EKO-ELECTRIC" && $eko_lock==1 && $service_access==1){
-
 	require("billModule/bills_vtpass.php");
 }
 

@@ -242,6 +242,7 @@ require 'request_pin.php';
       success: function (response_fd) {
         $.LoadingOverlay("hide");
         if (response_fd.status == 'success') {
+          
           $("#successModal").modal("show");
           $("#successModal .modal-body").html(response_fd.message);
           setTimeout(function () {

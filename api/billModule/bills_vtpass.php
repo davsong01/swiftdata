@@ -132,11 +132,8 @@ if ($account_balance > $service_price && $service_price > 0) {
     );
     echo json_encode($response);
     exit;
-
   }
-
 } else {
-
   $response = array(
     'status' => 'fail',
     'status_code' => '100',

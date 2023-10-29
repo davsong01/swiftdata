@@ -107,9 +107,10 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']){
       $payload=array(
         'service_id' => $service_module,
         'service_type' => $service_plan,
+        'title' => '<strong>Please confirm that the details are correct before you click make payment</strong>',
         'service_number' => $smart_no,
       );
-
+      
       $verify_link = $api_url.'/verifymeter';
 
   }
@@ -136,6 +137,7 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']){
       if ($status=="success"){
         $response=array(
             'status'=>'success',
+            'title' => '<strong>Please confirm that the details are correct before you click make payment</strong>',
             'message' => $message.'<br/>'.$service_module.'<br/><br/>'.$button.'',
           );
 

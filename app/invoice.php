@@ -155,113 +155,144 @@ if (mysqli_num_rows($lettr)<1){
 }
 
 else {
+	$transactdata = mysqli_fetch_array($lettr, MYSQLI_ASSOC);
+	$tid=$transactdata['id'];
+	$status=$transactdata['buyer_status'];
+	$amount=$transactdata['buyer_amount'];
+	$trx=$transactdata['sys_ref'];
+	$buyer_mobile=$transactdata['mobile_number'];
+	$descr=$transactdata['buyer_descr'];
+	$buyer_service=$transactdata['buyer_service'];
+	$buyer_email=$transactdata['buyer_email'];
+	$date=$transactdata['buyer_date'];
+	$oldbal=$transactdata['buyer_prebal'];
+	$newbal = $transactdata['buyer_postbal'];
+	$extra=$transactdata['extra'];
+	$res=$transactdata['api_response'];
 
-$transactdata = mysqli_fetch_array($lettr, MYSQLI_ASSOC);
-      $tid=$transactdata['id'];
-      $status=$transactdata['buyer_status'];
-      $amount=$transactdata['buyer_amount'];
-      $trx=$transactdata['sys_ref'];
-      $buyer_mobile=$transactdata['mobile_number'];
-      $descr=$transactdata['buyer_descr'];
-      $buyer_service=$transactdata['buyer_service'];
-      $buyer_email=$transactdata['buyer_email'];
-      $date=$transactdata['buyer_date'];
-      $oldbal=$transactdata['buyer_prebal'];
-      $newbal = $transactdata['buyer_postbal'];
-	  $extra=$transactdata['extra'];
+	if(!empty($res)){
+		$result = json_decode($res, true);
 
-      if ($status=="SUCCESSFUL"){$actmode="background-color: lightseagreen";}
-      else {$actmode="background-color: palevioletred";}
+		if (array_key_exists('content', $result)) {
+			$customer_name = $result["customerName"] ?? null;
+			$customer_address = $result["customerAddress"] ?? null;
 
-$receipt= '
+			$mainTokenUnits = $result["mainTokenUnits"] ? '<strong>Units:</strong> '. $result["mainTokenUnits"].'<br>' : '';
+			$mainTokenTax = $result["mainTokenTax"] ? '<strong>Token Tax:</strong> '. $result["mainTokenTax"].'<br>' : '';
 
-<div class="row ">
-<div class="col-12 QA_section">
-<div class="card QA_table ">
-<div class="card-header">
-Invoice
+			$BSSTTOKEN = $result["bonusToken"] ? '<strong>BSST Token: </strong> '. $result["bonusToken"].'<br>' : '';
+			$BSSTTOKENDESCRIPTION = $result["bonusTokenDescription"] ? '<strong>BSST Token Description Tax:</strong> '. $result["bonusTokenDescription"].'<br>' : '';
+			$BSSTTOKENUNIT = $result["bonusTokenUnits"] ? '<strong>BSST Token Unit: </strong> '. $result["bonusTokenUnits"].'<br>' : '';
+			$BSSTTOKENTAX = $result["bonusTokenTax"] ? '<strong>BSST Token Tax: </strong> '. $result["bonusTokenTax"].'<br>' : '';
+			$BSSTTOKENAMOUNT = $result["bonusTokenAmount"] ? '<strong>BSST Token Amount: </strong> '. $result["bonusTokenAmount"].'<br>' : '';
 
-<strong>'.$date.'</strong>
-<span class="float-end"> <strong>Status:</strong> '.$status.'</span>
-</div>
-<div class="card-body">
-<div class="row mb-4">
-<div class="col-sm-6">
-<h6 class="mb-3">From:</h6>
-<div>
-<strong>Order 1</strong>
-</div>
-<div>'.$trx.'</div>
-<div>Buyer Email: '.$buyer_email.'</div>
-<div>Buyer Phone: '.$buyer_mobile.'</div>
-</div>
-</div>
-<div class="table-responsive-sm">
-<table class="table table-striped">
-<thead>
-<tr>
-<th class="center">#</th>
-<th>Item</th>
-<th>Description</th>
-<th class="right">Cost</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="center">1</td>
-<td class="left strong">'.strtoupper($buyer_service).'</td>
-<td class="left">'.$descr.'</td>
-<td class="right">'.$amount.'</td>
-</tr>
-<tr>
-<td class="center"></td>
-<td></td>
-<td class="left strong"><strong>'.(isset($extra) && !empty($extra) ? $extra : '').'</strong></td>
-</tr>
 
-</tbody>
-</table>
-</div>
-<div class="row">
-<div class="col-lg-4 col-sm-5">
-</div>
-<div class="col-lg-4 col-sm-5 ms-auto QA_section">
-<table class="table table-clear QA_table">
-<tbody>
-<tr>
-<td class="left">
-<strong>Amount</strong>
-</td>
-<td class="right">N '.$amount.'</td>
-</tr>
-<tr>
-<td class="left">
-<strong>Prev Bal.</strong>
-</td>
-<td class="right">N '.$oldbal.'</td>
- </tr>
-<tr>
-<td class="left">
-<strong>Post Bal.</strong>
-</td>
-<td class="right">N '.$newbal.'</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+		}
+	}
 
-';
+	if ($status=="SUCCESSFUL"){$actmode="background-color: lightseagreen";}
+	else {$actmode="background-color: palevioletred";}
+
+	$receipt= '
+		<div class="row ">
+		<div class="col-12 QA_section">
+		<div class="card QA_table ">
+		<div class="card-header">
+		Invoice
+
+		<strong>'.$date.'</strong>
+		<span class="float-end"> <strong>Status:</strong> '.$status.'</span>
+		</div>
+		<div class="card-body">
+		<div class="row mb-4">
+		<div class="col-sm-6">
+		<h6 class="mb-3">From:</h6>
+		<div>
+		<strong>Order 1</strong>
+		</div>
+		<div>'.$trx.'</div>
+			<div>Buyer Email: '.$buyer_email. '</div>
+			<div>Customer Name: ' . $customer_name . '</div>
+			<div>Customer Address: ' . $customer_address . '</div>	
+			<div>Buyer Phone: ' . $buyer_mobile . '<br>
+		</div>
+		</div>
+		<div class="table-responsive-sm">
+		<table class="table table-striped">
+		<thead>
+		<tr>
+		<th class="center">#</th>
+		<th>Item</th>
+		<th>Description</th>
+		<th class="right">Cost</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td class="center">1</td>
+		<td class="left strong">'.strtoupper($buyer_service).'</td>
+		<td class="left">'.$descr. '<br>
+		<strong style="color:blue">' . (isset($extra) && !empty($extra) ? $extra : '') . '</strong><br>
+		'. $mainTokenUnits . '
+		' . $mainTokenTax . '
+		' . $BSSTTOKEN . '
+		' . $BSSTTOKENDESCRIPTION . '
+		' . $BSSTTOKENUNIT . '
+		' . $BSSTTOKENTAX . '
+		' . $BSSTTOKENAMOUNT . '
+		
+		
+		</td>
+		<td class="right">'.$amount.'</td>
+		</tr>
+		<tr>
+		<td class="center"></td>
+		<td></td>
+		'.isset($cu).'.
+		
+		</td>
+		
+		</tr>
+	
+		</tbody>
+		</table>
+		</div>
+		<div class="row">
+		<div class="col-lg-4 col-sm-5">
+		</div>
+		<div class="col-lg-4 col-sm-5 ms-auto QA_section">
+		<table class="table table-clear QA_table">
+		<tbody>
+		<tr>
+		<td class="left">
+		<strong>Amount</strong>
+		</td>
+		<td class="right">N '.$amount.'</td>
+		</tr>
+		<tr>
+		<td class="left">
+		<strong>Prev Bal.</strong>
+		</td>
+		<td class="right">N '.$oldbal.'</td>
+		</tr>
+		<tr>
+		<td class="left">
+		<strong>Post Bal.</strong>
+		</td>
+		<td class="right">N '.$newbal.'</td>
+		</tr>
+		</tbody>
+		</table>
+		</div>
+		</div>
+	';
 }
+	echo $receipt;
+	echo $buttons;
+	?>
 
 
-echo $receipt;
-
-echo $buttons;
-?>
-
-
-				<?php
+	<?php
 }
 
 else {
