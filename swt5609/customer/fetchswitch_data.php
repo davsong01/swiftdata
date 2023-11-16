@@ -130,6 +130,7 @@ if ($searc_level=="vtu"){
         <select class="form-control" id="mtn_vtu" required>
             <option value="airtimevtu_vtpass.php"' . ($api_mtn2 == 'airtimevtu_vtpass.php' ? 'selected' : '') . '>VTPASS</option>
             <option value="airtimevtu_host.php"' . ($api_mtn2 == 'airtimevtu_host.php' ? 'selected' : '') . '>SIMHOSTING</option>
+            <option value="clubkonnect.php"' . ($api_mtn2 == 'clubkonnect.php' ? 'selected' : '') . '>CLUB KONNECT</option>
         </select>
 
         <br/>
@@ -137,6 +138,8 @@ if ($searc_level=="vtu"){
         <select class="form-control" id="glo_vtu" required>
             <option value="airtimevtu_vtpass.php"' . ($api_glo2 == 'airtimevtu_vtpass.php' ? 'selected' : '') . '>VTPASS</option>
             <option value="airtimevtu_host.php"' . ($api_glo2 == 'airtimevtu_host.php' ? 'selected' : '') . '>SIMHOSTING</option>
+            <option value="clubkonnect.php"' . ($api_glo2 == 'clubkonnect.php' ? 'selected' : '') . '>CLUB KONNECT</option>
+
         </select>
 
         <br/>
@@ -145,6 +148,8 @@ if ($searc_level=="vtu"){
 
         <option value="airtimevtu_vtpass.php"' . ($api_airtel2== 'airtimevtu_vtpass.php' ? 'selected' : '') . '>VTPASS</option>
         <option value="airtimevtu_host.php"' . ($api_airtel2== 'airtimevtu_host.php' ? 'selected' : '') . '>SIMHOSTING</option>
+            <option value="clubkonnect.php"' . ($api_airtel2 == 'clubkonnect.php' ? 'selected' : '') . '>CLUB KONNECT</option>
+
         </select>
 
         <br/>
@@ -153,11 +158,12 @@ if ($searc_level=="vtu"){
 
         <option value="airtimevtu_vtpass.php"' . ($api_mobile2== 'airtimevtu_vtpass.php' ? 'selected' : '') . '>VTPASS</option>
         <option value="airtimevtu_host.php"' . ($api_mobile2 == 'airtimevtu_host.php' ? 'selected' : '') . '>SIMHOSTING</option>
+        <option value="clubkonnect.php"' . ($api_mobile2 == 'clubkonnect.php' ? 'selected' : '') . '>CLUB KONNECT</option>
+
         </select>
         <br/>
         <label>SMILE *</label>
         <select class="form-control" id="smile_vtu" required>
-
         <option value="vtpass_data.php"' . ($api_smile_vtu == 'vtpass_data.php' ? 'selected' : '') . '>VTPASS</option>
         </select>
         <br/>

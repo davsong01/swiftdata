@@ -148,7 +148,7 @@ require 'request_pin.php';
     if (amount != "" && amount > 99 && network_discount != "") {
       var charges = parseInt(amount) * parseInt(network_discount) / 100;
       var fin_amount = amount - charges;
-      $("#valAmount").text("You will be paid N" + fin_amount);
+      $("#valAmount").text("You will pay N" + fin_amount);
     } else {
       $("#valAmount").text("");
     }

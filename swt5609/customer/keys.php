@@ -11,6 +11,8 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']){
   $monnify_cc = mysqli_real_escape_string($con, $_POST['monnify_cc']);
   $payvessel_mode = mysqli_real_escape_string($con, $_POST['payvessel_mode']);
   $monnify_mode = mysqli_real_escape_string($con, $_POST['monnify_mode']);
+  $clubkonnect_user_id = mysqli_real_escape_string($con, $_POST['clubkonnect_user_id']);
+  $clubkonnect_api_key = mysqli_real_escape_string($con, $_POST['clubkonnect_api_key']);
 
   $payvessel_api_public_key = mysqli_real_escape_string($con, $_POST['payvessel_api_public_key']);
   $payvessel_api_secret_key = mysqli_real_escape_string($con, $_POST['payvessel_api_secret_key']);
@@ -19,7 +21,7 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']){
   
   $req_token=mysqli_real_escape_string($con, $_POST['req_token']);
 
-  $update=mysqli_query($con, "UPDATE web_settings SET sms_password='$sms_password', sms_username='$sms_username', vtpass_account='$vtpass_account',naijaresultpins_api_key='$naijaresultpins_api_key' WHERE id='1'");
+  $update=mysqli_query($con, "UPDATE web_settings SET sms_password='$sms_password', sms_username='$sms_username', vtpass_account='$vtpass_account',naijaresultpins_api_key='$naijaresultpins_api_key',clubkonnect_user_id='$clubkonnect_user_id',clubkonnect_api_key='$clubkonnect_api_key' WHERE id='1'");
 
   // Update Monnify
   $update = mysqli_query($con, "UPDATE payment_gateways SET secret_key='$monnify_sk',public_key='$monnify_pk',api_key='$monnify_cc', `status`='$monnify_mode' WHERE id='1'");

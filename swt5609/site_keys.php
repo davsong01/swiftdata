@@ -113,6 +113,16 @@ if ($manage_message == 1) {
     <input type="text" class="form-control" id="monnify_cc" value="' . $monnify_cc . '" placeholder="">
 
     <br/>
+    <label style="color:blue">CLUB KONNECT USER ID *</label>
+    <input type="hidden" id="req_token" value="' . $_SESSION['csrftoken'] . '">
+    <input type="text" class="form-control" id="clubkonnect_user_id" value="' . $clubkonnect_user_id . '" placeholder="">
+
+    <br/>
+    <label style="color:blue">CLUB KONNECT API KEY *</label>
+    <input type="hidden" id="req_token" value="' . $_SESSION['csrftoken'] . '">
+    <input type="text" class="form-control" id="clubkonnect_api_key" value="' . $clubkonnect_api_key . '" placeholder="">
+
+    <br/>
 
     <button class="btn btn-success btn-block type="submit" style="width:100%">SUBMIT</button>
 
@@ -154,6 +164,8 @@ if ($manage_message == 1) {
       payvessel_mode: $("#payvessel_mode").val(),
       monnify_mode: $("#monnify_mode").val(),
       payvessel_merchant_id: $("#payvessel_merchant_id").val(),
+      clubkonnect_user_id: $("#clubkonnect_user_id").val(),
+      clubkonnect_api_key: $("#clubkonnect_api_key").val(),
 
       req_token: $("#req_token").val(),
     };
