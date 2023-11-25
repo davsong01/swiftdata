@@ -53,9 +53,13 @@ $message='
 <br/>
 <div>
 <label>GOTV SMALLIE</label>
-<input type="tel" id="gotv_5" class="form-control" value="'.$gotv_smallie.'" required>
+<input type="tel" id="gotv_5" class="form-control" value="'.$gotv_smallie. '" required>
 </div>
-
+<br/>
+<div>
+<label>GOTV DISCOUNT</label>
+<input type="number" step=".01" id="gotv_discount" class="form-control" value="' . $gotv_discount . '" required min="0">
+</div>
 
 
 <br/>

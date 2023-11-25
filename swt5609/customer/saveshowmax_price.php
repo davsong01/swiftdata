@@ -7,9 +7,10 @@ $showmax1=mysqli_real_escape_string($con, $_POST['showmax1']);
 $showmax2=mysqli_real_escape_string($con, $_POST['showmax2']);
 $showmax3=mysqli_real_escape_string($con, $_POST['showmax3']);
 $showmax4=mysqli_real_escape_string($con, $_POST['showmax4']);
+$showmax_discount=mysqli_real_escape_string($con, $_POST['showmax_discount']);
 $level=mysqli_real_escape_string($con, $_POST['level']);
 
-$update=mysqli_query($con, "UPDATE showmax_planlist SET showmax1='$showmax1', showmax2='$showmax2', showmax3='$showmax3', showmax4='$showmax4' WHERE id='$level'");
+$update=mysqli_query($con, "UPDATE showmax_planlist SET showmax1='$showmax1', showmax2='$showmax2', showmax3='$showmax3', showmax4='$showmax4',showmax_discount='$showmax_discount' WHERE id='$level'");
 
 if ($update){
 

@@ -1,5 +1,5 @@
 <?php
-$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT dstv_1,dstv_2, dstv_3, dstv_4, dstv_5, dstv_6, dstv_7, dstv_8, dstv_9, dstv_10, dstv_11,dstv_12 FROM dstv_planlist WHERE id='$level'"));
+$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT dstv_1,dstv_2, dstv_3, dstv_4, dstv_5, dstv_6, dstv_7, dstv_8, dstv_9, dstv_10, dstv_11,dstv_12,dstv_discount FROM dstv_planlist WHERE id='$level'"));
 
 $dstv_padi=$data_query[0];
 $dstv_yanga=$data_query[1];
@@ -12,6 +12,7 @@ $dstv_compact=$data_query[7];
 $dstv_compact_plus=$data_query[8];
 $dstv_extra_view=$data_query[9];
 $dstv_premium=$data_query[10];
-$dstv_premium_asia=$data_query[11];
+$dstv_premium_asia = $data_query[11];
+$dstv_discount=$data_query[12];
 
 ?>

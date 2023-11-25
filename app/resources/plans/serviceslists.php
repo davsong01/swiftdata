@@ -535,86 +535,283 @@ if (!empty($_GET['services']) && !empty($_GET['level'])){
 		}
 	}
 	
-//BILLS-START
+	//BILLS-START
 
-if ($getservices=="abuja-electric"){
+	if ($getservices=="abuja-electric"){
+		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT abuja,abuja_discount FROM bills_planlists WHERE id='$level'"));
+		if($data_query[0] > 0){
+			echo '
+				<div class="alert alert-warning alert-dismissible">
+				₦'.$data_query[0]. ' charges apply <br>
+				<button type="button" class="btn-close" 
+				data-bs-dismiss="alert"
+				aria-label="Close">
+				</button>
+				</div>
+			';
+		}
+		if ($data_query[1] > 0) {
+			echo '
+			<div class="alert alert-success alert-dismissible">
+				<strong class="discount-text">' . $data_query[1] . '% Discount applies for you</strong>
+				<button type="button" class="btn-close" 
+				data-bs-dismiss="alert"
+				aria-label="Close">
+				</button>
+				</div>
+			</div>
+		';
+		}
+	}
 
-$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT abuja FROM bills_planlists WHERE id='$level'"));
+	if ($getservices=="ibadan-electric"){
+		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT ibadan,ibadan_discount FROM bills_planlists WHERE id='$level'"));
+		if ($data_query[0] > 0) {
+			echo '
+				<div class="alert alert-warning alert-dismissible">
+				₦' . $data_query[0] . ' charges apply <br>
+				<button type="button" class="btn-close" 
+				data-bs-dismiss="alert"
+				aria-label="Close">
+				</button>
+				</div>
+			';
+		}
+		if ($data_query[1] > 0) {
+			echo '
+				<div class="alert alert-success alert-dismissible">
+					<strong class="discount-text">' . $data_query[1] . '% Discount applies for you</strong>
+					<button type="button" class="btn-close" 
+					data-bs-dismiss="alert"
+					aria-label="Close">
+					</button>
+					</div>
+				</div>
+			';
+		}
+	}
 
-echo '
-	<div class="alert alert-danger">₦'.$data_query[0].' charges apply</div>
-';
+	if ($getservices=="eko-electric"){
+		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT eko, eko_discount FROM bills_planlists WHERE id='$level'"));
+		if ($data_query[0] > 0) {
+			echo '
+			<div class="alert alert-warning alert-dismissible">
+			₦' . $data_query[0] . ' charges apply <br>
+			<button type="button" class="btn-close" 
+			data-bs-dismiss="alert"
+			aria-label="Close">
+			</button>
+			</div>
+		';
+		}
+		if ($data_query[1] > 0) {
+			echo '
+			<div class="alert alert-success alert-dismissible">
+				<strong class="discount-text">' . $data_query[1] . '% Discount applies for you</strong>
+				<button type="button" class="btn-close" 
+				data-bs-dismiss="alert"
+				aria-label="Close">
+				</button>
+				</div>
+			</div>
+		';
+		}
+	}
+
+	if ($getservices=="jos-electric"){
+		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT jos,jos_discount FROM bills_planlists WHERE id='$level'"));
+		if ($data_query[0] > 0) {
+			echo '
+			<div class="alert alert-warning alert-dismissible">
+			₦' . $data_query[0] . ' charges apply <br>
+			<button type="button" class="btn-close" 
+			data-bs-dismiss="alert"
+			aria-label="Close">
+			</button>
+			</div>
+		';
+		}
+		if ($data_query[1] > 0) {
+			echo '
+			<div class="alert alert-success alert-dismissible">
+				<strong class="discount-text">' . $data_query[1] . '% Discount applies for you</strong>
+				<button type="button" class="btn-close" 
+				data-bs-dismiss="alert"
+				aria-label="Close">
+				</button>
+				</div>
+			</div>
+		';
+		}
+	}
+
+	if ($getservices=="kaduna-electric"){
+		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT kaduna, kaduna_discount FROM bills_planlists WHERE id='$level'"));
+		if ($data_query[0] > 0) {
+			echo '
+			<div class="alert alert-warning alert-dismissible">
+			₦' . $data_query[0] . ' charges apply <br>
+			<button type="button" class="btn-close" 
+			data-bs-dismiss="alert"
+			aria-label="Close">
+			</button>
+			</div>
+		';
+		}
+		if ($data_query[1] > 0) {
+			echo '
+			<div class="alert alert-success alert-dismissible">
+				<strong class="discount-text">' . $data_query[1] . '% Discount applies for you</strong>
+				<button type="button" class="btn-close" 
+				data-bs-dismiss="alert"
+				aria-label="Close">
+				</button>
+				</div>
+			</div>
+		';
+		}
+	}
+
+	if ($getservices=="kano-electric"){
+		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT kano,kano_discount FROM bills_planlists WHERE id='$level'"));
+		if ($data_query[0] > 0) {
+			echo '
+			<div class="alert alert-warning alert-dismissible">
+			₦' . $data_query[0] . ' charges apply <br>
+			<button type="button" class="btn-close" 
+			data-bs-dismiss="alert"
+			aria-label="Close">
+			</button>
+			</div>
+		';
+		}
+		if ($data_query[1] > 0) {
+			echo '
+			<div class="alert alert-success alert-dismissible">
+				<strong class="discount-text">' . $data_query[1] . '% Discount applies for you</strong>
+				<button type="button" class="btn-close" 
+				data-bs-dismiss="alert"
+				aria-label="Close">
+				</button>
+				</div>
+			</div>
+		';
+		}
+	}
+
+	if ($getservices=="ikeja-electric"){
+		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT ikeja, ikeja_discount FROM bills_planlists WHERE id='$level'"));
+		if ($data_query[0] > 0) {
+			echo '
+			<div class="alert alert-warning alert-dismissible">
+			₦' . $data_query[0] . ' charges apply <br>
+			<button type="button" class="btn-close" 
+			data-bs-dismiss="alert"
+			aria-label="Close">
+			</button>
+			</div>
+		';
+		}
+		if ($data_query[1] > 0) {
+			echo '
+			<div class="alert alert-success alert-dismissible">
+				<strong class="discount-text">' . $data_query[1] . '% Discount applies for you</strong>
+				<button type="button" class="btn-close" 
+				data-bs-dismiss="alert"
+				aria-label="Close">
+				</button>
+				</div>
+			</div>
+		';
+		}
+	}
+
+	if ($getservices=="portharcourt-electric"){
+		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT portharcourt,portharcourt_discount FROM bills_planlists WHERE id='$level'"));
+		if ($data_query[0] > 0) {
+			echo '
+			<div class="alert alert-warning alert-dismissible">
+			₦' . $data_query[0] . ' charges apply <br>
+			<button type="button" class="btn-close" 
+			data-bs-dismiss="alert"
+			aria-label="Close">
+			</button>
+			</div>
+		';
+		}
+		if ($data_query[1] > 0) {
+			echo '
+			<div class="alert alert-success alert-dismissible">
+				<strong class="discount-text">' . $data_query[1] . '% Discount applies for you</strong>
+				<button type="button" class="btn-close" 
+				data-bs-dismiss="alert"
+				aria-label="Close">
+				</button>
+				</div>
+			</div>
+		';
+		}
+	}
+
+	if ($getservices == "benin-electric") {
+		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT benin,benin_discount FROM bills_planlists WHERE id='$level'"));
+		if ($data_query[0] > 0) {
+			echo '
+			<div class="alert alert-warning alert-dismissible">
+			₦' . $data_query[0] . ' charges apply <br>
+			<button type="button" class="btn-close" 
+			data-bs-dismiss="alert"
+			aria-label="Close">
+			</button>
+			</div>
+		';
+		}
+		if ($data_query[1] > 0) {
+			echo '
+			<div class="alert alert-success alert-dismissible">
+				<strong class="discount-text">' . $data_query[1] . '% Discount applies for you</strong>
+				<button type="button" class="btn-close" 
+				data-bs-dismiss="alert"
+				aria-label="Close">
+				</button>
+				</div>
+			</div>
+		';
+		}
+	}
+
+	if ($getservices == "enugu-electric") {
+		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT enugu,enugu_discount FROM bills_planlists WHERE id='$level'"));
+		if ($data_query[0] > 0) {
+			echo '
+			<div class="alert alert-warning alert-dismissible">
+			₦' . $data_query[0] . ' charges apply <br>
+				<button type="button" class="btn-close" 
+				data-bs-dismiss="alert"
+				aria-label="Close">
+				</button>
+			</div>
+		';
+		}
+		if ($data_query[1] > 0) {
+			echo '
+			<div class="alert alert-success alert-dismissible">
+				<strong class="discount-text">' . $data_query[1] . '% Discount applies for you</strong>
+				<button type="button" class="btn-close" 
+				data-bs-dismiss="alert"
+				aria-label="Close">
+				</button>
+				</div>
+			</div>
+		';
+		}
+	}
+
+
 }
-
-if ($getservices=="ibadan-electric"){
-
-$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT ibadan FROM bills_planlists WHERE id='$level'"));
-
-echo '
-	<div class="alert alert-danger">₦'.$data_query[0].' charges apply</div>
-';
-}
-
-if ($getservices=="eko-electric"){
-
-$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT eko FROM bills_planlists WHERE id='$level'"));
-
-echo '
-	<div class="alert alert-danger">₦'.$data_query[0].' charges apply</div>
-';
-}
-
-if ($getservices=="jos-electric"){
-
-$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT jos FROM bills_planlists WHERE id='$level'"));
-
-echo '
-	<div class="alert alert-danger">₦'.$data_query[0].' charges apply</div>
-';
-}
-
-if ($getservices=="kaduna-electric"){
-
-$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT kaduna FROM bills_planlists WHERE id='$level'"));
-
-echo '
-	<div class="alert alert-danger">₦'.$data_query[0].' charges apply</div>
-';
-}
-
-if ($getservices=="kano-electric"){
-
-$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT kano FROM bills_planlists WHERE id='$level'"));
-
-echo '
-	<div class="alert alert-danger">₦'.$data_query[0].' charges apply</div>
-';
-}
-
-if ($getservices=="ikeja-electric"){
-
-$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT ikeja FROM bills_planlists WHERE id='$level'"));
-
-echo '
-	<div class="alert alert-danger">₦'.$data_query[0].' charges apply</div>
-';
-}
-
-if ($getservices=="portharcourt-electric"){
-
-$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT portharcourt FROM bills_planlists WHERE id='$level'"));
-
-echo '
-	<div class="alert alert-danger">₦'.$data_query[0].' charges apply</div>
-';
-}
-
-}
-
 else{
-
-echo "NULL";
-exit();
+	echo "NULL";
+	exit();
 }
 
 ?>

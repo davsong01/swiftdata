@@ -13,9 +13,10 @@ $star_7=mysqli_real_escape_string($con, $_POST['star_7']);
 $star_8=mysqli_real_escape_string($con, $_POST['star_8']);
 $star_9=mysqli_real_escape_string($con, $_POST['star_9']);
 $star_10=mysqli_real_escape_string($con, $_POST['star_10']);
+$star_discount=mysqli_real_escape_string($con, $_POST['star_discount']);
 $level=mysqli_real_escape_string($con, $_POST['level']);
 
-$update=mysqli_query($con, "UPDATE startime_planlist SET star_1='$star_1', star_2='$star_2', star_3='$star_3', star_4='$star_4', star_5='$star_5', star_6='$star_6', star_7='$star_7', star_8='$star_8', star_9='$star_9', star_10='$star_10' WHERE id='$level'");
+$update=mysqli_query($con, "UPDATE startime_planlist SET star_1='$star_1', star_2='$star_2', star_3='$star_3', star_4='$star_4', star_5='$star_5', star_6='$star_6', star_7='$star_7', star_8='$star_8', star_9='$star_9', star_10='$star_10',star_discount='$star_discount' WHERE id='$level'");
 
 if ($update){
 

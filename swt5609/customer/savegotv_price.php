@@ -8,9 +8,10 @@ $gotv_2=mysqli_real_escape_string($con, $_POST['gotv_2']);
 $gotv_3=mysqli_real_escape_string($con, $_POST['gotv_3']);
 $gotv_4=mysqli_real_escape_string($con, $_POST['gotv_4']);
 $gotv_5=mysqli_real_escape_string($con, $_POST['gotv_5']);
+$gotv_discount=mysqli_real_escape_string($con, $_POST['gotv_discount']);
 $level=mysqli_real_escape_string($con, $_POST['level']);
 
-$update=mysqli_query($con, "UPDATE gotv_planlist SET gotv_1='$gotv_1', gotv_2='$gotv_2', gotv_3='$gotv_3', gotv_4='$gotv_4', gotv_5='$gotv_5' WHERE id='$level'");
+$update=mysqli_query($con, "UPDATE gotv_planlist SET gotv_1='$gotv_1', gotv_2='$gotv_2', gotv_3='$gotv_3', gotv_4='$gotv_4', gotv_5='$gotv_5',gotv_discount='$gotv_discount' WHERE id='$level'");
 
 if ($update){
 

@@ -82,10 +82,7 @@ else if ($service=="BENIN-ELECTRIC" && $benin_lock==1 && $service_access==1){
 }
 else if ($service=="ENUGU-ELECTRIC" && $enugu_lock==1 && $service_access==1){
 	require("billModule/bills_vtpass.php");
-}
-
-else {
-
+}else {
     $response=array(
     'status' => 'fail',
     'status_code' =>'100',
@@ -94,12 +91,8 @@ else {
     echo json_encode($response);
     exit;
 }
-
-
 }
-
 else {
-
     $response=array(
     'status' => 'fail',
     'status_code' =>'100',
@@ -108,12 +101,8 @@ else {
     echo json_encode($response);
     exit;
 }
-
-
 }
-
 else {
-
     $response=array(
     'status' => 'fail',
     'status_code' =>'100',

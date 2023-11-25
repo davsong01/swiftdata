@@ -15,9 +15,10 @@ $dstv_9=mysqli_real_escape_string($con, $_POST['dstv_9']);
 $dstv_10=mysqli_real_escape_string($con, $_POST['dstv_10']);
 $dstv_11=mysqli_real_escape_string($con, $_POST['dstv_11']);
 $dstv_12=mysqli_real_escape_string($con, $_POST['dstv_12']);
+$dstv_discount=mysqli_real_escape_string($con, $_POST['dstv_discount']);
 $level=mysqli_real_escape_string($con, $_POST['level']);
 
-$update=mysqli_query($con, "UPDATE dstv_planlist SET dstv_1='$dstv_1', dstv_2='$dstv_2', dstv_3='$dstv_3', dstv_4='$dstv_4', dstv_5='$dstv_5', dstv_6='$dstv_6', dstv_7='$dstv_7', dstv_8='$dstv_8', dstv_9='$dstv_9', dstv_10='$dstv_10', dstv_11='$dstv_11', dstv_12='$dstv_12' WHERE id='$level'");
+$update=mysqli_query($con, "UPDATE dstv_planlist SET dstv_1='$dstv_1', dstv_2='$dstv_2', dstv_3='$dstv_3', dstv_4='$dstv_4', dstv_5='$dstv_5', dstv_6='$dstv_6', dstv_7='$dstv_7', dstv_8='$dstv_8', dstv_9='$dstv_9', dstv_10='$dstv_10', dstv_11='$dstv_11', dstv_12='$dstv_12',dstv_discount='$dstv_discount' WHERE id='$level'");
 
 if ($update){
 

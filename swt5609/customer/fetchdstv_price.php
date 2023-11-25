@@ -95,9 +95,13 @@ $message='
 <br/>
 <div>
 <label>DSTV PREMIUN ASIA</label>
-<input type="tel" id="dstv_12" class="form-control" value="'.$dstv_premium_asia.'" required>
+<input type="tel" id="dstv_12" class="form-control" value="'.$dstv_premium_asia. '" required>
 </div>
-
+<br/>
+<div>
+<label>DSTV DISCOUNT</label>
+<input type="number"  step=".01" min="0" id="dstv_discount" class="form-control" value="' . $dstv_discount . '" required>
+</div>
 
 <br/>
 <button class="btn btn-success" type="button" onclick="saveDstv()">Save</button>

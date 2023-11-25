@@ -83,10 +83,14 @@ $message='
 <br/>
 <div>
 <label>SUPER MONTHLY</label>
-<input type="tel" id="star_10" class="form-control" value="'.$super_monthly.'" required>
+<input type="tel" id="star_10" class="form-control" value="'.$super_monthly. '" required>
 </div>
 
-
+<br/>
+<div>
+<label>STAR DISCOUNT</label>
+<input type="number" step=".01" id="star_discount" class="form-control" value="' . $star_discount . '" required min="0">
+</div>
 <br/>
 <button class="btn btn-success" type="button" onclick="saveStar()">Save</button>
 

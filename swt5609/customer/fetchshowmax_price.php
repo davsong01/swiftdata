@@ -17,12 +17,13 @@ if ($searc_level=="sh4"){
 $level=4;
 }
 
-$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT showmax1,showmax2, showmax3, showmax4 FROM showmax_planlist WHERE id='$level'"));
+$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT showmax1,showmax2, showmax3, showmax4,showmax_discount FROM showmax_planlist WHERE id='$level'"));
 
 $full=$data_query[0];
 $mobile_only=$data_query[1];
 $sports_full=$data_query[2];
-$sports_mobile_only=$data_query[3];
+$sports_mobile_only = $data_query[3];
+$showmax_discount=$data_query[4];
 
 $message='
 
@@ -49,7 +50,13 @@ $message='
 <br/>
 <div>
 <label>Showmax Sports Mobile Only</label>
-<input type="tel" id="showmax4" class="form-control" value="'.$sports_mobile_only.'" required>
+<input type="tel" id="showmax4" class="form-control" value="'.$sports_mobile_only. '" required>
+</div>
+
+<br/>
+<div>
+<label>SHOWMAX DISCOUNT</label>
+<input type="number" min="0" step=".01" id="showmax_discount" class="form-control" value="' . $showmax_discount . '" required>
 </div>
 
 <br/>
