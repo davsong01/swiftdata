@@ -15,8 +15,8 @@ if ($manage_users == 1) {
         <div class="col-12">
           <div class="page_title_box d-flex flex-wrap align-items-center justify-content-between">
             <div class="page_title_left">
-              <h3 class="f_s_25 f_w_700 dark_text">All Active Users</h3>
-              <ol class="breadcrumb page_bradcam mb-0">
+              <h3 class="f_s_25 f_w_700 dark_text">All Active Users <a id="repair-referrals" onclick="return repairFunction();" class="btn btn-success btn-sm"><i class="fa fa-cog"></i><i class="fa fa-users"></i> Repair referrals</a></h3>
+              <ol class=" breadcrumb page_bradcam mb-0">
                 <li class="breadcrumb-item"><a href="javascript:void(0);">Users</a></li>
                 <li class="breadcrumb-item active">Default</li>
               </ol>
@@ -269,6 +269,33 @@ if ($manage_users == 1) {
         }
       }
     })
+  }
+
+  function repairFunction() {
+    if (confirm('Are you sure you want to repair referrals database?')) {
+      $.LoadingOverlay("show");
+      /* Perform operations */
+      $.ajax({
+        url: 'customer/repairreferral.php',
+        dataType: "Json",
+        success: function(response_fd) {
+          $.LoadingOverlay("hide");
+          if (response_fd.status == 'success') {
+            $("#successModal").modal("show");
+            $("#successModal .modal-body").html(response_fd.message);
+            setTimeout(function() {
+              window.location.reload();
+            }, 2000);
+          } else {
+            $("#errorModal").modal("show");
+            $("#errorModal .modal-body").html(response_fd.message);
+            setTimeout(function() {
+              window.location.reload();
+            }, 2000);
+          }
+        }
+      })
+    }
   }
 </script>
 
