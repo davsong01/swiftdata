@@ -15,7 +15,8 @@ if ($manage_users == 1) {
         <div class="col-12">
           <div class="page_title_box d-flex flex-wrap align-items-center justify-content-between">
             <div class="page_title_left">
-              <h3 class="f_s_25 f_w_700 dark_text">All Active Users <a id="repair-referrals" onclick="return repairFunction();" class="btn btn-success btn-sm"><i class="fa fa-cog"></i><i class="fa fa-users"></i> Repair referrals</a></h3>
+              <h3 class="f_s_25 f_w_700 dark_text">All Active Users 
+                <!-- <a id="repair-referrals" onclick="return repairFunction();" class="btn btn-success btn-sm"><i class="fa fa-cog"></i><i class="fa fa-users"></i> Repair referrals</a></h3> -->
               <ol class=" breadcrumb page_bradcam mb-0">
                 <li class="breadcrumb-item"><a href="javascript:void(0);">Users</a></li>
                 <li class="breadcrumb-item active">Default</li>
