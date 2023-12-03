@@ -82,6 +82,8 @@ else if ($service=="BENIN-ELECTRIC" && $benin_lock==1 && $service_access==1){
 }
 else if ($service=="ENUGU-ELECTRIC" && $enugu_lock==1 && $service_access==1){
 	require("billModule/bills_vtpass.php");
+}else if ($service=="ABA-ELECTRIC" && $aba_lock==1 && $service_access==1){
+	require("billModule/bills_vtpass.php");
 }else {
     $response=array(
     'status' => 'fail',

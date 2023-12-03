@@ -270,6 +270,7 @@ if ($manage_lock == 1) {
         portharcourt: $("#portharcourt").val(),
         benin: $("#benin").val(),
         enugu: $("#enugu").val(),
+        aba: $("#aba").val(),
 
         level: 1,
       };

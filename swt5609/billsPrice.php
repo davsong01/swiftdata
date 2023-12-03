@@ -27,7 +27,7 @@ if ($manage_prices == 1) {
             </div>
         </div>
     </div>
-
+    
     <script type="text/javascript">
         function editPrice(id) {
             $.LoadingOverlay("show");
@@ -56,6 +56,7 @@ if ($manage_prices == 1) {
                 portharcourt: $("#portharcourt").val(),
                 benin: $("#benin").val(),
                 enugu: $("#enugu").val(),
+                aba: $("#aba").val(),
 
                 abuja_discount: $("#abuja_discount").val(),
                 eko_discount: $("#eko_discount").val(),
@@ -67,6 +68,7 @@ if ($manage_prices == 1) {
                 portharcourt_discount: $("#portharcourt_discount").val(),
                 benin_discount: $("#benin_discount").val(),
                 enugu_discount: $("#enugu_discount").val(),
+                aba_discount: $("#aba_discount").val(),
                 level: $("#level").val(),
             };
             $.ajax({
@@ -90,7 +92,6 @@ if ($manage_prices == 1) {
     </script>
 <?php
 } else {
-
     require("admin_pushfail.php");
     echo $admin_pushfail;
 }

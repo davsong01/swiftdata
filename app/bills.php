@@ -82,6 +82,9 @@ require 'request_pin.php';
             if ($enugu_lock != 0) {
               echo '<option value="enugu-electric">ENUGU ELECTRIC</option>';
             }
+            if ($aba_lock != 0) {
+              echo '<option value="aba-electric">ABA ELECTRIC</option>';
+            }
             ?>
         </select>
       </div>

@@ -142,6 +142,18 @@ $message= '
     <hr class="discount-line">
 </div>
 <br/>
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <label>ABA CHARGES</label>
+        <input type="number" id="aba" class="form-control" value="' . $aba . '" required>
+    </div>
+    <div class="col-md-6">
+        <label>ABA DISCOUNT</label>
+        <input type="hidden" value="' . $level . '" id="level" name="level">
+        <input type="number" step=".01" min="0" id="aba_discount" class="form-control" value="' . $aba_discount . '" required>
+    </div>
+    <hr class="discount-line">
+</div>
 <button class="btn btn-success" type="button" onclick="saveData()">Save</button>
 
 </form>

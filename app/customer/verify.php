@@ -115,7 +115,6 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']){
 
   }
 
-
   if (strlen($smart_no)>5 && is_numeric($smart_no)){
     if ($security_pin == $security){
       $url = $verify_link;

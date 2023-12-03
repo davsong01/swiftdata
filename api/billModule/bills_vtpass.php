@@ -52,6 +52,11 @@ if ($service == "ENUGU-ELECTRIC") {
   $discount = $enugu_discount;
 }
 
+if ($service == "ABA-ELECTRIC") {
+  $charges = $aba;
+  $discount = $aba_discount;
+}
+
 $service_price = $amount + $charges;
 
 if ($discount > 0) {
@@ -75,7 +80,6 @@ if ($account_balance > $service_price && $service_price > 0) {
     'amount' => $amount,
     'phone' => $contact_no,
   );
-
 
   if ($environment == 'local') {
     $url = "https://sandbox.vtpass.com/api/pay";

@@ -348,7 +348,7 @@ if ($searc_level=="epinslock"){
 
 if ($searc_level=="billslock"){
 
-$message='
+$message= '
 <form id="form-data">
     <label>ABUJA ELECTRIC *</label>
     <select class="form-control" id="abuja" required>
@@ -423,6 +423,13 @@ $message='
     <br/>
     <label>ENUGU ELECTRIC *</label>
     <select class="form-control" id="enugu" required>
+
+    <option value="1">ENABLE</option>
+    <option value="0">DISABLE</option>
+    </select>
+
+    <label>ABA ELECTRIC *</label>
+    <select class="form-control" id="aba" required>
 
     <option value="1">ENABLE</option>
     <option value="0">DISABLE</option>
