@@ -44,7 +44,6 @@ if (!empty($smart_no) && !empty($service)) {
         curl_close($ch);
         $result = json_decode($curl_response, true);
 
-
         if (array_key_exists('content', $result) && array_key_exists('Customer_Name', $result['content']) && ($result['content']['Customer_Name'] != "")) {
             $fullname = $result["content"]["Customer_Name"];
             $response = array(

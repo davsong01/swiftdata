@@ -21,19 +21,31 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']){
   
   $req_token=mysqli_real_escape_string($con, $_POST['req_token']);
 
-  $update=mysqli_query($con, "UPDATE web_settings SET sms_password='$sms_password', sms_username='$sms_username', vtpass_account='$vtpass_account',naijaresultpins_api_key='$naijaresultpins_api_key',clubkonnect_user_id='$clubkonnect_user_id',clubkonnect_api_key='$clubkonnect_api_key' WHERE id='1'");
+  try {
+    //code...
+    $update=mysqli_query($con, "UPDATE web_settings SET sms_password='$sms_password', sms_username='$sms_username', vtpass_account='$vtpass_account',naijaresultpins_api_key='$naijaresultpins_api_key',clubkonnect_user_id='$clubkonnect_user_id',clubkonnect_api_key='$clubkonnect_api_key' WHERE id='1'");
 
-  // Update Monnify
-  $update = mysqli_query($con, "UPDATE payment_gateways SET secret_key='$monnify_sk',public_key='$monnify_pk',api_key='$monnify_cc', `status`='$monnify_mode' WHERE id='1'");
+    // Update Monnify
+    $update = mysqli_query($con, "UPDATE payment_gateways SET secret_key='$monnify_sk',public_key='$monnify_pk',api_key='$monnify_cc', `status`='$monnify_mode' WHERE id='1'");
 
-  // Update Payvessel
-  $update=mysqli_query($con, "UPDATE payment_gateways SET public_key='$payvessel_api_public_key', secret_key='$payvessel_api_secret_key', api_key='$payvessel_api_key',merchant_id='$payvessel_merchant_id',`status`='$payvessel_mode' WHERE id='2'");
+    // Update Payvessel
+    $update=mysqli_query($con, "UPDATE payment_gateways SET public_key='$payvessel_api_public_key', secret_key='$payvessel_api_secret_key', api_key='$payvessel_api_key',merchant_id='$payvessel_merchant_id',`status`='$payvessel_mode' WHERE id='2'");
+  }catch (\Throwable $th) {
+      $response = array(
+        'status' => 'fail',
+        'status_code' => '100',
+        'message' => $th->getMessage(),
+      );
+      echo json_encode($response);
+      exit;
+      //throw $th;
+  }
 
-
+  
   if ($update){
     $response=array(
       'status'=>'success',
-      'message' => 'API keys have been successfully updated !!!',
+      'message' => 'Web settings have been successfully updated !!!',
     );
     echo json_encode($response);
     exit();
