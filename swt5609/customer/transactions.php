@@ -43,6 +43,8 @@ if (mysqli_num_rows($lettr) < 1) {
     $service = $data['buyer_service'];
     $domain = $data['domain_name'];
     $ip_address = $data['ip_address'];
+    $provider = $data['provider'];
+    $api_response = $data['api_response'];
 
     $shortDesrc = substr($descr, 0, 25);
     $queryable_services = ['EKO-ELECTRIC','IKEJA-ELECTRIC','ABUJA-ELECTRIC','JOS-ELECTRIC','BENIN-ELECTRIC','PORTHARCOURT-ELECTRIC','KADUNA-ELECTRIC','KANO-ELECTRIC'];
@@ -69,7 +71,8 @@ if (mysqli_num_rows($lettr) < 1) {
       <span style="float:right">Post Bal: ₦' . $newbal . '</span><br>
       <span>Domain: ' . $domain . '</span><br/>
       <span>Ip Address: ' . $ip_address . '</span><br/>
-
+      <span style="color:black;style="margin-top:5px"><strong>Provider: ' . $provider . '</strong></span><br/>
+      <div class="response" style="background: white;color: black;padding: 10px;margin-top: 10px;width: 100%;word-wrap: break-word;">API Raw Response:<br>'. $api_response.'</div>
         </p>
           '. $qu.'  
     </div>';
