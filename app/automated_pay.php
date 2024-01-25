@@ -31,7 +31,10 @@
   <div class="alert" style="background-color: #fff; border-radius: 0px 0px 0px 0px;">
 
     <!-- start -->
-    <?php if ($kyc_status == 1) { ?>
+    <?php 
+        // if ($kyc_status == 1 ) {
+        if (!empty($bvn) && !empty($nin)) {
+       ?>
       <div class="row">
         <div class="col-md-12">
           <p style="color:black; margin-bottom:20px">Deposit/Transfer Money using any of the automated transfer payment options below.</p>

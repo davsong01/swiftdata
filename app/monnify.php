@@ -3,7 +3,8 @@
     require("session_controller.php");
     // 
    
-    if(!empty($reserved_account) && (!empty($bvn) || !empty($nin)) && $kyc_status == 0){
+    if(!empty($reserved_account) && (!empty($bvn) || !empty($nin))){
+    // if(!empty($reserved_account) && (!empty($bvn) || !empty($nin)) && $kyc_status == 0){
         $json_decoded = json_decode($reserved_account, true);
         $account_reference = $json_decoded['responseBody']['accountReference'];
 
