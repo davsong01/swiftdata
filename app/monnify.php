@@ -26,10 +26,10 @@
         $result = json_decode($json, true);
         $accessToken = $result['responseBody']['accessToken'];
 
-    // Update account with bvn
+        // Update account with bvn
         $curl = curl_init();
-        $url = "https://api.monnify.com/api/v1/bank-transfer/reserved-accounts/update-customer-bvn/" . $account_reference;
 
+        $url = "https://api.monnify.com/api/v1/bank-transfer/reserved-accounts/" . $account_reference. "/kyc-info";
         curl_setopt_array($curl, array(
             // CURLOPT_URL => 'https://api.monnify.com/api/v1/bank-transfer/reserved-accounts/update-customer-bvn/64539ed5bf07613501683201749',
             CURLOPT_URL => $url,
@@ -40,7 +40,7 @@
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'PUT',
-            CURLOPT_POSTFIELDS => array('bvn' => $bvn),
+            CURLOPT_POSTFIELDS => array('bvn' => $bvn, 'nin' => $nin),
             CURLOPT_HTTPHEADER => array(
                 'Authorization: Bearer '. $accessToken
             ),
@@ -139,6 +139,9 @@
             'contractCode' => "$xx",
             'customerName' => "$monnifyfullname",
             "getAllAvailableBanks" => false,
+            "bvn" => $bvn,
+            "nin" => $nin,
+            "restrictPaymentSource" => true,
             "preferredBanks" => ["035", "232", "50515", "058"]
         );
 

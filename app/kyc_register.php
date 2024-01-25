@@ -28,7 +28,7 @@
     <div class="row">
       <p>
         Due to recent circular from the CBN, you are now required to enter your BVN or NIN in order to facilitate free flow of the virtual account process. <br>
-        <strong>Please not that this is required for you to be able to use or generate Virtual Accounts</strong> <br><br>
+        Please note that this is required for you to be able to use or generate Virtual Accounts and we don't in anyway have access to Your Information. Thanks for choosing SwiftDataNg
       </p>
     </div>
     <div class="row">
