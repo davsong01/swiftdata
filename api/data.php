@@ -30,7 +30,7 @@
         $api_reference = strtoupper($timexx . uniqid() . rand(10000, 90000));
 
         $check_user = mysqli_query($con, "SELECT * FROM users WHERE sk_token='$api_token' AND block='0'");
-
+        
         if (mysqli_num_rows($check_user) > 0) {
             
             $check_mobile = mysqli_query($con, "SELECT add_mobile FROM blacklist_mobiles WHERE add_mobile='$mobile_no'");
@@ -53,6 +53,7 @@
                 $account_email = $return_info['email'];
                 $account_username = $return_info['username'];
                 $account_refby = $return_info['ref_by'];
+                
                 $mtnsme_access = $return_info['mtnsme_access'];
                 $mtncg_access = $return_info['mtncg_access'];
                 $glo_access = $return_info['glo_access'];

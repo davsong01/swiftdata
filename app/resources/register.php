@@ -10,7 +10,6 @@ require("../../functions/web_config.php");
   //     exit();
     
 if ($_SESSION['csrftoken'] == $_POST['req_token']) {
-
   if (!empty($_POST['full_name']) && !empty($_POST['last_name']) && !empty($_POST['gender']) && !empty($_POST['username']) && !empty($_POST['mobile_no']) && !empty($_POST['email_address']) && !empty($_POST['password']) && !empty($_POST['req_token']) && !empty($_POST['myrefferal'])) {
 
     $full_name = mysqli_real_escape_string($con, $_POST['full_name']);
@@ -24,7 +23,7 @@ if ($_SESSION['csrftoken'] == $_POST['req_token']) {
     $password = mysqli_real_escape_string($con, $_POST['password']);
     $req_token = mysqli_real_escape_string($con, $_POST['req_token']);
     $rememberme = mysqli_real_escape_string($con, $_POST['rememberme']);
-
+    
     $check_username = mysqli_query($con, "SELECT username FROM users WHERE username='$username'");
     $check_email = mysqli_query($con, "SELECT email FROM users WHERE email='$email_address'");
     $check_refby = mysqli_query($con, "SELECT username FROM users WHERE ref_code='$myrefferal'");

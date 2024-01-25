@@ -221,6 +221,7 @@
         ];
     }
 
+    // Airtel cg
     if($type == 'data' && $product == 'airtel-cg'){
         $data_query = mysqli_fetch_array(mysqli_query($con, "SELECT easy_access104, easy_access105, easy_access106, easy_access107,easy_access108, easy_access109, easy_access124, easy_access139,easy_access140 FROM airtelcgdata_plan WHERE id='$level'"));
         
@@ -292,6 +293,7 @@
         ];
     }
 
+    // Aitel
     if ($type == 'data' && $product == 'airtel') {
         $data_query = mysqli_fetch_array(mysqli_query($con, "SELECT easy_access66, easy_access67, easy_access68, easy_access69,easy_access70, easy_access71, easy_access72, easy_access74, easy_access96,easy_access97,easy_access157 FROM airteldata_plan WHERE id='$level'"));
         

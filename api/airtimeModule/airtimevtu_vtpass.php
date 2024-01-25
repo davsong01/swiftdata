@@ -35,8 +35,6 @@ $discount_now=$amount*$discount/100;
 $service_price=$amount-$discount_now;
 
 
-
-
 if ($account_balance > $service_price && $service_price > 0){
 
     $new_wallet=$account_balance-$service_price;

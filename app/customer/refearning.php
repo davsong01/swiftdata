@@ -6,9 +6,7 @@
   if (mysqli_num_rows($lettr)<1){
     $transaction='<div class="alert" style="background-color: #fff;border-radius: 10px 5px;color:black">No Earnings yet</div>';
   }else{
-
     while ($data = mysqli_fetch_array($lettr, MYSQLI_ASSOC)){ 
-       
         if ($data['type']=="credit"){$actmode="background-color: #199263";}
         else {$actmode="background-color: #DB1A22";}
 

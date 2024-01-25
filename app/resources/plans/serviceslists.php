@@ -124,7 +124,6 @@ if (!empty($_GET['services']) && !empty($_GET['level'])){
 			require('../../../api/easy_access_pricing.php');
 		} else {
 			require('../../../api/generic_pricing.php');
-
 		}
 
 		if (isset($response) && !empty($response)) {

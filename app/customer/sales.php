@@ -119,7 +119,6 @@
     $rows=mysqli_fetch_array($seltdataamount, MYSQLI_ASSOC);
     $total_mobile_sme_cost=$rows['totalamount'];
     
-    
     $transaction = '
     <div>
       MTN SME DATA => '.$total_smedata.'GB <span style="float: right;">N'.number_format($total_smedatacost,2).'</span>

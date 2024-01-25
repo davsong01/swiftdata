@@ -131,7 +131,6 @@
                 $planCode = $res['code'];
             }
         }
-
     } elseif ($network == 'MTN-DATACARD') {
         $type = 'datacard';
         $product = 'mtn-data-card';
@@ -194,7 +193,6 @@
             )); 
 
             $response = curl_exec($curl);
-
             // $response = '{
             //     "success": "true",
             //     "message": "Data Card Purchase was Successful",
@@ -260,11 +258,12 @@
                 echo json_encode($response);
                 exit;
             }else{
-               
+                
                 $result->true_response = str_replace("'", "", $result->true_response);
                 $api_res = json_encode($result);
                 
                 $order_report=strtoupper('Purchase failed for '. $package_name.' on '.$mobile_no. ' Error: '.$result->true_response);
+
                 $new_wallet=$account_balance;
                 mysqli_query($con, "UPDATE users SET wallets='$new_wallet' WHERE id='$user_id' AND username ='$account_username'");
 

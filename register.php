@@ -113,7 +113,7 @@ if (isset($_REQUEST['referral'])) {
                                     <select name="gender" class="form-control" id="gender" required>
                                         <option value="">Select Option</option>
                                         <option value="Male">Male</option>
-                                        <option value="Femal">Femal</option>
+                                        <option value="Female">Female</option>
                                     </select>
                                 </div>
 

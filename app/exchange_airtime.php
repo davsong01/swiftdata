@@ -80,50 +80,50 @@ require ("request_pin.php");
 <br>
 <br>
 
-           <hr/>
-              <div id="checkbal">
-                <h5 style="font-weight:bold">HOW TO TRANSFER AIRTIME TO ANOTHER NUMBER</h5>
-                <div style="color:#940798">
-                    <img src="backend/img/mtn.png" style="border-radius: 50%;" height="30px"> <br/>
-                TO TRANSFER MTN AIRTIME <br/>
-                <p>*600*recipient-number*amount*pin#</p>
-                
-                TO CHANGE MTN TRANSFER PIN <br/>
-                <p>*600*default-pin*new-pin*new-pin#</p>
-                </div>
-                <hr/>
-                
-                <div style="color:#940798">
-                    <img src="backend/img/glo.png" style="border-radius: 50%;" height="30px"> <br/>
-                TO TRANSFER GLO AIRTIME <br/>
-                <p>*131*recipient-number*amount*pin#</p>
-                
-                TO CHANGE GLO TRANSFER PIN <br/>
-                <p>*132*00000*new-pin*new-pin#</p>
-                </div>
-                <hr/>
-                
-                <div style="color:#940798">
-                    <img src="backend/img/airtel.png" style="border-radius: 50%;" height="30px"> <br/>
-                TO TRANSFER AIRTEL AIRTIME <br/>
-                <p>*432*1#</p>
-                
-                TO CHANGE AIRTEL TRANSFER PIN <br/>
-                <p>*432*3# (Default Pin: 1234)</p>
-                </div>
-                <hr/>
-                
-                <div style="color:#940798">
-                    <img src="backend/img/mobile.png" style="border-radius: 50%;" height="30px"> <br/>
-                TO TRANSFER 9MOBILE AIRTIME <br/>
-                <p>*223*pin*amount*number#</p>
-                
-                TO CHANGE 9MOBILE TRANSFER PIN <br/>
-                <p>*247*default-pin*new-pin# (E.g *247*0000*new-pin#)</p>
-                </div>
-                
-                
-              </div>
+  <hr/>
+  <div id="checkbal">
+    <h5 style="font-weight:bold">HOW TO TRANSFER AIRTIME TO ANOTHER NUMBER</h5>
+    <div style="color:#940798">
+        <img src="backend/img/mtn.png" style="border-radius: 50%;" height="30px"> <br/>
+    TO TRANSFER MTN AIRTIME <br/>
+    <p>*600*recipient-number*amount*pin#</p>
+    
+    TO CHANGE MTN TRANSFER PIN <br/>
+    <p>*600*default-pin*new-pin*new-pin#</p>
+    </div>
+    <hr/>
+    
+    <div style="color:#940798">
+        <img src="backend/img/glo.png" style="border-radius: 50%;" height="30px"> <br/>
+    TO TRANSFER GLO AIRTIME <br/>
+    <p>*131*recipient-number*amount*pin#</p>
+    
+    TO CHANGE GLO TRANSFER PIN <br/>
+    <p>*132*00000*new-pin*new-pin#</p>
+    </div>
+    <hr/>
+    
+    <div style="color:#940798">
+        <img src="backend/img/airtel.png" style="border-radius: 50%;" height="30px"> <br/>
+    TO TRANSFER AIRTEL AIRTIME <br/>
+    <p>*432*1#</p>
+    
+    TO CHANGE AIRTEL TRANSFER PIN <br/>
+    <p>*432*3# (Default Pin: 1234)</p>
+    </div>
+    <hr/>
+    
+    <div style="color:#940798">
+        <img src="backend/img/mobile.png" style="border-radius: 50%;" height="30px"> <br/>
+    TO TRANSFER 9MOBILE AIRTIME <br/>
+    <p>*223*pin*amount*number#</p>
+    
+    TO CHANGE 9MOBILE TRANSFER PIN <br/>
+    <p>*247*default-pin*new-pin# (E.g *247*0000*new-pin#)</p>
+    </div>
+    
+    
+  </div>
 
 </div>
 </div>
@@ -161,7 +161,7 @@ $.ajax({
     }
 })
 }
-	})
+})
 
 function CalDiscount(){
 var amount=$("#amount").val();

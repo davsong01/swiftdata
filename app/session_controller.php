@@ -47,6 +47,9 @@ $try_session=mysqli_query($con, "SELECT * FROM users WHERE email='".$_SESSION['u
     $myreferral=$return_data['ref_by'];
 
     $email=$return_data['email'];
+    $bvn=$return_data['bvn'];
+    $nin=$return_data['nin'];
+    $kyc_status = $return_data['kyc_status'];
     $mobile=$return_data['mobile'];
     $status=$return_data['status'];
     $block=$return_data['block'];
@@ -65,7 +68,6 @@ $try_session=mysqli_query($con, "SELECT * FROM users WHERE email='".$_SESSION['u
     $fidelity=$return_data['fidelity'];
     $reserved_account=$return_data['reserved_account'];
     $payvessel_reserved_account=$return_data['payvessel_reserved_account'];
-
  }
 
 if ($sk_token==""){
@@ -88,6 +90,7 @@ session_destroy();
 header("location:../login");
 }
 
+
 if (isset($_SESSION['LAST_ACTIVITY']) && ($time-$_SESSION['LAST_ACTIVITY']) > $timeout_duration){
 
     mysqli_query($con, "UPDATE users SET users_sid='$newhash', last_login='$lastlogin' WHERE email='".$_SESSION['username']."'");
@@ -96,6 +99,7 @@ if (isset($_SESSION['LAST_ACTIVITY']) && ($time-$_SESSION['LAST_ACTIVITY']) > $t
     session_destroy();
     header("location:../login");
 }
+
 
 
 ?>
