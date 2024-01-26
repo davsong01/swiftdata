@@ -17,7 +17,8 @@
         if(!empty($r_nin)){
           $update = mysqli_query($con, "UPDATE users SET nin='$r_nin' WHERE email='$email'");
         }
-
+        $location = $baseurl. '/app/automated_pay';
+       
         $response = array(
           'title' => 'COMPLETED',
           'icon' => 'success',
