@@ -1,25 +1,23 @@
 <?php
 
   require("session_controller.php");
-  $bvn = $_POST['bvn'];
-  $nin = $_POST['nin'];
+  $r_bvn = $_POST['bvn'];
+  $r_nin = $_POST['nin'];
   $check = $_POST['check'];
 
   if ($_SESSION['csrftoken'] == $_POST['req_token']){
-    if (empty($nin) && empty($bvn)){
-      $response = array(
-        'status' => 'fail',
-        'message' => '<div class="alert alert-danger text-left">Please fill all fields !!!</div>',
-      );
-
-      echo json_encode($response);
-      exit();
-    }else {
       $check_email  = mysqli_fetch_assoc(mysqli_query($con, "SELECT `password`,`id` FROM users WHERE email='$email'"));
 
-      $update = mysqli_query($con, "UPDATE users SET bvn='$bvn', nin='$nin' WHERE email='$email'");
+      try {
+        //code...
+        if(!empty($r_bvn)){
+          $update = mysqli_query($con, "UPDATE users SET bvn='$r_bvn' WHERE email='$email'");
+        }
+  
+        if(!empty($r_nin)){
+          $update = mysqli_query($con, "UPDATE users SET nin='$r_nin' WHERE email='$email'");
+        }
 
-      if($update){
         $response = array(
           'title' => 'COMPLETED',
           'icon' => 'success',
@@ -27,19 +25,19 @@
           'message' => 'Update Successful',
           'extra' => $extra
         );
-    
+
         echo json_encode($response);
         exit();
-
-      }else{
+      } catch (\Throwable $th) {
         $response = array(
           'status' => 'fail',
-          'message' => '<div class="alert alert-danger text-left">Something went wrong while updating KYC info!!!</div>',
+          'message' => '<div class="alert alert-danger text-left">'.$th->getMessage().'</div>',
         );
 
         echo json_encode($response);
         exit();
       }
-    }
+
+      
   }
 ?>

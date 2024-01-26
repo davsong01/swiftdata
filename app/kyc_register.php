@@ -34,31 +34,39 @@
 
       <div class="row">
         <form id="form-data">
-          <div class="input-group mb-3">
-            <!-- <div class="input-group-text">
+          <?php if (empty($bvn)) { ?>
+            <div class="input-group mb-3">
+              <!-- <div class="input-group-text">
             <span class="" id="basic-addon1"><i class="fa fa-unlock-alt" style="font-size: 25px;"></i></span>
           </div> -->
-            <input type="text" class="form-control" value="<?php echo $bvn ?>" placeholder="Enter your BVN" id="bvn" aria-describedby="basic-addon1">
-          </div>
+              <input type="text" class="form-control" value="<?php echo $bvn ?>" placeholder="Enter your BVN" id="bvn" aria-describedby="basic-addon1">
+            </div>
+          <?php  } ?>
 
-          <div class="input-group mb-3">
-            <!-- <div class="input-group-text">
+          <?php if (empty($nin)) { ?>
+            <div class="input-group mb-3">
+              <!-- <div class="input-group-text">
             <span class="" id="basic-addon1"><i class="fa fa-unlock-alt" style="font-size: 25px;"></i></span>
           </div> -->
-            <input type="text" class="form-control" value="<?php echo $nin ?>" placeholder="Enter your NIN" id="nin" aria-describedby="basic-addon1">
-          </div>
+              <input type="text" class="form-control" value="<?php echo $nin ?>" placeholder="Enter your NIN" id="nin" aria-describedby="basic-addon1">
+            </div>
+          <?php  } ?>
 
-
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="i-agree" checked required>
-            <label class="form-check-label" for="flexCheckChecked">
-              I certify that the data supplied above is correct and I consent to give this data out.
-            </label>
-          </div>
-          <button class="btn btn-success btn-block" style="width: 100%">SUBMIT</button>
-          <br>
-          <br>
-          <input type="hidden" id="req_token" value="<?php echo $_SESSION['csrftoken']; ?>">
+          <?php if (empty($bvn) || empty($nin)) { ?>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="i-agree" checked required>
+              <label class="form-check-label" for="flexCheckChecked">
+                I certify that the data supplied above is correct and I consent to give this data out.
+              </label>
+            </div>
+            <button class="btn btn-success btn-block" style="width: 100%">SUBMIT</button>
+            <br>
+            <br>
+            <input type="hidden" id="req_token" value="<?php echo $_SESSION['csrftoken']; ?>">
+          <?php  } else { ?>
+            <p style="margin:top:10px;color:green"><strong><i class="fa fa-check" aria-hidden="true"></i>
+                Account update complete</strong></p>
+          <?php  } ?>
 
         </form>
       </div>
@@ -96,7 +104,8 @@
         if (response_fd.status == 'success') {
           $("#successModal").modal("show");
           $("#successModal .modal-body").html(response_fd.message);
-          
+          window.location.reload();
+
           // window.location.replace(<?php echo $baseurl; ?>  "/appkyc_register");
 
         } else {
