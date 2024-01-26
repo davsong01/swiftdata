@@ -23,46 +23,56 @@
 
     </div>
   </div>
+  <?php if ($kyc_status == 0) {  ?>
+    <div class="alert" style="background-color: #fff; border-radius: 0px 0px 0px 0px;">
+      <div class="row">
+        <p>
+          Due to recent circular from the CBN, you are now required to enter your BVN or NIN in order to facilitate free flow of the virtual account process. <br>
+          Please note that this is required for you to be able to use or generate Virtual Accounts and we don't in anyway have access to Your Information. Thanks for choosing SwiftDataNg
+        </p>
+      </div>
 
-  <div class="alert" style="background-color: #fff; border-radius: 0px 0px 0px 0px;">
-    <div class="row">
-      <p>
-        Due to recent circular from the CBN, you are now required to enter your BVN or NIN in order to facilitate free flow of the virtual account process. <br>
-        Please note that this is required for you to be able to use or generate Virtual Accounts and we don't in anyway have access to Your Information. Thanks for choosing SwiftDataNg
-      </p>
-    </div>
-    <div class="row">
-      <form id="form-data">
-        <div class="input-group mb-3">
-          <!-- <div class="input-group-text">
+      <div class="row">
+        <form id="form-data">
+          <div class="input-group mb-3">
+            <!-- <div class="input-group-text">
             <span class="" id="basic-addon1"><i class="fa fa-unlock-alt" style="font-size: 25px;"></i></span>
           </div> -->
-          <input type="text" class="form-control" value="<?php echo $bvn ?>" placeholder="Enter your BVN" id="bvn" aria-describedby="basic-addon1">
-        </div>
+            <input type="text" class="form-control" value="<?php echo $bvn ?>" placeholder="Enter your BVN" id="bvn" aria-describedby="basic-addon1">
+          </div>
 
-        <div class="input-group mb-3">
-          <!-- <div class="input-group-text">
+          <div class="input-group mb-3">
+            <!-- <div class="input-group-text">
             <span class="" id="basic-addon1"><i class="fa fa-unlock-alt" style="font-size: 25px;"></i></span>
           </div> -->
-          <input type="text" class="form-control" value="<?php echo $nin ?>" placeholder="Enter your NIN" id="nin" aria-describedby="basic-addon1">
-        </div>
+            <input type="text" class="form-control" value="<?php echo $nin ?>" placeholder="Enter your NIN" id="nin" aria-describedby="basic-addon1">
+          </div>
 
 
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="i-agree" checked required>
-          <label class="form-check-label" for="flexCheckChecked">
-            I certify that the data supplied above is correct and I consent to give this data out.
-          </label>
-        </div>
-        <button class="btn btn-success btn-block" style="width: 100%">SUBMIT</button>
-        <br>
-        <br>
-        <input type="hidden" id="req_token" value="<?php echo $_SESSION['csrftoken']; ?>">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="i-agree" checked required>
+            <label class="form-check-label" for="flexCheckChecked">
+              I certify that the data supplied above is correct and I consent to give this data out.
+            </label>
+          </div>
+          <button class="btn btn-success btn-block" style="width: 100%">SUBMIT</button>
+          <br>
+          <br>
+          <input type="hidden" id="req_token" value="<?php echo $_SESSION['csrftoken']; ?>">
 
-      </form>
+        </form>
+      </div>
+
     </div>
-
-  </div>
+  <?php } else {  ?>
+    <div class="alert" style="background-color: #fff; border-radius: 0px 0px 0px 0px;">
+      <div class="row">
+        <p>
+          You have successfully updated account info, no other action is required from you.
+        </p>
+      </div>
+    </div>
+  <?php }  ?>
 </div>
 
 <script type="text/javascript">
@@ -86,9 +96,14 @@
         if (response_fd.status == 'success') {
           $("#successModal").modal("show");
           $("#successModal .modal-body").html(response_fd.message);
+          
+          // window.location.replace(<?php echo $baseurl; ?>  "/appkyc_register");
+
         } else {
           $("#errorModal").modal("show");
           $("#errorModal .modal-body").html(response_fd.message);
+
+
         }
       }
     });
