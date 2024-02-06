@@ -34,9 +34,10 @@ $try_session=mysqli_query($con, "SELECT * FROM users WHERE email='".$_SESSION['u
 
  else{
     $return_data=mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM users WHERE email='".$_SESSION['username']."'"));
-
+    
     $id=$return_data['id'];
-    $fullname=$return_data['full_name'];
+    $fullname = $return_data['full_name'];
+    $bvn_data=$return_data['bvn_data'];
     $reg_date=$return_data['reg_date'];
     $mobile=$return_data['mobile'];
     $Account_Balance=$return_data['wallets'];

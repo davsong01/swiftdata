@@ -2,9 +2,8 @@
 
     require("session_controller.php");
     // 
-   
-    if(!empty($reserved_account) && (!empty($bvn) || !empty($nin))){
-    // if(!empty($reserved_account) && (!empty($bvn) || !empty($nin)) && $kyc_status == 0){
+    // Update bvn data and nin data if empty
+    if(empty($bvn_data) && !empty($reserved_account)){
         $json_decoded = json_decode($reserved_account, true);
         $account_reference = $json_decoded['responseBody']['accountReference'];
 
@@ -17,7 +16,10 @@
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch,CURLOPT_HTTPHEADER,[
+        curl_setopt(
+            $ch,
+            CURLOPT_HTTPHEADER,
+            [
                 "Authorization: Basic " . $stringk . "",
             ]
         );
@@ -30,7 +32,9 @@
         // Update account with bvn
         $curl = curl_init();
 
-        $url = "https://api.monnify.com/api/v1/bank-transfer/reserved-accounts/" . $account_reference. "/kyc-info";
+
+        $url = "https://api.monnify.com/api/v1/bank-transfer/reserved-accounts/" . $account_reference . "kyc-info";
+        
         curl_setopt_array($curl, array(
             // CURLOPT_URL => 'https://api.monnify.com/api/v1/bank-transfer/reserved-accounts/update-customer-bvn/64539ed5bf07613501683201749',
             CURLOPT_URL => $url,
@@ -40,23 +44,23 @@
             CURLOPT_TIMEOUT => 0,
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => 'PUT',
+            CURLOPT_CUSTOMREQUEST => 'GET',
             CURLOPT_POSTFIELDS => array('bvn' => $bvn, 'nin' => $nin),
             CURLOPT_HTTPHEADER => array(
-                'Authorization: Bearer '. $accessToken
+                'Authorization: Bearer ' . $accessToken
             ),
         ));
 
         $response = curl_exec($curl);
         $re = json_decode($response);
+
         curl_close($curl);
-        // var_dump($response);
-        if(isset($re->responseCode) && $re->responseCode == '0'){
+       
+        if (isset($re->responseCode) && $re->responseCode == '0') {
             mysqli_query($con, "UPDATE users SET kyc_status = 1, bvn_data='" . json_encode($re) . "' WHERE email='" . $email . "'");
         }
 
-         mysqli_query($con, "UPDATE users SET bvn_data='" . json_encode($re) . "' WHERE email='" . $email . "'");
-
+        mysqli_query($con, "UPDATE users SET bvn_data='" . json_encode($response).' Account Ref = ' . $account_reference ."' WHERE email='" . $email . "'");
     }
 
     if ($payvessel_mode == 'ON'&& $payvessel_reserved_account == "") {
@@ -142,7 +146,7 @@
             "getAllAvailableBanks" => false,
             "bvn" => $bvn,
             "nin" => $nin,
-            "restrictPaymentSource" => true,
+            // "restrictPaymentSource" => true,
             "preferredBanks" => ["035", "232", "50515", "058"]
         );
 
@@ -163,6 +167,10 @@
         $json = curl_exec($ch);
         curl_close($ch);
         
-        mysqli_query($con, "UPDATE users SET reserved_account='" . $json . "' WHERE email='" . $monnifyemail . "'");
+        $re = json_decode($json);
+
+        if (isset($re->responseCode) && $re->responseCode == 0) {
+            mysqli_query($con, "UPDATE users SET reserved_account='" . $json . "' WHERE email='" . $monnifyemail . "'");
+        }
     }
 ?>
