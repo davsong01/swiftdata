@@ -32,7 +32,7 @@
     <!-- start -->
     <?php
     // if ($kyc_status == 1 ) {
-  
+
     if (empty($bvn) && empty($nin)) {
       echo '<div class="row"><div class="col-md-12 alert alert-primary" style="background-color: #94079803;color:black;font-size: 15px;border-color: #940798;">
               <h6>You are required to update your virtual account with either your BVN or NIN, please click the button below to update. Thank you</h6>
@@ -82,7 +82,7 @@
 
           <div class="col-md-6 alert alert-primary" style="background-color: #94079803;color:black;font-size: 15px;border-color: #940798;">
             <h6>Automated Payment 2</h2>
-              <p style="color:red"><i class="fa fa-info-circle"></i> Transfer money into one of the reserved account(s) below and your wallet will be automatically credited. Though moniepoint is fast. Note that 1% charge is incurred on every funding.</p>
+              <p style="color:red"><i class="fa fa-info-circle"></i> Transfer money into one of the reserved account(s) below and your wallet will be automatically credited. Though moniepoint is fast. Note that 1% charge is incurred on every funding. We advise You make use of this/these bank if you are funding below #2,950.</p>
               <?php
               echo $message;
 
