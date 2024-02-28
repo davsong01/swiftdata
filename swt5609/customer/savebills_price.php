@@ -13,6 +13,7 @@ if (!empty($_POST['level'])) {
   $benin = mysqli_real_escape_string($con, $_POST['benin']);
   $enugu = mysqli_real_escape_string($con, $_POST['enugu']);
   $aba = mysqli_real_escape_string($con, $_POST['aba']);
+  $yola = mysqli_real_escape_string($con, $_POST['yola']);
 
   $abuja_discount = mysqli_real_escape_string($con, $_POST['abuja_discount']);
   $eko_discount = mysqli_real_escape_string($con, $_POST['eko_discount']);
@@ -25,11 +26,12 @@ if (!empty($_POST['level'])) {
   $benin_discount = mysqli_real_escape_string($con, $_POST['benin_discount']);
   $enugu_discount = mysqli_real_escape_string($con, $_POST['enugu_discount']);
   $aba_discount = mysqli_real_escape_string($con, $_POST['aba_discount']);
+  $yola_discount = mysqli_real_escape_string($con, $_POST['yola_discount']);
 
   $level = mysqli_real_escape_string($con, $_POST['level']);
   try {
     //data from database
-    $update = mysqli_query($con, "UPDATE bills_planlists SET abuja='$abuja', eko='$eko', ibadan='$ibadan', ikeja='$ikeja', jos='$jos', kano='$kano', kaduna='$kaduna', portharcourt='$portharcourt', benin='$benin', enugu='$enugu', abuja_discount='$abuja_discount', eko_discount='$eko_discount', ibadan_discount='$ibadan_discount', ikeja_discount='$ikeja_discount', jos_discount='$jos_discount', kano_discount='$kano_discount', kaduna_discount='$kaduna_discount', portharcourt_discount='$portharcourt_discount', benin_discount='$benin_discount', enugu_discount='$enugu_discount',aba_discount='$aba_discount', aba='$aba' WHERE id='$level'");
+    $update = mysqli_query($con, "UPDATE bills_planlists SET abuja='$abuja', eko='$eko', ibadan='$ibadan', ikeja='$ikeja', jos='$jos', kano='$kano', kaduna='$kaduna', portharcourt='$portharcourt', benin='$benin', enugu='$enugu', abuja_discount='$abuja_discount', eko_discount='$eko_discount', ibadan_discount='$ibadan_discount', ikeja_discount='$ikeja_discount', jos_discount='$jos_discount', kano_discount='$kano_discount', kaduna_discount='$kaduna_discount', portharcourt_discount='$portharcourt_discount', benin_discount='$benin_discount', enugu_discount='$enugu_discount',aba_discount='$aba_discount', aba='$aba',yola='$yola' WHERE id='$level'");
   } catch (\Exception $e) {
     $response = array(
       'status' => 'fail',
