@@ -397,6 +397,33 @@ if (!empty($_GET['services']) && !empty($_GET['level'])){
 		';
 		}
 	}
+
+	if ($getservices == "YOLA-electric") {
+		$data_query = mysqli_fetch_array(mysqli_query($con, "SELECT YOLA,YOLA_discount FROM bills_planlists WHERE id='$level'"));
+		if ($data_query[0] > 0) {
+			echo '
+			<div class="alert alert-warning alert-dismissible">
+			₦' . $data_query[0] . ' charges apply <br>
+				<button type="button" class="btn-close" 
+				data-bs-dismiss="alert"
+				aria-label="Close">
+				</button>
+			</div>
+		';
+		}
+		if ($data_query[1] > 0) {
+			echo '
+			<div class="alert alert-success alert-dismissible">
+				<strong class="discount-text">' . $data_query[1] . '% Discount applies for you</strong>
+				<button type="button" class="btn-close" 
+				data-bs-dismiss="alert"
+				aria-label="Close">
+				</button>
+				</div>
+			</div>
+		';
+		}
+	}
 	echo $echo;
 }else{
 	echo "NULL";
