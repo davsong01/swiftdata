@@ -434,6 +434,12 @@ $message= '
     <option value="1">ENABLE</option>
     <option value="0">DISABLE</option>
     </select>
+     <label>YOLA ELECTRIC *</label>
+    <select class="form-control" id="yola" required>
+
+    <option value="1">ENABLE</option>
+    <option value="0">DISABLE</option>
+    </select>
 <button class="btn btn-success" type="button" onclick="saveBILLSLOCK()">Save</button>
 
 </form>
