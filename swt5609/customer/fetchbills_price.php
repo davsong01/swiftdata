@@ -154,6 +154,19 @@ $message= '
     </div>
     <hr class="discount-line">
 </div>
+<br/>
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <label>YOLA CHARGES</label>
+        <input type="number" id="yola" class="form-control" value="' . $yola . '" required>
+    </div>
+    <div class="col-md-6">
+        <label>YOLA DISCOUNT</label>
+        <input type="hidden" value="' . $level . '" id="level" name="level">
+        <input type="number" step=".01" min="0" id="yola_discount" class="form-control" value="' . $yola_discount . '" required>
+    </div>
+    <hr class="discount-line">
+</div>
 <button class="btn btn-success" type="button" onclick="saveData()">Save</button>
 
 </form>

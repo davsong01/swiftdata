@@ -47,7 +47,7 @@ if (mysqli_num_rows($lettr) < 1) {
     $api_response = $data['api_response'];
 
     $shortDesrc = substr($descr, 0, 25);
-    $queryable_services = ['EKO-ELECTRIC','IKEJA-ELECTRIC','ABUJA-ELECTRIC','JOS-ELECTRIC','BENIN-ELECTRIC','PORTHARCOURT-ELECTRIC','KADUNA-ELECTRIC','KANO-ELECTRIC'];
+    $queryable_services = ['EKO-ELECTRIC','IKEJA-ELECTRIC','ABUJA-ELECTRIC','JOS-ELECTRIC','BENIN-ELECTRIC','PORTHARCOURT-ELECTRIC','KADUNA-ELECTRIC','KANO-ELECTRIC', 'ABA-ELECTRIC', 'YOLA-ELECTRIC'];
 
     if ($status == "SUCCESSFUL") {
       $actmode = "background-color: lightseagreen";

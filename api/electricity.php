@@ -60,6 +60,11 @@ else if ($service=="IKEJA-ELECTRIC" && $ikeja_lock==1 && $service_access==1){
 	require("billModule/bills_vtpass.php");
 }
 
+else if ($service=="YOLA-ELECTRIC" && $yola_lock==1 && $service_access==1){
+
+	require("billModule/bills_vtpass.php");
+}
+
 else if ($service=="PORTHARCOURT-ELECTRIC" && $port_lock==1 && $service_access==1){
 
 	require("billModule/bills_vtpass.php");

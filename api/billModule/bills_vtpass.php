@@ -57,6 +57,11 @@ if ($service == "ABA-ELECTRIC") {
   $discount = $aba_discount;
 }
 
+if ($service == "YOLA-ELECTRIC") {
+  $charges = $yola;
+  $discount = $yola_discount;
+}
+
 $service_price = $amount + $charges;
 
 if ($discount > 0) {

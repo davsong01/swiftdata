@@ -85,6 +85,9 @@ require 'request_pin.php';
             if ($aba_lock != 0) {
               echo '<option value="aba-electric">ABA ELECTRIC</option>';
             }
+            if ($yola_lock != 0) {
+              echo '<option value="yola-electric">YOLA ELECTRIC</option>';
+            }
             ?>
         </select>
       </div>
