@@ -271,6 +271,7 @@ if ($manage_lock == 1) {
         benin: $("#benin").val(),
         enugu: $("#enugu").val(),
         aba: $("#aba").val(),
+        yola: $("#yola").val(),
 
         level: 1,
       };

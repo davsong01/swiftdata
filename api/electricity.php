@@ -89,7 +89,7 @@ else if ($service=="ENUGU-ELECTRIC" && $enugu_lock==1 && $service_access==1){
 	require("billModule/bills_vtpass.php");
 }else if ($service=="ABA-ELECTRIC" && $aba_lock==1 && $service_access==1){
 	require("billModule/bills_vtpass.php");
-}}else if ($service=="YOLA-ELECTRIC" && $aba_lock==1 && $service_access==1){
+}}else if ($service=="YOLA-ELECTRIC" && $yola_lock==1 && $service_access==1){
 	require("billModule/bills_vtpass.php");
 }else {
     $response=array(
