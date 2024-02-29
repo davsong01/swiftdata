@@ -17,8 +17,7 @@ require 'request_pin.php';
   </div>
 
   <div class="col-xl-12">
-    <div class="alert"
-      style="box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;">
+    <div class="alert" style="box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;">
 
       <div id="response" style="text-align: left;">
         <span>Available Balance
@@ -27,8 +26,7 @@ require 'request_pin.php';
         </span>
         <br />
 
-        <span
-          style="color: #940798;font-weight: bold;font-size: 25px;">₦<?php echo number_format($Account_Balance,2); ?></span>
+        <span style="color: #940798;font-weight: bold;font-size: 25px;">₦<?php echo number_format($Account_Balance, 2); ?></span>
 
       </div>
 
@@ -39,7 +37,6 @@ require 'request_pin.php';
   <div class="alert" style="background-color: #fff; border-radius: 0px 0px 0px 0px;">
 
     <!-- start -->
-
 
     <div id="response"></div>
 
@@ -52,43 +49,44 @@ require 'request_pin.php';
         <select class="form-control" id="service_module" required>
           <option value="">--Choose--</option>
           <?php
-            if ($abuja_lock != 0){
-              echo '<option value="abuja-electric">ABUJA</option>';
-            }
-            if ($eko_lock != 0){
-              echo '<option value="eko-electric">EKO</option>';
-            }
-            if ($ibadan_lock != 0){
-              echo '<option value="ibadan-electric">IBADAN</option>';
-            }
-            if ($ikeja_lock != 0){
-              echo '<option value="ikeja-electric">IKEJA</option>';
-            }
-            if ($kaduna_lock != 0){
-              echo '<option value="kaduna-electric">KADUNA</option>';
-            }
-            if ($kano_lock != 0){
-              echo '<option value="kano-electric">KANO</option>';
-            }
-            if ($jos_lock != 0){
-              echo '<option value="jos-electric">JOS</option>';
-            }
-            if ($port_lock != 0){
-              echo '<option value="portharcourt-electric">PORTHARCOURT</option>';
-            }
-            if ($benin_lock != 0) {
+          if ($abuja_lock != 0) {
+            echo '<option value="abuja-electric">ABUJA</option>';
+          }
+          if ($eko_lock != 0) {
+            echo '<option value="eko-electric">EKO</option>';
+          }
+          if ($ibadan_lock != 0) {
+            echo '<option value="ibadan-electric">IBADAN</option>';
+          }
+          if ($ikeja_lock != 0) {
+            echo '<option value="ikeja-electric">IKEJA</option>';
+          }
+          if ($kaduna_lock != 0) {
+            echo '<option value="kaduna-electric">KADUNA</option>';
+          }
+          if ($kano_lock != 0) {
+            echo '<option value="kano-electric">KANO</option>';
+          }
+          if ($jos_lock != 0) {
+            echo '<option value="jos-electric">JOS</option>';
+          }
+          if ($port_lock != 0) {
+            echo '<option value="portharcourt-electric">PORTHARCOURT</option>';
+          }
+          if ($benin_lock != 0) {
             echo '<option value="benin-electric">BENIN ELECTRIC</option>';
-            }
-            if ($enugu_lock != 0) {
-              echo '<option value="enugu-electric">ENUGU ELECTRIC</option>';
-            }
-            if ($aba_lock != 0) {
-              echo '<option value="aba-electric">ABA ELECTRIC</option>';
-            }
-            if ($yola_lock != 0) {
-              echo '<option value="yola-electric">YOLA ELECTRIC</option>';
-            }
-            ?>
+          }
+          if ($enugu_lock != 0) {
+            echo '<option value="enugu-electric">ENUGU ELECTRIC</option>';
+          }
+          if ($aba_lock != 0) {
+            echo '<option value="aba-electric">ABA ELECTRIC</option>';
+          }
+          
+          if ($yola_lock != 0) {
+            echo '<option value="yola-electric">YOLA ELECTRIC</option>';
+          }
+          ?>
         </select>
       </div>
       <span id="result"></span>
@@ -176,7 +174,7 @@ require 'request_pin.php';
 </div>
 
 <script type="text/javascript">
-  $("#service_module").change(function () {
+  $("#service_module").change(function() {
 
     if ($("#service_module").val() != "") {
       var service_module = $("#service_module").val();
@@ -187,7 +185,7 @@ require 'request_pin.php';
       $.ajax({
         url: 'resources/plans/serviceslists?services=' + service_module + '&level=<?php echo $level; ?>',
         method: 'GET',
-        success: function (RES_data) {
+        success: function(RES_data) {
           $.LoadingOverlay("hide");
           $("#result").html(RES_data);
         }
@@ -196,7 +194,7 @@ require 'request_pin.php';
   })
 
 
-  $("#submitBills").click(function (event) {
+  $("#submitBills").click(function(event) {
     var formData = {
       service_module: $("#service_module").val(),
       service_plan: $("#service_plan").val(),
@@ -211,7 +209,7 @@ require 'request_pin.php';
       method: 'POST',
       dataType: 'json',
       data: formData,
-      success: function (response_fd) {
+      success: function(response_fd) {
         $.LoadingOverlay("hide");
 
         if (response_fd.status == 'success') {
@@ -245,13 +243,13 @@ require 'request_pin.php';
       method: 'POST',
       dataType: 'json',
       data: formData,
-      success: function (response_fd) {
+      success: function(response_fd) {
         $.LoadingOverlay("hide");
         if (response_fd.status == 'success') {
-          
+
           $("#successModal").modal("show");
           $("#successModal .modal-body").html(response_fd.message);
-          setTimeout(function () {
+          setTimeout(function() {
             window.location.reload();
           }, 3000);
         } else {
