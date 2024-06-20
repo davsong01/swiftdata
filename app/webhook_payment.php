@@ -19,7 +19,7 @@ if(isset($type) && $type == 'payvessel'){
         $ip_address = '162.246.254.36';
         $payvessel_signature = $hashkey;
       }
-     
+    
       if ($payvessel_signature == $hashkey && $ip_address == "162.246.254.36") {
         $data = json_decode($payload, true);
 
@@ -36,7 +36,6 @@ if(isset($type) && $type == 'payvessel'){
         if($final_amount > 0){
           // check if reference exists
           $cx_trx = mysqli_query($con, "SELECT user_amount, sys_ref FROM deposit_transactions WHERE user_amount='" . $final_amount . "' AND sys_ref='" . $reference . "'");
-
         
           if (mysqli_num_rows($cx_trx) < 1) {
             $api_reference = strtoupper("PV" . $timexx . uniqid() . rand(10000, 90000));

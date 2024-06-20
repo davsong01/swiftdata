@@ -183,7 +183,7 @@ var amount =$("#amount").val();
 var network_discount=$("#network_discount").val();
 
 if (network_discount !="" && mobile_no !="" && amount !="" && network_module !=""){
-window.location.href="https://api.whatsapp.com/send?phone=<?php echo $whatsapp_no; ?>&text=Hello%20admin!%20i%20want%20to%20convert%20"+network_module+"%20₦"+amount+"%20to%20cash.";
+  window.location.href="https://api.whatsapp.com/send?phone=<?php echo $whatsapp_no; ?>&text=Hello%20admin!%20i%20want%20to%20convert%20"+network_module+"%20₦"+amount+"%20to%20cash.";
 }
 else {
   

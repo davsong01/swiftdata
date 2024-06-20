@@ -141,7 +141,7 @@
       })
     }
   })
-
+  
   $("#form-data").submit(function(event) {
     var formData = {
       service_module: $("#service_module").val(),

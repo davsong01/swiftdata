@@ -14,7 +14,7 @@ if (!empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['r
 
 if (mysqli_num_rows($check_username)<1){
 
- $response=array(
+  $response=array(
     'status'=>'fail',
     'message' => '<div class="alert alert-danger text-left">Invalid username or password !!!</div>',
   );
@@ -25,7 +25,7 @@ if (mysqli_num_rows($check_username)<1){
 
 else {
 
-$check_username=mysqli_query($con, "SELECT * FROM users WHERE email='$username' AND status='1'");
+$check_username=mysqli_query($con, "SELECT * FROM users WHERE email='$username' AND status='active'");
 
 if (mysqli_num_rows($check_username)>0){
 
@@ -41,11 +41,11 @@ if (mysqli_num_rows($check_username)>0){
     $platform = "website";
     $ip = $_SERVER['REMOTE_ADDR'];
     $date=date('d/m/Y h:i:s');
-    $checktoken ="select count(*) from user_token where user_id='$return_info[id]' and status=1";
+    $checktoken ="select count(*) from user_token where user_id='$return_info[id]' and status=active";
     $checktokenresult = mysqli_query($con, $checktoken);
     $checktokenrow = mysqli_fetch_array($checktokenresult);
     if ($checktokenrow[0] > 0) {
-      mysqli_query($con, "update user_token set status=0 where user_id='$return_info[id]'");
+      mysqli_query($con, "update user_token set status=inactive where user_id='$return_info[id]'");
     }
     mysqli_query($con, "insert into user_token (user_id,token,platform,ip,created_at,updated_at, status) values ('$return_info[id]','$token','$platform','$ip','$date','$date',1)");     // Insert new Token for Current Session
     $_SESSION['token'] = $token; // Store Token in Session Variable

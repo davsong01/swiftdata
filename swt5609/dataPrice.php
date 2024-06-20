@@ -12,7 +12,6 @@ if ($manage_prices == 1) {
 
               <center>
                 <h4 style="color: black;">SET MTN-SME PRICES</h4>
-
                 <p style="color: black;">Click on the level you want to change and a pop up will be display.</p>
                 <br />
                 <button class="btn btn-dark btn-block" id="mtnsme1" onclick="editData(this.id)">Level 1</button>
@@ -53,7 +52,6 @@ if ($manage_prices == 1) {
                 <button class="btn btn-dark btn-block" id="mtn_data_card2" onclick="editData  (this.id)">Level 2</button>
                 <button class="btn btn-dark btn-block" id="mtn_data_card3" onclick="editData  (this.id)">Level 3</button>
                 <button class="btn btn-dark btn-block" id="mtn_data_card4" onclick="editData  (this.id)">Level 4</button>
-
               </center>
             </div>
           </div>

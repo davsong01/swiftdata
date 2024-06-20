@@ -5,30 +5,24 @@ require ("request_pin.php");
 
 ?>
 <div class="alert">
-<div class="col-xl-12">
-<div class="alert" style="background-color: #fff;color: blue;">
-
-        <div id="response" style="text-align: center;">
-          <h4>Cheap Airtime SNS</h4>
-        </div>
-                
-</div>
-</div>
+  <div class="col-xl-12">
+    <div class="alert" style="background-color: #fff;color: blue;">
+      <div id="response" style="text-align: center;">
+        <h4>Cheap Airtime SNS</h4>
+      </div>            
+    </div>
+  </div>
 
 <div class="col-xl-12">
-<div class="alert" style="box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;">
-
-        <div id="response" style="text-align: left;">
-          <span>Available Balance 
-            <span style="float: right;"><button class="btn btn-dark" onclick="FundWallet()" style="font-size:10px">Fund Wallet</button></span>
-          </span>
-          <br/>
-
-           <span style="color: #940798;font-weight: bold;font-size: 25px;">₦<?php echo number_format($Account_Balance,2); ?></span>
-         
-        </div>
-                
-</div>
+  <div class="alert" style="box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;">
+    <div id="response" style="text-align: left;">
+      <span>Available Balance 
+        <span style="float: right;"><button class="btn btn-dark" onclick="FundWallet()" style="font-size:10px">Fund Wallet</button></span>
+      </span>
+      <br/>
+      <span style="color: #940798;font-weight: bold;font-size: 25px;">₦<?php echo number_format($Account_Balance,2); ?></span>
+    </div>          
+  </div>
 </div>
 
 

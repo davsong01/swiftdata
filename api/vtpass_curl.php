@@ -8,7 +8,7 @@
     }
 
     if(isset($verify) && $verify == true){
-       $url = $verify_link;
+        $url = $verify_link;
     }
 
     date_default_timezone_set('Africa/Lagos');
