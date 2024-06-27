@@ -76,9 +76,9 @@
           $message = '<div class="row">';
           foreach ($bankinfos as $bank) {
             foreach ($bank as $info) {
-              if ($info['bankCode'] != 232) {
+              // if ($info['bankCode'] != 232) {
                 $message .= '<div class="col-md-6" style="margin-bottom: 20px;"><p style="color:#940798;font-weight: 500;"><strong>Bank: </strong>' .  $info['bankName']  . '<br><strong>Acct Number: </strong>' . $info['accountNumber']  . '<br><strong>Acct Name: </strong>' . $info['accountName'] . '</p></div>';
-              }
+              // }
             }
           }
           $message .= '</div>'

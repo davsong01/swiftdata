@@ -63,7 +63,7 @@
         mysqli_query($con, "UPDATE users SET bvn_data='" . json_encode($response).' Account Ref = ' . $account_reference ."' WHERE email='" . $email . "'");
     }
 
-    if ($payvessel_mode == 'ON'&& $payvessel_reserved_account == "") {
+    if ($payvessel_mode == 'ON' && $payvessel_reserved_account == "") {
         
         $api_key = $payvessel_api_key;
         $public_key = $payvessel_api_public_key;
@@ -135,7 +135,7 @@
         $monnifyemail = $email;
         $xx = $monnify_cc;
 
-        $postdata = array(
+        $postdata = [
             'accountName' => "$monnifyfullname",
             'accountReference' => "$ref",
             /// Unique ID to update customer wallet
@@ -143,12 +143,20 @@
             'customerEmail' => "$monnifyemail",
             'contractCode' => "$xx",
             'customerName' => "$monnifyfullname",
-            "getAllAvailableBanks" => false,
-            "bvn" => $bvn,
-            "nin" => $nin,
+            "getAllAvailableBanks" => true,
+            // "bvn" => $bvn,
+            // "nin" => $nin,
             // "restrictPaymentSource" => true,
-            "preferredBanks" => ["035", "232", "50515", "058"]
-        );
+            // "preferredBanks" => ["035", "232", "50515", "058"]
+        ];
+
+        if(!empty($bvn)){
+            $postdata['bvn'] = $bvn;
+        }
+
+        if (!empty($nin)) {
+            $postdata['nin'] = $nin;
+        }
 
         $rurl = 'https://api.monnify.com/api/v2/bank-transfer/reserved-accounts';
         $ch = curl_init();
@@ -168,9 +176,10 @@
         curl_close($ch);
         
         $re = json_decode($json);
-
+        
         if (isset($re->responseCode) && $re->responseCode == 0) {
             mysqli_query($con, "UPDATE users SET reserved_account='" . $json . "' WHERE email='" . $monnifyemail . "'");
         }
     }
+
 ?>
