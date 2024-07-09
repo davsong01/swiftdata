@@ -44,13 +44,13 @@
           <p style="color:black; margin-bottom:20px">Deposit/Transfer Money using any of the automated transfer payment options below.</p>
         </div>
         <?php
-        if ($payvessel_mode == 'ON') {
+        if ($payvessel_mode == 'ON' || $payvessel_mode == 'active') {
           $payve = !empty($payvessel_reserved_account) ? json_decode($payvessel_reserved_account, true) : [];
           $bankinfos1[] = $payve['banks'];
           $message1 = '<div class="row">';
           foreach ($bankinfos1 as $bank) {
             foreach ($bank as $info) {
-              if($info['bankCode'] != 232){
+              if ($info['bankCode'] != 232) {
                 $message1 .= '<div class="col-md-6" style="margin-bottom: 20px;"><p style="color:#940798;font-weight: 500;"><strong>Bank: </strong>' .  $info['bankName']  . '<br><strong>Acct Number: </strong>' . $info['accountNumber']  . '<br><strong>Acct Name: </strong>' . $info['accountName'] . '</p></div>';
               }
             }
@@ -69,7 +69,7 @@
           </div>
         <?php } ?>
         <?php
-        if ($monnify_mode == 'ON') {
+        if ($monnify_mode == 'ON' || $monnify_mode == 'active') {
           $json_decoded = json_decode($reserved_account, true);
           $bankinfos[] = $json_decoded['responseBody']["accounts"];
 
@@ -77,7 +77,7 @@
           foreach ($bankinfos as $bank) {
             foreach ($bank as $info) {
               // if ($info['bankCode'] != 232) {
-                $message .= '<div class="col-md-6" style="margin-bottom: 20px;"><p style="color:#940798;font-weight: 500;"><strong>Bank: </strong>' .  $info['bankName']  . '<br><strong>Acct Number: </strong>' . $info['accountNumber']  . '<br><strong>Acct Name: </strong>' . $info['accountName'] . '</p></div>';
+              $message .= '<div class="col-md-6" style="margin-bottom: 20px;"><p style="color:#940798;font-weight: 500;"><strong>Bank: </strong>' .  $info['bankName']  . '<br><strong>Acct Number: </strong>' . $info['accountNumber']  . '<br><strong>Acct Name: </strong>' . $info['accountName'] . '</p></div>';
               // }
             }
           }

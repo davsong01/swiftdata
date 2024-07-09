@@ -93,8 +93,8 @@ if ($manage_message == 1) {
     <label style="color:blue">MONIFY STATUS *</label>
     <input type="hidden" id="req_token" value="' . $_SESSION['csrftoken'] . '">
     <select class="form-control" id="monnify_mode" required>
-    <option value="ON"' . ($monnify_mode == 'ON' ? 'selected' : '') . '>ON</option>
-    <option value="OFF"' . ($monnify_mode == 'OFF' ? 'selected' : '') . '>OFF</option>
+    <option value="active"' . ($monnify_mode == 'ON' ? 'selected' : '') . '>ON</option>
+    <option value="inactive"' . ($monnify_mode == 'OFF' ? 'selected' : '') . '>OFF</option>
     </select>
 
     <br/>
